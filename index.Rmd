@@ -1,0 +1,24 @@
+---
+title: "Organismal Biology"
+---
+
+<div class="well mx-auto" style="width: 600px;">
+<figure class="figure text-right">
+<h3 class="text-right">Companion Website&nbsp;to<br>Biology 115 
+Laboratory Manual</h3>
+<h4 class="text-left">Fall 2018</h4>
+  <img src="images/lab_book_cover_600x385.png" class="figure-img img-fluid rounded" alt="Line drawing of flowers and butterfly.">
+  <figcaption class="figure-caption text-right">Illustration by Cindy Day.</figcaption>
+</figure>
+</div>
+
+<p class="lead">Welcome to the companion website for Organismal Biology Lab (BIOL 115L) at 
+Minnesota State University Moorhead.</p>
+
+Here you can find the two Data Labs you will do in class, and links to sign-up sheets for bird banding sessions.
+
+## Pages
+
+- [Data Lab 1](data_lab_1.html)
+- [Data Lab 2](data_lab_1.html)
+- [Bird Banding](bird_banding.html)

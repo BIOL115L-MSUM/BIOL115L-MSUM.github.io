@@ -1,0 +1,18 @@
+name: "Organismal Biology Lab @ MSUM"
+output_dir: "."
+navbar:
+  title: "Organismal Biology"
+  left:
+    - text: "Data Lab 1"
+      href: data_lab_1.html
+    - text: "Data Lab 2"
+      href: data_lab_2.html
+    - text: "Bird Banding"
+      href: bird_banding.html
+output:
+  html_document:
+    theme: flatly
+    highlight: kate
+    include:
+      after_body: footer.html
+    css: styles.css
