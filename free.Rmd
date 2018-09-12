@@ -1,0 +1,18 @@
+---
+  title: "Friday Research Exploration & Education"
+---
+
+The MSUM Biosciences department hosts a bi-weekly event called Friday Research 
+Exploration & Education, or "FREE"
+
+FREE events provide an opportunity for students involved in research with 
+Biosciences faculty to talk about their research. Events are informal and 
+questions and discussion are encouraged. Anyone is welcome to attend.
+
+FREE is held in Hagen Hall room 113 at 3 PM on Fridays, unless otherwise stated.
+
+Click the name of a calendar event to see more details.
+
+<br />
+
+<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23cccccc&amp;src=l1ro350lanh4260bn4j8o3jj2g%40group.calendar.google.com&amp;color=%23711616&amp;ctz=America%2FChicago" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>

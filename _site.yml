@@ -9,6 +9,8 @@ navbar:
       href: data_lab_2.html
     - text: "Bird Banding"
       href: bird_banding.html
+    - text: "FREE"
+      href: free.html
 output:
   html_document:
     theme: flatly
