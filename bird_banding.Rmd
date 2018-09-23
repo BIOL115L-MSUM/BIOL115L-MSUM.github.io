@@ -41,7 +41,7 @@ https://docs.google.com/spreadsheets/d/10TP86wGCoyPI6-B5ckDgKYk1qwa8OsAh0gMB2HOD
 
 The <a href="https://www.mnstate.edu/science-center/">MSUM Regional Science Center</a> is located 16 miles east of Moorhead, off Highway 10. It is adjacent to Buffalo River State Park.
 
-<a class="btn btn-info btn-sm" style="margin-left:3em" href="https://www.google.com/maps/dir//46.8671306,-96.4535558/@46.8676844,-96.4561498,16z">Directions</a>
+<a class="btn btn-info btn-sm" href="https://www.google.com/maps/dir//46.8671306,-96.4535558/@46.8676844,-96.4561498,16z">Directions</a>
 
 When you arrive, park and enter through the main doors.
 
