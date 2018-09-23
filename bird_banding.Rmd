@@ -4,10 +4,22 @@ title: "Bird Banding"
 
 <div class="alert alert-dismissible alert-info">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
-  The go/no-go status for Friday, Sepember 21 banding will be posted here no later than 6:00 AM that morning. Please check this page before leaving home.
+Organizers will post the Go/No-Go status here 90 minutes prior to the start time. Please check this page before leaving home.
 </div>
 
-# Status
+## About
+
+Students in Organimsal Biology BIOL 115 at Minnesota State University are invited to participate in bird banding demonstrations at the MSUM Regional Science Center each fall.
+
+The demonstrations are provided by Chris Merkord, Assistant Professor in Biosciences at MSUM and Tim Grieves, Assistant Professor in Biology at NDSU.
+
+## Next Event
+
+Banding may be cancelled in the case of inclement weather.
+
+A final determination will be made 90 minutes (one and a half hours) before the earliest banding session of the day, and will be posted here. For example, if banding begins at 7:30 AM, then any cancellation will be posted here by 6:00 AM.
+
+<strong>It is your responsibility to check here for the go/no-go status of your scheduled bird banding session.</strong>
 
 <div class="panel panel-success">
 <div class="panel-heading">
@@ -15,26 +27,27 @@ title: "Bird Banding"
 </div>
 <div class="panel-body">
   The weather looks good.
-  Banding is a <strong>GO</strong>!
+  Banding is a <strong>GO</strong> for Tuesday, Sepember 25!
 </div>
 </div>
 
-If winds are too high, or rain is expected, your bird banding session may be canceled.
-
-A final determination will be made 90 minutes (one and a half hours) before the earliest banding session of the day, and will be posted here. For example, if banding begins at 7:30 AM, then any cancellation will be posted here by 6:00 AM.
-
-<strong>It is your responsibility to check here for the go/no-go status of your scheduled bird banding session.</strong>
-
-
-
-# Schedule and signup
+## Schedule and signup
 
 The list of bird banding sessions is as follows. Click on the link to view the sign-up sheet.
 
 https://docs.google.com/spreadsheets/d/10TP86wGCoyPI6-B5ckDgKYk1qwa8OsAh0gMB2HOD4SQ/edit?usp=sharing
 
-# FAQ
+## Location
 
-<strong>What should I wear?</strong>
+The <a href="https://www.mnstate.edu/science-center/">MSUM Regional Science Center</a> is located 16 miles east of Moorhead, off Highway 10. It is adjacent to Buffalo River State Park.
 
-Mornings can be very cool, so check the weather and dress appropriately. A light jacket, long pants, and close-toed shoes are a good idea.
+<a class="btn btn-info btn-sm" style="margin-left:3em" href="https://www.google.com/maps/dir//46.8671306,-96.4535558/@46.8676844,-96.4561498,16z">Directions</a>
+
+When you arrive, park and enter through the main doors.
+
+## FAQ
+
+<dl class="row">
+<dt class="col-sm-3">What should I wear?</dt>
+<dd class="col-sm-9">Mornings can be very cool, so check the weather and dress appropriately. A jacket, long pants, and close-toed shoes are a good idea.</dd>
+</dl>
