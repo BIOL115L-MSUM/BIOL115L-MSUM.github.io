@@ -1,7 +1,13 @@
+.main-container {
+  max-width: 620px !important;
+}
+
 .panel {
     width: 50%;
 }
 
 .footer {
+  margin-top:3em;
   text-align:center;
 }
+
