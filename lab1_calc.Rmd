@@ -18,7 +18,11 @@ The Console is where you enter commands (code) for R to interpret.
 
 To give it a try, place your cursor in the Console window by clicking in it. You should see a greater than sign `>` (called the "prompt") with a blinking cursor next to it.
 
-Type the number `2` and press the enter key. Pressing enter is like asking R a question. R will evaluate the code you typed (yes, it's really computer code!) and print the output, the answer to your question, on the screen like this: `[1] 2`. Congratulations, you just wrote your first computer program!
+Type the number `2` and press the enter key. Pressing enter is like asking R a question. R will evaluate the code you typed (yes, it's really computer code!) and print the output, the answer to your question, on the screen like this: 
+
+    `[1] 2`
+
+Congratulations, you just wrote your first computer program!
 
 The `2` is the answer to your question and the `[1]` indicates that the answer had one part. For the most part you can ignore the number in brackets.
 
