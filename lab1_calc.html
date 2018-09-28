@@ -11,7 +11,7 @@
 
 
 
-<title>Part 2. R as a calculator</title>
+<title>2. R as a calculator</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,6 +22,80 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -188,12 +262,91 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Part 2. R as a calculator</h1>
+<h1 class="title toc-ignore">2. R as a calculator</h1>
 
 </div>
 
 
-
+<p>In Part 2 of this lab, you will learn how to use the Console Window to run commands as you perform basic arithmetic operations. You will learn the basics of using functions, and finally learn about creating objects using the assignment operator.</p>
+<div id="the-rstudio-ide" class="section level3">
+<h3>The RStudio IDE</h3>
+<p>When you first open RStudio, you will see a window with three panels, the <strong>Console</strong> panel on the left and the <strong>Environment</strong> and <strong>Files</strong> panels on the right, like this:</p>
+<div class="figure">
+<img src="images/rstudio_ide_1.png" alt="RStudio IDE" />
+<p class="caption">RStudio IDE</p>
+</div>
+<p>For part 2, we will be using Console and Environment panels.</p>
+<div id="the-console" class="section level4">
+<h4>The Console</h4>
+<p>The Console is where you enter commands (code) for R to interpret.</p>
+<p>To give it a try, place your cursor in the Console window. You should see a greater than sign <code>&gt;</code> (called the “prompt”) with a blinking cursor next to it.</p>
+<p>Type the number <code>2</code> and press the enter key. Pressing enter is like asking R a question. R will evaluate the code you typed (yes, it’s really computer code!) and print the output, the answer to your question, on the screen like this: <code>[1] 2</code>. Congratulations, you just wrote your first computer program!</p>
+<p>The <code>2</code> is the answer to your question and the <code>[1]</code> indicates that the answer had one part. For the most part you can ignore the number in brackets.</p>
+<p>For the rest of this tutorial, we will use the following notation to indicate code that you should type into the console, and what the output should look like:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="dv">1</span></a></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Note that in our examples, we do not show the prompt and we add two hash marks <code>##</code> to indicate lines of output.</p>
+<p><span class="label label-info">Tip</span> If you ever try to type something in the console and nothing happens, it may be because some other panel has RStudio’s attention. Click the Console panel and make sure the blinking cursor is showing.</p>
+</div>
+</div>
+<div id="r-as-a-calculator" class="section level3">
+<h3>R as a calculator</h3>
+<p>You can think of R as a giant calculator. You type in a series of numbers and operators (<code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>, etc.), press enter, and it evaluates what you typed and prints the output in the console.</p>
+<p>Give it a try:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="dv">4</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span></a></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="dv">7</span> <span class="op">/</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<pre><code>## [1] 2.333333</code></pre>
+<p>R uses standard MDAS order of precedence for operators: multiply, then divide, then add, then subtract. To change the order of operations you can use parentheses:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<pre><code>## [1] 8</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">(<span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span>) <span class="op">*</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>You can use exponentials like this:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="dv">3</span><span class="op">^</span><span class="dv">2</span>    <span class="co"># three squared is nine</span></a></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+<p>Any text following a hash tag (pound sign) is ignored, which allows you to include comments in your code as seen above.</p>
+</div>
+<div id="assignment" class="section level3">
+<h3>Assignment</h3>
+<p>Much like a human brain, R is not only capable of performing calculations, but also of remembering things, of storing them for later. This is accomplished using the <em>assignment</em> operator <code>&lt;-</code> like this:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<p>Here we have told R to create space in its memory, store the number two there, and name that space “x”. Now, whenever we refer to <code>x</code>, R will know we mean <code>2</code>. See:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">x</a></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">x <span class="op">*</span><span class="st"> </span><span class="dv">5</span></a></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>You may also have noticed that when you ran the assignment command, the <em>Environment</em> panel changed. Instead of saying “Environment is empty”, it now has a list of values, with one named “x”.</p>
+<p>Try it again and watch how the environment changes:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">y &lt;-<span class="st"> </span><span class="dv">7</span></a></code></pre></div>
+<p>And you can use as many of these objects as you want in the same bit of code:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">y <span class="op">/</span><span class="st"> </span>x</a></code></pre></div>
+<pre><code>## [1] 3.5</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">z &lt;-<span class="st"> </span>y <span class="op">+</span><span class="st"> </span>(x <span class="op">/</span><span class="st"> </span><span class="dv">2</span>)</a></code></pre></div>
+<p>Try switching the Environment tab from List view to Grid view by clicking the word List.</p>
+<p>To remove all the objects from the environment, you can click the broom button. If you switch to Grid view you can have the option of only removing the checked objects.</p>
+</div>
+<div id="functions" class="section level3">
+<h3>Functions</h3>
+<p>Some mathematical operations have no operator. For these you must use what is known as a <strong>function</strong>. For example, to take a square root:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">sqrt</span>(<span class="dv">9</span>)</a></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>A function consists of the name of the function followed by parentheses, with a list of <em>arguments</em> inside the parentheses. Some functions take one argument, some take more, and some take none at all.</p>
+<p>A very commonly used function is <code>c()</code>, the <em>combine</em> function. This combines multiple values into what’s known as a <em>vector</em>:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="fl">4.7</span>, <span class="fl">5.0</span>)</a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">x</a></code></pre></div>
+<pre><code>## [1]  1.0  2.0 10.0  4.7  5.0</code></pre>
+<p>There are some functions that take vectors as arguments. For example, the <code>mean()</code> function, which calculates the arithmetic mean, or average, of a group of numbers:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">mean</span>(x)</a></code></pre></div>
+<pre><code>## [1] 4.54</code></pre>
+<p>You can even nest functions inside other functions:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">6</span>))</a></code></pre></div>
+<pre><code>## [1] 6.333333</code></pre>
+</div>
 
 <div class="footer">
   <p>Copyright &copy; 2018 Chris Merkord. All rights reserved.</p>

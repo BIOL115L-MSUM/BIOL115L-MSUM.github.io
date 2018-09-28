@@ -1,3 +1,126 @@
 ---
 title: "2. R as a calculator"
 ---
+
+In Part 2 of this lab, you will learn how to use the Console Window to run commands as you perform basic arithmetic operations. You will learn the basics of using functions, and finally learn about creating objects using the assignment operator.
+
+### The RStudio IDE
+
+When you first open RStudio, you will see a window with three panels, the **Console** panel on the left and the **Environment** and **Files** panels on the right, like this:
+
+![RStudio IDE](images/rstudio_ide_1.png)
+
+For part 2, we will be using Console and Environment panels.
+
+#### The Console
+
+The Console is where you enter commands (code) for R to interpret.
+
+To give it a try, place your cursor in the Console window. You should see a greater than sign `>` (called the "prompt") with a blinking cursor next to it.
+
+Type the number `2` and press the enter key. Pressing enter is like asking R a question. R will evaluate the code you typed (yes, it's really computer code!) and print the output, the answer to your question, on the screen like this: `[1] 2`. Congratulations, you just wrote your first computer program!
+
+The `2` is the answer to your question and the `[1]` indicates that the answer had one part. For the most part you can ignore the number in brackets.
+
+For the rest of this tutorial, we will use the following notation to indicate code that you should type into the console, and what the output should look like:
+
+```{r}
+1
+```
+
+Note that in our examples, we do not show the prompt and we add two hash marks `##` to indicate lines of output.
+
+<span class="label label-info">Tip</span> If you ever try to type something in the console and nothing happens, it may be because some other panel has RStudio's attention. Click the Console panel and make sure the blinking cursor is showing.
+
+### R as a calculator
+
+You can think of R as a giant calculator. You type in a series of numbers and operators (`+`, `-`, `/`, `*`, etc.), press enter, and it evaluates what you typed and prints the output in the console.
+
+Give it a try:
+
+```{r}
+2 + 2
+4 - 1
+2 * 3
+7 / 3
+```
+
+R uses standard MDAS order of precedence for operators: multiply, then divide, then add, then subtract. To change the order of operations you can use parentheses:
+
+```{r}
+2 + 2 * 3
+(2 + 2) * 3
+```
+
+You can use exponentials like this:
+
+```{r}
+3^2    # three squared is nine
+```
+
+Any text following a hash tag (pound sign) is ignored, which allows you to include comments in your code as seen above.
+
+### Assignment
+
+Much like a human brain, R is not only capable of performing calculations, but also of remembering things, of storing them for later. This is accomplished using the *assignment* operator `<-` like this:
+
+```{r}
+x <- 2
+```
+
+Here we have told R to create space in its memory, store the number two there, and name that space "x". Now, whenever we refer to `x`,  R will know we mean `2`. See:
+
+```{r}
+x
+x * 5
+```
+
+You may also have noticed that when you ran the assignment command, the *Environment* panel changed. Instead of saying "Environment is empty", it now has a list of values, with one named "x".
+
+Try it again and watch how the environment changes:
+
+```{r}
+y <- 7
+```
+
+And you can use as many of these objects as you want in the same bit of code:
+
+```{r}
+y / x
+z <- y + (x / 2)
+```
+
+Try switching the Environment tab from List view to Grid view by clicking the word List.
+
+To remove all the objects from the environment, you can click the broom button. If you switch to Grid view you can have the option of only removing the checked objects.
+
+### Functions
+
+Some mathematical operations have no operator. For these you must use what is known as a **function**. For example, to take a square root:
+
+```{r}
+sqrt(9)
+```
+
+A function consists of the name of the function followed by parentheses, with a list of *arguments* inside the parentheses. Some functions take one argument, some take more, and some take none at all.
+
+A very commonly used function is `c()`, the *combine* function. This combines multiple values into what's known as a *vector*:
+
+```{r}
+x <- c(1, 2, 10, 4.7, 5.0)
+x
+```
+
+There are some functions that take vectors as arguments. For example, the `mean()` function, which calculates the arithmetic mean, or average, of a group of numbers:
+
+```{r}
+mean(x)
+```
+
+You can even nest functions inside other functions:
+
+```{r}
+mean(c(8, 5, 6))
+```
+
+

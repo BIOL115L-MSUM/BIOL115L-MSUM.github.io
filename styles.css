@@ -2,6 +2,14 @@
   max-width: 620px !important;
 }
 
+.section h3 {
+  padding-top: 81px !important;
+}
+
+.section h4 {
+  padding-top: 77px !important;
+}
+
 .panel {
     width: 50%;
 }
