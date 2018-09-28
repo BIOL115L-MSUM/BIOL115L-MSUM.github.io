@@ -1,4 +1,3 @@
 ---
 title: "Data Lab 1"
 ---
-

@@ -4,9 +4,9 @@ navbar:
   title: "Organismal Biology"
   left:
     - text: "Data Lab 1"
-      href: data_lab_1.html
+      href: lab1.html
     - text: "Data Lab 2"
-      href: data_lab_2.html
+      href: lab2.html
     - text: "Bird Banding"
       href: bird_banding.html
     - text: "FREE"
