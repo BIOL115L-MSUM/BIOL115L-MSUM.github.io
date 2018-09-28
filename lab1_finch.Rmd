@@ -8,7 +8,7 @@ In Part 3 of this lab, you will be introduced to R scripts. You will use the Fin
 
 Download the data and save it in the project directory (folder). For example, save it to `H:\Lab 1`.
 
-<a href="finches_dataset.xlsx" class="btn btn-default">Download</a>
+<a href="finches_data.xlsx" class="btn btn-default">Download</a>
 
 ### Reading data into R
 
