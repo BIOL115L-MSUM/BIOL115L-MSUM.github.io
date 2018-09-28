@@ -2,3 +2,57 @@
 title: "3. Finches dataset"
 ---
 
+In Part 3 of this lab, you will be introduced to R scripts. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and barplots.
+
+### Dowload the data
+
+Download the data and save it in the project directory (folder). For example, save it to `H:\Lab 1`.
+
+<a href="finches_dataset.xlsx" class="btn btn-default">Download</a>
+
+### Reading data into R
+
+This requires installing some packages in R, which let you use functions not found in the standard R installation.
+
+To download package, click the **Package** tab to the right and click **Install**. Type the name of the package, `tidyverse`, and click **Install**. You only have to do this once on each computer you are using.
+
+Now you're ready to load the packages.
+
+```{r}
+library(tidyverse)             # load tidyverse, for working with datasets
+library(readxl)                # load readxl, for reading Excel files
+```
+
+Read the data.
+
+```{r}
+finches <- read_excel("finches_data.xlsx")
+finches
+```
+
+Explain what they are seeing
+
+Show ways to view the data:
+
+```{r}
+glimpse(finches)
+
+```
+
+Show ways to view a quick summarize the data
+
+```{r}
+summary(finches)
+```
+
+Plot a histogram of the data
+
+```{r}
+ggplot(finches, aes(weight)) +
+  geom_histogram()
+```
+
+
+When you're ready, you can move on to Part 4.
+
+#### [Part 4. Bluestem dataset  &rarr;](lab1_bluestem.html)

@@ -22,6 +22,80 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -193,7 +267,96 @@ $(document).ready(function () {
 </div>
 
 
-
+<p>In Part 3 of this lab, you will be introduced to R scripts. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and barplots.</p>
+<div id="dowload-the-data" class="section level3">
+<h3>Dowload the data</h3>
+<p>Download the data and save it in the project directory (folder). For example, save it to <code>H:\Lab 1</code>.</p>
+<p><a href="finches_dataset.xlsx" class="btn btn-default">Download</a></p>
+</div>
+<div id="reading-data-into-r" class="section level3">
+<h3>Reading data into R</h3>
+<p>This requires installing some packages in R, which let you use functions not found in the standard R installation.</p>
+<p>To download package, click the <strong>Package</strong> tab to the right and click <strong>Install</strong>. Type the name of the package, <code>tidyverse</code>, and click <strong>Install</strong>. You only have to do this once on each computer you are using.</p>
+<p>Now you’re ready to load the packages.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(tidyverse)             <span class="co"># load tidyverse, for working with datasets</span></a></code></pre></div>
+<pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.1</code></pre>
+<pre><code>## -- Attaching packages -------------------------------------------------------------------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 2.2.1.9000     v purrr   0.2.5     
+## v tibble  1.4.2          v dplyr   0.7.5     
+## v tidyr   0.8.1          v stringr 1.3.1     
+## v readr   1.1.1          v forcats 0.3.0</code></pre>
+<pre><code>## -- Conflicts ----------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">library</span>(readxl)                <span class="co"># load readxl, for reading Excel files</span></a></code></pre></div>
+<p>Read the data.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">finches &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;finches_data.xlsx&quot;</span>)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">finches</a></code></pre></div>
+<pre><code>## # A tibble: 100 x 12
+##     band species     sex   first_adult_year last_year outcome weight  wing
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
+##  1     9 Geospiza f~ unkn~             1975      1977 died      14.5  67  
+##  2    12 Geospiza f~ fema~             1975      1977 died      13.5  66  
+##  3   276 Geospiza f~ unkn~             1976      1977 died      16.4  64.2
+##  4   278 Geospiza f~ unkn~             1976      1977 died      18.5  67.2
+##  5   283 Geospiza f~ male              1976      1977 died      17.4  70.2
+##  6   288 Geospiza f~ unkn~             1976      1977 died      16.3  71.2
+##  7   293 Geospiza f~ unkn~             1976      1977 died      15.7  67.2
+##  8   294 Geospiza f~ unkn~             1976      1977 died      16.8  68.2
+##  9   298 Geospiza f~ male              1976      1977 died      15.5  68.2
+## 10   307 Geospiza f~ male              1975      1977 died      17.5  70  
+## # ... with 90 more rows, and 4 more variables: tarsus &lt;dbl&gt;,
+## #   beak_length &lt;dbl&gt;, beak_depth &lt;dbl&gt;, beak_width &lt;dbl&gt;</code></pre>
+<p>Explain what they are seeing</p>
+<p>Show ways to view the data:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">glimpse</span>(finches)</a></code></pre></div>
+<pre><code>## Observations: 100
+## Variables: 12
+## $ band             &lt;dbl&gt; 9, 12, 276, 278, 283, 288, 293, 294, 298, 307...
+## $ species          &lt;chr&gt; &quot;Geospiza fortis&quot;, &quot;Geospiza fortis&quot;, &quot;Geospi...
+## $ sex              &lt;chr&gt; &quot;unknown&quot;, &quot;female&quot;, &quot;unknown&quot;, &quot;unknown&quot;, &quot;m...
+## $ first_adult_year &lt;dbl&gt; 1975, 1975, 1976, 1976, 1976, 1976, 1976, 197...
+## $ last_year        &lt;dbl&gt; 1977, 1977, 1977, 1977, 1977, 1977, 1977, 197...
+## $ outcome          &lt;chr&gt; &quot;died&quot;, &quot;died&quot;, &quot;died&quot;, &quot;died&quot;, &quot;died&quot;, &quot;died...
+## $ weight           &lt;dbl&gt; 14.50, 13.50, 16.44, 18.54, 17.44, 16.34, 15....
+## $ wing             &lt;dbl&gt; 67.00, 66.00, 64.19, 67.19, 70.19, 71.19, 67....
+## $ tarsus           &lt;dbl&gt; 18.00, 18.30, 18.47, 19.27, 19.27, 20.27, 17....
+## $ beak_length      &lt;dbl&gt; 9.20, 9.50, 9.93, 11.13, 12.13, 10.63, 9.93, ...
+## $ beak_depth       &lt;dbl&gt; 8.3, 7.5, 8.0, 10.6, 11.2, 9.1, 9.5, 10.5, 8....
+## $ beak_width       &lt;dbl&gt; 8.1, 7.5, 7.6, 9.4, 9.5, 8.8, 8.9, 9.1, 8.2, ...</code></pre>
+<p>Show ways to view a quick summarize the data</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">summary</span>(finches)</a></code></pre></div>
+<pre><code>##       band          species              sex            first_adult_year
+##  Min.   :   9.0   Length:100         Length:100         Min.   :1973    
+##  1st Qu.: 421.5   Class :character   Class :character   1st Qu.:1975    
+##  Median : 613.5   Mode  :character   Mode  :character   Median :1975    
+##  Mean   :1174.0                                         Mean   :1975    
+##  3rd Qu.:1588.2                                         3rd Qu.:1976    
+##  Max.   :8191.0                                         Max.   :1976    
+##    last_year      outcome              weight           wing      
+##  Min.   :1977   Length:100         Min.   :13.00   Min.   :64.00  
+##  1st Qu.:1977   Class :character   1st Qu.:15.00   1st Qu.:67.00  
+##  Median :1978   Mode  :character   Median :16.24   Median :68.19  
+##  Mean   :1978                      Mean   :16.35   Mean   :68.54  
+##  3rd Qu.:1978                      3rd Qu.:17.44   3rd Qu.:70.25  
+##  Max.   :1982                      Max.   :21.24   Max.   :74.01  
+##      tarsus       beak_length      beak_depth       beak_width    
+##  Min.   :17.05   Min.   : 8.70   Min.   : 7.500   Min.   : 7.400  
+##  1st Qu.:18.49   1st Qu.:10.20   1st Qu.: 8.795   1st Qu.: 8.200  
+##  Median :19.13   Median :10.80   Median : 9.305   Median : 8.600  
+##  Mean   :19.19   Mean   :10.79   Mean   : 9.392   Mean   : 8.641  
+##  3rd Qu.:20.00   3rd Qu.:11.25   3rd Qu.:10.100   3rd Qu.: 9.055  
+##  Max.   :21.06   Max.   :12.73   Max.   :11.210   Max.   :10.070</code></pre>
+<p>Plot a histogram of the data</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(weight)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>()</a></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="lab1_finch_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>When you’re ready, you can move on to Part 4.</p>
+<div id="part-4.-bluestem-dataset" class="section level4">
+<h4><a href="lab1_bluestem.html">Part 4. Bluestem dataset →</a></h4>
+</div>
+</div>
 
 <div class="footer">
   <p>Copyright &copy; 2018 Chris Merkord. All rights reserved.</p>
