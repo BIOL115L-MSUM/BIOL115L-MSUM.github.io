@@ -12,7 +12,7 @@ When you first open RStudio, you will see a window with three panels, the **Cons
 
 For part 2, we will be using Console and Environment panels.
 
-#### The Console
+### The Console
 
 The Console is where you enter commands (code) for R to interpret.
 
