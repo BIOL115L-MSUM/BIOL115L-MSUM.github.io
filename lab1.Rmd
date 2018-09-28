@@ -2,13 +2,6 @@
 title: "Data Lab 1"
 ---
 
-<style>
-.section h4 {
-  padding-top: 77px;
-}
-</style>
-
-
 Introductory paragraph.
 
 There are four parts to this lab. 
