@@ -64,3 +64,7 @@ Try quitting RStudio and restarting it. It should reopen your project when it re
 Now look in the upper right corner of RStudio, on the toolbar. You should see the name of your project. If you click that name, the Project menu will open, which lets you create a new project, open an existing project by navigating to it, or open a recent project by selecting it from the list provided.
 
 <span class="label label-warning">Warning</span> If you don't see your project name, but do see the words **Project: (none)** then you do not have a project open. This is a problem because any R code you run may not run correctly, especially reading data into R. The most common way for this situation to arise is if you navigate to your project directory and try to open RStudio by clicking on an R script (more on those later), which opens the R script but not the project. If you see **Project: (none)** then you should immediately open your project by clicking **Open Project...*.
+
+Once you feel confident creating and opening projects, you can move on to Part 2.
+
+#### [Part 2. R as a calculator &rarr;](lab1_calc.html)
