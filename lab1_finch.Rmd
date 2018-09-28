@@ -19,9 +19,11 @@ To download package, click the **Package** tab to the right and click **Install*
 Now you're ready to load the packages.
 
 ```{r}
-library(tidyverse)             # load tidyverse, for working with datasets
 library(readxl)                # load readxl, for reading Excel files
+library(tidyverse)             # load tidyverse, for working with datasets
 ```
+
+You will see a warning and some messages when you run this code, but those can be safely ignored for now. 
 
 Read the data.
 
@@ -36,7 +38,6 @@ Show ways to view the data:
 
 ```{r}
 glimpse(finches)
-
 ```
 
 Show ways to view a quick summarize the data
