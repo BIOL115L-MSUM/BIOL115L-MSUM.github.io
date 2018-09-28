@@ -154,7 +154,7 @@ c(mean(x) + 2 * sem, mean(x) - 2 * sem)
 
 ### Self-Assessment
 
-Image you collected a sample of data which consisted of the following values:
+Imagine you collected a sample of data which consisted of the following values:
 
 `6.05 4.89 3.32 4.93 5.25 5.04 4.91 2.84 5.60 5.34`
 
