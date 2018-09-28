@@ -48,8 +48,15 @@ summary(finches)
 Plot a histogram of the data
 
 ```{r}
-ggplot(finches, aes(weight)) +
-  geom_histogram()
+ggplot(finches, aes(beak_length)) +
+  geom_histogram(bins = 12)
+```
+Plot a grouped histogram of the beak depths:
+
+```{r}
+ggplot(finches, aes(beak_length)) +
+  geom_histogram(bins = 14) +
+  facet_wrap(~ outcome, ncol = 1)
 ```
 
 
