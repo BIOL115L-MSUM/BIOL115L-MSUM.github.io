@@ -111,16 +111,74 @@ x <- c(1, 2, 10, 4.7, 5.0)
 x
 ```
 
-There are some functions that take vectors as arguments. For example, the `mean()` function, which calculates the arithmetic mean, or average, of a group of numbers:
+There are some functions that take vectors as arguments. For example, the the `length()` function returns the number of elements, or length, of a vector object.
 
 ```{r}
-mean(x)
+length(x)
 ```
 
-You can even nest functions inside other functions:
+Useful mathematical functions include:
 
 ```{r}
-mean(c(8, 5, 6))
+median(x)  # median value
+mean(x)    # mean value
+sd(x)      # standard deviation
 ```
 
+You can even nest functions. In the example below, the `c()` function is evaluated first, and its value is used as the argument for the length function.
 
+```{r}
+length(c(1, 2, 10, 4.7, 5.0)) # nested function
+```
+
+Combining several of these features together, you can calculate the standard error of the mean (SEM) and a confidence interval around the mean for any set of numbers:
+
+```{r}
+n <- length(x) # sample size
+n
+sem <- sd(x) / sqrt(n) # standard error of the mean
+sem
+```
+
+Once you have calculated the SEM you can use it to estimate the upper and lower limits of a 95% confidence interval like this:
+
+```{r}
+mean(x) + 2 * sem  # upper limit
+mean(x) - 2 * sem  # lower limit
+c(mean(x) + 2 * sem, mean(x) - 2 * sem)
+```
+
+### Self-Assessment
+
+Image you collected a sample of data which consisted of the following values:
+
+`6.05 4.89 3.32 4.93 5.25 5.04 4.91 2.84 5.60 5.34`
+
+1. What is the sample size?
+2. What is the mean?
+3. What is the median?
+4. What is the standard deviation?
+5. What is the standard error of the mean?
+6. What is the 95% confidence interval? [two values]
+
+Once you are done, you can expand the section below to see the correct answers:
+
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#answers" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Show Answers
+  </a>
+</p>
+<div class="collapse" id="answers">
+  <div class="card card-body">
+1. `10`
+2. `4.817`
+3. `4.985`
+4. `0.9899725`
+5. `0.3130568`
+6. `5.443114 4.190886`
+  </div>
+</div>
+
+Once you are satisfied with your answers, you can move on to Part 3.
+
+#### [Part 3. Finches dataset &rarr;](lab1_finch.html)

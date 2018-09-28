@@ -340,12 +340,66 @@ $(document).ready(function () {
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="fl">4.7</span>, <span class="fl">5.0</span>)</a>
 <a class="sourceLine" id="cb28-2" data-line-number="2">x</a></code></pre></div>
 <pre><code>## [1]  1.0  2.0 10.0  4.7  5.0</code></pre>
-<p>There are some functions that take vectors as arguments. For example, the <code>mean()</code> function, which calculates the arithmetic mean, or average, of a group of numbers:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">mean</span>(x)</a></code></pre></div>
+<p>There are some functions that take vectors as arguments. For example, the the <code>length()</code> function returns the number of elements, or length, of a vector object.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">length</span>(x)</a></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>Useful mathematical functions include:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">median</span>(x)  <span class="co"># median value</span></a></code></pre></div>
+<pre><code>## [1] 4.7</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="kw">mean</span>(x)    <span class="co"># mean value</span></a></code></pre></div>
 <pre><code>## [1] 4.54</code></pre>
-<p>You can even nest functions inside other functions:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">mean</span>(<span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">5</span>, <span class="dv">6</span>))</a></code></pre></div>
-<pre><code>## [1] 6.333333</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">sd</span>(x)      <span class="co"># standard deviation</span></a></code></pre></div>
+<pre><code>## [1] 3.501143</code></pre>
+<p>You can even nest functions. In the example below, the <code>c()</code> function is evaluated first, and its value is used as the argument for the length function.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">length</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">10</span>, <span class="fl">4.7</span>, <span class="fl">5.0</span>)) <span class="co"># nested function</span></a></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>Combining several of these features together, you can calculate the standard error of the mean (SEM) and a confidence interval around the mean for any set of numbers:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">n &lt;-<span class="st"> </span><span class="kw">length</span>(x) <span class="co"># sample size</span></a>
+<a class="sourceLine" id="cb40-2" data-line-number="2">n</a></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1">sem &lt;-<span class="st"> </span><span class="kw">sd</span>(x) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n) <span class="co"># standard error of the mean</span></a>
+<a class="sourceLine" id="cb42-2" data-line-number="2">sem</a></code></pre></div>
+<pre><code>## [1] 1.565759</code></pre>
+<p>Once you have calculated the SEM you can use it to estimate the upper and lower limits of a 95% confidence interval like this:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="kw">mean</span>(x) <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem  <span class="co"># upper limit</span></a></code></pre></div>
+<pre><code>## [1] 7.671517</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="kw">mean</span>(x) <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem  <span class="co"># lower limit</span></a></code></pre></div>
+<pre><code>## [1] 1.408483</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">c</span>(<span class="kw">mean</span>(x) <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem, <span class="kw">mean</span>(x) <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem)</a></code></pre></div>
+<pre><code>## [1] 7.671517 1.408483</code></pre>
+</div>
+<div id="self-assessment" class="section level3">
+<h3>Self-Assessment</h3>
+<p>Image you collected a sample of data which consisted of the following values:</p>
+<p><code>6.05 4.89 3.32 4.93 5.25 5.04 4.91 2.84 5.60 5.34</code></p>
+<ol style="list-style-type: decimal">
+<li>What is the sample size?</li>
+<li>What is the mean?</li>
+<li>What is the median?</li>
+<li>What is the standard deviation?</li>
+<li>What is the standard error of the mean?</li>
+<li>What is the 95% confidence interval? [two values]</li>
+</ol>
+<p>Once you are done, you can expand the section below to see the correct answers:</p>
+<p>
+<a class="btn btn-primary" data-toggle="collapse" href="#answers" role="button" aria-expanded="false" aria-controls="collapseExample"> Show Answers </a>
+</p>
+<div class="collapse" id="answers">
+<div class="card card-body">
+<ol style="list-style-type: decimal">
+<li><code>10</code></li>
+<li><code>4.817</code></li>
+<li><code>4.985</code></li>
+<li><code>0.9899725</code></li>
+<li><code>0.3130568</code></li>
+<li><code>5.443114 4.190886</code>
+</div></li>
+</ol>
+</div>
+<p>Once you are satisfied with your answers, you can move on to Part 3.</p>
+<div id="part-3.-finches-dataset" class="section level4">
+<h4><a href="lab1_finch.html">Part 3. Finches dataset →</a></h4>
+</div>
 </div>
 
 <div class="footer">
