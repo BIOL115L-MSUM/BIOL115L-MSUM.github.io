@@ -270,8 +270,9 @@ $(document).ready(function () {
 <p>In Part 3 of this lab, you will be introduced to R scripts. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and barplots.</p>
 <div id="dowload-the-data" class="section level3">
 <h3>Dowload the data</h3>
-<p>Download the data and save it in the project directory (folder). For example, save it to <code>H:\Lab 1</code>.</p>
+<p>Download the data and save it in the project directory (folder). For example, if you created your <strong>Lab 1</strong> project in the **H:** directory, then save the data file to <code>H:\Lab 1</code>.</p>
 <p><a href="finches_data.xlsx" class="btn btn-default">Download</a></p>
+<p>[what if it doesn’t give you an option for where to download the data?]</p>
 </div>
 <div id="reading-data-into-r" class="section level3">
 <h3>Reading data into R</h3>
@@ -281,12 +282,12 @@ $(document).ready(function () {
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(readxl)                <span class="co"># load readxl, for reading Excel files</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(tidyverse)             <span class="co"># load tidyverse, for working with datasets</span></a></code></pre></div>
 <pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.1</code></pre>
-<pre><code>## -- Attaching packages --------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## -- Attaching packages ------------</code></pre>
 <pre><code>## v ggplot2 2.2.1.9000     v purrr   0.2.5     
 ## v tibble  1.4.2          v dplyr   0.7.5     
 ## v tidyr   0.8.1          v stringr 1.3.1     
 ## v readr   1.1.1          v forcats 0.3.0</code></pre>
-<pre><code>## -- Conflicts ------------ tidyverse_conflicts() --
+<pre><code>## -- Conflicts ---------------------
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>You will see a warning and some messages when you run this code, but those can be safely ignored for now.</p>
@@ -325,7 +326,10 @@ $(document).ready(function () {
 ## $ beak_length      &lt;dbl&gt; 9.20, 9.50, 9.93, 11.13, 12.13, 10.63, 9.93, ...
 ## $ beak_depth       &lt;dbl&gt; 8.3, 7.5, 8.0, 10.6, 11.2, 9.1, 9.5, 10.5, 8....
 ## $ beak_width       &lt;dbl&gt; 8.1, 7.5, 7.6, 9.4, 9.5, 8.8, 8.9, 9.1, 8.2, ...</code></pre>
-<p>Show ways to view a quick summarize the data</p>
+</div>
+<div id="summarizing-datasets" class="section level3">
+<h3>Summarizing datasets</h3>
+<p>Scientists often want a quick summary of a dataset. The <code>summary()</code> function provides just that, and is especially useful for seeing summary statistics of numerical variables. Running this function prints a summary to the console, with the minimum value, median value, mean, maximum value, and first and third quartiles given for each numerical variable:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">summary</span>(finches)</a></code></pre></div>
 <pre><code>##       band          species              sex            first_adult_year
 ##  Min.   :   9.0   Length:100         Length:100         Min.   :1973    
@@ -348,14 +352,54 @@ $(document).ready(function () {
 ##  Mean   :19.19   Mean   :10.79   Mean   : 9.392   Mean   : 8.641  
 ##  3rd Qu.:20.00   3rd Qu.:11.25   3rd Qu.:10.100   3rd Qu.: 9.055  
 ##  Max.   :21.06   Max.   :12.73   Max.   :11.210   Max.   :10.070</code></pre>
-<p>Plot a histogram of the data</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(beak_length)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">12</span>)</a></code></pre></div>
-<p><img src="lab1_finch_files/figure-html/unnamed-chunk-5-1.png" width="672" /> Plot a grouped histogram of the beak depths:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(beak_length)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="lab1_finch_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>If we want to do anything more than, then we need to use functions provided in the tidyverse to summarize the data. The following code will summarize a dataset by calculating the mean, standard deviation, standard error of the mean (SEM), and 95% confidence intervals of the <code>beak_length</code> variable.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">summary &lt;-<span class="st"> </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(beak_length),</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem,</a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem)</a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">summary</a></code></pre></div>
+<pre><code>## # A tibble: 1 x 6
+##    mean    sd     n    sem upper lower
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  10.8 0.819   100 0.0819  11.0  10.6</code></pre>
+<p>If we wanted to get separate summaries for different subsets of the data, we can add the <code>group_by()</code> function like this:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">grouped_summary &lt;-<span class="st"> </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(outcome) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(beak_length),</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem,</a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem)</a>
+<a class="sourceLine" id="cb14-9" data-line-number="9">grouped_summary</a></code></pre></div>
+<pre><code>## # A tibble: 2 x 7
+##   outcome   mean    sd     n    sem upper lower
+##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 died      10.5 0.698    50 0.0987  10.7  10.3
+## 2 survived  11.1 0.840    50 0.119   11.3  10.8</code></pre>
+</div>
+<div id="plotting-a-histogram" class="section level3">
+<h3>Plotting a histogram</h3>
+<p>Plotting is most easily accomplished using the <code>ggplot()</code> function and its associated helper functions.</p>
+<p>For example, to plot a histogram of the <code>beak_length</code> variable, use the following code. In this example, you will set the x axis to <code>beak_length</code> and setting the number of bins to use for the histogram to <code>12</code>.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(<span class="dt">x =</span> beak_length)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">12</span>)</a></code></pre></div>
+<p><img src="lab1_finch_files/figure-html/unnamed-chunk-7-1.png" width="672" /> You can plot histograms of other columns by changing the <code>x =</code> part of the code.</p>
+<p>You can also experiment with different numbers of bins. The goal is to have enough that you can see a hump-shaped distribution, but not so many that you have too many bins with few or no observations. Try plotting a histogram with 50 bins, and another with 3 bins. Not very informational, are they?</p>
+<p>Sometimes we want to plot separate histograms for differet subsets of the data.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(beak_length)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
+<p><img src="lab1_finch_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="export-your-figure" class="section level3">
+<h3>Export your figure</h3>
+</div>
+<div id="summarize-and-plot" class="section level3">
+<h3>Summarize and plot</h3>
 <p>When you’re ready, you can move on to Part 4.</p>
 <div id="part-4.-bluestem-dataset" class="section level4">
 <h4><a href="lab1_bluestem.html">Part 4. Bluestem dataset →</a></h4>

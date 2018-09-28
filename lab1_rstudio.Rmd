@@ -11,21 +11,26 @@ R is a programming language and free software environment for statistical comput
 
 While it is possible to run R by itself, it is more common to run it as part of RStudio, a free and open-source integrated development environment (IDE) for R.
 
-Both R and RStudio should be installed on your lab computer. If you ever need to install them, for example on your personal computer, you can download installers here:
+Both R and RStudio are already installed on your lab computer. If you ever need to install them, for example on your personal computer, you can download installers here:
 
 - R   https://cloud.r-project.org/
 - RStudio   https://www.rstudio.com/products/rstudio/download/
 
 For this lab, you will be using RStudio rather than R directly.
 
-To start RStudio, click on the Start menu (bottom left corner, on the taskbar) and type RStudio. In the search results, click on "RStudio".
-
-
 ### Create an RStudio project
+
+To start RStudio, click on the Start menu and immediately start typing "RStudio".
+
+In the search results, click on "RStudio".
 
 RStudio projects make it straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents (scripts), and data files.
 
-To create a new project use the **Create Project** command (available on the Projects menu and on the global toolbar):
+To create a new project use the **New Project...** command (available on the File menu and on the global toolbar):
+
+[insert image of window]
+
+This will bring up a dialog box:
 
 ![new project](http://www.rstudio.com/images/docs/projects_new.png)
 
@@ -35,7 +40,7 @@ On the next screen, you will be prompted to enter a **Directory name**. Type "La
 
 Below that, under **Create project as a subdirectory of**, you need to enter the location on the computer where you want to save the project. Do not use the default location provided. Instead, click the **Browse** button and navigate to the H drive and click Select. The field should now say "H:\". If it does not, ask for help from your LA or instructor.
 
-Now click the **Create Project** button. Your new project will be created and will open in a new window.
+Now click the **New Project** button. Your new project will be created and will open in a new window.
 
 When a new project is created RStudio:
 

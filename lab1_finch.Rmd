@@ -6,9 +6,11 @@ In Part 3 of this lab, you will be introduced to R scripts. You will use the Fin
 
 ### Dowload the data
 
-Download the data and save it in the project directory (folder). For example, save it to `H:\Lab 1`.
+Download the data and save it in the project directory (folder). For example, if you created your **Lab 1** project in the **H:\** directory, then save the data file to `H:\Lab 1`.
 
 <a href="finches_data.xlsx" class="btn btn-default">Download</a>
+
+[what if it doesn't give you an option for where to download the data?]
 
 ### Reading data into R
 
@@ -40,25 +42,66 @@ Show ways to view the data:
 glimpse(finches)
 ```
 
-Show ways to view a quick summarize the data
+### Summarizing datasets
+
+Scientists often want a quick summary of a dataset. The `summary()` function provides just that, and is especially useful for seeing summary statistics of numerical variables. Running this function prints a summary to the console, with the minimum value, median value, mean, maximum value, and first and third quartiles given for each numerical variable:
 
 ```{r}
 summary(finches)
 ```
 
-Plot a histogram of the data
+If we want to do anything more than, then we need to use functions provided in the tidyverse to summarize the data. The following code will summarize a dataset by calculating the mean, standard deviation, standard error of the mean (SEM), and 95% confidence intervals of the `beak_length` variable.
 
 ```{r}
-ggplot(finches, aes(beak_length)) +
+summary <- finches %>% 
+  summarize(mean = mean(beak_length),
+            sd = sd(beak_length),
+            n = n()) %>% 
+  mutate(sem = sd / sqrt(n),
+         upper = mean + 2 * sem,
+         lower = mean - 2 * sem)
+summary
+```
+
+If we wanted to get separate summaries for different subsets of the data, we can add the `group_by()` function like this:
+
+```{r}
+grouped_summary <- finches %>% 
+  group_by(outcome) %>% 
+  summarize(mean = mean(beak_length),
+            sd = sd(beak_length),
+            n = n()) %>% 
+  mutate(sem = sd / sqrt(n),
+         upper = mean + 2 * sem,
+         lower = mean - 2 * sem)
+grouped_summary
+```
+
+### Plotting a histogram
+
+Plotting is most easily accomplished using the `ggplot()` function and its associated helper functions.
+
+For example, to plot a histogram of the `beak_length` variable, use the following code. In this example, you will set the x axis to `beak_length` and setting the number of bins to use for the histogram to `12`.
+
+```{r}
+ggplot(finches, aes(x = beak_length)) +
   geom_histogram(bins = 12)
 ```
-Plot a grouped histogram of the beak depths:
+You can plot histograms of other columns by changing the `x = ` part of the code. 
+
+You can also experiment with different numbers of bins. The goal is to have enough that you can see a hump-shaped distribution, but not so many that you have too many bins with few or no observations. Try plotting a histogram with 50 bins, and another with 3 bins. Not very informational, are they?
+
+Sometimes we want to plot separate histograms for differet subsets of the data.
 
 ```{r}
 ggplot(finches, aes(beak_length)) +
   geom_histogram(bins = 14) +
   facet_wrap(~ outcome, ncol = 1)
 ```
+
+### Export your figure
+
+### Summarize and plot
 
 
 When you're ready, you can move on to Part 4.

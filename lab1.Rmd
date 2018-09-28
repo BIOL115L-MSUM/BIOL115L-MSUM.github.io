@@ -2,7 +2,9 @@
 title: "Data Lab 1"
 ---
 
-Introductory paragraph.
+In this lab you will learn how to view, summarize, and plot tabular data, or data that is organized into rows and columns.
+
+You will be using two datasets for this exercise, 
 
 There are four parts to this lab. 
 

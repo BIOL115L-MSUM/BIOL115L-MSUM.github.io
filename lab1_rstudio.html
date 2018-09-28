@@ -198,18 +198,21 @@ $(document).ready(function () {
 <h3>R and RStudio</h3>
 <p>R is a programming language and free software environment for statistical computing and graphics supported by the R Foundation for Statistical Computing. Today, R is the most commonly used software for data analysis in the biological sciences.</p>
 <p>While it is possible to run R by itself, it is more common to run it as part of RStudio, a free and open-source integrated development environment (IDE) for R.</p>
-<p>Both R and RStudio should be installed on your lab computer. If you ever need to install them, for example on your personal computer, you can download installers here:</p>
+<p>Both R and RStudio are already installed on your lab computer. If you ever need to install them, for example on your personal computer, you can download installers here:</p>
 <ul>
 <li>R <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a></li>
 <li>RStudio <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a></li>
 </ul>
 <p>For this lab, you will be using RStudio rather than R directly.</p>
-<p>To start RStudio, click on the Start menu (bottom left corner, on the taskbar) and type RStudio. In the search results, click on “RStudio”.</p>
 </div>
 <div id="create-an-rstudio-project" class="section level3">
 <h3>Create an RStudio project</h3>
+<p>To start RStudio, click on the Start menu and immediately start typing “RStudio”.</p>
+<p>In the search results, click on “RStudio”.</p>
 <p>RStudio projects make it straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents (scripts), and data files.</p>
-<p>To create a new project use the <strong>Create Project</strong> command (available on the Projects menu and on the global toolbar):</p>
+<p>To create a new project use the <strong>New Project…</strong> command (available on the File menu and on the global toolbar):</p>
+<p>[insert image of window]</p>
+<p>This will bring up a dialog box:</p>
 <div class="figure">
 <img src="http://www.rstudio.com/images/docs/projects_new.png" alt="new project" />
 <p class="caption">new project</p>
@@ -217,7 +220,7 @@ $(document).ready(function () {
 <p>Click <strong>New Directory</strong> and the <strong>New Project</strong>.</p>
 <p>On the next screen, you will be prompted to enter a <strong>Directory name</strong>. Type “Lab 1” here.</p>
 <p>Below that, under <strong>Create project as a subdirectory of</strong>, you need to enter the location on the computer where you want to save the project. Do not use the default location provided. Instead, click the <strong>Browse</strong> button and navigate to the H drive and click Select. The field should now say “H:&quot;. If it does not, ask for help from your LA or instructor.</p>
-<p>Now click the <strong>Create Project</strong> button. Your new project will be created and will open in a new window.</p>
+<p>Now click the <strong>New Project</strong> button. Your new project will be created and will open in a new window.</p>
 <p>When a new project is created RStudio:</p>
 <ol style="list-style-type: decimal">
 <li>Creates a project file (with an .Rproj extension) within the project directory. This file contains various project options (discussed below) and can also be used as a shortcut for opening the project directly from the filesystem.</li>

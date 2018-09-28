@@ -72,20 +72,31 @@ Much like a human brain, R is not only capable of performing calculations, but a
 x <- 2
 ```
 
-Here we have told R to create space in its memory, store the number two there, and name that space "x". Now, whenever we refer to `x`,  R will know we mean `2`. See:
+Here we have told R to create space in its memory, store the number two there, and name that space "x". Now, whenever we refer to `x`,  R will know we mean `2`.
+
+Notice that the above code did not produce any output in the Console. After performing an assignment operation, you need to type the name of the object and press enter. Try printing `x` in the console:
 
 ```{r}
 x
+```
+
+You can now use `x` anywhere in your code, and R will always know what you mean:
+
+```{r}
 x * 5
 ```
 
 You may also have noticed that when you ran the assignment command, the *Environment* panel changed. Instead of saying "Environment is empty", it now has a list of values, with one named "x".
+
+[insert screenshot of environment panel]
 
 Try it again and watch how the environment changes:
 
 ```{r}
 y <- 7
 ```
+
+[insert new screenshot]
 
 And you can use as many of these objects as you want in the same bit of code:
 
@@ -158,12 +169,16 @@ Imagine you collected a sample of data which consisted of the following values:
 
 `6.05 4.89 3.32 4.93 5.25 5.04 4.91 2.84 5.60 5.34`
 
+Use the skills you have learned to answer the following questions:
+
 1. What is the sample size?
 2. What is the mean?
 3. What is the median?
 4. What is the standard deviation?
 5. What is the standard error of the mean?
 6. What is the 95% confidence interval? [two values]
+
+    <span class="label label-info">Tip</span> If you plan on using the same object names for the self assessment as you did for the tutorial (for example, `x` and `n`), it might be a good idea to clear your environment first. That way you won't accidentally use the previous value of `n` (`5`) in your self assessment. To do this, click the broom icon in the Environment tab.
 
 Once you are done, you can expand the section below to see the correct answers:
 
