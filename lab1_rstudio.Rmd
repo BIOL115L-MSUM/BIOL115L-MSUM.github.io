@@ -1,3 +1,65 @@
 ---
-title: "Part 1. Create a project in RStudio"
+title: "1. Create a project in RStudio"
 ---
+
+### R and RStudio
+
+R is a programming language and free software environment for statistical computing and graphics supported by the R Foundation for Statistical Computing. Today, R is the most commonly used software for data analysis in the biological sciences.
+
+While it is possible to run R by itself, it is more common to run it as part of RStudio, a free and open-source integrated development environment (IDE) for R.
+
+Both R and RStudio should be installed on your lab computer. If you ever need to install them, for example on your personal computer, you can download installers here:
+
+- R   https://cloud.r-project.org/
+- RStudio   https://www.rstudio.com/products/rstudio/download/
+
+For this lab, you will be using RStudio rather than R directly.
+
+To start RStudio, click on the Start menu (bottom left corner, on the taskbar) and type RStudio. In the search results, click on "RStudio".
+
+
+### Create an RStudio project
+
+RStudio projects make it straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents (scripts), and data files.
+
+To create a new project use the **Create Project** command (available on the Projects menu and on the global toolbar):
+
+![new project](http://www.rstudio.com/images/docs/projects_new.png)
+
+Click **New Directory** and the **New Project**. 
+
+On the next screen, you will be prompted to enter a **Directory name**. Type "Lab 1" here.
+
+Below that, under **Create project as a subdirectory of**, you need to enter the location on the computer where you want to save the project. Do not use the default location provided. Instead, click the **Browse** button and navigate to the H drive and click Select. The field should now say "H:\". If it does not, ask for help from your LA or instructor.
+
+Now click the **Create Project** button. Your new project will be created and will open in a new window.
+
+When a new project is created RStudio:
+
+1. Creates a project file (with an .Rproj extension) within the project directory. This file contains various project options (discussed below) and can also be used as a shortcut for opening the project directly from the filesystem.
+2. Creates a hidden directory (named .Rproj.user) where project-specific temporary files are stored. You don't need to worry about this.
+3. Loads the project into RStudio and display its name in the Projects toolbar (which is located on the far right side of the main toolbar)
+
+### Working with projects
+
+#### Opening Projects
+
+There are several ways to open a project:
+
+1. Using the Open Project command (available from both the Projects menu and the Projects toolbar) to browse for and select an existing project file (e.g. MyProject.Rproj).
+2. Selecting a project from the list of most recently opened projects (also available from both the Projects menu and toolbar).
+3. Double-clicking on the project file within the system shell (e.g. Windows Explorer, OSX Finder, etc.).
+
+When a project is opened within RStudio, a variety of actions are taken but the most important for now is this:
+
+- The current working directory is set to the project directory.
+
+That detail will become important later when you want to read data files or save images.
+
+### Make sure it works
+
+Try quitting RStudio and restarting it. It should reopen your project when it restarts, although this won't happen when you start RStudio on another computer.
+
+Now look in the upper right corner of RStudio, on the toolbar. You should see the name of your project. If you click that name, the Project menu will open, which lets you create a new project, open an existing project by navigating to it, or open a recent project by selecting it from the list provided.
+
+IMPORTANT: If you don't see your project name, but do see the words **Project: (none)** then you do not have a project open. This is a problem because any R code you run may not run correctly, especially reading data into R. The most common way for this situation to arise is if you navigate to your project directory and try to open RStudio by clicking on an R script (more on those later), which opens the R script but not the project. If you see **Project: (none)** then you should immediately open your project by clicking **Open Project...*.
