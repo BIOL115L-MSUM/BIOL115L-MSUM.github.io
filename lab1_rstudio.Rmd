@@ -40,9 +40,7 @@ When a new project is created RStudio:
 2. Creates a hidden directory (named .Rproj.user) where project-specific temporary files are stored. You don't need to worry about this.
 3. Loads the project into RStudio and display its name in the Projects toolbar (which is located on the far right side of the main toolbar)
 
-### Working with projects
-
-#### Opening Projects
+### Opening Projects
 
 There are several ways to open a project:
 
@@ -62,4 +60,4 @@ Try quitting RStudio and restarting it. It should reopen your project when it re
 
 Now look in the upper right corner of RStudio, on the toolbar. You should see the name of your project. If you click that name, the Project menu will open, which lets you create a new project, open an existing project by navigating to it, or open a recent project by selecting it from the list provided.
 
-IMPORTANT: If you don't see your project name, but do see the words **Project: (none)** then you do not have a project open. This is a problem because any R code you run may not run correctly, especially reading data into R. The most common way for this situation to arise is if you navigate to your project directory and try to open RStudio by clicking on an R script (more on those later), which opens the R script but not the project. If you see **Project: (none)** then you should immediately open your project by clicking **Open Project...*.
+<span class="label label-warning">Warning</span> If you don't see your project name, but do see the words **Project: (none)** then you do not have a project open. This is a problem because any R code you run may not run correctly, especially reading data into R. The most common way for this situation to arise is if you navigate to your project directory and try to open RStudio by clicking on an R script (more on those later), which opens the R script but not the project. If you see **Project: (none)** then you should immediately open your project by clicking **Open Project...*.
