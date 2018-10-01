@@ -25,23 +25,39 @@ RStudio projects make it straightforward to divide your work into multiple conte
 To start RStudio on a Mac, open the Finder, go to Applications, and scroll down to find RStudio.
 
 <figure class="figure">
-  <a href="images/rstudio_start.png" data-lightbox="image-1" data-title="Starting RStudio in Mac OS"><img src="images/rstudio_start.png" class="figure-img img-thumbnail"></a>
+  <a href="images/rstudio_start.png" data-lightbox="rstudio-start" data-title="Starting RStudio in Mac OS"><img src="images/rstudio_start.png" class="figure-img img-thumbnail"></a>
   <figcaption class="figure-caption">Starting RStudio in Mac OS</figcaption>
 </figure>
 
 Create a new project using the **New Project...** command available under the File menu or the Project menu. The Project menu is on right side of the global toolbar and will either say **Project: (none)** if there is no project open (the default), of it will have the name of the currently open project.
 
-[insert image of window]
+<figure class="figure">
+  <a href="images/rstudio_new_proj_1.png" data-lightbox="rstudio-new-proj" data-title="Use the New Project... command to create a new project."><img src="images/rstudio_new_proj_1.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">Use the <strong>New Project...</strong> command to create a new project.</figcaption>
+</figure>
 
-This will bring up a dialog box:
+This will bring up a dialog box. Select **New Directory**:
 
-![New Project Dialog](images/projects_new.png)
+<figure class="figure">
+  <a href="images/rstudio_new_proj_2.png" data-lightbox="rstudio-new-proj" data-title="Select New Directory."><img src="images/rstudio_new_proj_2.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">Select <strong>New Directory</strong>.</figcaption>
+</figure>
 
-Click **New Directory** and the **New Project**. 
+And then click **New Project**:
 
-On the next screen, you will be prompted to enter a **Directory name**. Type "Org Bio Lab 1" here (or something equally descriptive, so you can find it later).
+<figure class="figure">
+  <a href="images/rstudio_new_proj_3.png" data-lightbox="rstudio-new-proj" data-title="Select New Project"><img src="images/rstudio_new_proj_3.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">Select <strong>New Project</strong>.</figcaption>
+</figure>
+
+On the next screen, you will be prompted to enter a **Directory name**. Type "Org Bio Data Lab 1" here (or something equally descriptive, so you can find it later).
 
 Below that, under **Create project as a subdirectory of**, you need to enter the location on the computer where you want to save the project. Do not use the default location provided. Instead, click the **Browse** button and navigate to the Documents directory and click Select. The field should now say "~/Documents". If it does not, ask for help from your LA or instructor.
+
+<figure class="figure">
+  <a href="images/rstudio_new_proj_4.png" data-lightbox="rstudio-new-proj" data-title="Enter name for your project under Directory Name and use the Browse button to select the Documents directory."><img src="images/rstudio_new_proj_4.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">Enter name for your project under <strong>Directory Name</strong> and use the <strong>Browse</strong> button to select the <strong>Documents</strong> directory.</figcaption>
+</figure>
 
 Now click the **New Project** button. Your new project will be created and will open in a new window.
 
