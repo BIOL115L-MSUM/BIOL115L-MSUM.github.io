@@ -268,11 +268,11 @@ $(document).ready(function () {
 
 
 <p>In Part 3 of this lab, you will be introduced to R scripts. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and barplots.</p>
-<div id="dowload-the-data" class="section level3">
-<h3>Dowload the data</h3>
-<p>Download the data and save it in the project directory (folder). For example, if you created your <strong>Lab 1</strong> project in the **H:** directory, then save the data file to <code>H:\Lab 1</code>.</p>
+<div id="download-the-data" class="section level3">
+<h3>Download the data</h3>
+<p>Download the data and save it in the project directory (folder) you created earlier. For example, if you created your project in the <strong>Documents</strong> folder and named it <strong>Org Bio Data Lab 1</strong> then save the data into the <strong>Org Bio Data Lab 1</strong> folder.</p>
+<p>You will know you saved it to the correct location if the Excel file shows up in the Files panel in RStudio next to your R Project file.</p>
 <p><a href="finches_data.xlsx" class="btn btn-default">Download</a></p>
-<p>[what if it doesn’t give you an option for where to download the data?]</p>
 </div>
 <div id="reading-data-into-r" class="section level3">
 <h3>Reading data into R</h3>
@@ -484,7 +484,8 @@ $(document).ready(function () {
 <p>The two numbers to focus on here are the <strong>p-value</strong> and the <strong>95% confidence interval</strong>.</p>
 <p>The <em>p</em>-value tells you what proportion of the time you would expect to find a difference in population like these two if they were in fact the same. Scientists generally use a cutoff (or <em>alpha level</em>) of 0.05 to determine if a difference is “statistically significant”. In this case, a <em>p</em>-value of 0.0004539 is much lower than 0.05, so we can reject our null hypothesis and accept our alternative hypothesis that the true difference in means is not equal to 0.</p>
 <p>As further evidence that the difference between the means is not equal to zero, you can see that the 95% confidence interval does not include zero.</p>
-<p>To report the findings of a t-test, you say [ALISON WHAT DID YOU TELL THEM?]</p>
+<p>To report the findings of a t-test, you say:</p>
+<pre><code>Mean beak depths were 10 mm in survivors and 8 mm in non-survivors (Figure 1). This difference was stastistically significant according to a Welch&#39;s two-sample t-test assuming unequal variances (t=, df=, p=).</code></pre>
 <p>[add link to a SEM explainer]</p>
 <p>When you’re ready, you can move on to Part 4.</p>
 <div id="part-4.-bluestem-dataset" class="section level4">

@@ -4,13 +4,13 @@ title: "3. Finches dataset"
 
 In Part 3 of this lab, you will be introduced to R scripts. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and barplots.
 
-### Dowload the data
+### Download the data
 
-Download the data and save it in the project directory (folder). For example, if you created your **Lab 1** project in the **H:\** directory, then save the data file to `H:\Lab 1`.
+Download the data and save it in the project directory (folder) you created earlier. For example, if you created your project in the **Documents** folder and named it **Org Bio Data Lab 1** then save the data into the **Org Bio Data Lab 1** folder.
+
+You will know you saved it to the correct location if the Excel file shows up in the Files panel in RStudio next to your R Project file.
 
 <a href="finches_data.xlsx" class="btn btn-default">Download</a>
-
-[what if it doesn't give you an option for where to download the data?]
 
 ### Reading data into R
 
@@ -197,7 +197,9 @@ The *p*-value tells you what proportion of the time you would expect to find a d
 
 As further evidence that the difference between the means is not equal to zero, you can see that the 95% confidence interval does not include zero.
 
-To report the findings of a t-test, you say [ALISON WHAT DID YOU TELL THEM?]
+To report the findings of a t-test, you say:
+
+    Mean beak depths were 10 mm in survivors and 8 mm in non-survivors (Figure 1). This difference was stastistically significant according to a Welch's two-sample t-test assuming unequal variances (t=, df=, p=).
 
 [add link to a SEM explainer]
 
