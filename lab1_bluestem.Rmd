@@ -1,3 +1,28 @@
 ---
 title: "4. Bluestem dataset"
 ---
+
+### Your assignment
+
+Compare the distribution of plant heights and rame lengths between burned and unburned sites.
+
+1. Create a grouped histogram for plant heights
+1. Create a grouped histogram for rame lengths
+1. Create a column chart for mean plant heights
+1. Create a column chart for mean rame lengths
+1. Save these figures as .png files
+1. Perform a t-test for mean plant heights
+1. Perform a t-test for mean rame lengths.
+1. Create a new Microsoft Word document and paste in the four figures.
+1. Write a legend for each figure
+1. Write a paragraph explaining the difference between burned and unburned areas by referencing the figures and the results of the t-tests.
+1. Upload the Word document to D2L.
+
+Your grade for this assignment will be based on the Word document you upload to D2L.
+
+### Example using Finches Dataset
+
+Template R script
+    [download]
+Example Word document
+    [download]
