@@ -20,13 +20,11 @@ For this lab, you will be using RStudio rather than R directly.
 
 ### Create an RStudio project
 
-To start RStudio, click on the Start menu and immediately start typing "RStudio".
-
-In the search results, click on "RStudio".
-
 RStudio projects make it straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents (scripts), and data files.
 
-To create a new project use the **New Project...** command (available on the File menu and on the global toolbar):
+To start RStudio on a Mac, open the Finder, go to Applications, and scroll down to find RStudio.
+
+Create a new project using the **New Project...** command available under the File menu or the Project menu. The Project menu is on right side of the global toolbar and will either say **Project: (none)** if there is no project open (the default), of it will have the name of the currently open project.
 
 [insert image of window]
 
@@ -36,9 +34,9 @@ This will bring up a dialog box:
 
 Click **New Directory** and the **New Project**. 
 
-On the next screen, you will be prompted to enter a **Directory name**. Type "Lab 1" here.
+On the next screen, you will be prompted to enter a **Directory name**. Type "Org Bio Lab 1" here (or something equally descriptive, so you can find it later).
 
-Below that, under **Create project as a subdirectory of**, you need to enter the location on the computer where you want to save the project. Do not use the default location provided. Instead, click the **Browse** button and navigate to the H drive and click Select. The field should now say "H:\". If it does not, ask for help from your LA or instructor.
+Below that, under **Create project as a subdirectory of**, you need to enter the location on the computer where you want to save the project. Do not use the default location provided. Instead, click the **Browse** button and navigate to the Documents directory and click Select. The field should now say "~/Documents". If it does not, ask for help from your LA or instructor.
 
 Now click the **New Project** button. Your new project will be created and will open in a new window.
 
@@ -54,7 +52,7 @@ There are several ways to open a project:
 
 1. Using the Open Project command (available from both the Projects menu and the Projects toolbar) to browse for and select an existing project file (e.g. MyProject.Rproj).
 2. Selecting a project from the list of most recently opened projects (also available from both the Projects menu and toolbar).
-3. Double-clicking on the project file within the system shell (e.g. Windows Explorer, OSX Finder, etc.).
+3. Double-clicking on the project file within the system shell (e.g. OSX Finder, Windows File Explorer, etc.).
 
 When a project is opened within RStudio, a variety of actions are taken but the most important for now is this:
 
