@@ -32,7 +32,7 @@ To create a new project use the **New Project...** command (available on the Fil
 
 This will bring up a dialog box:
 
-![new project](http://www.rstudio.com/images/docs/projects_new.png)
+![New Project Dialog](images/projects_new.png)
 
 Click **New Directory** and the **New Project**. 
 
