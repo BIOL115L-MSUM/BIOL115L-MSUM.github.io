@@ -282,12 +282,12 @@ $(document).ready(function () {
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(readxl)                <span class="co"># load readxl, for reading Excel files</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(tidyverse)             <span class="co"># load tidyverse, for working with datasets</span></a></code></pre></div>
 <pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.1</code></pre>
-<pre><code>## -- Attaching packages ------------</code></pre>
+<pre><code>## -- Attaching packages ------------------------------------------------ tidyverse 1.2.1 --</code></pre>
 <pre><code>## v ggplot2 2.2.1.9000     v purrr   0.2.5     
 ## v tibble  1.4.2          v dplyr   0.7.5     
 ## v tidyr   0.8.1          v stringr 1.3.1     
 ## v readr   1.1.1          v forcats 0.3.0</code></pre>
-<pre><code>## -- Conflicts ---------------------
+<pre><code>## -- Conflicts --------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>You will see a warning and some messages when you run this code, but those can be safely ignored for now.</p>
@@ -389,17 +389,35 @@ $(document).ready(function () {
 <a class="sourceLine" id="cb16-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">12</span>)</a></code></pre></div>
 <p><img src="lab1_finch_files/figure-html/unnamed-chunk-7-1.png" width="672" /> You can plot histograms of other columns by changing the <code>x =</code> part of the code.</p>
 <p>You can also experiment with different numbers of bins. The goal is to have enough that you can see a hump-shaped distribution, but not so many that you have too many bins with few or no observations. Try plotting a histogram with 50 bins, and another with 3 bins. Not very informational, are they?</p>
-<p>Sometimes we want to plot separate histograms for differet subsets of the data.</p>
+<p>Sometimes we want to plot separate histograms for differet subsets of the data. One easy way to do this is with the <code>facet_wrap()</code> function in ggplot. Note that you have to add a <code>+</code> operator after the <code>geom_histogram()</code> line.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(beak_length)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb17-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb17-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
 <p><img src="lab1_finch_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>The last thing you might want to do is spruce up your plot with a title and better axis labels. This is done with the <code>labs()</code> function:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(beak_length)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span>,</a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">    <span class="dt">title =</span> <span class="st">&quot;Beak Length and Survival&quot;</span>,</a>
+<a class="sourceLine" id="cb18-8" data-line-number="8">    <span class="dt">subtitle =</span> <span class="st">&quot;Among medium ground finch (Geospiza fortis) survival on Daphne Major&quot;</span>,</a>
+<a class="sourceLine" id="cb18-9" data-line-number="9">    <span class="dt">caption =</span> <span class="st">&quot;Data source: HHMI Lab Evolution in Action: Data Analysis&quot;</span>)</a></code></pre></div>
+<p><img src="lab1_finch_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
 <div id="export-your-figure" class="section level3">
 <h3>Export your figure</h3>
+<p>To use your figure in a Microsoft Word document, PowerPoint presentation, or other software, you first need to save the image. The most reproducible way to do so is to use the <code>ggsave()</code> function.</p>
+<p>By default, <code>ggsave()</code> will save the last plot displayed, so make sure the plot you want to save is displayed in the <strong>Plots</strong> tab in the bottom right panel before running this code.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Histogram.png&quot;</span>, <span class="dt">width =</span> <span class="fl">6.5</span>, <span class="dt">height =</span> <span class="fl">6.5</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)</a></code></pre></div>
 </div>
 <div id="summarize-and-plot" class="section level3">
 <h3>Summarize and plot</h3>
+</div>
+<div id="t-test" class="section level3">
+<h3>T-test</h3>
+<p>[add link to a SEM explainer]</p>
 <p>When you’re ready, you can move on to Part 4.</p>
 <div id="part-4.-bluestem-dataset" class="section level4">
 <h4><a href="lab1_bluestem.html">Part 4. Bluestem dataset →</a></h4>

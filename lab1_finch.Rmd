@@ -91,7 +91,7 @@ You can plot histograms of other columns by changing the `x = ` part of the code
 
 You can also experiment with different numbers of bins. The goal is to have enough that you can see a hump-shaped distribution, but not so many that you have too many bins with few or no observations. Try plotting a histogram with 50 bins, and another with 3 bins. Not very informational, are they?
 
-Sometimes we want to plot separate histograms for differet subsets of the data.
+Sometimes we want to plot separate histograms for differet subsets of the data. One easy way to do this is with the `facet_wrap()` function in ggplot. Note that you have to add a `+` operator after the `geom_histogram()` line.
 
 ```{r}
 ggplot(finches, aes(beak_length)) +
@@ -99,10 +99,36 @@ ggplot(finches, aes(beak_length)) +
   facet_wrap(~ outcome, ncol = 1)
 ```
 
+The last thing you might want to do is spruce up your plot with a title and better axis labels. This is done with the `labs()` function:
+
+```{r}
+ggplot(finches, aes(beak_length)) +
+  geom_histogram(bins = 14) +
+  facet_wrap(~ outcome, ncol = 1) +
+  labs(
+    x = "Beak Length (mm)",
+    y = "Number of Birds",
+    title = "Beak Length and Survival",
+    subtitle = "Among medium ground finch (Geospiza fortis) survival on Daphne Major",
+    caption = "Data source: HHMI Lab Evolution in Action: Data Analysis")
+```
+
 ### Export your figure
+
+To use your figure in a Microsoft Word document, PowerPoint presentation, or other software, you first need to save the image. The most reproducible way to do so is to use the `ggsave()` function.
+
+By default, `ggsave()` will save the last plot displayed, so make sure the plot you want to save is displayed in the **Plots** tab in the bottom right panel before running this code.
+
+
+```{r}
+ggsave("Beak Length Histogram.png", width = 6.5, height = 6.5, units = "in")
+```
 
 ### Summarize and plot
 
+### T-test
+
+[add link to a SEM explainer]
 
 When you're ready, you can move on to Part 4.
 
