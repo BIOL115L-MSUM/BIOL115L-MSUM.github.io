@@ -75,6 +75,11 @@ There are several ways to open a project:
 2. Selecting a project from the list of most recently opened projects (also available from both the Projects menu and toolbar).
 3. Double-clicking on the project file within the system shell (e.g. OSX Finder, Windows File Explorer, etc.).
 
+<figure class="figure">
+  <a href="images/rstudio_open_proj.png" data-lightbox="rstudio-open-proj" data-title="Open a project using the Project menu."><img src="images/rstudio_open_proj.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">Open a project using the Project menu.</figcaption>
+</figure>
+
 When a project is opened within RStudio, a variety of actions are taken but the most important for now is this:
 
 - The current working directory is set to the project directory.
@@ -87,7 +92,12 @@ Try quitting RStudio and restarting it. It should reopen your project when it re
 
 Now look in the upper right corner of RStudio, on the toolbar. You should see the name of your project. If you click that name, the Project menu will open, which lets you create a new project, open an existing project by navigating to it, or open a recent project by selecting it from the list provided.
 
-<span class="label label-warning">Warning</span> If you don't see your project name, but do see the words **Project: (none)** then you do not have a project open. This is a problem because any R code you run may not run correctly, especially reading data into R. The most common way for this situation to arise is if you navigate to your project directory and try to open RStudio by clicking on an R script (more on those later), which opens the R script but not the project. If you see **Project: (none)** then you should immediately open your project by clicking **Open Project...*.
+<figure class="figure">
+  <a href="images/rstudio_proj_name.png" data-lightbox="rstudio-proj-name" data-title="Always make sure the name of your project is showing here. If it is not, click the menu to open your project. Working in RStudio without your project open can cause unexpected errors."><img src="images/rstudio_proj_name.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">Always make sure the name of your project is showing here. If it is not, click the menu to open your project. Working in RStudio without your project open can cause unexpected errors.</figcaption>
+</figure>
+
+<span class="label label-warning">Warning</span> If you don't see your project name, but do see the words **Project: (None)** then you do not have a project open. This is a problem because any R code you run may not run correctly, especially reading data into R. The most common way for this situation to arise is if you navigate to your project directory and try to open RStudio by clicking on an R script (more on those later), which opens the R script but not the project. If you see **Project: (None)** then you should immediately open your project by clicking **Open Project...*.
 
 Once you feel confident creating and opening projects, you can move on to Part 2.
 
