@@ -336,20 +336,26 @@ $(document).ready(function () {
 <p><img src="lab1_finch_files/figure-html/unnamed-chunk-4-1.png" width="672" /> You can plot histograms of other columns by changing the <code>x =</code> part of the code.</p>
 <p>You can also experiment with different numbers of bins. The goal is to have enough that you can see a hump-shaped distribution, but not so many that you have too many bins with few or no observations. Try plotting a histogram with 50 bins, and another with 3 bins. Not very informational, are they?</p>
 <p>Sometimes we want to plot separate histograms for differet subsets of the data. One easy way to do this is with the <code>facet_wrap()</code> function in ggplot. Note that you have to add a <code>+</code> operator after the <code>geom_histogram()</code> line.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(beak_length)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="dt">data =</span> finches, </a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length, <span class="dt">color =</span> outcome)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
 <p><img src="lab1_finch_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>The last thing you might want to do is spruce up your plot with a title and better axis labels. This is done with the <code>labs()</code> function:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(beak_length)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span>,</a>
-<a class="sourceLine" id="cb12-7" data-line-number="7">    <span class="dt">title =</span> <span class="st">&quot;Beak Length and Survival&quot;</span>,</a>
-<a class="sourceLine" id="cb12-8" data-line-number="8">    <span class="dt">subtitle =</span> <span class="st">&quot;Among medium ground finch (Geospiza fortis) survival on Daphne Major&quot;</span>,</a>
-<a class="sourceLine" id="cb12-9" data-line-number="9">    <span class="dt">caption =</span> <span class="st">&quot;Data source: HHMI Lab Evolution in Action: Data Analysis&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="dt">data =</span> finches, </a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length, <span class="dt">fill =</span> outcome)</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,</a>
+<a class="sourceLine" id="cb12-9" data-line-number="9">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span>,</a>
+<a class="sourceLine" id="cb12-10" data-line-number="10">    <span class="dt">title =</span> <span class="st">&quot;Beak Length and Survival&quot;</span>,</a>
+<a class="sourceLine" id="cb12-11" data-line-number="11">    <span class="dt">subtitle =</span> <span class="st">&quot;Among medium ground finch (Geospiza fortis) survival on Daphne Major&quot;</span>,</a>
+<a class="sourceLine" id="cb12-12" data-line-number="12">    <span class="dt">caption =</span> <span class="st">&quot;Data source: HHMI Lab Evolution in Action: Data Analysis&quot;</span>)</a></code></pre></div>
 <p><img src="lab1_finch_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <div id="export-your-figure" class="section level4">
 <h4>Export your figure</h4>

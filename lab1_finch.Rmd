@@ -59,7 +59,10 @@ You can also experiment with different numbers of bins. The goal is to have enou
 Sometimes we want to plot separate histograms for differet subsets of the data. One easy way to do this is with the `facet_wrap()` function in ggplot. Note that you have to add a `+` operator after the `geom_histogram()` line.
 
 ```{r}
-ggplot(finches, aes(beak_length)) +
+ggplot(
+  data = finches, 
+  mapping = aes(x = beak_length, color = outcome)
+) +
   geom_histogram(bins = 14) +
   facet_wrap(~ outcome, ncol = 1)
 ```
@@ -67,7 +70,10 @@ ggplot(finches, aes(beak_length)) +
 The last thing you might want to do is spruce up your plot with a title and better axis labels. This is done with the `labs()` function:
 
 ```{r}
-ggplot(finches, aes(beak_length)) +
+ggplot(
+  data = finches, 
+  mapping = aes(x = beak_length, fill = outcome)
+) +
   geom_histogram(bins = 14) +
   facet_wrap(~ outcome, ncol = 1) +
   labs(
