@@ -16,5 +16,6 @@ output:
     theme: flatly
     highlight: kate
     include:
+      in_header: lightbox.html
       after_body: footer.html
     css: styles.css
