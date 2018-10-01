@@ -287,11 +287,21 @@ $(document).ready(function () {
 
 
 <p>In Part 3 of this lab, you will be introduced to scripts, graphing, and analysis in R. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and barplots.</p>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p>In the finch dataset, each row represents an individual bird that was banded before the 1977 drought on Daphne Major island in the Galapagos archipelago. The variable named <code>outcome</code> contains one of two values: “survived” or “died”, depending on whether the bird was ever seen after the drought or not.</p>
+<p>The question you are tasked with answering for Part 3 is:</p>
+<blockquote class="text-success">
+Did beak length vary between birds that survived the drough and those that did not?
+</blockquote>
+<p>The following sections will guide you through the process of answering this question using the data provided.</p>
+</div>
 <div id="download-the-data" class="section level3">
 <h3>Download the data</h3>
 <p>Download the data and save it in the project directory (folder) you created earlier. For example, if you created your project in the <strong>Documents</strong> folder and named it <strong>Org Bio Data Lab 1</strong> then save the data into the <strong>Org Bio Data Lab 1</strong> folder.</p>
 <p>You will know you saved it to the correct location if the Excel file shows up in the Files pane in RStudio next to your R Project file.</p>
 <p><a href="finches_data.xlsx" class="btn btn-default">Download</a></p>
+<p>If you want to look at the data, you can open the file in Excel.</p>
 </div>
 <div id="r-scripts" class="section level3">
 <h3>R scripts</h3>
@@ -379,7 +389,6 @@ $(document).ready(function () {
 </div>
 <div id="plotting-a-histogram" class="section level3">
 <h3>Plotting a histogram</h3>
-<p>In the finch dataset, each row represents an individual bird. a variable named <code>outcome</code>, which represents the survival status of each bird</p>
 <p>Plotting is most easily accomplished using the <code>ggplot()</code> function and its associated helper functions.</p>
 <p>For example, to plot a histogram of the <code>beak_length</code> variable, use the following code. In this example, you will set the x axis to <code>beak_length</code> and setting the number of bins to use for the histogram to <code>12</code>.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(<span class="dt">x =</span> beak_length)) <span class="op">+</span></a>
