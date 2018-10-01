@@ -2,47 +2,100 @@
 title: "3. Finch Data Example"
 ---
 
-In Part 3 of this lab, you will be introduced to R scripts. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and barplots.
+In Part 3 of this lab, you will be introduced to scripts, graphing, and analysis in R. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and barplots.
 
 ### Download the data
 
 Download the data and save it in the project directory (folder) you created earlier. For example, if you created your project in the **Documents** folder and named it **Org Bio Data Lab 1** then save the data into the **Org Bio Data Lab 1** folder.
 
-You will know you saved it to the correct location if the Excel file shows up in the Files panel in RStudio next to your R Project file.
+You will know you saved it to the correct location if the Excel file shows up in the Files pane in RStudio next to your R Project file.
 
 <a href="finches_data.xlsx" class="btn btn-default">Download</a>
 
+### R scripts
+
+#### Create a script
+
+So far you have been running commands by typing them into the console. One of the benefits of R over programs such as Excel, for example, is the ability to save your commands in the form of written. Enter the **script**! A script is simply a text file containing commands for R to execute.
+
+To create a script, click File > New File > R Script or click the New File button on the toolbar. A new pane will open above your Console pane. This is called the script pane.
+
+It is always a good idea to save it right away, just in case RStudio crashes or you spill Orange Fanta all over the computer (which is a completely hypothetical example and has never happened before. Really!).
+
+Go to File > Save or click the floppy disk icon on the Source pane toolbar (not the global toolbar). When prompted for a file name, use "finch". RStudio will automatically add the ".R" file extension, so when your new scrip appears in the Files pane it will say "finch.R".
+
+#### Run code from a script
+
+Now that you have a script, try typing some code in it. For example:
+
+```{r, eval=FALSE}
+sqrt(9)
+```
+
+To run the code, place your cursor on the same line as the code as click Run on the Source pane toolbar, then Run Selected Lines. Or just hold down the command button and press the enter key. This is called a keyboard shortcut, and is written as **Cmd+Enter**.
+
+When you run the line of code, RStudio copies it to the Console pane and executes it.
+
+For the rest of this tutorial, it is a good idea to type your code into the R script and run it from there, rather than typing it directly into the console.
+
+### R packages
+
+In R, users share code with each other in the form of **packages**, each of which is a bundle of code, data, and other files. While R includes some basic functionality in it's "base" packages, you often need to work with other packages when doing any data analysis.
+
+In this tutorial you will use a group of packages collectively referred to as the **tidyverse**. You don't need to know their names, but they include the **dplyr**, **ggplot**, and **readxl** packages, among many others.
+
+Before you can use a package, you to download and install it. Click the **Package** tab in the botom right pane and click **Install**. Type the name of the package, `tidyverse`, and click **Install**. This will install the `tidyverse` package and all those others mentione above.
+
+You only have to install a package once on each computer you are using. If you open RStudio again later, every package you've ever installed wil still be there.
+
 ### Reading data into R
 
-This requires installing some packages in R, which let you use functions not found in the standard R installation.
+Now that you have a script and have downloaded your packages, you're ready to get coding!
 
-To download package, click the **Package** tab to the right and click **Install**. Type the name of the package, `tidyverse`, and click **Install**. You only have to do this once on each computer you are using.
-
-Now you're ready to load the packages.
+The first lines in any script are usually for loading the packages into memory. Copy these two lines (including the comments if you want) and paste them into your script.
 
 ```{r}
 library(readxl)                # load readxl, for reading Excel files
 library(tidyverse)             # load tidyverse, for working with datasets
 ```
 
-You will see a warning and some messages when you run this code, but those can be safely ignored for now. 
+Put your cursor on the first line and type Cmd+Enter to run it. The cursor automatically moves to the next line, so you can type Cmd+Enter again to run the next line.
 
-Read the data.
+You will see a warning and some messages in the Console tab, but those can be safely ignored.
+
+To read the data, you will use a function named `read_excel()`. Here we run that function and assign the results to an object names `finches`.
 
 ```{r}
 finches <- read_excel("finches_data.xlsx")
+```
+
+<span class="label label-warning">Warning</span> If you haven't saved your data file in the right place, or if you are not working with your RStudio project open, you may get an error message in the console. If you can't figure out how to solve the problem yourself, ask your instructor for help.
+
+To get a quick look at the data, print the `finches` object to the console:
+
+```{r print-finches}
 finches
 ```
 
-Explain what they are seeing
+The first thing you notice is that this object is not a vector like the objects you were working with before. Instead, it's a **tibble**, which is an object that stores tabular data.
 
-Show ways to view the data:
+The first line of the output gives the data type (tibble) and dimensions of the data (number of rows x number of columns). In the tidyverse, columns are referred to as "variables".
+
+The first 10 rows are shown, as well as the first few variables. How many variables depends on how wide your Console window is.
+
+For each variable, it's name is given, followed by the type of data. Most of the time we worth with either numeric data (`<dbl>`) or text data (`<chr>`).
+
+If there are more than 10 rows, or more variables than can fit on the screen, there will be a sentence at the end saying "... with xx more rows, and x more variables", followed by a list of the unshown variables.
+
+A quick way of seeing the first few observations for all variables is to use the `glimpse()` function:
 
 ```{r}
 glimpse(finches)
 ```
 
 ### Plotting a histogram
+
+In the finch dataset, each row represents an individual bird. a variable named `outcome`, which represents the survival status of each bird
 
 Plotting is most easily accomplished using the `ggplot()` function and its associated helper functions.
 
@@ -87,7 +140,7 @@ ggplot(
 
 To use your figure in a Microsoft Word document, PowerPoint presentation, or other software, you first need to save the image. The most reproducible way to do so is to use the `ggsave()` function.
 
-By default, `ggsave()` will save the last plot displayed, so make sure the plot you want to save is displayed in the **Plots** tab in the bottom right panel before running this code.
+By default, `ggsave()` will save the last plot displayed, so make sure the plot you want to save is displayed in the **Plots** tab in the bottom right pane before running this code.
 
 
 ```{r save-histogram, eval=FALSE}

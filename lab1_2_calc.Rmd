@@ -6,11 +6,11 @@ In Part 2 of this lab, you will learn how to use the Console Window to run comma
 
 ### The RStudio IDE
 
-When you first open RStudio, you will see a window with three panels, the left panel will be on a tab named **Console**, the upper right panel will be on a tab named **Environment**, and the bottom right panel will be on a tab named **Files**, like this:
+When you first open RStudio, you will see a window with three panes, the left pane will be on a tab named **Console**, the upper right pane will be on a tab named **Environment**, and the bottom right pane will be on a tab named **Files**, like this:
 
 <figure class="figure">
-  <a href="images/rstudio_ide_1.png" data-lightbox="rstudio-ide" data-title="RStudio starts with three panels."><img src="images/rstudio_ide_1.png" class="figure-img img-thumbnail"></a>
-  <figcaption class="figure-caption">RStudio starts with three panels.</figcaption>
+  <a href="images/rstudio_ide_1.png" data-lightbox="rstudio-ide" data-title="RStudio starts with three panes."><img src="images/rstudio_ide_1.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">RStudio starts with three panes.</figcaption>
 </figure>
 
 For part 2, we will be using Console and Environment tabs.
@@ -37,7 +37,7 @@ For the rest of this tutorial, we will use the following notation to indicate co
 
 Note that in our examples, we do not show the prompt and we add two hash marks `##` to indicate lines of output.
 
-<span class="label label-info">Tip</span> If you ever try to type something in the console and nothing happens, it may be because some other panel has RStudio's attention. Click the Console panel and make sure the blinking cursor is showing.
+<span class="label label-info">Tip</span> If you ever try to type something in the console and nothing happens, it may be because some other pane has RStudio's attention. Click the Console pane and make sure the blinking cursor is showing.
 
 ### R as a Calculator
 
@@ -89,9 +89,9 @@ You can now use `x` anywhere in your code, and R will always know what you mean:
 x * 5
 ```
 
-You may also have noticed that when you ran the assignment command, the *Environment* panel changed. Instead of saying "Environment is empty", it now has a list of values, with one named "x".
+You may also have noticed that when you ran the assignment command, the *Environment* pane changed. Instead of saying "Environment is empty", it now has a list of values, with one named "x".
 
-[insert screenshot of environment panel]
+[insert screenshot of environment pane]
 
 Try it again and watch how the environment changes:
 

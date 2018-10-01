@@ -22,4 +22,4 @@ In Part 3 of this lab, you will be introduced to R scripts. You will use the Fin
 
 #### [Part 4. Bluestem Data Assignment](lab1_4_bluestem.html)
 
-In Part 4, you will apply what you have learned to the bluestem variation data you collected in a previous lab. You will create a new R script, read the bluestem data into R, plot histograms of plant height and rame length, estimate the means of those variables, plot them on barplots.
+In Part 4, you will apply what you have learned to the bluestem variation data you collected at the Regional Science Center. You will create a new R script, read the bluestem data into R, plot histograms of plant height and rame length, estimate the means of those variables, plot them on barplots.
