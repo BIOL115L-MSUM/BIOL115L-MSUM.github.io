@@ -42,41 +42,6 @@ Show ways to view the data:
 glimpse(finches)
 ```
 
-### Summarizing datasets
-
-Scientists often want a quick summary of a dataset. The `summary()` function provides just that, and is especially useful for seeing summary statistics of numerical variables. Running this function prints a summary to the console, with the minimum value, median value, mean, maximum value, and first and third quartiles given for each numerical variable:
-
-```{r}
-summary(finches)
-```
-
-If we want to do anything more than, then we need to use functions provided in the tidyverse to summarize the data. The following code will summarize a dataset by calculating the mean, standard deviation, standard error of the mean (SEM), and 95% confidence intervals of the `beak_length` variable.
-
-```{r}
-summary <- finches %>% 
-  summarize(mean = mean(beak_length),
-            sd = sd(beak_length),
-            n = n()) %>% 
-  mutate(sem = sd / sqrt(n),
-         upper = mean + 2 * sem,
-         lower = mean - 2 * sem)
-summary
-```
-
-If we wanted to get separate summaries for different subsets of the data, we can add the `group_by()` function like this:
-
-```{r}
-grouped_summary <- finches %>% 
-  group_by(outcome) %>% 
-  summarize(mean = mean(beak_length),
-            sd = sd(beak_length),
-            n = n()) %>% 
-  mutate(sem = sd / sqrt(n),
-         upper = mean + 2 * sem,
-         lower = mean - 2 * sem)
-grouped_summary
-```
-
 ### Plotting a histogram
 
 Plotting is most easily accomplished using the `ggplot()` function and its associated helper functions.
@@ -113,7 +78,7 @@ ggplot(finches, aes(beak_length)) +
     caption = "Data source: HHMI Lab Evolution in Action: Data Analysis")
 ```
 
-### Export your figure
+#### Export your figure
 
 To use your figure in a Microsoft Word document, PowerPoint presentation, or other software, you first need to save the image. The most reproducible way to do so is to use the `ggsave()` function.
 
@@ -121,12 +86,112 @@ By default, `ggsave()` will save the last plot displayed, so make sure the plot 
 
 
 ```{r}
-ggsave("Beak Length Histogram.png", width = 6.5, height = 6.5, units = "in")
+ggsave("Beak Length Histogram.png", 
+       width = 6.5, height = 6.5, units = "in")
 ```
 
-### Summarize and plot
+### Summarizing datasets
 
-### T-test
+Scientists often want a quick summary of a dataset. The `summary()` function provides just that, and is especially useful for seeing summary statistics of numerical variables. Running this function prints a summary to the console, with the minimum value, median value, mean, maximum value, and first and third quartiles given for each numerical variable:
+
+```{r}
+summary(finches)
+```
+
+If we want to do anything more than, then we need to use functions provided in the tidyverse to summarize the data. The following code will summarize a dataset by calculating the mean, standard deviation, standard error of the mean (SEM), and 95% confidence intervals of the `beak_length` variable.
+
+```{r}
+summary <- finches %>% 
+  summarize(mean = mean(beak_length),
+            sd = sd(beak_length),
+            n = n()) %>% 
+  mutate(sem = sd / sqrt(n),
+         upper = mean + 2 * sem,
+         lower = mean - 2 * sem)
+summary
+```
+
+If we wanted to get separate summaries for different subsets of the data, we can add the `group_by()` function like this:
+
+```{r}
+grouped_summary <- finches %>% 
+  group_by(outcome) %>% 
+  summarize(mean = mean(beak_length),
+            sd = sd(beak_length),
+            n = n()) %>% 
+  mutate(sem = sd / sqrt(n),
+         upper = mean + 2 * sem,
+         lower = mean - 2 * sem)
+grouped_summary
+```
+
+To plot these means and confidence intervals:
+
+```{r, fig.width=4, fig.height=4}
+ggplot(
+  data = grouped_summary, 
+  mapping = aes(x = outcome, y = mean, fill = outcome)
+) +
+  geom_col() +
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = .3) +
+  labs(
+    x = "Survival Outcome",
+    y = "Beak Length (mm)",
+    title = "Mean beak lengths vs. survival"
+  )
+```
+
+
+#### Export your figure
+
+```{r}
+ggsave("Beak Length Histogram.png", 
+       width = 3, height = 3, units = "in")
+```
+
+### t-test
+
+Plotting the means and confidence intervals of measurements in the two groups of birds is an important step in data analysis. To perform a more rigourous comparison, however, you may run a t-test to tell if the difference in means is likely due to chance (i.e. sampling error) or not.
+
+The t-test function in R is a bit picky... it requires you to give it two arguments: a vector of measurements for one group and another vector of measurements for the other group. To do this, you must perform three steps:
+
+1. Create a vector of beak lengths for birds that died.
+2. Create a vector of beak lengths for birds that survived.
+3. Compare the two vectors using a t-test.
+
+STEP 1: The following code will take a dataset, in this case `finches`, remove rows that do not meet a given criteria, and extract the column of interest as a vector, and store the result as a new object named `beak_length_died`.
+
+```{r}
+beak_length_died <-
+  finches %>% 
+  filter(outcome == "died") %>% 
+  pull(beak_length)
+beak_length_died  # print the new object in the console
+```
+
+STEP 2: Now copy that code and change "died" to "survived" in your object name, so `beak_length_survived`, and in the filter criteria, so `outcome == "survived"`.
+
+```{r}
+beak_length_survived <-
+  finches %>% 
+  filter(outcome == "survived") %>% 
+  pull(beak_length)
+beak_length_survived
+```
+
+STEP 3: Perform a t-test using the `t.test()` function:
+
+```{r}
+t.test(beak_length_died, beak_length_survived)
+```
+
+The two numbers to focus on here are the **p-value** and the **95% confidence interval**.
+
+The *p*-value tells you what proportion of the time you would expect to find a difference in population like these two if they were in fact the same. Scientists generally use a cutoff (or *alpha level*) of 0.05 to determine if a difference is "statistically significant". In this case, a *p*-value of 0.0004539 is much lower than 0.05, so we can reject our null hypothesis and accept our alternative hypothesis that the true difference in means is not equal to 0.
+
+As further evidence that the difference between the means is not equal to zero, you can see that the 95% confidence interval does not include zero.
+
+To report the findings of a t-test, you say [ALISON WHAT DID YOU TELL THEM?]
 
 [add link to a SEM explainer]
 
