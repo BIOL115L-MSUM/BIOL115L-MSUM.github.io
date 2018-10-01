@@ -2,6 +2,12 @@
 
 Main repository for BIOL 115L Organismal Biology Lab @ Minnesota State University Moorhead, featuring an introduction to data analysis.
 
+## Data
+
+Finch Data Source:
+- https://www.hhmi.org/biointeractive/evolution-action-data-analysis
+- This is saved in [data/Finches_Dataset.xls](data/Finches_Dataset.xls)
+
 ## Web design
 
 ### R Markdown Websites
