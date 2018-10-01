@@ -11,7 +11,7 @@
 
 
 
-<title>2. R as a calculator</title>
+<title>2. R as a Calculator</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -239,8 +239,26 @@ $(document).ready(function () {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="lab1.html">Data Lab 1</a>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Data Lab 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lab1_1_rstudio.html">Part 1: RStudio Project</a>
+    </li>
+    <li>
+      <a href="lab1_2_calc.html">Part 2: R as a Calculator</a>
+    </li>
+    <li>
+      <a href="lab1_3_finch.html">Part 3: Finch Example</a>
+    </li>
+    <li>
+      <a href="lab1_4_bluestem.html">Part 4: Bluestem Assignment</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="lab2.html">Data Lab 2</a>
@@ -263,7 +281,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">2. R as a calculator</h1>
+<h1 class="title toc-ignore">2. R as a Calculator</h1>
 
 </div>
 
@@ -271,15 +289,17 @@ $(document).ready(function () {
 <p>In Part 2 of this lab, you will learn how to use the Console Window to run commands as you perform basic arithmetic operations. You will learn the basics of using functions, and finally learn about creating objects using the assignment operator.</p>
 <div id="the-rstudio-ide" class="section level3">
 <h3>The RStudio IDE</h3>
-<p>When you first open RStudio, you will see a window with three panels, the <strong>Console</strong> panel on the left and the <strong>Environment</strong> and <strong>Files</strong> panels on the right, like this:</p>
-<div class="figure">
-<img src="images/rstudio_ide_1.png" alt="RStudio IDE" />
-<p class="caption">RStudio IDE</p>
+<p>When you first open RStudio, you will see a window with three panels, the left panel will be on a tab named <strong>Console</strong>, the upper right panel will be on a tab named <strong>Environment</strong>, and the bottom right panel will be on a tab named <strong>Files</strong>, like this:</p>
+<figure class="figure">
+<a href="images/rstudio_ide_1.png" data-lightbox="rstudio-ide" data-title="RStudio starts with three panels."><img src="images/rstudio_ide_1.png" class="figure-img img-thumbnail"></a>
+<figcaption class="figure-caption">
+RStudio starts with three panels.
+</figcaption>
+</figure>
+<p>For part 2, we will be using Console and Environment tabs.</p>
 </div>
-<p>For part 2, we will be using Console and Environment panels.</p>
-</div>
-<div id="the-console" class="section level3">
-<h3>The Console</h3>
+<div id="the-console-tab" class="section level3">
+<h3>The Console Tab</h3>
 <p>The Console is where you enter commands (code) for R to interpret.</p>
 <p>To give it a try, place your cursor in the Console window by clicking in it. You should see a greater than sign <code>&gt;</code> (called the “prompt”) with a blinking cursor next to it.</p>
 <p>Type the number <code>2</code> and press the enter key. Pressing enter is like asking R a question. R will evaluate the code you typed (yes, it’s really computer code!) and print the output, the answer to your question, on the screen like this:</p>
@@ -293,7 +313,7 @@ $(document).ready(function () {
 <p><span class="label label-info">Tip</span> If you ever try to type something in the console and nothing happens, it may be because some other panel has RStudio’s attention. Click the Console panel and make sure the blinking cursor is showing.</p>
 </div>
 <div id="r-as-a-calculator" class="section level3">
-<h3>R as a calculator</h3>
+<h3>R as a Calculator</h3>
 <p>You can think of R as a giant calculator. You type in a series of numbers and operators (<code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>, etc.), press enter, and it evaluates what you typed and prints the output in the console.</p>
 <p>Give it a try:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
@@ -406,15 +426,15 @@ $(document).ready(function () {
 </ol>
 </div>
 <p>Once you are satisfied with your answers, you can move on to Part 3.</p>
-<div id="part-3.-finches-dataset" class="section level4">
-<h4><a href="lab1_finch.html">Part 3. Finches dataset →</a></h4>
 </div>
+<div id="part-3.-finch-data-example" class="section level3">
+<h3><a href="lab1_3_finch.html">Part 3. Finch Data Example →</a></h3>
 </div>
 
 <div class="footer">
   <p>Copyright &copy; 2018 Chris Merkord. All rights reserved.</p>
 </div>
-<script src="path/to/lightbox.js"></script>
+<script src="lightbox.js"></script>
 
 
 

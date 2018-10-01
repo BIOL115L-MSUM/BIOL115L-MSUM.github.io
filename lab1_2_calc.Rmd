@@ -1,18 +1,21 @@
 ---
-title: "2. R as a calculator"
+title: "2. R as a Calculator"
 ---
 
 In Part 2 of this lab, you will learn how to use the Console Window to run commands as you perform basic arithmetic operations. You will learn the basics of using functions, and finally learn about creating objects using the assignment operator.
 
 ### The RStudio IDE
 
-When you first open RStudio, you will see a window with three panels, the **Console** panel on the left and the **Environment** and **Files** panels on the right, like this:
+When you first open RStudio, you will see a window with three panels, the left panel will be on a tab named **Console**, the upper right panel will be on a tab named **Environment**, and the bottom right panel will be on a tab named **Files**, like this:
 
-![RStudio IDE](images/rstudio_ide_1.png)
+<figure class="figure">
+  <a href="images/rstudio_ide_1.png" data-lightbox="rstudio-ide" data-title="RStudio starts with three panels."><img src="images/rstudio_ide_1.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">RStudio starts with three panels.</figcaption>
+</figure>
 
-For part 2, we will be using Console and Environment panels.
+For part 2, we will be using Console and Environment tabs.
 
-### The Console
+### The Console Tab
 
 The Console is where you enter commands (code) for R to interpret.
 
@@ -36,7 +39,7 @@ Note that in our examples, we do not show the prompt and we add two hash marks `
 
 <span class="label label-info">Tip</span> If you ever try to type something in the console and nothing happens, it may be because some other panel has RStudio's attention. Click the Console panel and make sure the blinking cursor is showing.
 
-### R as a calculator
+### R as a Calculator
 
 You can think of R as a giant calculator. You type in a series of numbers and operators (`+`, `-`, `/`, `*`, etc.), press enter, and it evaluates what you typed and prints the output in the console.
 
@@ -200,4 +203,4 @@ Once you are done, you can expand the section below to see the correct answers:
 
 Once you are satisfied with your answers, you can move on to Part 3.
 
-#### [Part 3. Finches dataset &rarr;](lab1_finch.html)
+### [Part 3. Finch Data Example &rarr;](lab1_3_finch.html)

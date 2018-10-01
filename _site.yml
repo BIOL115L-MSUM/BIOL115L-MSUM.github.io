@@ -5,6 +5,15 @@ navbar:
   left:
     - text: "Data Lab 1"
       href: lab1.html
+      menu:
+        - text: "Part 1: RStudio Project"
+          href: lab1_1_rstudio.html
+        - text: "Part 2: R as a Calculator"
+          href: lab1_2_calc.html
+        - text: "Part 3: Finch Example"
+          href: lab1_3_finch.html
+        - text: "Part 4: Bluestem Assignment"
+          href: lab1_4_bluestem.html
     - text: "Data Lab 2"
       href: lab2.html
     - text: "Bird Banding"

@@ -1,5 +1,5 @@
 ---
-title: "3. Finches dataset"
+title: "3. Finch Data Example"
 ---
 
 In Part 3 of this lab, you will be introduced to R scripts. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and barplots.
@@ -48,7 +48,7 @@ Plotting is most easily accomplished using the `ggplot()` function and its assoc
 
 For example, to plot a histogram of the `beak_length` variable, use the following code. In this example, you will set the x axis to `beak_length` and setting the number of bins to use for the histogram to `12`.
 
-```{r}
+```{r histogram}
 ggplot(finches, aes(x = beak_length)) +
   geom_histogram(bins = 12)
 ```
@@ -58,10 +58,10 @@ You can also experiment with different numbers of bins. The goal is to have enou
 
 Sometimes we want to plot separate histograms for differet subsets of the data. One easy way to do this is with the `facet_wrap()` function in ggplot. Note that you have to add a `+` operator after the `geom_histogram()` line.
 
-```{r}
+```{r grouped-histogram}
 ggplot(
   data = finches, 
-  mapping = aes(x = beak_length, color = outcome)
+  mapping = aes(x = beak_length, fill = outcome)
 ) +
   geom_histogram(bins = 14) +
   facet_wrap(~ outcome, ncol = 1)
@@ -69,7 +69,7 @@ ggplot(
 
 The last thing you might want to do is spruce up your plot with a title and better axis labels. This is done with the `labs()` function:
 
-```{r}
+```{r grouped-histogram-labels}
 ggplot(
   data = finches, 
   mapping = aes(x = beak_length, fill = outcome)
@@ -79,9 +79,8 @@ ggplot(
   labs(
     x = "Beak Length (mm)",
     y = "Number of Birds",
-    title = "Beak Length and Survival",
-    subtitle = "Among medium ground finch (Geospiza fortis) survival on Daphne Major",
-    caption = "Data source: HHMI Lab Evolution in Action: Data Analysis")
+    title = "Beak length vs. drought survival"
+  )
 ```
 
 #### Export your figure
@@ -91,9 +90,10 @@ To use your figure in a Microsoft Word document, PowerPoint presentation, or oth
 By default, `ggsave()` will save the last plot displayed, so make sure the plot you want to save is displayed in the **Plots** tab in the bottom right panel before running this code.
 
 
-```{r}
-ggsave("Beak Length Histogram.png", 
-       width = 6.5, height = 6.5, units = "in")
+```{r save-histogram, eval=FALSE}
+ggsave("Beak Length Histogram.png",     # name your file, use .png
+       width = 6.5, height = 6.5,       # height and width of output
+       units = "in")                    # what units are height and width? in=inches
 ```
 
 ### Summarizing datasets
@@ -133,7 +133,7 @@ grouped_summary
 
 To plot these means and confidence intervals:
 
-```{r, fig.width=4, fig.height=4}
+```{r column-chart, fig.width=4, fig.height=4}
 ggplot(
   data = grouped_summary, 
   mapping = aes(x = outcome, y = mean, fill = outcome)
@@ -205,4 +205,4 @@ To report the findings of a t-test, you say:
 
 When you're ready, you can move on to Part 4.
 
-#### [Part 4. Bluestem dataset  &rarr;](lab1_bluestem.html)
+### [Part 4. Bluestem Data Assignment  &rarr;](lab1_4_bluestem.html)

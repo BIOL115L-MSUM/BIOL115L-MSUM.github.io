@@ -8,18 +8,18 @@ You will be using two datasets for this exercise,
 
 There are four parts to this lab. 
 
-#### [Part 1. Create a project in RStudio](lab1_rstudio.html)
+#### [Part 1. Create an RStudio Project](lab1_1_rstudio.html)
 
 In Part 1 of this lab, you will learn what R and RStudio are, how the RStudio environment is organized, and how RStudio organizes your work into Projects. To finish, you will create your first RStudio Project, which you will continue to work in for the rest of the lab.
 
-#### [Part 2. R as a calculator](lab1_calc.html)
+#### [Part 2. R as a Calculator](lab1_2_calc.html)
 
 In Part 2 of this lab, you will learn how to use the Console Window to run commands as you perform basic arithmetic operations. You will learn the basics of using functions, and finally learn about creating objects using the assignment operator.
 
-#### [Part 3. Finches dataset](lab1_finch.html)
+#### [Part 3. Finch Data Example](lab1_3_finch.html)
 
 In Part 3 of this lab, you will be introduced to R scripts. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and barplots.
 
-#### [Part 4. Bluestem dataset](lab1_bluestem.html)
+#### [Part 4. Bluestem Data Assignment](lab1_4_bluestem.html)
 
 In Part 4, you will apply what you have learned to the bluestem variation data you collected in a previous lab. You will create a new R script, read the bluestem data into R, plot histograms of plant height and rame length, estimate the means of those variables, plot them on barplots.

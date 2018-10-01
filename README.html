@@ -165,8 +165,26 @@ $(document).ready(function () {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="lab1.html">Data Lab 1</a>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Data Lab 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lab1_1_rstudio.html">Part 1: RStudio Project</a>
+    </li>
+    <li>
+      <a href="lab1_2_calc.html">Part 2: R as a Calculator</a>
+    </li>
+    <li>
+      <a href="lab1_3_finch.html">Part 3: Finch Example</a>
+    </li>
+    <li>
+      <a href="lab1_4_bluestem.html">Part 4: Bluestem Assignment</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="lab2.html">Data Lab 2</a>
@@ -218,13 +236,20 @@ $(document).ready(function () {
 <li><a href="https://bootswatch.com/3/flatly/">Flatly documentation</a></li>
 </ul>
 </div>
+<div id="lightbox" class="section level3">
+<h3>Lightbox</h3>
+<p>I installed lightbox to make viewing screenshots easier. I mostly followed the instructions here: <a href="https://lokeshdhakar.com/projects/lightbox2/" class="uri">https://lokeshdhakar.com/projects/lightbox2/</a></p>
+Here’s an overview: - saved lightbox.css to root drive - saved lightbox.js to root drive - created a lightbox.html file which contains the code to link the css file (you can’t just do it in _site.yml as with styles.css because you can only have one css file in _site.yml) - added an include in the footer.html file, just before the end of the
+<body>
+<p>tag - used appropriate html in the Rmd documents, instead of Rmd’s shortcut code for inserting images</p>
+</div>
 </div>
 </div>
 
 <div class="footer">
   <p>Copyright &copy; 2018 Chris Merkord. All rights reserved.</p>
 </div>
-<script src="path/to/lightbox.js"></script>
+<script src="lightbox.js"></script>
 
 
 

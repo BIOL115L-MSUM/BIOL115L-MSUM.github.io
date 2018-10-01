@@ -11,7 +11,7 @@
 
 
 
-<title>3. Finches dataset</title>
+<title>3. Finch Data Example</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -239,8 +239,26 @@ $(document).ready(function () {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="lab1.html">Data Lab 1</a>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Data Lab 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lab1_1_rstudio.html">Part 1: RStudio Project</a>
+    </li>
+    <li>
+      <a href="lab1_2_calc.html">Part 2: R as a Calculator</a>
+    </li>
+    <li>
+      <a href="lab1_3_finch.html">Part 3: Finch Example</a>
+    </li>
+    <li>
+      <a href="lab1_4_bluestem.html">Part 4: Bluestem Assignment</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="lab2.html">Data Lab 2</a>
@@ -263,7 +281,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">3. Finches dataset</h1>
+<h1 class="title toc-ignore">3. Finch Data Example</h1>
 
 </div>
 
@@ -283,12 +301,12 @@ $(document).ready(function () {
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(readxl)                <span class="co"># load readxl, for reading Excel files</span></a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(tidyverse)             <span class="co"># load tidyverse, for working with datasets</span></a></code></pre></div>
 <pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.1</code></pre>
-<pre><code>## -- Attaching packages ----------------</code></pre>
+<pre><code>## -- Attaching packages ------------------------------------------------------- tidyverse 1.2.1 --</code></pre>
 <pre><code>## v ggplot2 2.2.1.9000     v purrr   0.2.5     
 ## v tibble  1.4.2          v dplyr   0.7.5     
 ## v tidyr   0.8.1          v stringr 1.3.1     
 ## v readr   1.1.1          v forcats 0.3.0</code></pre>
-<pre><code>## -- Conflicts -------------------------
+<pre><code>## -- Conflicts ---------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>You will see a warning and some messages when you run this code, but those can be safely ignored for now.</p>
@@ -334,16 +352,16 @@ $(document).ready(function () {
 <p>For example, to plot a histogram of the <code>beak_length</code> variable, use the following code. In this example, you will set the x axis to <code>beak_length</code> and setting the number of bins to use for the histogram to <code>12</code>.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(<span class="dt">x =</span> beak_length)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">12</span>)</a></code></pre></div>
-<p><img src="lab1_finch_files/figure-html/unnamed-chunk-4-1.png" width="672" /> You can plot histograms of other columns by changing the <code>x =</code> part of the code.</p>
+<p><img src="lab1_3_finch_files/figure-html/histogram-1.png" width="672" /> You can plot histograms of other columns by changing the <code>x =</code> part of the code.</p>
 <p>You can also experiment with different numbers of bins. The goal is to have enough that you can see a hump-shaped distribution, but not so many that you have too many bins with few or no observations. Try plotting a histogram with 50 bins, and another with 3 bins. Not very informational, are they?</p>
 <p>Sometimes we want to plot separate histograms for differet subsets of the data. One easy way to do this is with the <code>facet_wrap()</code> function in ggplot. Note that you have to add a <code>+</code> operator after the <code>geom_histogram()</code> line.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">ggplot</span>(</a>
 <a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="dt">data =</span> finches, </a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length, <span class="dt">color =</span> outcome)</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length, <span class="dt">fill =</span> outcome)</a>
 <a class="sourceLine" id="cb11-4" data-line-number="4">) <span class="op">+</span></a>
 <a class="sourceLine" id="cb11-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb11-6" data-line-number="6"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="lab1_finch_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="lab1_3_finch_files/figure-html/grouped-histogram-1.png" width="672" /></p>
 <p>The last thing you might want to do is spruce up your plot with a title and better axis labels. This is done with the <code>labs()</code> function:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">ggplot</span>(</a>
 <a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="dt">data =</span> finches, </a>
@@ -354,10 +372,9 @@ $(document).ready(function () {
 <a class="sourceLine" id="cb12-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(</a>
 <a class="sourceLine" id="cb12-8" data-line-number="8">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,</a>
 <a class="sourceLine" id="cb12-9" data-line-number="9">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span>,</a>
-<a class="sourceLine" id="cb12-10" data-line-number="10">    <span class="dt">title =</span> <span class="st">&quot;Beak Length and Survival&quot;</span>,</a>
-<a class="sourceLine" id="cb12-11" data-line-number="11">    <span class="dt">subtitle =</span> <span class="st">&quot;Among medium ground finch (Geospiza fortis) survival on Daphne Major&quot;</span>,</a>
-<a class="sourceLine" id="cb12-12" data-line-number="12">    <span class="dt">caption =</span> <span class="st">&quot;Data source: HHMI Lab Evolution in Action: Data Analysis&quot;</span>)</a></code></pre></div>
-<p><img src="lab1_finch_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<a class="sourceLine" id="cb12-10" data-line-number="10">    <span class="dt">title =</span> <span class="st">&quot;Beak length vs. drought survival&quot;</span></a>
+<a class="sourceLine" id="cb12-11" data-line-number="11">  )</a></code></pre></div>
+<p><img src="lab1_3_finch_files/figure-html/grouped-histogram-labels-1.png" width="672" /></p>
 <div id="export-your-figure" class="section level4">
 <h4>Export your figure</h4>
 <p>To use your figure in a Microsoft Word document, PowerPoint presentation, or other software, you first need to save the image. The most reproducible way to do so is to use the <code>ggsave()</code> function.</p>
@@ -431,7 +448,7 @@ $(document).ready(function () {
 <a class="sourceLine" id="cb20-9" data-line-number="9">    <span class="dt">y =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,</a>
 <a class="sourceLine" id="cb20-10" data-line-number="10">    <span class="dt">title =</span> <span class="st">&quot;Mean beak lengths vs. survival&quot;</span></a>
 <a class="sourceLine" id="cb20-11" data-line-number="11">  )</a></code></pre></div>
-<p><img src="lab1_finch_files/figure-html/unnamed-chunk-11-1.png" width="384" /></p>
+<p><img src="lab1_3_finch_files/figure-html/column-chart-1.png" width="384" /></p>
 <div id="export-your-figure-1" class="section level4">
 <h4>Export your figure</h4>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Histogram.png&quot;</span>, </a>
@@ -489,15 +506,15 @@ $(document).ready(function () {
 <pre><code>Mean beak depths were 10 mm in survivors and 8 mm in non-survivors (Figure 1). This difference was stastistically significant according to a Welch&#39;s two-sample t-test assuming unequal variances (t=, df=, p=).</code></pre>
 <p>[add link to a SEM explainer]</p>
 <p>When you’re ready, you can move on to Part 4.</p>
-<div id="part-4.-bluestem-dataset" class="section level4">
-<h4><a href="lab1_bluestem.html">Part 4. Bluestem dataset →</a></h4>
 </div>
+<div id="part-4.-bluestem-data-assignment" class="section level3">
+<h3><a href="lab1_4_bluestem.html">Part 4. Bluestem Data Assignment →</a></h3>
 </div>
 
 <div class="footer">
   <p>Copyright &copy; 2018 Chris Merkord. All rights reserved.</p>
 </div>
-<script src="path/to/lightbox.js"></script>
+<script src="lightbox.js"></script>
 
 
 

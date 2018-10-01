@@ -165,8 +165,26 @@ $(document).ready(function () {
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li>
-  <a href="lab1.html">Data Lab 1</a>
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Data Lab 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lab1_1_rstudio.html">Part 1: RStudio Project</a>
+    </li>
+    <li>
+      <a href="lab1_2_calc.html">Part 2: R as a Calculator</a>
+    </li>
+    <li>
+      <a href="lab1_3_finch.html">Part 3: Finch Example</a>
+    </li>
+    <li>
+      <a href="lab1_4_bluestem.html">Part 4: Bluestem Assignment</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="lab2.html">Data Lab 2</a>
@@ -197,27 +215,27 @@ $(document).ready(function () {
 <p>In this lab you will learn how to view, summarize, and plot tabular data, or data that is organized into rows and columns.</p>
 <p>You will be using two datasets for this exercise,</p>
 <p>There are four parts to this lab.</p>
-<div id="part-1.-create-a-project-in-rstudio" class="section level4">
-<h4><a href="lab1_rstudio.html">Part 1. Create a project in RStudio</a></h4>
+<div id="part-1.-create-an-rstudio-project" class="section level4">
+<h4><a href="lab1_1_rstudio.html">Part 1. Create an RStudio Project</a></h4>
 <p>In Part 1 of this lab, you will learn what R and RStudio are, how the RStudio environment is organized, and how RStudio organizes your work into Projects. To finish, you will create your first RStudio Project, which you will continue to work in for the rest of the lab.</p>
 </div>
 <div id="part-2.-r-as-a-calculator" class="section level4">
-<h4><a href="lab1_calc.html">Part 2. R as a calculator</a></h4>
+<h4><a href="lab1_2_calc.html">Part 2. R as a Calculator</a></h4>
 <p>In Part 2 of this lab, you will learn how to use the Console Window to run commands as you perform basic arithmetic operations. You will learn the basics of using functions, and finally learn about creating objects using the assignment operator.</p>
 </div>
-<div id="part-3.-finches-dataset" class="section level4">
-<h4><a href="lab1_finch.html">Part 3. Finches dataset</a></h4>
+<div id="part-3.-finch-data-example" class="section level4">
+<h4><a href="lab1_3_finch.html">Part 3. Finch Data Example</a></h4>
 <p>In Part 3 of this lab, you will be introduced to R scripts. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and barplots.</p>
 </div>
-<div id="part-4.-bluestem-dataset" class="section level4">
-<h4><a href="lab1_bluestem.html">Part 4. Bluestem dataset</a></h4>
+<div id="part-4.-bluestem-data-assignment" class="section level4">
+<h4><a href="lab1_4_bluestem.html">Part 4. Bluestem Data Assignment</a></h4>
 <p>In Part 4, you will apply what you have learned to the bluestem variation data you collected in a previous lab. You will create a new R script, read the bluestem data into R, plot histograms of plant height and rame length, estimate the means of those variables, plot them on barplots.</p>
 </div>
 
 <div class="footer">
   <p>Copyright &copy; 2018 Chris Merkord. All rights reserved.</p>
 </div>
-<script src="path/to/lightbox.js"></script>
+<script src="lightbox.js"></script>
 
 
 
