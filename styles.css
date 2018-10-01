@@ -14,6 +14,27 @@
     width: 50%;
 }
 
+.figure {
+  width: 300px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.figure-img {
+  margin-bottom: .5rem;
+  line-height: 1;
+}
+
+.img-thumbnail {
+}
+
+.figure-caption {
+  font-size: 90%;
+  color: #6c757d;
+}
+
 .footer {
   margin-top:3em;
   text-align:center;
