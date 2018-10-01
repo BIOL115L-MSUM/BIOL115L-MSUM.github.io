@@ -24,6 +24,11 @@ RStudio projects make it straightforward to divide your work into multiple conte
 
 To start RStudio on a Mac, open the Finder, go to Applications, and scroll down to find RStudio.
 
+<figure class="figure">
+  <img src="images/rstudio_start.png" class="figure-img img-fluid rounded" alt="Screenshot showing how to open RStudio in Mac OS.">
+  <figcaption class="figure-caption">Starting RStudio in Mac OS</figcaption>
+</figure>
+
 Create a new project using the **New Project...** command available under the File menu or the Project menu. The Project menu is on right side of the global toolbar and will either say **Project: (none)** if there is no project open (the default), of it will have the name of the currently open project.
 
 [insert image of window]
