@@ -4,7 +4,7 @@ title: "Bird Banding"
 
 <div class="alert alert-dismissible alert-info">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
-Organizers will post the Go/No-Go status here 90 minutes prior to the start time. Please check this page before leaving home.
+Banding may be cancelled due to rain or high winds. Organizers will post the Go/No-Go status here 90 minutes prior to the start time. Please check this page before leaving home.
 </div>
 
 ## About
@@ -15,7 +15,7 @@ The demonstrations are provided by Chris Merkord, Assistant Professor in Bioscie
 
 ## Next Event
 
-Banding may be cancelled in the case of inclement weather.
+Banding may be cancelled due to rain or high winds.
 
 A final determination will be made 90 minutes (one and a half hours) before the earliest banding session of the day, and will be posted here. For example, if banding begins at 7:30 AM, then any cancellation will be posted here by 6:00 AM.
 
@@ -26,7 +26,7 @@ A final determination will be made 90 minutes (one and a half hours) before the 
   <h3 class="panel-title">Current Status</h3>
 </div>
 <div class="panel-body">
-  The weather looks good.
+  The weather conditions are acceptable.<br />
   Banding is a <strong>GO</strong> for Saturday, October 6!
 </div>
 </div>
