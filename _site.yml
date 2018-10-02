@@ -4,8 +4,10 @@ navbar:
   title: "Organismal Biology"
   left:
     - text: "Data Lab 1"
-      href: lab1.html
       menu:
+        - text: "Data Lab 1"
+          href: lab1.html
+        - text: "---------"
         - text: "Part 1: RStudio Project"
           href: lab1_1_rstudio.html
         - text: "Part 2: R as a Calculator"

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Finch Analysis</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link rel="stylesheet" href="lightbox.css" type="text/css" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Organismal Biology</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Data Lab 1
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="lab1.html">Data Lab 1</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="lab1_1_rstudio.html">Part 1: RStudio Project</a>
+    </li>
+    <li>
+      <a href="lab1_2_calc.html">Part 2: R as a Calculator</a>
+    </li>
+    <li>
+      <a href="lab1_3_finch.html">Part 3: Finch Example</a>
+    </li>
+    <li>
+      <a href="lab1_4_bluestem.html">Part 4: Bluestem Assignment</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="lab2.html">Data Lab 2</a>
+</li>
+<li>
+  <a href="bird_banding.html">Bird Banding</a>
+</li>
+<li>
+  <a href="free.html">FREE</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Finch Analysis</h1>
+
+</div>
+
+
+<p>Here is all of the code you used to analyze the finch data.</p>
+<p>You can either copy the code below and paste it into a new R script, e.g. <code>plant_height.R</code>, or <a href="finch_analysis.R">download</a> it as an R script, copy, and paste from there.</p>
+<p>Once you’ve copied the code, you can work through changing file paths, object names, column names, and axis labels as needed to perform your bluestem data analysis.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># load packages -----------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">library</span>(readxl)                <span class="co"># load readxl, for reading Excel files</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw">library</span>(tidyverse)             <span class="co"># load tidyverse, for working with datasets</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># read data ---------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">finches &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;finches_data.xlsx&quot;</span>)  <span class="co"># read the data</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co"># two ways to look at the data</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">finches</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="kw">glimpse</span>(finches)</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14"></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co"># histograms --------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co"># histogram of beak length</span></a>
+<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb1-20" data-line-number="20">  <span class="dt">data =</span> finches,                  <span class="co"># use the finches dataset</span></a>
+<a class="sourceLine" id="cb1-21" data-line-number="21">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length)   <span class="co"># put beak length on the x axis</span></a>
+<a class="sourceLine" id="cb1-22" data-line-number="22">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">12</span>)        <span class="co"># use 12 bins (default is 30)</span></a>
+<a class="sourceLine" id="cb1-24" data-line-number="24"></a>
+<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="co"># grouped by survival</span></a>
+<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb1-27" data-line-number="27">  <span class="dt">data =</span> finches, </a>
+<a class="sourceLine" id="cb1-28" data-line-number="28">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length,   <span class="co"># put beak length on the x axis</span></a>
+<a class="sourceLine" id="cb1-29" data-line-number="29">                <span class="dt">fill =</span> outcome)    <span class="co"># fill sets the color of the boxes</span></a>
+<a class="sourceLine" id="cb1-30" data-line-number="30">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-31" data-line-number="31"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-32" data-line-number="32"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>)  <span class="co"># outcome is the grouping variable</span></a>
+<a class="sourceLine" id="cb1-33" data-line-number="33"></a>
+<a class="sourceLine" id="cb1-34" data-line-number="34"><span class="co"># with labels</span></a>
+<a class="sourceLine" id="cb1-35" data-line-number="35"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb1-36" data-line-number="36">  <span class="dt">data =</span> finches, </a>
+<a class="sourceLine" id="cb1-37" data-line-number="37">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length, <span class="dt">fill =</span> outcome)</a>
+<a class="sourceLine" id="cb1-38" data-line-number="38">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-39" data-line-number="39"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-40" data-line-number="40"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-41" data-line-number="41"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb1-42" data-line-number="42">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,</a>
+<a class="sourceLine" id="cb1-43" data-line-number="43">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span></a>
+<a class="sourceLine" id="cb1-44" data-line-number="44">  )</a>
+<a class="sourceLine" id="cb1-45" data-line-number="45"></a>
+<a class="sourceLine" id="cb1-46" data-line-number="46"><span class="co"># save the figure</span></a>
+<a class="sourceLine" id="cb1-47" data-line-number="47"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Histogram.png&quot;</span>,   <span class="co"># name your file, use .png</span></a>
+<a class="sourceLine" id="cb1-48" data-line-number="48">       <span class="dt">width =</span> <span class="fl">6.5</span>, <span class="dt">height =</span> <span class="fl">6.5</span>,     <span class="co"># height and width of output</span></a>
+<a class="sourceLine" id="cb1-49" data-line-number="49">       <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)                  <span class="co"># what units are height &amp; width? in=inches</span></a>
+<a class="sourceLine" id="cb1-50" data-line-number="50"></a>
+<a class="sourceLine" id="cb1-51" data-line-number="51"></a>
+<a class="sourceLine" id="cb1-52" data-line-number="52"><span class="co"># summarize ---------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-53" data-line-number="53"></a>
+<a class="sourceLine" id="cb1-54" data-line-number="54"><span class="co"># quick summary</span></a>
+<a class="sourceLine" id="cb1-55" data-line-number="55"><span class="kw">summary</span>(finches)</a>
+<a class="sourceLine" id="cb1-56" data-line-number="56"></a>
+<a class="sourceLine" id="cb1-57" data-line-number="57"><span class="co"># mean and standard deviation of beak length</span></a>
+<a class="sourceLine" id="cb1-58" data-line-number="58">summary &lt;-<span class="st"> </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-59" data-line-number="59"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(beak_length),</a>
+<a class="sourceLine" id="cb1-60" data-line-number="60">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
+<a class="sourceLine" id="cb1-61" data-line-number="61">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-62" data-line-number="62"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
+<a class="sourceLine" id="cb1-63" data-line-number="63">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem,</a>
+<a class="sourceLine" id="cb1-64" data-line-number="64">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem)</a>
+<a class="sourceLine" id="cb1-65" data-line-number="65">summary</a>
+<a class="sourceLine" id="cb1-66" data-line-number="66"></a>
+<a class="sourceLine" id="cb1-67" data-line-number="67"><span class="co"># means and sds for each group</span></a>
+<a class="sourceLine" id="cb1-68" data-line-number="68">grouped_summary &lt;-<span class="st"> </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-69" data-line-number="69"><span class="st">  </span><span class="kw">group_by</span>(outcome) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-70" data-line-number="70"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(beak_length),</a>
+<a class="sourceLine" id="cb1-71" data-line-number="71">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
+<a class="sourceLine" id="cb1-72" data-line-number="72">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-73" data-line-number="73"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
+<a class="sourceLine" id="cb1-74" data-line-number="74">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem,</a>
+<a class="sourceLine" id="cb1-75" data-line-number="75">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem)</a>
+<a class="sourceLine" id="cb1-76" data-line-number="76">grouped_summary</a>
+<a class="sourceLine" id="cb1-77" data-line-number="77"></a>
+<a class="sourceLine" id="cb1-78" data-line-number="78"></a>
+<a class="sourceLine" id="cb1-79" data-line-number="79"><span class="co"># bar charts --------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-80" data-line-number="80"></a>
+<a class="sourceLine" id="cb1-81" data-line-number="81"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb1-82" data-line-number="82">  <span class="dt">data =</span> grouped_summary, </a>
+<a class="sourceLine" id="cb1-83" data-line-number="83">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> outcome,          <span class="co"># put surival outcome on the x axis</span></a>
+<a class="sourceLine" id="cb1-84" data-line-number="84">                <span class="dt">y =</span> mean,             <span class="co"># put mean on the y axis</span></a>
+<a class="sourceLine" id="cb1-85" data-line-number="85">                <span class="dt">fill =</span> outcome)       <span class="co"># use different colors for outcome</span></a>
+<a class="sourceLine" id="cb1-86" data-line-number="86">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-87" data-line-number="87"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-88" data-line-number="88"><span class="st">  </span><span class="kw">geom_errorbar</span>(</a>
+<a class="sourceLine" id="cb1-89" data-line-number="89">    <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> lower,       <span class="co"># &quot;lower&quot; is the column name</span></a>
+<a class="sourceLine" id="cb1-90" data-line-number="90">                  <span class="dt">ymax =</span> upper),      <span class="co"># &quot;upper&quot; is the column name</span></a>
+<a class="sourceLine" id="cb1-91" data-line-number="91">    <span class="dt">width =</span> <span class="fl">.3</span>                        <span class="co"># controls the width of the</span></a>
+<a class="sourceLine" id="cb1-92" data-line-number="92">  ) <span class="op">+</span><span class="st">                                 </span><span class="co">#   horizontal part of error bars</span></a>
+<a class="sourceLine" id="cb1-93" data-line-number="93"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb1-94" data-line-number="94">    <span class="dt">x =</span> <span class="st">&quot;Survival Outcome&quot;</span>,           <span class="co"># x-axis label</span></a>
+<a class="sourceLine" id="cb1-95" data-line-number="95">    <span class="dt">y =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>            <span class="co"># y-axis label</span></a>
+<a class="sourceLine" id="cb1-96" data-line-number="96">  )</a>
+<a class="sourceLine" id="cb1-97" data-line-number="97"></a>
+<a class="sourceLine" id="cb1-98" data-line-number="98"><span class="co"># save the figure</span></a>
+<a class="sourceLine" id="cb1-99" data-line-number="99"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Bar Chart.png&quot;</span>, </a>
+<a class="sourceLine" id="cb1-100" data-line-number="100">       <span class="dt">width =</span> <span class="dv">3</span>, <span class="dt">height =</span> <span class="dv">3</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)</a>
+<a class="sourceLine" id="cb1-101" data-line-number="101"></a>
+<a class="sourceLine" id="cb1-102" data-line-number="102"></a>
+<a class="sourceLine" id="cb1-103" data-line-number="103"><span class="co"># t-test ------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-104" data-line-number="104"></a>
+<a class="sourceLine" id="cb1-105" data-line-number="105"><span class="co"># get a vector of beak lengths for birds that died</span></a>
+<a class="sourceLine" id="cb1-106" data-line-number="106">beak_length_died &lt;-</a>
+<a class="sourceLine" id="cb1-107" data-line-number="107"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st">                     </span><span class="co"># start with finches dataset</span></a>
+<a class="sourceLine" id="cb1-108" data-line-number="108"><span class="st">  </span><span class="kw">filter</span>(outcome <span class="op">==</span><span class="st"> &quot;died&quot;</span>) <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># only include rows w/ outcome=died</span></a>
+<a class="sourceLine" id="cb1-109" data-line-number="109"><span class="st">  </span><span class="kw">pull</span>(beak_length)               <span class="co"># extract the beak_length column</span></a>
+<a class="sourceLine" id="cb1-110" data-line-number="110"></a>
+<a class="sourceLine" id="cb1-111" data-line-number="111"><span class="co"># print the new object in the console... it is a vector</span></a>
+<a class="sourceLine" id="cb1-112" data-line-number="112">beak_length_died</a>
+<a class="sourceLine" id="cb1-113" data-line-number="113"></a>
+<a class="sourceLine" id="cb1-114" data-line-number="114"><span class="co"># get a vector of beak lengths for birds that survived</span></a>
+<a class="sourceLine" id="cb1-115" data-line-number="115">beak_length_survived &lt;-</a>
+<a class="sourceLine" id="cb1-116" data-line-number="116"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-117" data-line-number="117"><span class="st">  </span><span class="kw">filter</span>(outcome <span class="op">==</span><span class="st"> &quot;survived&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-118" data-line-number="118"><span class="st">  </span><span class="kw">pull</span>(beak_length)</a>
+<a class="sourceLine" id="cb1-119" data-line-number="119">beak_length_survived</a>
+<a class="sourceLine" id="cb1-120" data-line-number="120"></a>
+<a class="sourceLine" id="cb1-121" data-line-number="121"><span class="co"># perform a two-sample t-test assuming unequal variances</span></a>
+<a class="sourceLine" id="cb1-122" data-line-number="122"><span class="kw">t.test</span>(beak_length_died, beak_length_survived)</a></code></pre></div>
+
+<div class="footer">
+  <p>Copyright &copy; 2018 Chris Merkord. All rights reserved.</p>
+</div>
+<script src="lightbox.js"></script>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

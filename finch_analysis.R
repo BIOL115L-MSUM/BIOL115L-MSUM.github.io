@@ -26,10 +26,11 @@ ggplot(
 # grouped by survival
 ggplot(
   data = finches, 
-  mapping = aes(x = beak_length, fill = outcome)
+  mapping = aes(x = beak_length,   # put beak length on the x axis
+                fill = outcome)    # fill sets the color of the boxes
 ) +
   geom_histogram(bins = 14) +
-  facet_wrap(~ outcome, ncol = 1)
+  facet_wrap(~ outcome, ncol = 1)  # outcome is the grouping variable
 
 # with labels
 ggplot(

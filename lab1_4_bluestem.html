@@ -173,6 +173,10 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
+      <a href="lab1.html">Data Lab 1</a>
+    </li>
+    <li class="divider"></li>
+    <li>
       <a href="lab1_1_rstudio.html">Part 1: RStudio Project</a>
     </li>
     <li>
@@ -215,20 +219,25 @@ $(document).ready(function () {
 <p>In Part 4, you will apply what you have learned to the bluestem variation data you collected at the Regional Science Center. You will create a new R script, read the bluestem data into R, plot histograms of plant height and rame length, estimate the means of those variables, plot them on bar charts.</p>
 <div id="your-assignment" class="section level3">
 <h3>Your assignment</h3>
-<p>Compare the distribution of plant heights and rame lengths between burned and unburned sites.</p>
+<p>Your assignment is to generate figures and statistical analyses that answer the following question:</p>
+<pre><code>Do plant height or rame length of Big Bluestem (Andropogon) plants vary between burned and unburned sites.</code></pre>
+<p>Briefly, you will:</p>
 <ol style="list-style-type: decimal">
-<li>Create two histograms to compare burned and unburned areas: one for plant height and one for rame length.</li>
-<li>Summarize those two variables and create bar charts showing the means and 95% confidence intervals.</li>
-<li>Perform t-tests on plant height and rame length.</li>
-<li>Create a new Microsoft Word document.</li>
-<li>Paste in the four figures and write a legend below each one.</li>
-<li>Write a paragraph explaining the difference between burned and unburned areas by referencing the figures and the results of the t-tests.</li>
-<li>Upload the Word document to your <strong>Lab</strong> (not lecture) course on D2L</li>
+<li>Use the <a href="bluestem_data.xlsx">data on big bluestem intraspecific variation</a> your class collected at the Regional Science Center.</li>
+<li>Explore how <strong>plant height</strong> varied between the <strong>burned</strong> and <strong>unburned</strong> locations:
+<ul>
+<li>Create a grouped histogram and bar chart</li>
+<li>Write a figure legend for each figure</li>
+<li>Conduct a t-test to test for a statistical difference between the mean plant heights at each location</li>
+<li>Write a short paragraph summarizing your results.</li>
+</ul></li>
+<li>Repeat these steps for <strong>rame lengths</strong>.</li>
+<li>Copy the figures and text into a Microsoft Word document and upload it to an assignment folder on your LAB (not lecture) D2L site. (see this <a href="finch_results.docx">example Word document</a>)</li>
 </ol>
 <p>Your grade for this assignment will be based on the Word document you upload to D2L.</p>
 </div>
 <div id="bluestem-data" class="section level3">
-<h3>Bluestem Data</h3>
+<h3>Bluestem data</h3>
 <p>Your assignment involves plotting and analyzing the data on instraspecific variation in big bluestem (Andropogon) plants that you collected during a field trip to the Regional Science Center. All the data were entered onto a single Excel spreadsheet.</p>
 <p>Each row in the dataset represents an individual plant.</p>
 <p>The variables in the dataset are:</p>
@@ -242,16 +251,12 @@ $(document).ready(function () {
 <p><a href="bluestem_data.xlsx" class="btn btn-default">Bluestem Data (.xlsx)</a></p>
 <p>Open it in Excel if you want to take a look at it.</p>
 </div>
-<div id="template-r-script" class="section level3">
-<h3>Template R Script</h3>
-<p>To help you out, we have compiled all the code used in the Part 3 into an R script. You can either use this script as a starting point for your assignment, or copy the code you wrote for part 3.</p>
-<p><a href="finch_analysis.R" class="btn btn-default" download>R Analysis (.R)</a></p>
-<p>Either way, you should start with that code and edit it so it will work with the bluestem dataset. Copying and modifying existing code is often safer than writing it all from scratch because there are fewer opportunities for typos.</p>
-</div>
-<div id="example-word-document" class="section level3">
-<h3>Example Word document</h3>
-<p>To give you a better idea what you need to turn in, here is an example Word document containing the results of the finch data analysis in Part 3.</p>
-<p><a href="finch_results.docx" class="btn btn-default">Finch Results (.docx)</a></p>
+<div id="tips" class="section level3">
+<h3>Tips</h3>
+<p>First download the <a href="bluestem_data.xlsx">data</a>. Move it from your Downloads directory to your project directory if you didn’t save it there to begin with.</p>
+<p>It’s always easier to modify existing code than create new code from scratch. Create a new R script, save it as <code>plant_height.R</code>, and paste the <a href="finch_analysis.html">code for the finch analysis</a>.</p>
+<p>Once you’ve copied the code, you can work through changing file paths, object names, column names, and axis labels as needed to perform your bluestem data analysis.</p>
+<p>After you’re done with the <strong>plant height</strong> analysis, you can copy the <code>plant_height.R</code> R script and save it as <code>rame_length.R</code>. Then all you have to change in that script is replace <code>plant_heght</code> with <code>rame_length</code> anywhere it appears in the code!</p>
 <div id="figure-legends" class="section level4">
 <h4>Figure legends</h4>
 <p>For tips on how to write a good figure legend, see <a href="https://www.aje.com/en/arc/writing-effective-figure-legend/">Writing an Effective Figure Legend</a>. In general, a figure legend should provide the following parts:</p>
