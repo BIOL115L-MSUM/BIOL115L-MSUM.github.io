@@ -137,7 +137,7 @@ ggplot(
   facet_wrap(~ outcome, ncol = 1)
 ```
 
-The last thing you might want to do is spruce up your plot with better axis labels. This is done with the `labs()` function:
+The last thing you might want to do is spruce up your plot by adding better axis labels and removing the redundant color legend. This is done with the `labs()` function and the :
 
 ```{r grouped-histogram-labels}
 ggplot(
@@ -146,9 +146,10 @@ ggplot(
 ) +
   geom_histogram(bins = 14) +
   facet_wrap(~ outcome, ncol = 1) +
-  labs(
-    x = "Beak Length (mm)",
-    y = "Number of Birds"
+  guides(fill = FALSE) +            # remove color legend
+  labs(                             # add labels
+    x = "Beak Length (mm)",         #   x axis (horizontal)
+    y = "Number of Birds"           #   y axis (vertical)
   )
 ```
 
@@ -161,7 +162,7 @@ By default, `ggsave()` will save the last plot displayed, so make sure the plot 
 
 ```{r save-histogram, eval=FALSE}
 ggsave("Beak Length Histogram.png",   # name your file, use .png
-       width = 6.5, height = 6.5,     # height and width of output
+       width = 3.5, height = 3.5,     # height and width of output
        units = "in")                  # what units are height & width? in=inches
 ```
 
@@ -173,7 +174,7 @@ Scientists often want a quick summary of a dataset. The `summary()` function pro
 summary(finches)
 ```
 
-If we want to do anything more than, then we need to use functions provided in the tidyverse to summarize the data. The following code will summarize a dataset by calculating the mean, standard deviation, standard error of the mean (SEM), and 95% confidence intervals of the `beak_length` variable.
+If we want to do anything more than, then we need to use functions provided in the tidyverse to summarize the data. The following code will summarize a dataset by calculating the mean, standard deviation and standard error of the mean (SEM) of the `beak_length` variable.
 
 ```{r}
 summary <- finches %>% 
@@ -181,8 +182,8 @@ summary <- finches %>%
             sd = sd(beak_length),
             n = n()) %>% 
   mutate(sem = sd / sqrt(n),
-         upper = mean + 2 * sem,
-         lower = mean - 2 * sem)
+         upper = mean + sem,
+         lower = mean - sem)
 summary
 ```
 
@@ -195,8 +196,8 @@ grouped_summary <- finches %>%
             sd = sd(beak_length),
             n = n()) %>% 
   mutate(sem = sd / sqrt(n),
-         upper = mean + 2 * sem,
-         lower = mean - 2 * sem)
+         upper = mean + sem,
+         lower = mean - sem)
 grouped_summary
 ```
 
@@ -209,6 +210,7 @@ ggplot(
 ) +
   geom_col() +
   geom_errorbar(aes(ymin = lower, ymax = upper), width = .3) +
+  guides(fill = FALSE) +
   labs(
     x = "Survival Outcome",
     y = "Beak Length (mm)"
@@ -219,7 +221,7 @@ ggplot(
 
 ```{r save-barchart, eval=FALSE}
 ggsave("Beak Length Bar Chart.png", 
-       width = 3, height = 3, units = "in")
+       width = 2.5, height = 3.5, units = "in")
 ```
 
 ### t-test
