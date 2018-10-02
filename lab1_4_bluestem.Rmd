@@ -8,23 +8,49 @@ In Part 4, you will apply what you have learned to the bluestem variation data y
 
 Compare the distribution of plant heights and rame lengths between burned and unburned sites.
 
-1. Create a grouped histogram for plant heights
-1. Create a grouped histogram for rame lengths
-1. Create a column chart for mean plant heights
-1. Create a column chart for mean rame lengths
-1. Save these figures as .png files
-1. Perform a t-test for mean plant heights
-1. Perform a t-test for mean rame lengths
-1. Create a new Microsoft Word document and paste in the four figures
-1. Write a legend below each figure
-1. Write a paragraph explaining the difference between burned and unburned areas by referencing the figures and the results of the t-tests
-1. Upload the Word document to your **Lab** (not lecture) course on D2L
+1. Create two histograms to compare burned and unburned areas: one for plant height and one for rame length.
+2. Summarize those two variables and create bar charts showing the means and 95% confidence intervals.
+3. Perform t-tests on plant height and rame length.
+4. Create a new Microsoft Word document.
+5. Paste in the four figures and write a legend below each one.
+6. Write a paragraph explaining the difference between burned and unburned areas by referencing the figures and the results of the t-tests.
+7. Upload the Word document to your **Lab** (not lecture) course on D2L
 
 Your grade for this assignment will be based on the Word document you upload to D2L.
 
-### Example using Finches Dataset
+### Bluestem Data
 
-Template R script
-    [download]
-Example Word document
-    [download]
+Your assignment involves plotting and analyzing the data on instraspecific variation in big bluestem (Andropogon) plants that you collected during a field trip to the Regional Science Center. All the data were entered onto a single Excel spreadsheet.
+
+Each row in the dataset represents an individual plant.
+
+The variables in the dataset are:
+
+- **location** ("burned" vs. "unburned")
+- **height** (plant height measured in cm)
+- **rame_length** (rame length measured in mm)
+- **section** (name of the section the data collector was in)
+
+Download the bluestem dataset:
+
+<a href="bluestem_data.xlsx" class="btn btn-default">Bluestem Data (.xlsx)</a>
+
+Open it in Excel if you want to take a look at it.
+
+### Template R Script
+
+To help you out, we have compiled all the code used in the Part 3 into an R script. You can either use this script as a starting point for your assignment, or copy the code you wrote for part 3. 
+
+<a href="finch_analysis.R" class="btn btn-default">R Analysis (.R)</a>
+
+Either way, you should start with that code and edit it so it will work with the bluestem dataset. Copying and modifying existing code is often safer than writing it all from scratch because there are fewer opportunities for typos.
+
+### Example Word Document
+
+To give you a better idea what you need to turn in, here is an example Word document containing the results of the finch data analysis in Part 3.
+
+<a href="finch_results.docx" class="btn btn-default">Finch Results (.docx)</a>
+
+#### Figure legends
+
+[give examples]
