@@ -2,7 +2,7 @@
 title: "3. Finch Data Example"
 ---
 
-In Part 3 of this lab, you will be introduced to scripts, graphing, and analysis in R. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and barplots.
+In Part 3 of this lab, you will be introduced to scripts, graphing, and analysis in R. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and bar charts (also called column charts).
 
 ### Introduction
 
@@ -60,7 +60,7 @@ Before you can use a package, you to download and install it. Click the **Packag
 
 You only have to install a package once on each computer you are using. If you open RStudio again later, every package you've ever installed wil still be there.
 
-### Reading data into R
+### Read the data into R
 
 Now that you have a script and have downloaded your packages, you're ready to get coding!
 
@@ -105,23 +105,28 @@ A quick way of seeing the first few observations for all variables is to use the
 glimpse(finches)
 ```
 
-### Plotting a histogram
+### Plot a histogram
 
+The first step in any data analysis is always to plot the data.
 
+Because we want to compare means between two groups, a useful plot is a **histogram**, which shows how often each value (or range of values) was observed.
 
-Plotting is most easily accomplished using the `ggplot()` function and its associated helper functions.
+Plotting in the tidyverse is most easily accomplished using the `ggplot()` function and its associated helper functions.
 
-For example, to plot a histogram of the `beak_length` variable, use the following code. In this example, you will set the x axis to `beak_length` and setting the number of bins to use for the histogram to `12`.
+For example, to plot a histogram of the `beak_length` variable, use the following code. Note the use of a `+` after the `ggplot()` function. Copy this code to your script and run it. RStudio is smart enough to recognize that it should all be run together, so putting your cursor on any of these lines and typing Cmd+Enter will run all the lines at once.
 
 ```{r histogram}
-ggplot(finches, aes(x = beak_length)) +
-  geom_histogram(bins = 12)
+ggplot(
+  data = finches,                  # use the finches dataset
+  mapping = aes(x = beak_length)   # put beak length on the x axis
+) +
+  geom_histogram(bins = 12)        # use 12 bins (default is 30)
 ```
-You can plot histograms of other columns by changing the `x = ` part of the code. 
+You can plot histograms of other variables by changing the `x = ` part of the code. 
 
 You can also experiment with different numbers of bins. The goal is to have enough that you can see a hump-shaped distribution, but not so many that you have too many bins with few or no observations. Try plotting a histogram with 50 bins, and another with 3 bins. Not very informational, are they?
 
-Sometimes we want to plot separate histograms for differet subsets of the data. One easy way to do this is with the `facet_wrap()` function in ggplot. Note that you have to add a `+` operator after the `geom_histogram()` line.
+Sometimes we want to see how the distribution of a variable varies aong different subsets of the data. For example, to answer our question we want to see how beak length varies between birds that did or did not survive the drought. One easy way to do this is with the `facet_wrap()` function in ggplot. Note that you have to add a `+` operator after the `geom_histogram()` line.
 
 ```{r grouped-histogram}
 ggplot(
@@ -196,7 +201,7 @@ grouped_summary <- finches %>%
 grouped_summary
 ```
 
-To plot these means and confidence intervals:
+To plot these means and confidence intervals, you can use a bar chart with the `geom_col()` and `geom_errorbar()` functions in ggplot:
 
 ```{r column-chart, fig.width=4, fig.height=4}
 ggplot(
@@ -212,11 +217,10 @@ ggplot(
   )
 ```
 
-
 #### Export your figure
 
-```{r}
-ggsave("Beak Length Histogram.png", 
+```{r save-barchart, eval=FALSE}
+ggsave("Beak Length Bar Chart.png", 
        width = 3, height = 3, units = "in")
 ```
 

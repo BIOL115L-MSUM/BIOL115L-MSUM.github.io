@@ -286,7 +286,7 @@ $(document).ready(function () {
 </div>
 
 
-<p>In Part 3 of this lab, you will be introduced to scripts, graphing, and analysis in R. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and barplots.</p>
+<p>In Part 3 of this lab, you will be introduced to scripts, graphing, and analysis in R. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and bar charts (also called column charts).</p>
 <div id="introduction" class="section level3">
 <h3>Introduction</h3>
 <p>In the finch dataset, each row represents an individual bird that was banded before the 1977 drought on Daphne Major island in the Galapagos archipelago. The variable named <code>outcome</code> contains one of two values: “survived” or “died”, depending on whether the bird was ever seen after the drought or not.</p>
@@ -328,8 +328,8 @@ Did beak length vary between birds that survived the drough and those that did n
 <p>Before you can use a package, you to download and install it. Click the <strong>Package</strong> tab in the botom right pane and click <strong>Install</strong>. Type the name of the package, <code>tidyverse</code>, and click <strong>Install</strong>. This will install the <code>tidyverse</code> package and all those others mentione above.</p>
 <p>You only have to install a package once on each computer you are using. If you open RStudio again later, every package you’ve ever installed wil still be there.</p>
 </div>
-<div id="reading-data-into-r" class="section level3">
-<h3>Reading data into R</h3>
+<div id="read-the-data-into-r" class="section level3">
+<h3>Read the data into R</h3>
 <p>Now that you have a script and have downloaded your packages, you’re ready to get coding!</p>
 <p>The first lines in any script are usually for loading the packages into memory. Copy these two lines (including the comments if you want) and paste them into your script.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(readxl)                <span class="co"># load readxl, for reading Excel files</span></a>
@@ -387,15 +387,20 @@ Did beak length vary between birds that survived the drough and those that did n
 ## $ beak_depth       &lt;dbl&gt; 8.3, 7.5, 8.0, 10.6, 11.2, 9.1, 9.5, 10.5, 8....
 ## $ beak_width       &lt;dbl&gt; 8.1, 7.5, 7.6, 9.4, 9.5, 8.8, 8.9, 9.1, 8.2, ...</code></pre>
 </div>
-<div id="plotting-a-histogram" class="section level3">
-<h3>Plotting a histogram</h3>
-<p>Plotting is most easily accomplished using the <code>ggplot()</code> function and its associated helper functions.</p>
-<p>For example, to plot a histogram of the <code>beak_length</code> variable, use the following code. In this example, you will set the x axis to <code>beak_length</code> and setting the number of bins to use for the histogram to <code>12</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">ggplot</span>(finches, <span class="kw">aes</span>(<span class="dt">x =</span> beak_length)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">12</span>)</a></code></pre></div>
-<p><img src="lab1_3_finch_files/figure-html/histogram-1.png" width="672" /> You can plot histograms of other columns by changing the <code>x =</code> part of the code.</p>
+<div id="plot-a-histogram" class="section level3">
+<h3>Plot a histogram</h3>
+<p>The first step in any data analysis is always to plot the data.</p>
+<p>Because we want to compare means between two groups, a useful plot is a <strong>histogram</strong>, which shows how often each value (or range of values) was observed.</p>
+<p>Plotting in the tidyverse is most easily accomplished using the <code>ggplot()</code> function and its associated helper functions.</p>
+<p>For example, to plot a histogram of the <code>beak_length</code> variable, use the following code. Note the use of a <code>+</code> after the <code>ggplot()</code> function. Copy this code to your script and run it. RStudio is smart enough to recognize that it should all be run together, so putting your cursor on any of these lines and typing Cmd+Enter will run all the lines at once.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="dt">data =</span> finches,                  <span class="co"># use the finches dataset</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length)   <span class="co"># put beak length on the x axis</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">12</span>)        <span class="co"># use 12 bins (default is 30)</span></a></code></pre></div>
+<p><img src="lab1_3_finch_files/figure-html/histogram-1.png" width="672" /> You can plot histograms of other variables by changing the <code>x =</code> part of the code.</p>
 <p>You can also experiment with different numbers of bins. The goal is to have enough that you can see a hump-shaped distribution, but not so many that you have too many bins with few or no observations. Try plotting a histogram with 50 bins, and another with 3 bins. Not very informational, are they?</p>
-<p>Sometimes we want to plot separate histograms for differet subsets of the data. One easy way to do this is with the <code>facet_wrap()</code> function in ggplot. Note that you have to add a <code>+</code> operator after the <code>geom_histogram()</code> line.</p>
+<p>Sometimes we want to see how the distribution of a variable varies aong different subsets of the data. For example, to answer our question we want to see how beak length varies between birds that did or did not survive the drought. One easy way to do this is with the <code>facet_wrap()</code> function in ggplot. Note that you have to add a <code>+</code> operator after the <code>geom_histogram()</code> line.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">ggplot</span>(</a>
 <a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="dt">data =</span> finches, </a>
 <a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length, <span class="dt">fill =</span> outcome)</a>
@@ -478,7 +483,7 @@ Did beak length vary between birds that survived the drough and those that did n
 ##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 died      10.5 0.698    50 0.0987  10.7  10.3
 ## 2 survived  11.1 0.840    50 0.119   11.3  10.8</code></pre>
-<p>To plot these means and confidence intervals:</p>
+<p>To plot these means and confidence intervals, you can use a bar chart with the <code>geom_col()</code> and <code>geom_errorbar()</code> functions in ggplot:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">ggplot</span>(</a>
 <a class="sourceLine" id="cb22-2" data-line-number="2">  <span class="dt">data =</span> grouped_summary, </a>
 <a class="sourceLine" id="cb22-3" data-line-number="3">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> outcome, <span class="dt">y =</span> mean, <span class="dt">fill =</span> outcome)</a>
@@ -493,7 +498,7 @@ Did beak length vary between birds that survived the drough and those that did n
 <p><img src="lab1_3_finch_files/figure-html/column-chart-1.png" width="384" /></p>
 <div id="export-your-figure-1" class="section level4">
 <h4>Export your figure</h4>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Histogram.png&quot;</span>, </a>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Bar Chart.png&quot;</span>, </a>
 <a class="sourceLine" id="cb23-2" data-line-number="2">       <span class="dt">width =</span> <span class="dv">3</span>, <span class="dt">height =</span> <span class="dv">3</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)</a></code></pre></div>
 </div>
 </div>
