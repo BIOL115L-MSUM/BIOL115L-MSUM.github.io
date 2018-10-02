@@ -425,9 +425,9 @@ Did beak length vary between birds that survived the drough and those that did n
 <h4>Export your figure</h4>
 <p>To use your figure in a Microsoft Word document, PowerPoint presentation, or other software, you first need to save the image. The most reproducible way to do so is to use the <code>ggsave()</code> function.</p>
 <p>By default, <code>ggsave()</code> will save the last plot displayed, so make sure the plot you want to save is displayed in the <strong>Plots</strong> tab in the bottom right pane before running this code.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Histogram.png&quot;</span>,     <span class="co"># name your file, use .png</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">       <span class="dt">width =</span> <span class="fl">6.5</span>, <span class="dt">height =</span> <span class="fl">6.5</span>,       <span class="co"># height and width of output</span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">       <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)                    <span class="co"># what units are height and width? in=inches</span></a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Histogram.png&quot;</span>,   <span class="co"># name your file, use .png</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">       <span class="dt">width =</span> <span class="fl">6.5</span>, <span class="dt">height =</span> <span class="fl">6.5</span>,     <span class="co"># height and width of output</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">       <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)                  <span class="co"># what units are height &amp; width? in=inches</span></a></code></pre></div>
 </div>
 </div>
 <div id="summarizing-datasets" class="section level3">
@@ -495,7 +495,7 @@ Did beak length vary between birds that survived the drough and those that did n
 <a class="sourceLine" id="cb22-9" data-line-number="9">    <span class="dt">y =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,</a>
 <a class="sourceLine" id="cb22-10" data-line-number="10">    <span class="dt">title =</span> <span class="st">&quot;Mean beak lengths vs. survival&quot;</span></a>
 <a class="sourceLine" id="cb22-11" data-line-number="11">  )</a></code></pre></div>
-<p><img src="lab1_3_finch_files/figure-html/column-chart-1.png" width="384" /></p>
+<p><img src="lab1_3_finch_files/figure-html/bar-chart-1.png" width="384" /></p>
 <div id="export-your-figure-1" class="section level4">
 <h4>Export your figure</h4>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Bar Chart.png&quot;</span>, </a>

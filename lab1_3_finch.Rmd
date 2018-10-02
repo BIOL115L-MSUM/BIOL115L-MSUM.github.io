@@ -161,9 +161,9 @@ By default, `ggsave()` will save the last plot displayed, so make sure the plot 
 
 
 ```{r save-histogram, eval=FALSE}
-ggsave("Beak Length Histogram.png",     # name your file, use .png
-       width = 6.5, height = 6.5,       # height and width of output
-       units = "in")                    # what units are height and width? in=inches
+ggsave("Beak Length Histogram.png",   # name your file, use .png
+       width = 6.5, height = 6.5,     # height and width of output
+       units = "in")                  # what units are height & width? in=inches
 ```
 
 ### Summarizing datasets
@@ -203,7 +203,7 @@ grouped_summary
 
 To plot these means and confidence intervals, you can use a bar chart with the `geom_col()` and `geom_errorbar()` functions in ggplot:
 
-```{r column-chart, fig.width=4, fig.height=4}
+```{r bar-chart, fig.width=4, fig.height=4}
 ggplot(
   data = grouped_summary, 
   mapping = aes(x = outcome, y = mean, fill = outcome)
