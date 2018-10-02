@@ -266,11 +266,9 @@ The *p*-value tells you what proportion of the time you would expect to find a d
 
 As further evidence that the difference between the means is not equal to zero, you can see that the 95% confidence interval does not include zero.
 
-To report the findings of a t-test, you say:
+To report the findings of a t-test, for example in the Results section of a report or scientific article, you would say:
 
-    Mean beak depths were 10 mm in survivors and 8 mm in non-survivors (Figure 1). This difference was stastistically significant according to a Welch's two-sample t-test assuming unequal variances (t=, df=, p=).
-
-[add link to a SEM explainer]
+<blockquote class="text-info">Mean beak depths were 11.1 mm in survivors and 10.5 mm in non-survivors (Figure 1). This difference was stastistically significant according to a Welch's two-sample t-test assuming unequal variances (t=3.6335, df=94.807, p=0.0004539).</blockquote>
 
 When you're ready, you can move on to Part 4.
 

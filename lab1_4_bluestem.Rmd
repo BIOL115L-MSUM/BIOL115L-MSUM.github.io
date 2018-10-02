@@ -2,7 +2,7 @@
 title: "4. Bluestem Data Assignment"
 ---
 
-In Part 4, you will apply what you have learned to the bluestem variation data you collected at the Regional Science Center. You will create a new R script, read the bluestem data into R, plot histograms of plant height and rame length, estimate the means of those variables, plot them on barplots.
+In Part 4, you will apply what you have learned to the bluestem variation data you collected at the Regional Science Center. You will create a new R script, read the bluestem data into R, plot histograms of plant height and rame length, estimate the means of those variables, plot them on bar charts.
 
 ### Your assignment
 
@@ -14,11 +14,11 @@ Compare the distribution of plant heights and rame lengths between burned and un
 1. Create a column chart for mean rame lengths
 1. Save these figures as .png files
 1. Perform a t-test for mean plant heights
-1. Perform a t-test for mean rame lengths.
-1. Create a new Microsoft Word document and paste in the four figures.
-1. Write a legend for each figure
-1. Write a paragraph explaining the difference between burned and unburned areas by referencing the figures and the results of the t-tests.
-1. Upload the Word document to D2L.
+1. Perform a t-test for mean rame lengths
+1. Create a new Microsoft Word document and paste in the four figures
+1. Write a legend below each figure
+1. Write a paragraph explaining the difference between burned and unburned areas by referencing the figures and the results of the t-tests
+1. Upload the Word document to your **Lab** (not lecture) course on D2L
 
 Your grade for this assignment will be based on the Word document you upload to D2L.
 
