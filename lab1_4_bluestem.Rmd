@@ -50,6 +50,7 @@ Either way, you should start with that code and edit it so it will work with the
 To give you a better idea what you need to turn in, here is an example Word document containing the results of the finch data analysis in Part 3.
 
 <a href="finch_results.docx" class="btn btn-default">Finch Results (.docx)</a>
+[need to add this]
 
 #### Figure legends
 
