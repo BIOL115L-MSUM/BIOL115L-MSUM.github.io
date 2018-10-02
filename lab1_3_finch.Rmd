@@ -137,7 +137,7 @@ ggplot(
   facet_wrap(~ outcome, ncol = 1)
 ```
 
-The last thing you might want to do is spruce up your plot with a title and better axis labels. This is done with the `labs()` function:
+The last thing you might want to do is spruce up your plot with better axis labels. This is done with the `labs()` function:
 
 ```{r grouped-histogram-labels}
 ggplot(
@@ -148,8 +148,7 @@ ggplot(
   facet_wrap(~ outcome, ncol = 1) +
   labs(
     x = "Beak Length (mm)",
-    y = "Number of Birds",
-    title = "Beak length vs. drought survival"
+    y = "Number of Birds"
   )
 ```
 
@@ -212,8 +211,7 @@ ggplot(
   geom_errorbar(aes(ymin = lower, ymax = upper), width = .3) +
   labs(
     x = "Survival Outcome",
-    y = "Beak Length (mm)",
-    title = "Mean beak lengths vs. survival"
+    y = "Beak Length (mm)"
   )
 ```
 

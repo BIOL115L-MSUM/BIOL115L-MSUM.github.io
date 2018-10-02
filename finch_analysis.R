@@ -40,8 +40,7 @@ ggplot(
   facet_wrap(~ outcome, ncol = 1) +
   labs(
     x = "Beak Length (mm)",
-    y = "Number of Birds",
-    title = "Beak length vs. drought survival"
+    y = "Number of Birds"
   )
 
 # save the figure
@@ -93,8 +92,7 @@ ggplot(
   ) +                                 #   horizontal part of error bars
   labs(
     x = "Survival Outcome",           # x-axis label
-    y = "Beak Length (mm)",           # y-axis label
-    title = "Mean beak lengths vs. survival"
+    y = "Beak Length (mm)"            # y-axis label
   )
 
 # save the figure
