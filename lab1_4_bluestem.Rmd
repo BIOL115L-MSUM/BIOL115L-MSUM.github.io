@@ -27,7 +27,7 @@ Each row in the dataset represents an individual plant.
 The variables in the dataset are:
 
 - **location** ("burned" vs. "unburned")
-- **height** (plant height measured in cm)
+- **plant_height** (plant height measured in cm)
 - **rame_length** (rame length measured in mm)
 - **section** (name of the section the data collector was in)
 
