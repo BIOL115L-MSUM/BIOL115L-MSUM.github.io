@@ -41,17 +41,21 @@ Open it in Excel if you want to take a look at it.
 
 To help you out, we have compiled all the code used in the Part 3 into an R script. You can either use this script as a starting point for your assignment, or copy the code you wrote for part 3. 
 
-<a href="finch_analysis.R" class="btn btn-default">R Analysis (.R)</a>
+<a href="finch_analysis.R" class="btn btn-default" download>R Analysis (.R)</a>
 
 Either way, you should start with that code and edit it so it will work with the bluestem dataset. Copying and modifying existing code is often safer than writing it all from scratch because there are fewer opportunities for typos.
 
-### Example Word Document
+### Example Word document
 
 To give you a better idea what you need to turn in, here is an example Word document containing the results of the finch data analysis in Part 3.
 
 <a href="finch_results.docx" class="btn btn-default">Finch Results (.docx)</a>
-[need to add this]
 
 #### Figure legends
 
-[give examples]
+For tips on how to write a good figure legend, see [Writing an Effective Figure Legend](https://www.aje.com/en/arc/writing-effective-figure-legend/). In general, a figure legend should provide the following parts:
+
+- Title: A brief title that applies to the entire figure, including all panels.
+- Materials and methods: A description of the techniques used.
+- Results: A statement of the results that can be gleaned from the particular figure.
+- Definitions: An explanation of features in the figure.
