@@ -8,24 +8,28 @@ In Part 4, you will apply what you have learned to the bluestem variation data y
 
 Your assignment is to generate figures and statistical analyses that answer the following question:
 
-    Do plant height or rame length of Big Bluestem (Andropogon) plants vary between burned and unburned sites.
+<blockquote class="text-success">Do plant height or rame length of Big Bluestem (<i>Andropogon gerrardii</i>) plants vary between burned and unburned sites.</blockquote>
 
 Briefly, you will:
 
-1. Use the [data on big bluestem intraspecific variation](bluestem_data.xlsx) your class collected at the Regional Science Center.
-2. Explore how **plant height** varied between the **burned** and **unburned** locations:
-    - Create a grouped histogram and bar chart
-    - Write a figure legend for each figure
-    - Conduct a t-test to test for a statistical difference between the mean plant heights at each location
-    - Write a short paragraph summarizing your results.
-3. Repeat these steps for **rame lengths**.
-4. Copy the figures and text into a Microsoft Word document and upload it to an assignment folder on your LAB (not lecture) D2L site. (see this [example Word document](finch_results.docx))
+1. Download the bluestem data.
+2. Create histograms for **plant height** and **rame length**, grouped by **location**
+3. Summarize **plant height** by **location**, create a bar chart with means and confidence intervals, and compare the means with a t-test.
+4. Do the same for **rame length**.
+4. Copy the figures into a Microsoft Word document, add figure legends (see below for help) and t-test results.
+5. Upload the Word document to an assignment folder on your LAB (not lecture) D2L site. **Your grade for this assignment will be based on this Word document.**
 
-Your grade for this assignment will be based on the Word document you upload to D2L.
+#### Example Word Document
+
+Your Word document should look something like this example document when completed:
+
+[EXAMPLE](finch_results.docx)
+
+The main difference is that you will have four figures (two each for plant height and rame length), four figure legends, and two sets of t-test results.
 
 ### Bluestem data
 
-Your assignment involves plotting and analyzing the data on instraspecific variation in big bluestem (Andropogon) plants that you collected during a field trip to the Regional Science Center. All the data were entered onto a single Excel spreadsheet.
+Your assignment involves plotting and analyzing the data on instraspecific variation in big bluestem (*Andropogon gerrardii*) plants that you collected during a field trip to the Regional Science Center. All the data were entered onto a single Excel spreadsheet.
 
 Each row in the dataset represents an individual plant.
 
@@ -40,11 +44,9 @@ Download the bluestem dataset:
 
 <a href="bluestem_data.xlsx" class="btn btn-default">Bluestem Data (.xlsx)</a>
 
-Open it in Excel if you want to take a look at it.
+<span class="label label-warning">Warning</span> Don't forget to move the file to your project directory after downloading it.
 
 ### Tips
-
-First download the [data](bluestem_data.xlsx). Move it from your Downloads directory to your project directory if you didn't save it there to begin with.
 
 It's always easier to modify existing code than create new code from scratch. Create a new R script, save it as `plant_height.R`, and paste the [code for the finch analysis](finch_analysis.html).
 

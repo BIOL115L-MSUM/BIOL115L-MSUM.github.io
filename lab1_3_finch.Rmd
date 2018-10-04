@@ -48,7 +48,9 @@ To run the code, place your cursor on the same line as the code as click Run on 
 
 When you run the line of code, RStudio copies it to the Console pane and executes it.
 
-For the rest of this tutorial, it is a good idea to type your code into the R script and run it from there, rather than typing it directly into the console.
+<span class="label label-info">Tip</span> From now on, run code from a script rather than the console.
+
+<span class="label label-success">Pro Tip</span> Copy code directly from the tutorial and paste it into your R script, comments and all. It saves time and you're less likely to make a typo.
 
 ### R packages
 
@@ -155,16 +157,18 @@ ggplot(
 
 #### Export your figure
 
-To use your figure in a Microsoft Word document, PowerPoint presentation, or other software, you first need to save the image. The most reproducible way to do so is to use the `ggsave()` function.
+To put your figure in a Microsoft Word document (your assignment in part 4), you must first save it as an image file on your computer. You can do this with `ggsave()`, which saves the most recent ggplot displayed.
 
-By default, `ggsave()` will save the last plot displayed, so make sure the plot you want to save is displayed in the **Plots** tab in the bottom right pane before running this code.
-
+You choose a file name, the dimensions of the output file (think about how big you want this to be when you paste it into a word document), and the units of the dimensions (e.g `"in` for inches). For example, this code saves your histogram as a 3.5" x 3.5" PNG file:
 
 ```{r save-histogram, eval=FALSE}
-ggsave("Beak Length Histogram.png",   # name your file, use .png
+# save your most recent plot
+ggsave("Beak Length Histogram.png",   # you choose a name for the file
        width = 3.5, height = 3.5,     # height and width of output
-       units = "in")                  # what units are height & width? in=inches
+       units = "in")                  # what units are height & width?
 ```
+
+Look in your project directory and you'll see a file named **Beak Length Histogram.png** now. You can click it to open the file in your computer's default image viewer.
 
 ### Summarizing datasets
 
@@ -193,7 +197,8 @@ summary
 If we wanted to get separate summaries for different subsets of the data, we can add the `group_by()` function like this:
 
 ```{r}
-grouped_summary <- finches %>% 
+grouped_summary <- 
+  finches %>% 
   group_by(outcome) %>% 
   summarize(mean = mean(beak_length),
             sd = sd(beak_length),
@@ -201,6 +206,8 @@ grouped_summary <- finches %>%
   mutate(sem = sd / sqrt(n),
          upper = mean + 1.96 * sem,
          lower = mean - 1.96 * sem)
+
+# print the results in the console
 grouped_summary
 ```
 
@@ -240,20 +247,26 @@ The t-test function in R is a bit picky... it requires you to give it two argume
 STEP 1: The following code will take a dataset, in this case `finches`, remove rows that do not meet a given criteria, and extract the column of interest as a vector, and store the result as a new object named `beak_length_died`.
 
 ```{r}
+# create a vector of beak lengths for birds that died
 beak_length_died <-
   finches %>% 
   filter(outcome == "died") %>% 
   pull(beak_length)
-beak_length_died  # print the new object in the console
+
+# print the results in the console
+beak_length_died
 ```
 
 STEP 2: Now copy that code and change "died" to "survived" in your object name, so `beak_length_survived`, and in the filter criteria, so `outcome == "survived"`.
 
 ```{r}
+# create a vector of beak lengths for birds that died
 beak_length_survived <-
   finches %>% 
   filter(outcome == "survived") %>% 
   pull(beak_length)
+
+# print the results in the console
 beak_length_survived
 ```
 

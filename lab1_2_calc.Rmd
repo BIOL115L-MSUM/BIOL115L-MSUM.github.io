@@ -89,17 +89,21 @@ You can now use `x` anywhere in your code, and R will always know what you mean:
 x * 5
 ```
 
+### The Environment Tab
+
 You may also have noticed that when you ran the assignment command, the *Environment* pane changed. Instead of saying "Environment is empty", it now has a list of values, with one named "x".
 
-[insert screenshot of environment pane]
+<figure class="figure">
+  <a href="images/rstudio_environ_ba.png" data-lightbox="rstudio-environ" data-title="When you assign a value to an object, the object name appears in the Environment tab."><img src="images/rstudio_environ_ba.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">When you assign a value to an object, the object name appears in the Environment tab.</figcaption>
+</figure>
+
 
 Try it again and watch how the environment changes:
 
 ```{r}
 y <- 7
 ```
-
-[insert new screenshot]
 
 And you can use as many of these objects as you want in the same bit of code:
 
@@ -181,7 +185,7 @@ Use the skills you have learned to answer the following questions:
 5. What is the standard error of the mean?
 6. What is the 95% confidence interval? [two values]
 
-    <span class="label label-info">Tip</span> If you plan on using the same object names for the self assessment as you did for the tutorial (for example, `x` and `n`), it might be a good idea to clear your environment first. That way you won't accidentally use the previous value of `n` (`5`) in your self assessment. To do this, click the broom icon in the Environment tab.
+<span class="label label-info">Tip</span> If you plan on using the same object names for the self assessment as you did for the tutorial (for example, `x` and `n`), it might be a good idea to clear your environment first. That way you won't accidentally use the previous value of `n` (`5`) in your self assessment. To do this, click the broom icon in the Environment tab.
 
 Once you are done, you can expand the section below to see the correct answers:
 

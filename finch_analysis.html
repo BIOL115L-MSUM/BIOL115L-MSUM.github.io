@@ -355,8 +355,8 @@ $(document).ready(function () {
 <a class="sourceLine" id="cb1-60" data-line-number="60">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
 <a class="sourceLine" id="cb1-61" data-line-number="61">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb1-62" data-line-number="62"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
-<a class="sourceLine" id="cb1-63" data-line-number="63">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem,</a>
-<a class="sourceLine" id="cb1-64" data-line-number="64">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem)</a>
+<a class="sourceLine" id="cb1-63" data-line-number="63">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem,</a>
+<a class="sourceLine" id="cb1-64" data-line-number="64">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem)</a>
 <a class="sourceLine" id="cb1-65" data-line-number="65">summary</a>
 <a class="sourceLine" id="cb1-66" data-line-number="66"></a>
 <a class="sourceLine" id="cb1-67" data-line-number="67"><span class="co"># means and sds for each group</span></a>
@@ -366,8 +366,8 @@ $(document).ready(function () {
 <a class="sourceLine" id="cb1-71" data-line-number="71">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
 <a class="sourceLine" id="cb1-72" data-line-number="72">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb1-73" data-line-number="73"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
-<a class="sourceLine" id="cb1-74" data-line-number="74">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem,</a>
-<a class="sourceLine" id="cb1-75" data-line-number="75">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem)</a>
+<a class="sourceLine" id="cb1-74" data-line-number="74">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem,</a>
+<a class="sourceLine" id="cb1-75" data-line-number="75">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem)</a>
 <a class="sourceLine" id="cb1-76" data-line-number="76">grouped_summary</a>
 <a class="sourceLine" id="cb1-77" data-line-number="77"></a>
 <a class="sourceLine" id="cb1-78" data-line-number="78"></a>
