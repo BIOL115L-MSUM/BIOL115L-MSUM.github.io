@@ -50,7 +50,8 @@ So far you have been running commands by typing them into the console. One of th
 
 Now create a new script file:
 
-1. Click the New File button on the toolbar (leftmost button with a green plus sign).
+1. Click the **New File** button on the toolbar (leftmost button with a green plus sign).
+2. Click **R Script**
 2. A new pane will open above your Console pane. This is called the **Source** pane.
 3. Immediately save your file by clicking on the blue floppy disk icon. 
 4. Give it a memorably name like **finches**. RStudio will automatically add the **.R** file extension.
