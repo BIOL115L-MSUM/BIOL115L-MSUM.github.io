@@ -161,9 +161,9 @@ sem
 Once you have calculated the SEM you can use it to estimate the upper and lower limits of a 95% confidence interval like this:
 
 ```{r}
-mean(x) + 2 * sem  # upper limit
-mean(x) - 2 * sem  # lower limit
-c(mean(x) + 2 * sem, mean(x) - 2 * sem)
+mean(x) + 1.96 * sem  # upper limit
+mean(x) - 1.96 * sem  # lower limit
+c(mean(x) + 1.96 * sem, mean(x) - 1.96 * sem)
 ```
 
 ### Self-Assessment

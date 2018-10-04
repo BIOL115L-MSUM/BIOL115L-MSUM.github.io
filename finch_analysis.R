@@ -61,8 +61,8 @@ summary <- finches %>%
             sd = sd(beak_length),
             n = n()) %>% 
   mutate(sem = sd / sqrt(n),
-         upper = mean + 2 * sem,
-         lower = mean - 2 * sem)
+         upper = mean + 1.96 * sem,
+         lower = mean - 1.96 * sem)
 summary
 
 # means and sds for each group
@@ -72,8 +72,8 @@ grouped_summary <- finches %>%
             sd = sd(beak_length),
             n = n()) %>% 
   mutate(sem = sd / sqrt(n),
-         upper = mean + 2 * sem,
-         lower = mean - 2 * sem)
+         upper = mean + 1.96 * sem,
+         lower = mean - 1.96 * sem)
 grouped_summary
 
 

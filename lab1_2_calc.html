@@ -392,12 +392,12 @@ RStudio starts with three panes.
 <a class="sourceLine" id="cb43-2" data-line-number="2">sem</a></code></pre></div>
 <pre><code>## [1] 1.565759</code></pre>
 <p>Once you have calculated the SEM you can use it to estimate the upper and lower limits of a 95% confidence interval like this:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">mean</span>(x) <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem  <span class="co"># upper limit</span></a></code></pre></div>
-<pre><code>## [1] 7.671517</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="kw">mean</span>(x) <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem  <span class="co"># lower limit</span></a></code></pre></div>
-<pre><code>## [1] 1.408483</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="kw">c</span>(<span class="kw">mean</span>(x) <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem, <span class="kw">mean</span>(x) <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>sem)</a></code></pre></div>
-<pre><code>## [1] 7.671517 1.408483</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1"><span class="kw">mean</span>(x) <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem  <span class="co"># upper limit</span></a></code></pre></div>
+<pre><code>## [1] 7.608887</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="kw">mean</span>(x) <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem  <span class="co"># lower limit</span></a></code></pre></div>
+<pre><code>## [1] 1.471113</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="kw">c</span>(<span class="kw">mean</span>(x) <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem, <span class="kw">mean</span>(x) <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem)</a></code></pre></div>
+<pre><code>## [1] 7.608887 1.471113</code></pre>
 </div>
 <div id="self-assessment" class="section level3">
 <h3>Self-Assessment</h3>

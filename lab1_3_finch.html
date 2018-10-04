@@ -339,12 +339,12 @@ Did beak length vary between birds that survived the drough and those that did n
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(readxl)                <span class="co"># load readxl, for reading Excel files</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(tidyverse)             <span class="co"># load tidyverse, for working with datasets</span></a></code></pre></div>
 <pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.1</code></pre>
-<pre><code>## -- Attaching packages ---------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## -- Attaching packages ---------------------------------------------------- tidyverse 1.2.1 --</code></pre>
 <pre><code>## v ggplot2 2.2.1.9000     v purrr   0.2.5     
 ## v tibble  1.4.2          v dplyr   0.7.5     
 ## v tidyr   0.8.1          v stringr 1.3.1     
 ## v readr   1.1.1          v forcats 0.3.0</code></pre>
-<pre><code>## -- Conflicts ------------------------- tidyverse_conflicts() --
+<pre><code>## -- Conflicts ------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>Put your cursor on the first line and type Cmd+Enter to run it. The cursor automatically moves to the next line, so you can type Cmd+Enter again to run the next line.</p>
@@ -460,18 +460,21 @@ Did beak length vary between birds that survived the drough and those that did n
 ##  3rd Qu.:20.00   3rd Qu.:11.25   3rd Qu.:10.100   3rd Qu.: 9.055  
 ##  Max.   :21.06   Max.   :12.73   Max.   :11.210   Max.   :10.070</code></pre>
 <p>If we want to do anything more than, then we need to use functions provided in the tidyverse to summarize the data. The following code will summarize a dataset by calculating the mean, standard deviation and standard error of the mean (SEM) of the <code>beak_length</code> variable.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">summary &lt;-<span class="st"> </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(beak_length),</a>
-<a class="sourceLine" id="cb18-3" data-line-number="3">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
-<a class="sourceLine" id="cb18-4" data-line-number="4">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
-<a class="sourceLine" id="cb18-6" data-line-number="6">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span>sem,</a>
-<a class="sourceLine" id="cb18-7" data-line-number="7">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span>sem)</a>
-<a class="sourceLine" id="cb18-8" data-line-number="8">summary</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co"># summarize the entire dataset</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">summary &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(beak_length),</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb18-7" data-line-number="7"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
+<a class="sourceLine" id="cb18-8" data-line-number="8">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem,</a>
+<a class="sourceLine" id="cb18-9" data-line-number="9">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem)</a>
+<a class="sourceLine" id="cb18-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb18-11" data-line-number="11">summary</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 6
 ##    mean    sd     n    sem upper lower
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1  10.8 0.819   100 0.0819  10.9  10.7</code></pre>
+## 1  10.8 0.819   100 0.0819  11.0  10.6</code></pre>
 <p>If we wanted to get separate summaries for different subsets of the data, we can add the <code>group_by()</code> function like this:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">grouped_summary &lt;-<span class="st"> </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb20-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(outcome) <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -479,14 +482,14 @@ Did beak length vary between birds that survived the drough and those that did n
 <a class="sourceLine" id="cb20-4" data-line-number="4">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
 <a class="sourceLine" id="cb20-5" data-line-number="5">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb20-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
-<a class="sourceLine" id="cb20-7" data-line-number="7">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span>sem,</a>
-<a class="sourceLine" id="cb20-8" data-line-number="8">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span>sem)</a>
+<a class="sourceLine" id="cb20-7" data-line-number="7">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem,</a>
+<a class="sourceLine" id="cb20-8" data-line-number="8">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem)</a>
 <a class="sourceLine" id="cb20-9" data-line-number="9">grouped_summary</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 7
 ##   outcome   mean    sd     n    sem upper lower
 ##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1 died      10.5 0.698    50 0.0987  10.6  10.4
-## 2 survived  11.1 0.840    50 0.119   11.2  11.0</code></pre>
+## 1 died      10.5 0.698    50 0.0987  10.7  10.3
+## 2 survived  11.1 0.840    50 0.119   11.3  10.8</code></pre>
 <p>To plot these means and confidence intervals, you can use a bar chart with the <code>geom_col()</code> and <code>geom_errorbar()</code> functions in ggplot:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">ggplot</span>(</a>
 <a class="sourceLine" id="cb22-2" data-line-number="2">  <span class="dt">data =</span> grouped_summary, </a>
