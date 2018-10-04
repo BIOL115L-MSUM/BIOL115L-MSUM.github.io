@@ -348,8 +348,12 @@ Did beak length vary between birds that survived the drough and those that did n
 <p>To run the code, place your cursor on the same line as the code as click Run on the Source pane toolbar, then Run Selected Lines. Or just hold down the command button and press the enter key. This is called a keyboard shortcut, and is written as <strong>Cmd+Enter</strong>.</p>
 <p>When you run the line of code, RStudio copies it to the Console pane and executes it.</p>
 <p>You can delete <code>sqrt(9)</code> from your script now.</p>
-<p><span class="label label-info">Tip</span> From now on, run code from a script rather than the console.</p>
-<p><span class="label label-success">Pro Tip</span> Copy code directly from the tutorial and paste it into your R script, comments and all. It saves time and you’re less likely to make a typo.</p>
+<p class="text-info">
+<span class="label label-info">Tip</span> From now on, run code from a script rather than the console.
+</p>
+<p class="text-success">
+<span class="label label-success">Pro Tip</span> Copy code directly from the tutorial and paste it into your R script, comments and all. It saves time and you’re less likely to make a typo.
+</p>
 </div>
 </div>
 <div id="r-packages" class="section level3">
@@ -370,18 +374,24 @@ Did beak length vary between birds that survived the drough and those that did n
 </div>
 <div id="load-the-packages" class="section level4">
 <h4>Load the packages</h4>
-<p>The first lines in any script are usually for loading the packages into memory. Copy these two lines (including the comments) and paste them into your script.</p>
+<p class="text-info">
+Copy these two lines (including the comments) and paste them into your script.
+</p>
+<p>Do not copy the output below these two lines. That is just to show you what will be output in the console when you run the code.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(readxl)                <span class="co"># load readxl, for reading Excel files</span></a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(tidyverse)             <span class="co"># load tidyverse, for working with datasets</span></a></code></pre></div>
 <pre><code>## Warning: package &#39;tidyverse&#39; was built under R version 3.5.1</code></pre>
-<pre><code>## -- Attaching packages ------ tidyverse 1.2.1 --</code></pre>
+<pre><code>## -- Attaching packages ------------------------------------------------------ tidyverse 1.2.1 --</code></pre>
 <pre><code>## v ggplot2 2.2.1.9000     v purrr   0.2.5     
 ## v tibble  1.4.2          v dplyr   0.7.5     
 ## v tidyr   0.8.1          v stringr 1.3.1     
 ## v readr   1.1.1          v forcats 0.3.0</code></pre>
-<pre><code>## -- Conflicts --------- tidyverse_conflicts() --
+<pre><code>## -- Conflicts --------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
+<p class="text-info">
+Now run BOTH lines of code
+</p>
 <p>Put your cursor on the first line and type Cmd+Enter to run it. The cursor automatically moves to the next line, so you can type Cmd+Enter again to run the next line.</p>
 <p>You will see a warning and some messages in the Console tab, but those can be safely ignored.</p>
 <p>You must run the <code>library()</code> each time you start RStudio. That’s why it’s nice to keep that code at the very top of your script.</p>
@@ -393,8 +403,16 @@ Did beak length vary between birds that survived the drough and those that did n
 <p>To read the data, you will use a function named <code>read_excel()</code>. Here we run that function and assign the results to an object names <code>finches</code>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># read the finches data</span></a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">finches &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;finches_data.xlsx&quot;</span>)</a></code></pre></div>
-<p><span class="label label-warning">Warning</span> If you haven’t saved your data file in the right place, or if you are not working with your RStudio project open, you may get an error message in the console. If you can’t figure out how to solve the problem yourself, ask your instructor for help.</p>
-<p>To get a quick look at the data, print the <code>finches</code> object to the console:</p>
+<p>If you get an error at this point (red text in the console output) see the two warnings below.</p>
+<p><span class="label label-warning">Warning</span> If you didn’t run the two <code>library()</code> commands, then when your run <code>read_excel()</code> you will get an error that says:</p>
+<p><code>Error in read_excel() : could not find function &quot;read_excel&quot;</code></p>
+<p>To solve this error, run the two <code>library()</code> commands and then retry reading the data.</p>
+<p><span class="label label-warning">Warning</span> If you haven’t saved your data file in the right place, or if you are not working with your RStudio project open, or if you renamed your finch data file during download, then you will get an error message that says:</p>
+<p>Error: <code>path</code> does not exist: ‘finches_data.xlsx’</p>
+<p>To solve this error, make sure you have the data file in your project folder and the file name looks exactly like it does in the code, <code>finches_data.xlsx</code>.</p>
+<p class="text-success">
+To look at an object you have just created, print it to the console window by <strong>typing its name and running it</strong>:
+</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># print the results in the console</span></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">finches</a></code></pre></div>
 <pre><code>## # A tibble: 100 x 12

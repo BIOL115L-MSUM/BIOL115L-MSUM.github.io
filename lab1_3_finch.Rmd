@@ -69,9 +69,9 @@ When you run the line of code, RStudio copies it to the Console pane and execute
 
 You can delete `sqrt(9)` from your script now.
 
-<span class="label label-info">Tip</span> From now on, run code from a script rather than the console.
+<p class="text-info"><span class="label label-info">Tip</span> From now on, run code from a script rather than the console.</p>
 
-<span class="label label-success">Pro Tip</span> Copy code directly from the tutorial and paste it into your R script, comments and all. It saves time and you're less likely to make a typo.
+<p class="text-success"><span class="label label-success">Pro Tip</span> Copy code directly from the tutorial and paste it into your R script, comments and all. It saves time and you're less likely to make a typo.</p>
 
 ### R packages
 
@@ -93,12 +93,16 @@ You only have to install a package once on each computer you are using. If you o
 
 #### Load the packages
 
-The first lines in any script are usually for loading the packages into memory. Copy these two lines (including the comments) and paste them into your script.
+<p class="text-info">Copy these two lines (including the comments) and paste them into your script.</p>
+
+Do not copy the output below these two lines. That is just to show you what will be output in the console when you run the code.
 
 ```{r}
 library(readxl)                # load readxl, for reading Excel files
 library(tidyverse)             # load tidyverse, for working with datasets
 ```
+
+<p class="text-info">Now run BOTH lines of code</p>
 
 Put your cursor on the first line and type Cmd+Enter to run it. The cursor automatically moves to the next line, so you can type Cmd+Enter again to run the next line.
 
@@ -117,9 +121,21 @@ To read the data, you will use a function named `read_excel()`. Here we run that
 finches <- read_excel("finches_data.xlsx")
 ```
 
-<span class="label label-warning">Warning</span> If you haven't saved your data file in the right place, or if you are not working with your RStudio project open, you may get an error message in the console. If you can't figure out how to solve the problem yourself, ask your instructor for help.
+If you get an error at this point (red text in the console output) see the two warnings below.
 
-To get a quick look at the data, print the `finches` object to the console:
+<span class="label label-warning">Warning</span> If you didn't run the two `library()` commands, then when your run `read_excel()` you will get an error that says:
+
+`Error in read_excel() : could not find function "read_excel"`
+
+To solve this error, run the two `library()` commands and then retry reading the data.
+
+<span class="label label-warning">Warning</span> If you haven't saved your data file in the right place, or if you are not working with your RStudio project open, or if you renamed your finch data file during download, then you will get an error message that says:
+
+Error: `path` does not exist: ‘finches_data.xlsx’
+
+To solve this error, make sure you have the data file in your project folder and the file name looks exactly like it does in the code, `finches_data.xlsx`.
+
+<p class="text-success">To look at an object you have just created, print it to the console window by <strong>typing its name and running it</strong>:</p>
 
 ```{r print-finches}
 # print the results in the console
