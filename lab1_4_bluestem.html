@@ -21,6 +21,7 @@
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link rel="stylesheet" href="lightbox.css" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 
 
@@ -216,7 +217,19 @@ $(document).ready(function () {
 </div>
 
 
+<ul class="pager">
+<li class="previous">
+<a href="lab1_3_finch.html">← Part 3. Finch Data Example</a>
+</li>
+</ul>
 <p>In Part 4, you will apply what you have learned to the bluestem variation data you collected at the Regional Science Center. You will create a new R script, read the bluestem data into R, plot histograms of plant height and rame length, estimate the means of those variables, plot them on bar charts.</p>
+<p>Sections:</p>
+<ul>
+<li><a href="#your-assignment">Your assignment</a></li>
+<li><a href="#bluestem-data">Bluestem data</a></li>
+<li><a href="#tips">Tips</a></li>
+<li><a href="#saving-your-files">Saving your files</a></li>
+</ul>
 <div id="your-assignment" class="section level3">
 <h3>Your assignment</h3>
 <p>Your assignment is to generate figures and statistical analyses that answer the following question:</p>
@@ -234,8 +247,8 @@ Do plant height or rame length of Big Bluestem (<i>Andropogon gerrardii</i>) pla
 </ol>
 <div id="example-word-document" class="section level4">
 <h4>Example Word Document</h4>
-<p>Your Word document should look something like this example document when completed:</p>
-<p><a href="finch_results.docx">EXAMPLE</a></p>
+<p>Your Word document should look something like this example Word document when completed:</p>
+<p><a href="example_results.docx"><i class="fas fa-file-word fa-5x"></i></a></p>
 <p>The main difference is that you will have four figures (two each for plant height and rame length), four figure legends, and two sets of t-test results.</p>
 </div>
 </div>
@@ -251,14 +264,29 @@ Do plant height or rame length of Big Bluestem (<i>Andropogon gerrardii</i>) pla
 <li><strong>section</strong> (name of the section the data collector was in)</li>
 </ul>
 <p>Download the bluestem dataset:</p>
-<p><a href="bluestem_data.xlsx" class="btn btn-default">Bluestem Data (.xlsx)</a></p>
-<p><span class="label label-warning">Warning</span> Don’t forget to move the file to your project directory after downloading it.</p>
+<p><a href="bluestem_data.xlsx"><i class="fas fa-file-excel fa-5x"></i></a></p>
+<p>Don’t forget to move the file to your project directory after downloading it.</p>
 </div>
 <div id="tips" class="section level3">
 <h3>Tips</h3>
-<p>It’s always easier to modify existing code than create new code from scratch. Create a new R script, save it as <code>plant_height.R</code>, and paste the <a href="finch_analysis.html">code for the finch analysis</a>.</p>
-<p>Once you’ve copied the code, you can work through changing file paths, object names, column names, and axis labels as needed to perform your bluestem data analysis.</p>
-<p>After you’re done with the <strong>plant height</strong> analysis, you can copy the <code>plant_height.R</code> R script and save it as <code>rame_length.R</code>. Then all you have to change in that script is replace <code>plant_heght</code> with <code>rame_length</code> anywhere it appears in the code!</p>
+<p>It’s always easier to modify existing code than create new code from scratch. This page will show you how to copy and modify an existing script:</p>
+<div id="copy-code-from-finch-analysis" class="section level4">
+<h4><a href="finch_analysis.html">Copy code from finch analysis →</a></h4>
+<p>Our suggestions:</p>
+<ol style="list-style-type: decimal">
+<li>Create a new R script, save it as <code>plant_height.R</code>, and paste the code for the finch analysis (link above)</li>
+<li>Modify the new script so it analyzes plant height from the bluestem dataset rather than beak length from the finches dataset. You’ll need to change:
+<ul>
+<li>name of the data file in your <code>read_excel()</code></li>
+<li>names of objects (e.g. <code>finches</code> to <code>bluestem</code>)</li>
+<li>names of variables (e.g. <code>beak_length</code> to <code>plant_height</code> and <code>outcome</code> to <code>location</code>)</li>
+<li>axis labels in ggplots</li>
+</ul></li>
+<li>After you’re done with the <strong>plant height</strong> analysis, copy the plant height code and paste it into a new script for <strong>rame length</strong>.</li>
+<li>Replace <code>plant_heght</code> with <code>rame_length</code> in the new code.</li>
+</ol>
+<p><span class="label label-success">Pro Tip</span> Use the Find and Replace function by clicking the magnifying glass in the Source tab toolbar. Avoid the temptation to Replace All… instead click through replacing one at a time to make sure you don’t change something in a way you didn’t intend to.</p>
+</div>
 <div id="figure-legends" class="section level4">
 <h4>Figure legends</h4>
 <p>For tips on how to write a good figure legend, see <a href="https://www.aje.com/en/arc/writing-effective-figure-legend/">Writing an Effective Figure Legend</a>. In general, a figure legend should provide the following parts:</p>
@@ -269,6 +297,32 @@ Do plant height or rame length of Big Bluestem (<i>Andropogon gerrardii</i>) pla
 <li>Definitions: An explanation of features in the figure.</li>
 </ul>
 </div>
+</div>
+<div id="saving-your-files" class="section level3">
+<h3>Saving your files</h3>
+<p>If you want to save what you have done so you can work on it later, here is the best option:</p>
+<ol style="list-style-type: decimal">
+<li>Log in to <a href="https://www.mnstate.edu/it/office365/">Microsoft Office 360</a> with your StarID</li>
+<li>Click <strong>OneDrive</strong></li>
+<li>Drag your Project folder from the Finder onto the area that says “Drag Files Here”</li>
+</ol>
+<p>You may get an error message that it could not upload files starting with a dot (“.”), e.g. .Rprofile or .RData. Ignore that warning, those files are not important.</p>
+<p>To work on your files again:</p>
+<ol style="list-style-type: decimal">
+<li>Log in to <a href="https://www.mnstate.edu/it/office365/">Microsoft Office 360</a> with your StarID</li>
+<li>Click <strong>OneDrive</strong></li>
+<li>Click the check box next to your Project Folder</li>
+<li>Click the <strong>Download</strong> button</li>
+<li>Navigate to your <strong>Downloads</strong> folder in the Finder</li>
+<li>If you don’t see your Project folder there, but you do see a file ending in .zip, click that file and it will extract your Project folder.</li>
+<li>Start RStudio</li>
+<li>Open your Project using one of the methods described in <a href="lab1_1_rstudio.html">Part 1</a>.</li>
+</ol>
+<ul class="pager">
+<li class="previous">
+<a href="lab1_3_finch.html">← Part 3. Finch Data Example</a>
+</li>
+</ul>
 </div>
 
 <div class="footer">

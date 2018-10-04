@@ -21,6 +21,7 @@
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link rel="stylesheet" href="lightbox.css" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -290,7 +291,25 @@ $(document).ready(function () {
 </div>
 
 
+<ul class="pager">
+<li class="previous">
+<a href="lab1_1_rstudio.html">← Part 1. Create an RStudio Project</a>
+</li>
+<li class="next">
+<a href="lab1_3_finch.html">Part 3. Finch Data Example →</a>
+</li>
+</ul>
 <p>In Part 2 of this lab, you will learn how to use the Console Window to run commands as you perform basic arithmetic operations. You will learn the basics of using functions, and finally learn about creating objects using the assignment operator.</p>
+<p>Sections:</p>
+<ul>
+<li><a href="#the-rstudio-ide">The RStudio IDE</a></li>
+<li><a href="#the-console-tab">The Console tab</a></li>
+<li><a href="#r-as-a-calculator">R as a calculator</a></li>
+<li><a href="#assign-a-value-to-a-name">Assign a value to a name</a></li>
+<li><a href="#the-environment-tab">The Environment tab</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#self-assessment">Self-assessment</a></li>
+</ul>
 <div id="the-rstudio-ide" class="section level3">
 <h3>The RStudio IDE</h3>
 <p>When you first open RStudio, you will see a window with three panes, the left pane will be on a tab named <strong>Console</strong>, the upper right pane will be on a tab named <strong>Environment</strong>, and the bottom right pane will be on a tab named <strong>Files</strong>, like this:</p>
@@ -303,7 +322,7 @@ RStudio starts with three panes.
 <p>For part 2, we will be using Console and Environment tabs.</p>
 </div>
 <div id="the-console-tab" class="section level3">
-<h3>The Console Tab</h3>
+<h3>The Console tab</h3>
 <p>The Console is where you enter commands (code) for R to interpret.</p>
 <p>To give it a try, place your cursor in the Console window by clicking in it. You should see a greater than sign <code>&gt;</code> (called the “prompt”) with a blinking cursor next to it.</p>
 <p>Type the number <code>2</code> and press the enter key. Pressing enter is like asking R a question. R will evaluate the code you typed (yes, it’s really computer code!) and print the output, the answer to your question, on the screen like this:</p>
@@ -317,7 +336,7 @@ RStudio starts with three panes.
 <p><span class="label label-info">Tip</span> If you ever try to type something in the console and nothing happens, it may be because some other pane has RStudio’s attention. Click the Console pane and make sure the blinking cursor is showing.</p>
 </div>
 <div id="r-as-a-calculator" class="section level3">
-<h3>R as a Calculator</h3>
+<h3>R as a calculator</h3>
 <p>You can think of R as a giant calculator. You type in a series of numbers and operators (<code>+</code>, <code>-</code>, <code>/</code>, <code>*</code>, etc.), press enter, and it evaluates what you typed and prints the output in the console.</p>
 <p>Give it a try:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
@@ -338,8 +357,8 @@ RStudio starts with three panes.
 <pre><code>## [1] 9</code></pre>
 <p>Any text following a hash tag (pound sign) is ignored, which allows you to include comments in your code as seen above.</p>
 </div>
-<div id="assignment" class="section level3">
-<h3>Assignment</h3>
+<div id="assign-a-value-to-a-name" class="section level3">
+<h3>Assign a value to a name</h3>
 <p>Much like a human brain, R is not only capable of performing calculations, but also of remembering things, of storing them for later. This is accomplished using the <em>assignment</em> operator <code>&lt;-</code> like this:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <p>Here we have told R to create space in its memory, store the number two there, and name that space “x”. Now, whenever we refer to <code>x</code>, R will know we mean <code>2</code>.</p>
@@ -351,7 +370,7 @@ RStudio starts with three panes.
 <pre><code>## [1] 10</code></pre>
 </div>
 <div id="the-environment-tab" class="section level3">
-<h3>The Environment Tab</h3>
+<h3>The Environment tab</h3>
 <p>You may also have noticed that when you ran the assignment command, the <em>Environment</em> pane changed. Instead of saying “Environment is empty”, it now has a list of values, with one named “x”.</p>
 <figure class="figure">
 <a href="images/rstudio_environ_ba.png" data-lightbox="rstudio-environ" data-title="When you assign a value to an object, the object name appears in the Environment tab."><img src="images/rstudio_environ_ba.png" class="figure-img img-thumbnail"></a>
@@ -407,7 +426,7 @@ When you assign a value to an object, the object name appears in the Environment
 <pre><code>## [1] 7.608887 1.471113</code></pre>
 </div>
 <div id="self-assessment" class="section level3">
-<h3>Self-Assessment</h3>
+<h3>Self-assessment</h3>
 <p>Imagine you collected a sample of data which consisted of the following values:</p>
 <p><code>6.05 4.89 3.32 4.93 5.25 5.04 4.91 2.84 5.60 5.34</code></p>
 <p>Use the skills you have learned to answer the following questions:</p>
@@ -437,9 +456,14 @@ When you assign a value to an object, the object name appears in the Environment
 </ol>
 </div>
 <p>Once you are satisfied with your answers, you can move on to Part 3.</p>
-</div>
-<div id="part-3.-finch-data-example" class="section level3">
-<h3><a href="lab1_3_finch.html">Part 3. Finch Data Example →</a></h3>
+<ul class="pager">
+<li class="previous">
+<a href="lab1_1_rstudio.html">← Part 1. Create an RStudio Project</a>
+</li>
+<li class="next">
+<a href="lab1_3_finch.html">Part 3. Finch Data Example →</a>
+</li>
+</ul>
 </div>
 
 <div class="footer">

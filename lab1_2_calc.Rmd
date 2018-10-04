@@ -2,7 +2,22 @@
 title: "2. R as a Calculator"
 ---
 
+<ul class="pager">
+  <li class="previous"><a href="lab1_1_rstudio.html">&larr; Part 1. Create an RStudio Project</a></li>
+  <li class="next"><a href="lab1_3_finch.html">Part 3. Finch Data Example &rarr;</a></li>
+</ul>
+
 In Part 2 of this lab, you will learn how to use the Console Window to run commands as you perform basic arithmetic operations. You will learn the basics of using functions, and finally learn about creating objects using the assignment operator.
+
+Sections:
+
+- [The RStudio IDE]
+- [The Console tab]
+- [R as a calculator]
+- [Assign a value to a name]
+- [The Environment tab]
+- [Functions]
+- [Self-assessment]
 
 ### The RStudio IDE
 
@@ -15,7 +30,7 @@ When you first open RStudio, you will see a window with three panes, the left pa
 
 For part 2, we will be using Console and Environment tabs.
 
-### The Console Tab
+### The Console tab
 
 The Console is where you enter commands (code) for R to interpret.
 
@@ -39,7 +54,7 @@ Note that in our examples, we do not show the prompt and we add two hash marks `
 
 <span class="label label-info">Tip</span> If you ever try to type something in the console and nothing happens, it may be because some other pane has RStudio's attention. Click the Console pane and make sure the blinking cursor is showing.
 
-### R as a Calculator
+### R as a calculator
 
 You can think of R as a giant calculator. You type in a series of numbers and operators (`+`, `-`, `/`, `*`, etc.), press enter, and it evaluates what you typed and prints the output in the console.
 
@@ -67,7 +82,7 @@ You can use exponentials like this:
 
 Any text following a hash tag (pound sign) is ignored, which allows you to include comments in your code as seen above.
 
-### Assignment
+### Assign a value to a name
 
 Much like a human brain, R is not only capable of performing calculations, but also of remembering things, of storing them for later. This is accomplished using the *assignment* operator `<-` like this:
 
@@ -89,7 +104,7 @@ You can now use `x` anywhere in your code, and R will always know what you mean:
 x * 5
 ```
 
-### The Environment Tab
+### The Environment tab
 
 You may also have noticed that when you ran the assignment command, the *Environment* pane changed. Instead of saying "Environment is empty", it now has a list of values, with one named "x".
 
@@ -170,7 +185,7 @@ mean(x) - 1.96 * sem  # lower limit
 c(mean(x) + 1.96 * sem, mean(x) - 1.96 * sem)
 ```
 
-### Self-Assessment
+### Self-assessment
 
 Imagine you collected a sample of data which consisted of the following values:
 
@@ -207,4 +222,7 @@ Once you are done, you can expand the section below to see the correct answers:
 
 Once you are satisfied with your answers, you can move on to Part 3.
 
-### [Part 3. Finch Data Example &rarr;](lab1_3_finch.html)
+<ul class="pager">
+  <li class="previous"><a href="lab1_1_rstudio.html">&larr; Part 1. Create an RStudio Project</a></li>
+  <li class="next"><a href="lab1_3_finch.html">Part 3. Finch Data Example &rarr;</a></li>
+</ul>

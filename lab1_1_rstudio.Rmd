@@ -2,8 +2,17 @@
 title: "1. Create an RStudio Project"
 ---
 
+<ul class="pager">
+  <li class="next"><a href="lab1_2_calc.html">Part 2. R as a Calculator &rarr;</a></li>
+</ul>
+
 In Part 1 of this lab, you will learn what R and RStudio are, how the RStudio environment is organized, and how RStudio organizes your work into Projects. To finish, you will create your first RStudio Project, which you will continue to work in for the rest of the lab.
 
+Sections:
+
+- [Create an RStudio project]
+- [Opening Projects]
+- [Make sure it works]
 
 ### R and RStudio
 
@@ -101,4 +110,6 @@ Now look in the upper right corner of RStudio, on the toolbar. You should see th
 
 Once you feel confident creating and opening projects, you can move on to Part 2.
 
-### [Part 2. R as a Calculator &rarr;](lab1_2_calc.html)
+<ul class="pager">
+  <li class="next"><a href="lab1_2_calc.html">Part 2. R as a Calculator &rarr;</a></li>
+</ul>

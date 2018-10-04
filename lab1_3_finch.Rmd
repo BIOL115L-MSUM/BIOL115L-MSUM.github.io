@@ -2,7 +2,23 @@
 title: "3. Finch Data Example"
 ---
 
+<ul class="pager">
+  <li class="previous"><a href="lab1_2_calc.html">&larr; Part 2. R as a Calculator</a></li>
+  <li class="next"><a href="lab1_4_bluestem.html">Part 4. Bluestem Data Assignment &rarr;</a></li>
+</ul>
+
 In Part 3 of this lab, you will be introduced to scripts, graphing, and analysis in R. You will use the Finches dataset to learn how to read a tabular dataset into R, inspect it, and perform basic statistical summaries on it. You will estimate means, standard deviations, standard errors of the mean, and confidence intervals around the mean. You will also learn how to plot histograms and bar charts (also called column charts).
+
+Sections:
+
+- [Introduction]
+- [Download the data]
+- [R scripts]
+- [R packages]
+- [Read the data]
+- [Plot a histogram]
+- [Summarize the data]
+- [Conduct a *t*-test]
 
 ### Introduction
 
@@ -16,13 +32,15 @@ The following sections will guide you through the process of answering this ques
 
 ### Download the data
 
-Download the data and save it in the project directory (folder) you created earlier. For example, if you created your project in the **Documents** folder and named it **Org Bio Data Lab 1** then save the data into the **Org Bio Data Lab 1** folder.
+Download the data and save it in the project directory:
 
-You will know you saved it to the correct location if the Excel file shows up in the Files pane in RStudio next to your R Project file.
+<a href="finches_data.xlsx"><i class="fas fa-file-excel fa-5x"></i></a>
 
-<a href="finches_data.xlsx" class="btn btn-default">Download</a>
+If prompted for a location, save the file to your project directory. 
 
-If you want to look at the data, you can open the file in Excel.
+If not prompted, it probably saved the file to your Downloads folder. Open the Finder, click Downloads, drag the file into Documents, click Documents, and drag the file into your project directory.
+
+<span class="label label-default">Important</span> Do not proceed until you see **finches_data.xlsx** in the Files tab (bottom right pane in RStudio).
 
 ### R scripts
 
@@ -30,11 +48,12 @@ If you want to look at the data, you can open the file in Excel.
 
 So far you have been running commands by typing them into the console. One of the benefits of R over programs such as Excel, for example, is the ability to save your commands in the form of written. Enter the **script**! A script is simply a text file containing commands for R to execute.
 
-To create a script, click File > New File > R Script or click the New File button on the toolbar. A new pane will open above your Console pane. This is called the script pane.
+Now create a new script file:
 
-It is always a good idea to save it right away, just in case RStudio crashes or you spill Orange Fanta all over the computer (which is a completely hypothetical example and has never happened before. Really!).
-
-Go to File > Save or click the floppy disk icon on the Source pane toolbar (not the global toolbar). When prompted for a file name, use "finch". RStudio will automatically add the ".R" file extension, so when your new scrip appears in the Files pane it will say "finch.R".
+1. Click the New File button on the toolbar (leftmost button with a green plus sign).
+2. A new pane will open above your Console pane. This is called the **Source** pane.
+3. Immediately save your file by clicking on the blue floppy disk icon. 
+4. Give it a memorably name like **finches**. RStudio will automatically add the **.R** file extension.
 
 #### Run code from a script
 
@@ -48,6 +67,8 @@ To run the code, place your cursor on the same line as the code as click Run on 
 
 When you run the line of code, RStudio copies it to the Console pane and executes it.
 
+You can delete `sqrt(9)` from your script now.
+
 <span class="label label-info">Tip</span> From now on, run code from a script rather than the console.
 
 <span class="label label-success">Pro Tip</span> Copy code directly from the tutorial and paste it into your R script, comments and all. It saves time and you're less likely to make a typo.
@@ -56,17 +77,23 @@ When you run the line of code, RStudio copies it to the Console pane and execute
 
 In R, users share code with each other in the form of **packages**, each of which is a bundle of code, data, and other files. While R includes some basic functionality in it's "base" packages, you often need to work with other packages when doing any data analysis.
 
-In this tutorial you will use a group of packages collectively referred to as the **tidyverse**. You don't need to know their names, but they include the **dplyr**, **ggplot**, and **readxl** packages, among many others.
+In this tutorial you will use a group of packages collectively referred to as the **tidyverse**.
 
-Before you can use a package, you to download and install it. Click the **Package** tab in the botom right pane and click **Install**. Type the name of the package, `tidyverse`, and click **Install**. This will install the `tidyverse` package and all those others mentione above.
+Before you can use a package, you to download and install it.
 
-You only have to install a package once on each computer you are using. If you open RStudio again later, every package you've ever installed wil still be there.
+#### Install tidyverse
+ 
+1. Click the **Package** tab in the botom right pane and 
+2. Click **Install**. 
+3. Type the name of the package, `tidyverse`
+4. Click **Install**
+5. If a question appears in the Console window asking if you want to install from binary, put your cursor in the console, type "n", and press enter.
 
-### Read the data into R
+You only have to install a package once on each computer you are using. If you open RStudio again later, every package you've ever installed will still be there.
 
-Now that you have a script and have downloaded your packages, you're ready to get coding!
+#### Load the packages
 
-The first lines in any script are usually for loading the packages into memory. Copy these two lines (including the comments if you want) and paste them into your script.
+The first lines in any script are usually for loading the packages into memory. Copy these two lines (including the comments) and paste them into your script.
 
 ```{r}
 library(readxl)                # load readxl, for reading Excel files
@@ -77,9 +104,16 @@ Put your cursor on the first line and type Cmd+Enter to run it. The cursor autom
 
 You will see a warning and some messages in the Console tab, but those can be safely ignored.
 
+You must run the `library()` each time you start RStudio. That's why it's nice to keep that code at the very top of your script.
+
+### Read the data
+
+Now that you have a script and have downloaded your packages, you're ready to get coding!
+
 To read the data, you will use a function named `read_excel()`. Here we run that function and assign the results to an object names `finches`.
 
 ```{r}
+# read the finches data
 finches <- read_excel("finches_data.xlsx")
 ```
 
@@ -88,6 +122,7 @@ finches <- read_excel("finches_data.xlsx")
 To get a quick look at the data, print the `finches` object to the console:
 
 ```{r print-finches}
+# print the results in the console
 finches
 ```
 
@@ -104,6 +139,7 @@ If there are more than 10 rows, or more variables than can fit on the screen, th
 A quick way of seeing the first few observations for all variables is to use the `glimpse()` function:
 
 ```{r}
+# take a quick look at all the variables in the dataset
 glimpse(finches)
 ```
 
@@ -117,20 +153,22 @@ Plotting in the tidyverse is most easily accomplished using the `ggplot()` funct
 
 For example, to plot a histogram of the `beak_length` variable, use the following code. Note the use of a `+` after the `ggplot()` function. Copy this code to your script and run it. RStudio is smart enough to recognize that it should all be run together, so putting your cursor on any of these lines and typing Cmd+Enter will run all the lines at once.
 
-```{r histogram}
+```{r histogram, fig.width=6, fig.height=3, fig.align='center'}
+# histogram of beak lengths
 ggplot(
   data = finches,                  # use the finches dataset
   mapping = aes(x = beak_length)   # put beak length on the x axis
 ) +
-  geom_histogram(bins = 12)        # use 12 bins (default is 30)
+  geom_histogram(bins = 12)        # use 12 bins (you can change this)
 ```
+
 You can plot histograms of other variables by changing the `x = ` part of the code. 
 
 You can also experiment with different numbers of bins. The goal is to have enough that you can see a hump-shaped distribution, but not so many that you have too many bins with few or no observations. Try plotting a histogram with 50 bins, and another with 3 bins. Not very informational, are they?
 
 Sometimes we want to see how the distribution of a variable varies aong different subsets of the data. For example, to answer our question we want to see how beak length varies between birds that did or did not survive the drought. One easy way to do this is with the `facet_wrap()` function in ggplot. Note that you have to add a `+` operator after the `geom_histogram()` line.
 
-```{r grouped-histogram}
+```{r grouped-histogram, fig.width=6, fig.align='center'}
 ggplot(
   data = finches, 
   mapping = aes(x = beak_length, fill = outcome)
@@ -141,7 +179,7 @@ ggplot(
 
 The last thing you might want to do is spruce up your plot by adding better axis labels and removing the redundant color legend. This is done with the `labs()` function and the :
 
-```{r grouped-histogram-labels}
+```{r grouped-histogram-labels, fig.width=6, fig.align='center'}
 ggplot(
   data = finches, 
   mapping = aes(x = beak_length, fill = outcome)
@@ -164,21 +202,15 @@ You choose a file name, the dimensions of the output file (think about how big y
 ```{r save-histogram, eval=FALSE}
 # save your most recent plot
 ggsave("Beak Length Histogram.png",   # you choose a name for the file
-       width = 3.5, height = 3.5,     # height and width of output
-       units = "in")                  # what units are height & width?
+       width = 3.5, height = 3.5,     # dimensions of saved file
+       units = "in")                  # units for the dimensions
 ```
 
 Look in your project directory and you'll see a file named **Beak Length Histogram.png** now. You can click it to open the file in your computer's default image viewer.
 
-### Summarizing datasets
+### Summarize the data
 
-Scientists often want a quick summary of a dataset. The `summary()` function provides just that, and is especially useful for seeing summary statistics of numerical variables. Running this function prints a summary to the console, with the minimum value, median value, mean, maximum value, and first and third quartiles given for each numerical variable:
-
-```{r}
-summary(finches)
-```
-
-If we want to do anything more than, then we need to use functions provided in the tidyverse to summarize the data. The following code will summarize a dataset by calculating the mean, standard deviation and standard error of the mean (SEM) of the `beak_length` variable.
+The following code will summarize the dataset by calculating the mean, standard deviation and standard error of the mean (SEM) of the `beak_length` variable.
 
 ```{r}
 # summarize the entire dataset
@@ -191,12 +223,14 @@ summary <-
          upper = mean + 1.96 * sem,
          lower = mean - 1.96 * sem)
 
+# print the results in the console
 summary
 ```
 
 If we wanted to get separate summaries for different subsets of the data, we can add the `group_by()` function like this:
 
 ```{r}
+# summarize the dataset by survival outcome
 grouped_summary <- 
   finches %>% 
   group_by(outcome) %>% 
@@ -213,32 +247,41 @@ grouped_summary
 
 To plot these means and confidence intervals, you can use a bar chart with the `geom_col()` and `geom_errorbar()` functions in ggplot:
 
-```{r bar-chart, fig.width=4, fig.height=4}
+```{r bar-chart, fig.width=3, fig.height=4, fig.align='center'}
+# bar chart of mean beak lengths
 ggplot(
-  data = grouped_summary, 
-  mapping = aes(x = outcome, y = mean, fill = outcome)
+  data = grouped_summary,       # use this instead of finches dataset
+  mapping = aes(x = outcome,    # survival on the x axis
+                y = mean,       # mean beak length on the y axis
+                fill = outcome) # make died/survived different colors
 ) +
   geom_col() +
-  geom_errorbar(aes(ymin = lower, ymax = upper), width = .3) +
-  guides(fill = FALSE) +
+  geom_errorbar(
+    mapping = aes(ymin = lower,  # lower 95% confidence limit
+                  ymax = upper), # upper 95% confidence limit
+    width = .3                   # width of horizontal part of error bars
+  ) +
+  guides(fill = FALSE) +         # remove the fill legend
   labs(
-    x = "Survival Outcome",
-    y = "Beak Length (mm)"
+    x = "Survival Outcome",      # x axis label
+    y = "Beak Length (mm)"       # y axis label
   )
 ```
 
 #### Export your figure
 
 ```{r save-barchart, eval=FALSE}
+# save the beak length bar chart
+# note that the dimensions are different from the histograms above
 ggsave("Beak Length Bar Chart.png", 
        width = 2.5, height = 3.5, units = "in")
 ```
 
-### t-test
+### Conduct a *t*-test
 
 Plotting the means and confidence intervals of measurements in the two groups of birds is an important step in data analysis. To perform a more rigourous comparison, however, you may run a t-test to tell if the difference in means is likely due to chance (i.e. sampling error) or not.
 
-The t-test function in R is a bit picky... it requires you to give it two arguments: a vector of measurements for one group and another vector of measurements for the other group. To do this, you must perform three steps:
+The *t*-test function in R is a bit picky... it requires you to give it two arguments: a vector of measurements for one group and another vector of measurements for the other group. To do this, you must perform three steps:
 
 1. Create a vector of beak lengths for birds that died.
 2. Create a vector of beak lengths for birds that survived.
@@ -288,4 +331,7 @@ To report the findings of a t-test, for example in the Results section of a repo
 
 When you're ready, you can move on to Part 4.
 
-### [Part 4. Bluestem Data Assignment  &rarr;](lab1_4_bluestem.html)
+<ul class="pager">
+  <li class="previous"><a href="lab1_2_calc.html">&larr; Part 2. R as a Calculator</a></li>
+  <li class="next"><a href="lab1_4_bluestem.html">Part 4. Bluestem Data Assignment &rarr;</a></li>
+</ul>

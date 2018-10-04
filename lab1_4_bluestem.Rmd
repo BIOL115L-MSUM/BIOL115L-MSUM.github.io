@@ -2,7 +2,19 @@
 title: "4. Bluestem Data Assignment"
 ---
 
+<ul class="pager">
+  <li class="previous"><a href="lab1_3_finch.html">&larr; Part 3. Finch Data Example</a></li>
+</ul>
+
 In Part 4, you will apply what you have learned to the bluestem variation data you collected at the Regional Science Center. You will create a new R script, read the bluestem data into R, plot histograms of plant height and rame length, estimate the means of those variables, plot them on bar charts.
+
+Sections:
+
+- [Your assignment]
+- [Bluestem data]
+- [Tips]
+- [Saving your files]
+
 
 ### Your assignment
 
@@ -21,9 +33,9 @@ Briefly, you will:
 
 #### Example Word Document
 
-Your Word document should look something like this example document when completed:
+Your Word document should look something like this example Word document when completed:
 
-[EXAMPLE](finch_results.docx)
+<a href="example_results.docx"><i class="fas fa-file-word fa-5x"></i></a>
 
 The main difference is that you will have four figures (two each for plant height and rame length), four figure legends, and two sets of t-test results.
 
@@ -42,17 +54,28 @@ The variables in the dataset are:
 
 Download the bluestem dataset:
 
-<a href="bluestem_data.xlsx" class="btn btn-default">Bluestem Data (.xlsx)</a>
+<a href="bluestem_data.xlsx"><i class="fas fa-file-excel fa-5x"></i></a>
 
-<span class="label label-warning">Warning</span> Don't forget to move the file to your project directory after downloading it.
+Don't forget to move the file to your project directory after downloading it.
 
 ### Tips
 
-It's always easier to modify existing code than create new code from scratch. Create a new R script, save it as `plant_height.R`, and paste the [code for the finch analysis](finch_analysis.html).
+It's always easier to modify existing code than create new code from scratch. This page will show you how to copy and modify an existing script:
 
-Once you've copied the code, you can work through changing file paths, object names, column names, and axis labels as needed to perform your bluestem data analysis.
+#### [Copy code from finch analysis  &rarr;](finch_analysis.html)
 
-After you're done with the **plant height** analysis, you can copy the `plant_height.R` R script and save it as `rame_length.R`. Then all you have to change in that script is replace `plant_heght` with `rame_length` anywhere it appears in the code!
+Our suggestions:
+
+1. Create a new R script, save it as `plant_height.R`, and paste the code for the finch analysis (link above)
+2. Modify the new script so it analyzes plant height from the bluestem dataset rather than beak length from the finches dataset. You'll need to change:
+    - name of the data file in your `read_excel()`
+    - names of objects (e.g. `finches` to `bluestem`)
+    - names of variables (e.g. `beak_length` to `plant_height` and `outcome` to `location`)
+    - axis labels in ggplots
+3. After you're done with the **plant height** analysis, copy the plant height code and paste it into a new script for **rame length**. 
+4. Replace `plant_heght` with `rame_length` in the new code.
+
+<span class="label label-success">Pro Tip</span> Use the Find and Replace function by clicking the magnifying glass in the Source tab toolbar. Avoid the temptation to Replace All... instead click through replacing one at a time to make sure you don't change something in a way you didn't intend to.
 
 #### Figure legends
 
@@ -62,3 +85,28 @@ For tips on how to write a good figure legend, see [Writing an Effective Figure 
 - Materials and methods: A description of the techniques used.
 - Results: A statement of the results that can be gleaned from the particular figure.
 - Definitions: An explanation of features in the figure.
+
+### Saving your files
+
+If you want to save what you have done so you can work on it later, here is the best option:
+
+1. Log in to [Microsoft Office 360](https://www.mnstate.edu/it/office365/) with your StarID
+2. Click **OneDrive**
+3. Drag your Project folder from the Finder onto the area that says "Drag Files Here"
+
+You may get an error message that it could not upload files starting with a dot ("."), e.g. .Rprofile or .RData. Ignore that warning, those files are not important.
+
+To work on your files again:
+
+1. Log in to [Microsoft Office 360](https://www.mnstate.edu/it/office365/) with your StarID
+2. Click **OneDrive**
+2. Click the check box next to your Project Folder
+3. Click the **Download** button
+4. Navigate to your **Downloads** folder in the Finder
+5. If you don't see your Project folder there, but you do see a file ending in .zip, click that file and it will extract your Project folder.
+6. Start RStudio
+7. Open your Project using one of the methods described in [Part 1](lab1_1_rstudio.html).
+
+<ul class="pager">
+  <li class="previous"><a href="lab1_3_finch.html">&larr; Part 3. Finch Data Example</a></li>
+</ul>
