@@ -68,7 +68,7 @@ Below that, under **Create project as a subdirectory of**, you need to enter the
   <figcaption class="figure-caption">Enter name for your project under <strong>Directory Name</strong> and use the <strong>Browse</strong> button to select the <strong>Documents</strong> directory.</figcaption>
 </figure>
 
-Now click the **New Project** button. Your new project will be created and will open in a new window.
+Now click the **Create Project** button. Your new project will be created and will open in a new window.
 
 When a new project is created RStudio:
 

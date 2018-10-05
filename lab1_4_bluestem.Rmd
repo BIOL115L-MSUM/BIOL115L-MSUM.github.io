@@ -73,7 +73,7 @@ Our suggestions:
     - names of variables (e.g. `beak_length` to `plant_height` and `outcome` to `location`)
     - axis labels in ggplots
 3. After you're done with the **plant height** analysis, copy the plant height code and paste it into a new script for **rame length**. 
-4. Replace `plant_heght` with `rame_length` in the new code.
+4. Replace `plant_height` with `rame_length` in the new code.
 
 <span class="label label-success">Pro Tip</span> Use the Find and Replace function by clicking the magnifying glass in the Source tab toolbar. Avoid the temptation to Replace All... instead click through replacing one at a time to make sure you don't change something in a way you didn't intend to.
 

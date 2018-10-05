@@ -40,7 +40,7 @@ Type the number `2` and press the enter key. Pressing enter is like asking R a q
 
     `[1] 2`
 
-Congratulations, you just wrote your first computer program!
+<p class="text-success font-weight-bold">Congratulations, you just wrote your first computer program!</p>
 
 The `2` is the answer to your question and the `[1]` indicates that the answer had one part. For the most part you can ignore the number in brackets.
 

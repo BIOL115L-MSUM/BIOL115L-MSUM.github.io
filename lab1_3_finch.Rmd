@@ -26,7 +26,7 @@ In the finch dataset, each row represents an individual bird that was banded bef
 
 The question you are tasked with answering for Part 3 is:
 
-<blockquote class="text-success">Did beak length vary between birds that survived the drough and those that did not?</blockquote>
+<blockquote class="text-success">Did beak length vary between birds that survived the drought and those that did not?</blockquote>
 
 The following sections will guide you through the process of answering this question using the data provided.
 
@@ -58,7 +58,20 @@ Now create a new script file:
 
 #### Run code from a script
 
-Now that you have a script, try typing some code in it. For example:
+Up to this point, you have been typing code into the console to run it. This works, but it has two drawback:
+
+- You can make typos
+- If you want to run code again, you have to type it again.
+
+From now on, use this new set of steps instead:
+
+1. <span class="text-info"><strong>Copy code from the browser. This reduces typos.</strong></span>
+1. <span class="text-info"><strong>Paste into the R script.</strong></span>
+1. <span class="text-info"><strong>Run code from the R script</strong></span>
+
+The main caveat is to be careful to copy all code, especially closing parentheses `)` at the end of code chunks.
+
+Now that you have a script, try copying and pasting this code into it. For example:
 
 ```{r, eval=FALSE}
 sqrt(9)
@@ -68,11 +81,7 @@ To run the code, place your cursor on the same line as the code as click Run on 
 
 When you run the line of code, RStudio copies it to the Console pane and executes it.
 
-You can delete `sqrt(9)` from your script now.
-
-<p class="text-info"><span class="label label-info">Tip</span> From now on, run code from a script rather than the console.</p>
-
-<p class="text-success"><span class="label label-success">Pro Tip</span> Copy code directly from the tutorial and paste it into your R script, comments and all. It saves time and you're less likely to make a typo.</p>
+Now that you've tried it, you can delete `sqrt(9)` from your script before you move on.
 
 ### R packages
 
@@ -88,15 +97,15 @@ Before you can use a package, you to download and install it.
 2. Click **Install**. 
 3. Type the name of the package, `tidyverse`
 4. Click **Install**
-5. If a question appears in the Console window asking if you want to install from binary, put your cursor in the console, type "n", and press enter.
+5. If a question appears in the Console window asking if you want to "install from sources the package which needs compilation", then put your cursor in the console, type "n", and press enter.
 
 You only have to install a package once on each computer you are using. If you open RStudio again later, every package you've ever installed will still be there.
 
 #### Load the packages
 
-<p class="text-info">Copy these two lines (including the comments) and paste them into your script.</p>
+<p class="text-info">Copy these two lines in the gray box (including the comments) and paste them into your script.</p>
 
-Do not copy the output below these two lines. That is just to show you what will be output in the console when you run the code.
+Do not copy the text in the white boxes. That is just to show you what will be output in the console when you run the code.
 
 ```{r}
 library(readxl)                # load readxl, for reading Excel files
