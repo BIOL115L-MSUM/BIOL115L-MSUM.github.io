@@ -62,7 +62,7 @@ Don't forget to move the file to your project directory after downloading it.
 
 It's always easier to modify existing code than create new code from scratch. This page will show you how to copy and modify an existing script:
 
-#### [Copy code from finch analysis  &rarr;](finch_analysis.html)
+#### [Copy code from beak length analysis  &rarr;](beak_length.html)
 
 Our suggestions:
 

@@ -4,11 +4,11 @@ title: "Finch Analysis"
 
 Here is all of the code you used to analyze the finch data.
 
-You can either copy the code below and paste it into a new R script, e.g. `plant_height.R`, or [download](finch_analysis.R) it as an R script, copy, and paste from there.
+You can either copy the code below and paste it into a new R script, e.g. `plant_height.R`, or [download](beak_length.R) it as an R script, copy, and paste from there.
 
 Once you've copied the code, you can work through changing file paths, object names, column names, and axis labels as needed to perform your bluestem data analysis.
 
-```{r, code = readLines('finch_analysis.R'), eval=FALSE}
+```{r, code = readLines('beak_length.R'), eval=FALSE}
 
 ```
 
