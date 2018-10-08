@@ -107,9 +107,12 @@ You only have to install a package once on each computer you are using. If you o
 
 Do not copy the text in the white boxes. That is just to show you what will be output in the console when you run the code.
 
-```{r}
-library(readxl)                # load readxl, for reading Excel files
-library(tidyverse)             # load tidyverse, for working with datasets
+```{r, warning=FALSE, message=FALSE}
+# load packages -----------------------------------------------------------
+
+# run every time you restart RStudio
+library(readxl)     # load readxl, for reading Excel files
+library(tidyverse)  # load tidyverse, for working with datasets
 ```
 
 <p class="text-info">Now run BOTH lines of code</p>
@@ -127,6 +130,8 @@ Now that you have a script and have downloaded your packages, you're ready to ge
 To read the data, you will use a function named `read_excel()`. Here we run that function and assign the results to an object names `finches`.
 
 ```{r}
+# read data ----------------------------------------------------------------
+
 # read the finches data
 finches <- read_excel("finches_data.xlsx")
 ```
@@ -180,12 +185,14 @@ Plotting in the tidyverse is most easily accomplished using the `ggplot()` funct
 For example, to plot a histogram of the `beak_length` variable, use the following code. Note the use of a `+` after the `ggplot()` function. Copy this code to your script and run it. RStudio is smart enough to recognize that it should all be run together, so putting your cursor on any of these lines and typing Cmd+Enter will run all the lines at once.
 
 ```{r histogram, fig.width=6, fig.height=3, fig.align='center'}
-# histogram of beak lengths
+# histogram ---------------------------------------------------------------
+
+# histogram of beak length
 ggplot(
-  data = finches,                  # use the finches dataset
-  mapping = aes(x = beak_length)   # put beak length on the x axis
+  data = finches,                     # use the finches dataset
+  mapping = aes(x = beak_length)      # put beak length on the x axis
 ) +
-  geom_histogram(bins = 12)        # use 12 bins (you can change this)
+  geom_histogram(bins = 14)           # add the histogram, use 14 bins
 ```
 
 You can plot histograms of other variables by changing the `x = ` part of the code. 
@@ -195,27 +202,32 @@ You can also experiment with different numbers of bins. The goal is to have enou
 Sometimes we want to see how the distribution of a variable varies aong different subsets of the data. For example, to answer our question we want to see how beak length varies between birds that did or did not survive the drought. One easy way to do this is with the `facet_wrap()` function in ggplot. Note that you have to add a `+` operator after the `geom_histogram()` line.
 
 ```{r grouped-histogram, fig.width=6, fig.align='center'}
+# histogram of beak length, grouped by survival
 ggplot(
-  data = finches, 
-  mapping = aes(x = beak_length, fill = outcome)
+  data = finches,                     # use the finches dataset
+  mapping = aes(x = beak_length,      # put beak length on the x axis
+                fill = outcome)       # fill sets the color of the boxes
 ) +
-  geom_histogram(bins = 14) +
-  facet_wrap(~ outcome, ncol = 1)
+  geom_histogram(bins = 14) +         # add the histogram, use 14 bins
+  facet_wrap(~ outcome, ncol = 1) +   # outcome is the grouping variable
+  guides(fill = FALSE)                # don't show a legend for fll color
 ```
 
 The last thing you might want to do is spruce up your plot by adding better axis labels and removing the redundant color legend. This is done with the `labs()` function and the :
 
 ```{r grouped-histogram-labels, fig.width=6, fig.align='center'}
+# histogram of beak length, grouped by survival, with labels
 ggplot(
-  data = finches, 
-  mapping = aes(x = beak_length, fill = outcome)
+  data = finches,                     # use the finches dataset
+  mapping = aes(x = beak_length,      # put beak length on the x axis
+                fill = outcome)       # fill sets the color of the boxes
 ) +
-  geom_histogram(bins = 14) +
-  facet_wrap(~ outcome, ncol = 1) +
-  guides(fill = FALSE) +            # remove color legend
-  labs(                             # add labels
-    x = "Beak Length (mm)",         #   x axis (horizontal)
-    y = "Number of Birds"           #   y axis (vertical)
+  geom_histogram(bins = 14) +         # add the histogram, use 14 bins
+  facet_wrap(~ outcome, ncol = 1) +   # outcome is the grouping variable
+  guides(fill = FALSE) +              # don't show a legend for fll color
+  labs(
+    x = "Beak Length (mm)",           # x-axis label
+    y = "Number of Birds"             # y-axis label
   )
 ```
 
@@ -228,8 +240,8 @@ You choose a file name, the dimensions of the output file (think about how big y
 ```{r save-histogram, eval=FALSE}
 # save your most recent plot
 ggsave("Beak Length Histogram.png",   # you choose a name for the file
-       width = 3.5, height = 3.5,     # dimensions of saved file
-       units = "in")                  # units for the dimensions
+       width = 3.5, height = 3.5,     # dimensions of saved file DO NOT CHANGE
+       units = "in")                  # units for the dimensions DO NOT CHANGE
 ```
 
 Look in your project directory and you'll see a file named **Beak Length Histogram.png** now. You can click it to open the file in your computer's default image viewer.
@@ -239,8 +251,10 @@ Look in your project directory and you'll see a file named **Beak Length Histogr
 The following code will summarize the dataset by calculating the mean, standard deviation and standard error of the mean (SEM) of the `beak_length` variable.
 
 ```{r}
+# summarize ---------------------------------------------------------------
+
 # summarize the entire dataset
-summary <- 
+beak_length_summary <- 
   finches %>% 
   summarize(mean = mean(beak_length),
             sd = sd(beak_length),
@@ -250,14 +264,14 @@ summary <-
          lower = mean - 1.96 * sem)
 
 # print the results in the console
-summary
+beak_length_summary
 ```
 
 If we wanted to get separate summaries for different subsets of the data, we can add the `group_by()` function like this:
 
 ```{r}
-# summarize the dataset by survival outcome
-grouped_summary <- 
+# summarize the dataset by outcome (survived vs. died)
+beak_length_grouped_summary <- 
   finches %>% 
   group_by(outcome) %>% 
   summarize(mean = mean(beak_length),
@@ -268,29 +282,31 @@ grouped_summary <-
          lower = mean - 1.96 * sem)
 
 # print the results in the console
-grouped_summary
+beak_length_grouped_summary
 ```
 
 To plot these means and confidence intervals, you can use a bar chart with the `geom_col()` and `geom_errorbar()` functions in ggplot:
 
 ```{r bar-chart, fig.width=3, fig.height=4, fig.align='center'}
+# bar chart ---------------------------------------------------------------
+
 # bar chart of mean beak lengths
 ggplot(
-  data = grouped_summary,       # use this instead of finches dataset
-  mapping = aes(x = outcome,    # survival on the x axis
-                y = mean,       # mean beak length on the y axis
-                fill = outcome) # make died/survived different colors
+  data = beak_length_grouped_summary,   # dont use the original finches dataset
+  mapping = aes(x = outcome,            # survival on the x axis
+                y = mean,               # mean beak length on the y axis
+                fill = outcome)         # make died/survived different colors
 ) +
-  geom_col() +
-  geom_errorbar(
-    mapping = aes(ymin = lower,  # lower 95% confidence limit
-                  ymax = upper), # upper 95% confidence limit
-    width = .3                   # width of horizontal part of error bars
+  geom_col() +                          # add columns
+  geom_errorbar(                        # add error bars
+    mapping = aes(ymin = lower,         #   lower 95% confidence limit
+                  ymax = upper),        #   upper 95% confidence limit
+    width = .3                          #   width of horizontal part of bars
   ) +
-  guides(fill = FALSE) +         # remove the fill legend
+  guides(fill = FALSE) +                # don't show a legend for fll color
   labs(
-    x = "Survival Outcome",      # x axis label
-    y = "Beak Length (mm)"       # y axis label
+    x = "Survival Outcome",             # x-axis label
+    y = "Beak Length (mm)"              # y-axis label
   )
 ```
 
@@ -300,7 +316,7 @@ ggplot(
 # save the beak length bar chart
 # note that the dimensions are different from the histograms above
 ggsave("Beak Length Bar Chart.png", 
-       width = 2.5, height = 3.5, units = "in")
+       width = 2.5, height = 3.5, units = "in")  # DO NOT CHANGE
 ```
 
 ### Conduct a *t*-test
@@ -316,20 +332,22 @@ The *t*-test function in R is a bit picky... it requires you to give it two argu
 STEP 1: The following code will take a dataset, in this case `finches`, remove rows that do not meet a given criteria, and extract the column of interest as a vector, and store the result as a new object named `beak_length_died`.
 
 ```{r}
-# create a vector of beak lengths for birds that died
-beak_length_died <-
-  finches %>% 
-  filter(outcome == "died") %>% 
-  pull(beak_length)
+# t-test ------------------------------------------------------------------
 
-# print the results in the console
+# get a vector of beak lengths for birds that died
+beak_length_died <-
+  finches %>%                     # start with finches dataset
+  filter(outcome == "died") %>%   # only include rows w/ outcome=died
+  pull(beak_length)               # extract the beak_length column
+
+# print the new object in the console... it is a vector
 beak_length_died
 ```
 
 STEP 2: Now copy that code and change "died" to "survived" in your object name, so `beak_length_survived`, and in the filter criteria, so `outcome == "survived"`.
 
 ```{r}
-# create a vector of beak lengths for birds that died
+# get a vector of beak lengths for birds that survived
 beak_length_survived <-
   finches %>% 
   filter(outcome == "survived") %>% 
@@ -342,6 +360,7 @@ beak_length_survived
 STEP 3: Perform a t-test using the `t.test()` function:
 
 ```{r}
+# perform a two-sample t-test assuming unequal variances
 t.test(beak_length_died, beak_length_survived)
 ```
 

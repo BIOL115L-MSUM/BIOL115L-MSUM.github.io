@@ -1,72 +1,67 @@
 
 # load packages -----------------------------------------------------------
 
-library(readxl)                # load readxl, for reading Excel files
-library(tidyverse)             # load tidyverse, for working with datasets
+# run every time you restart RStudio
+library(readxl)     # load readxl, for reading Excel files
+library(tidyverse)  # load tidyverse, for working with datasets
 
 
 # read data ---------------------------------------------------------------
 
-finches <- read_excel("finches_data.xlsx")  # read the data
+# read the finches data
+finches <- read_excel("finches_data.xlsx")
 
-# two ways to look at the data
+# print the finches tibble in the console
 finches
+
+# take a quick look at all the variables in the dataset
 glimpse(finches)
 
 
-# histograms --------------------------------------------------------------
+# histogram ---------------------------------------------------------------
 
 # histogram of beak length
 ggplot(
-  data = finches,                  # use the finches dataset
-  mapping = aes(x = beak_length)   # put beak length on the x axis
+  data = finches,                     # use the finches dataset
+  mapping = aes(x = beak_length)      # put beak length on the x axis
 ) +
-  geom_histogram(bins = 12)        # use 12 bins (default is 30)
+  geom_histogram(bins = 14)           # add the histogram, use 14 bins
 
-# grouped by survival
+# histogram of beak length, grouped by survival
 ggplot(
-  data = finches, 
-  mapping = aes(x = beak_length,   # put beak length on the x axis
-                fill = outcome)    # fill sets the color of the boxes
+  data = finches,                     # use the finches dataset
+  mapping = aes(x = beak_length,      # put beak length on the x axis
+                fill = outcome)       # fill sets the color of the boxes
 ) +
-  geom_histogram(bins = 14) +
-  facet_wrap(~ outcome, ncol = 1)  # outcome is the grouping variable
+  geom_histogram(bins = 14) +         # add the histogram, use 14 bins
+  facet_wrap(~ outcome, ncol = 1) +   # outcome is the grouping variable
+  guides(fill = FALSE)                # don't show a legend for fll color
 
-# with labels
+# histogram of beak length, grouped by survival, with labels
 ggplot(
-  data = finches, 
-  mapping = aes(x = beak_length, fill = outcome)
+  data = finches,                     # use the finches dataset
+  mapping = aes(x = beak_length,      # put beak length on the x axis
+                fill = outcome)       # fill sets the color of the boxes
 ) +
-  geom_histogram(bins = 14) +
-  facet_wrap(~ outcome, ncol = 1) +
+  geom_histogram(bins = 14) +         # add the histogram, use 14 bins
+  facet_wrap(~ outcome, ncol = 1) +   # outcome is the grouping variable
+  guides(fill = FALSE) +              # don't show a legend for fll color
   labs(
-    x = "Beak Length (mm)",
-    y = "Number of Birds"
+    x = "Beak Length (mm)",           # x-axis label
+    y = "Number of Birds"             # y-axis label
   )
 
-# save the figure
-ggsave("Beak Length Histogram.png",   # name your file, use .png
-       width = 6.5, height = 6.5,     # height and width of output
-       units = "in")                  # what units are height & width? in=inches
+# save your most recent plot
+ggsave("Beak Length Histogram.png",   # you choose a name for the file
+       width = 3.5, height = 3.5,     # dimensions of saved file
+       units = "in")                  # units for the dimensions
 
 
 # summarize ---------------------------------------------------------------
 
-# quick summary
-summary(finches)
-
-# mean and standard deviation of beak length
-summary <- finches %>% 
-  summarize(mean = mean(beak_length),
-            sd = sd(beak_length),
-            n = n()) %>% 
-  mutate(sem = sd / sqrt(n),
-         upper = mean + 1.96 * sem,
-         lower = mean - 1.96 * sem)
-summary
-
-# means and sds for each group
-grouped_summary <- finches %>% 
+# summarize the dataset by outcome (survived vs. died)
+beak_length_grouped_summary <- 
+  finches %>% 
   group_by(outcome) %>% 
   summarize(mean = mean(beak_length),
             sd = sd(beak_length),
@@ -74,31 +69,36 @@ grouped_summary <- finches %>%
   mutate(sem = sd / sqrt(n),
          upper = mean + 1.96 * sem,
          lower = mean - 1.96 * sem)
-grouped_summary
+
+# print the results in the console
+beak_length_grouped_summary
 
 
-# bar charts --------------------------------------------------------------
+# bar chart ---------------------------------------------------------------
 
+# bar chart of mean beak lengths
 ggplot(
-  data = grouped_summary, 
-  mapping = aes(x = outcome,          # put surival outcome on the x axis
-                y = mean,             # put mean on the y axis
-                fill = outcome)       # use different colors for outcome
+  data = beak_length_grouped_summary,   # dont use the original finches dataset
+  mapping = aes(x = outcome,            # survival on the x axis
+                y = mean,               # mean beak length on the y axis
+                fill = outcome)         # make died/survived different colors
 ) +
-  geom_col() +
-  geom_errorbar(
-    mapping = aes(ymin = lower,       # "lower" is the column name
-                  ymax = upper),      # "upper" is the column name
-    width = .3                        # controls the width of the
-  ) +                                 #   horizontal part of error bars
+  geom_col() +                          # add columns
+  geom_errorbar(                        # add error bars
+    mapping = aes(ymin = lower,         #   lower 95% confidence limit
+                  ymax = upper),        #   upper 95% confidence limit
+    width = .3                          #   width of horizontal part of bars
+  ) +
+  guides(fill = FALSE) +                # don't show a legend for fll color
   labs(
-    x = "Survival Outcome",           # x-axis label
-    y = "Beak Length (mm)"            # y-axis label
+    x = "Survival Outcome",             # x-axis label
+    y = "Beak Length (mm)"              # y-axis label
   )
 
-# save the figure
+# save the beak length bar chart
+# note that the dimensions are different from the histograms above
 ggsave("Beak Length Bar Chart.png", 
-       width = 3, height = 3, units = "in")
+       width = 2.5, height = 3.5, units = "in")
 
 
 # t-test ------------------------------------------------------------------
@@ -117,6 +117,8 @@ beak_length_survived <-
   finches %>% 
   filter(outcome == "survived") %>% 
   pull(beak_length)
+
+# print the results in the console
 beak_length_survived
 
 # perform a two-sample t-test assuming unequal variances
