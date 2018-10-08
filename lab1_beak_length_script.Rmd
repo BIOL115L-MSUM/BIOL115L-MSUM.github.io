@@ -1,8 +1,8 @@
 ---
-title: "Beak Length Analysis"
+title: "Beak Length Script"
 ---
 
-Here is all of the code you used to analyze the beak length in the finches dataset.
+Here is the code you used to analyze the beak length in the finches dataset.
 
 You can either copy the code below and paste it into a new R script, e.g. `plant_height.R`, or [download](beak_length.R) it as an R script, copy, and paste from there.
 
