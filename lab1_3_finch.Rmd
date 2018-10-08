@@ -226,10 +226,17 @@ ggplot(
   facet_wrap(~ outcome, ncol = 1) +   # outcome is the grouping variable
   guides(fill = FALSE) +              # don't show a legend for fll color
   labs(
+    title = "Figure 1",               # title
     x = "Beak Length (mm)",           # x-axis label
     y = "Number of Birds"             # y-axis label
   )
 ```
+
+When sharing your figure with others, for example in a report or peer-reviewed journal article, you should always include a figure legend.
+
+A good figure legend for this histogram would be:
+
+<blockquote class="text-info">Figure 1. <strong>Distribution of beak lengths among medium ground finches (<i>Geospiza fortis</i>) grouped by survival outcome during the 1977 drought on Daphne Major, Galapagos archipelago.</strong> Each sample consisted of 50 individuals. Birds were banded and measured during 1975-1977 and resighted in 1978.</blockquote>
 
 #### Export your figure
 
@@ -305,10 +312,15 @@ ggplot(
   ) +
   guides(fill = FALSE) +                # don't show a legend for fll color
   labs(
+    title = "Figure 2",                 # title
     x = "Survival Outcome",             # x-axis label
     y = "Beak Length (mm)"              # y-axis label
   )
 ```
+
+A good figure legend for this figure would be:
+
+<blockquote class="text-info">Figure 2. <strong>Mean beak length varied between medium ground finches (<i>Geospiza fortis</i>) that survived or died during the 1977 drought on Daphne Major, Galapagos archipelago.</strong> Each sample consisted of 50 individuals. Birds were banded and measured during 1975-1977 and resighted in 1978. Error bars represent 95% confidence intervals.</blockquote>
 
 #### Export your figure
 
@@ -372,7 +384,7 @@ As further evidence that the difference between the means is not equal to zero, 
 
 To report the findings of a t-test, for example in the Results section of a report or scientific article, you would say:
 
-<blockquote class="text-info">Mean beak depths were 11.1 mm in survivors and 10.5 mm in non-survivors (Figure 1). This difference was stastistically significant according to a Welch's two-sample t-test assuming unequal variances (t=3.6335, df=94.807, p=0.0004539).</blockquote>
+<blockquote class="text-info">Birds that survived the 1977 drought generally had longer beaks than those that died (Fig. 1). Mean beak lengths were 11.1 mm in survivors and 10.5 mm in non-survivors (Fig. 2).  This difference was stastistically significant according to a Welch's two-sample t-test assuming unequal variances (*t*=3.6335, *df*=94.807, *p*=0.0004539).</blockquote>
 
 When you're ready, you can move on to Part 4.
 
