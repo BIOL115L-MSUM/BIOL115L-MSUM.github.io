@@ -225,9 +225,16 @@ $(document).ready(function () {
 <p>In Part 4, you will apply what you have learned to the bluestem variation data you collected at the Regional Science Center. You will create a new R script, read the bluestem data into R, plot histograms of plant height and rame length, estimate the means of those variables, plot them on bar charts.</p>
 <p>Sections:</p>
 <ul>
-<li><a href="#your-assignment">Your assignment</a></li>
-<li><a href="#bluestem-data">Bluestem data</a></li>
-<li><a href="#tips">Tips</a></li>
+<li><a href="#your-assignment">Your assignment</a>
+<ul>
+<li><a href="#step-1.-download-the-assignment-template">Step 1. Download the assignment template</a></li>
+<li><a href="#step-2.-download-the-bluestem-data">Step 2. Download the bluestem data</a></li>
+<li><a href="#step-3.-create-a-script-for-plant-height">Step 3. Create a script for plant height</a></li>
+<li><a href="#step-4.-repeat-for-rame-length">Step 4. Repeat for rame length</a></li>
+<li><a href="#step-5.-write-figure-legends">Step 5. Write figure legends</a></li>
+<li><a href="#step-6.-write-a-results-section">Step 6. Write a RESULTS section</a></li>
+<li><a href="#step-7.-upload-word-doc-to-d2l">Step 7. Upload Word doc to D2L</a></li>
+</ul></li>
 <li><a href="#saving-your-files">Saving your files</a></li>
 </ul>
 <div id="your-assignment" class="section level3">
@@ -236,24 +243,29 @@ $(document).ready(function () {
 <blockquote class="text-success">
 Do plant height or rame length of Big Bluestem (<i>Andropogon gerrardii</i>) plants vary between burned and unburned sites.
 </blockquote>
-<p>Briefly, you will:</p>
+<p>We recommend the following steps for completing your assignment.</p>
+<div id="step-1.-download-the-assignment-template" class="section level4">
+<h4>Step 1. Download the assignment template</h4>
+<p>Download this Microsoft Word document:</p>
+<p><a href="lab1_assignment_template.docx"><i class="fas fa-file-word fa-5x"></i></a></p>
+<p>Edit the document by so it uses your figures and text, and delete the example figures and text at the end of the document.</p>
+<p>When done, the document will contain the following:</p>
 <ol style="list-style-type: decimal">
-<li>Download the bluestem data.</li>
-<li>Create histograms for <strong>plant height</strong> and <strong>rame length</strong>, grouped by <strong>location</strong></li>
-<li>Summarize <strong>plant height</strong> by <strong>location</strong>, create a bar chart with means and confidence intervals, and compare the means with a t-test.</li>
-<li>Do the same for <strong>rame length</strong>.</li>
-<li>Copy the figures into a Microsoft Word document, add figure legends (see below for help) and t-test results.</li>
-<li>Upload the Word document to an assignment folder on your LAB (not lecture) D2L site. <strong>Your grade for this assignment will be based on this Word document.</strong></li>
+<li>A histogram of plant heights</li>
+<li>A bar chart of plant heights</li>
+<li>A histogram of rame lengths</li>
+<li>A bar chart of rame lengths</li>
+<li>Four figure legends, one for each of the figures listed above.</li>
+<li>A section titled <strong>RESULTS</strong> which includes:
+<ul>
+<li>A paragraph describing the difference in plant heights between burned and unburned areas, citing the first two figures and giving the results of the plant height <em>t</em>-test.</li>
+<li>A paragraph describing the difference in rame lengths between burned and unburned areas, citing the last two figures and giving the results of the rame length <em>t</em>-test.</li>
+</ul></li>
 </ol>
-<div id="example-word-document" class="section level4">
-<h4>Example Word Document</h4>
-<p>Your Word document should look something like this example Word document when completed:</p>
-<p><a href="example_results.docx"><i class="fas fa-file-word fa-5x"></i></a></p>
-<p>The main difference is that you will have four figures (two each for plant height and rame length), four figure legends, and two sets of t-test results.</p>
+<p>When you’re done, you will upload this document to D2L (see below for instructions).</p>
 </div>
-</div>
-<div id="bluestem-data" class="section level3">
-<h3>Bluestem data</h3>
+<div id="step-2.-download-the-bluestem-data" class="section level4">
+<h4>Step 2. Download the bluestem data</h4>
 <p>Your assignment involves plotting and analyzing the data on instraspecific variation in big bluestem (<em>Andropogon gerrardii</em>) plants that you collected during a field trip to the Regional Science Center. All the data were entered onto a single Excel spreadsheet.</p>
 <p>Each row in the dataset represents an individual plant.</p>
 <p>The variables in the dataset are:</p>
@@ -265,30 +277,58 @@ Do plant height or rame length of Big Bluestem (<i>Andropogon gerrardii</i>) pla
 </ul>
 <p>Download the bluestem dataset:</p>
 <p><a href="bluestem_data.xlsx"><i class="fas fa-file-excel fa-5x"></i></a></p>
-<p>Don’t forget to move the file to your project directory after downloading it.</p>
+<p>Don’t forget to move the file to your project directory after downloading it, or your code won’t work.</p>
 </div>
-<div id="tips" class="section level3">
-<h3>Tips</h3>
-<p>It’s always easier to modify existing code than create new code from scratch. This page will show you how to copy and modify an existing script:</p>
-<div id="copy-code-from-beak-length-script" class="section level4">
-<h4><a href="lab1_beak_length_script.html">Copy code from beak length script →</a></h4>
-<p>Our suggestions:</p>
+<div id="step-3.-create-a-script-for-plant-height" class="section level4">
+<h4>Step 3. Create a script for plant height</h4>
+<p>It’s always easier to modify existing code than create new code from scratch.</p>
+<p>For this assignment, you can use the script you just created to analyze <strong>beak length</strong> as a starting point.</p>
 <ol style="list-style-type: decimal">
-<li>Create a new R script, save it as <code>plant_height.R</code>, and paste the code for the <strong>beak length analysis</strong> (link above)</li>
-<li>Modify the new script so it analyzes plant height from the bluestem dataset rather than beak length from the finches dataset. You’ll need to change:
+<li>Create a new R script, save it as <code>plant_height.R</code></li>
+<li><a href="lab1_beak_length_script.html">Copy code from beak length script →</a></li>
+<li>Use “find and replace” (the magnifying glass on the Source tab toolbar) to modify the script.
 <ul>
-<li>name of the data file in your <code>read_excel()</code></li>
-<li>names of objects (e.g. <code>finches</code> to <code>bluestem</code>)</li>
-<li>names of variables (e.g. <code>beak_length</code> to <code>plant_height</code> and <code>outcome</code> to <code>location</code>)</li>
-<li>axis labels in ggplots</li>
+<li>replace <code>finches</code> with <code>bluestem</code></li>
+<li>replace <code>beak_length</code> with <code>plant_height</code></li>
+<li>replace <code>outcome</code> with <code>location</code></li>
+<li>replace <code>died</code> with <code>burned</code> and replace <code>survived</code> with <code>unburned</code></li>
+<li>change the x- and y-axis labels on the histogram</li>
+<li>change the x- and y-axis labels on the bar chart</li>
+<li>change the name of the file you save the histogram as</li>
+<li>change the name of the file you save the bar chart as</li>
 </ul></li>
-<li>After you’re done with the <strong>plant height</strong> analysis, copy the plant height code and paste it into a new script for <strong>rame length</strong>.</li>
-<li>Replace <code>plant_height</code> with <code>rame_length</code> in the new code.</li>
+<li>Save the <code>plant_height.R</code> script</li>
+<li>Run the <code>plant_height.R</code> script, one line at a time, watching for errors. If you performed step 3 correctly, you shouldn’t get any errors.</li>
+<li>Insert the figures into your word document
+<ul>
+<li>Open your project folder in the Finder.</li>
+<li>Open your Word document.</li>
+<li>Drag the figures from the Finder into your open Word document.</li>
+</ul></li>
 </ol>
-<p><span class="label label-success">Pro Tip</span> Use the Find and Replace function by clicking the magnifying glass in the Source tab toolbar. Avoid the temptation to Replace All… instead click through replacing one at a time to make sure you don’t change something in a way you didn’t intend to.</p>
 </div>
-<div id="figure-legends" class="section level4">
-<h4>Figure legends</h4>
+<div id="step-4.-repeat-for-rame-length" class="section level4">
+<h4>Step 4. Repeat for rame length</h4>
+<p>Now you can repeat the same process for rame length.</p>
+<p>Create a new R script, save it as <code>rame_length.R</code>, and paste in the code from <code>plant_height.R</code>.</p>
+<p>This time you only need to:</p>
+<ol style="list-style-type: decimal">
+<li>replace <code>plant_height</code> with <code>rame_length</code></li>
+<li>change the axis labels</li>
+<li>change the file names for saving</li>
+<li>change the titles (e.g. <strong>Figure 1</strong> becomes <strong>Figure 3</strong>, and <strong>2</strong> becomes <strong>4</strong>)</li>
+</ol>
+</div>
+<div id="step-5.-write-figure-legends" class="section level4">
+<h4>Step 5. Write figure legends</h4>
+<p>Write figure legends for each figure in your Word document.</p>
+<p>For reference, here are the figure legends for the finch beak length analysis again:</p>
+<blockquote class="text-info">
+Figure 1. <strong>Distribution of beak lengths among medium ground finches (<i>Geospiza fortis</i>) grouped by survival outcome during the 1977 drought on Daphne Major, Galapagos archipelago.</strong> Each sample consisted of 50 individuals. Birds were banded and measured during 1975-1977 and resighted in 1978.
+</blockquote>
+<blockquote class="text-info">
+Figure 2. <strong>Mean beak length varied between medium ground finches (<i>Geospiza fortis</i>) that survived or died during the 1977 drought on Daphne Major, Galapagos archipelago.</strong> Each sample consisted of 50 individuals. Birds were banded and measured during 1975-1977 and resighted in 1978. Error bars represent 95% confidence intervals.
+</blockquote>
 <p>For tips on how to write a good figure legend, see <a href="https://www.aje.com/en/arc/writing-effective-figure-legend/">Writing an Effective Figure Legend</a>. In general, a figure legend should provide the following parts:</p>
 <ul>
 <li>Title: A brief title that applies to the entire figure, including all panels.</li>
@@ -297,16 +337,34 @@ Do plant height or rame length of Big Bluestem (<i>Andropogon gerrardii</i>) pla
 <li>Definitions: An explanation of features in the figure.</li>
 </ul>
 </div>
+<div id="step-6.-write-a-results-section" class="section level4">
+<h4>Step 6. Write a RESULTS section</h4>
+<p>Write a RESULTS section as you might for a report or peer-reviewed article. This section should include:</p>
+<ul>
+<li>A paragraph describing the difference in plant heights between burned and unburned areas, citing the first two figures and giving the results of the plant height <em>t</em>-test.</li>
+<li>A paragraph describing the difference in rame lengths between burned and unburned areas, citing the last two figures and giving the results of the rame length <em>t</em>-test.</li>
+</ul>
+<p>For reference, here is the paragraph we wrote for the beak length analysis:</p>
+<blockquote class="text-info">
+Birds that survived the 1977 drought generally had longer beaks than those that died (Fig. 1). Mean beak lengths were 11.1 mm in survivors and 10.5 mm in non-survivors (Fig. 2). This difference was stastistically significant according to a Welch’s two-sample t-test assuming unequal variances (<em>t</em>=3.6335, <em>df</em>=94.807, <em>p</em>=0.0004539).
+</blockquote>
+</div>
+<div id="step-7.-upload-word-doc-to-d2l" class="section level4">
+<h4>Step 7. Upload Word doc to D2L</h4>
+<p>Once you have all the components in your Word document, save it and upload it to the Assignment area of your LAB (not lecture) site on <a href="https://mnstate.learn.minnstate.edu/">D2L</a>.</p>
+</div>
 </div>
 <div id="saving-your-files" class="section level3">
 <h3>Saving your files</h3>
 <p>If you want to save what you have done so you can work on it later, here is the best option:</p>
 <ol style="list-style-type: decimal">
-<li>Log in to <a href="https://www.mnstate.edu/it/office365/">Microsoft Office 360</a> with your StarID</li>
-<li>Click <strong>OneDrive</strong></li>
+<li>Go to <a href="https://www.mnstate.edu/it/office365/">Microsoft Office 360</a></li>
+<li>Click the link <strong>Go to the Office 365 site</strong>.</li>
+<li>Log in to with your StarID</li>
+<li>Click the <strong>OneDrive</strong> Logo</li>
 <li>Drag your Project folder from the Finder onto the area that says “Drag Files Here”</li>
 </ol>
-<p>You may get an error message that it could not upload files starting with a dot (“.”), e.g. .Rprofile or .RData. Ignore that warning, those files are not important.</p>
+<p>You may get an error message that it could not upload files starting with a dot (“.”), e.g. .Rprofile. Ignore that warning, those files are not important.</p>
 <p>To work on your files again:</p>
 <ol style="list-style-type: decimal">
 <li>Log in to <a href="https://www.mnstate.edu/it/office365/">Microsoft Office 360</a> with your StarID</li>
@@ -318,6 +376,7 @@ Do plant height or rame length of Big Bluestem (<i>Andropogon gerrardii</i>) pla
 <li>Start RStudio</li>
 <li>Open your Project using one of the methods described in <a href="lab1_1_rstudio.html">Part 1</a>.</li>
 </ol>
+<p>An alternative to using OneDrive is to put your files on a USB storage device.</p>
 <ul class="pager">
 <li class="previous">
 <a href="lab1_3_finch.html">← Part 3. Finch Data Example</a>
