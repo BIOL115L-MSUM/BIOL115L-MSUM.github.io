@@ -216,7 +216,7 @@ Once you are done, you can expand the section below to see the correct answers:
 3. `4.985`
 4. `0.9899725`
 5. `0.3130568`
-6. `5.443114 4.190886`
+6. `5.430591 4.203409`
   </div>
 </div>
 
