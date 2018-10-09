@@ -35,9 +35,7 @@ Download this Microsoft Word document:
 
 <a href="lab1_assignment_template.docx"><i class="fas fa-file-word fa-5x"></i></a>
 
-Edit the document by so it uses your figures and text, and delete the example figures and text at the end of the document. 
-
-When done, the document will contain the following:
+Steps 2 through 6 will walk you through how to modify the document so it uses your figures and text. When done, the document will contain the following:
 
 1. A histogram of plant heights
 2. A bar chart of plant heights
