@@ -495,10 +495,11 @@ To look at an object you have just created, print it to the console window by <s
 <a class="sourceLine" id="cb10-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st">   </span><span class="co"># outcome is the grouping variable</span></a>
 <a class="sourceLine" id="cb10-9" data-line-number="9"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">              </span><span class="co"># don&#39;t show a legend for fll color</span></a>
 <a class="sourceLine" id="cb10-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb10-11" data-line-number="11">    <span class="dt">title =</span> <span class="st">&quot;Figure 1&quot;</span>,               <span class="co"># title</span></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">    <span class="dt">title =</span> <span class="st">&quot;Figure 1.&quot;</span>,              <span class="co"># title</span></a>
 <a class="sourceLine" id="cb10-12" data-line-number="12">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,           <span class="co"># x-axis label</span></a>
 <a class="sourceLine" id="cb10-13" data-line-number="13">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span>             <span class="co"># y-axis label</span></a>
-<a class="sourceLine" id="cb10-14" data-line-number="14">  )</a></code></pre></div>
+<a class="sourceLine" id="cb10-14" data-line-number="14">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-15" data-line-number="15"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="kw">rel</span>(.<span class="dv">8</span>)))  <span class="co"># make title smaller</span></a></code></pre></div>
 <p><img src="lab1_3_finch_files/figure-html/grouped-histogram-labels-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>When sharing your figure with others, for example in a report or peer-reviewed journal article, you should always include a figure legend.</p>
 <p>A good figure legend for this histogram would be:</p>
@@ -574,10 +575,11 @@ Figure 1. <strong>Distribution of beak lengths among medium ground finches (<i>G
 <a class="sourceLine" id="cb16-15" data-line-number="15">  ) <span class="op">+</span></a>
 <a class="sourceLine" id="cb16-16" data-line-number="16"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">                </span><span class="co"># don&#39;t show a legend for fll color</span></a>
 <a class="sourceLine" id="cb16-17" data-line-number="17"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb16-18" data-line-number="18">    <span class="dt">title =</span> <span class="st">&quot;Figure 2&quot;</span>,                 <span class="co"># title</span></a>
+<a class="sourceLine" id="cb16-18" data-line-number="18">    <span class="dt">title =</span> <span class="st">&quot;Figure 2.&quot;</span>,                <span class="co"># title</span></a>
 <a class="sourceLine" id="cb16-19" data-line-number="19">    <span class="dt">x =</span> <span class="st">&quot;Survival Outcome&quot;</span>,             <span class="co"># x-axis label</span></a>
 <a class="sourceLine" id="cb16-20" data-line-number="20">    <span class="dt">y =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>              <span class="co"># y-axis label</span></a>
-<a class="sourceLine" id="cb16-21" data-line-number="21">  )</a></code></pre></div>
+<a class="sourceLine" id="cb16-21" data-line-number="21">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-22" data-line-number="22"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="kw">rel</span>(.<span class="dv">8</span>)))  <span class="co"># make title smaller</span></a></code></pre></div>
 <p><img src="lab1_3_finch_files/figure-html/bar-chart-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>A good figure legend for this figure would be:</p>
 <blockquote class="text-info">

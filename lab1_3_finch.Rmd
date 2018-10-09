@@ -226,10 +226,11 @@ ggplot(
   facet_wrap(~ outcome, ncol = 1) +   # outcome is the grouping variable
   guides(fill = FALSE) +              # don't show a legend for fll color
   labs(
-    title = "Figure 1",               # title
+    title = "Figure 1.",              # title
     x = "Beak Length (mm)",           # x-axis label
     y = "Number of Birds"             # y-axis label
-  )
+  ) +
+  theme(plot.title = element_text(size = rel(.8)))  # make title smaller
 ```
 
 When sharing your figure with others, for example in a report or peer-reviewed journal article, you should always include a figure legend.
@@ -312,10 +313,11 @@ ggplot(
   ) +
   guides(fill = FALSE) +                # don't show a legend for fll color
   labs(
-    title = "Figure 2",                 # title
+    title = "Figure 2.",                # title
     x = "Survival Outcome",             # x-axis label
     y = "Beak Length (mm)"              # y-axis label
-  )
+  ) +
+  theme(plot.title = element_text(size = rel(.8)))  # make title smaller
 ```
 
 A good figure legend for this figure would be:

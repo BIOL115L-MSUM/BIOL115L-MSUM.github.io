@@ -47,9 +47,11 @@ ggplot(
   facet_wrap(~ outcome, ncol = 1) +   # outcome is the grouping variable
   guides(fill = FALSE) +              # don't show a legend for fll color
   labs(
+    title = "Figure 1.",              # title
     x = "Beak Length (mm)",           # x-axis label
     y = "Number of Birds"             # y-axis label
-  )
+  ) +
+  theme(plot.title = element_text(size = rel(.8)))  # make title smaller
 
 # save your most recent plot
 ggsave("Beak Length Histogram.png",   # you choose a name for the file
@@ -91,9 +93,11 @@ ggplot(
   ) +
   guides(fill = FALSE) +                # don't show a legend for fll color
   labs(
+    title = "Figure 2.",                # title
     x = "Survival Outcome",             # x-axis label
     y = "Beak Length (mm)"              # y-axis label
-  )
+  ) +
+  theme(plot.title = element_text(size = rel(.8)))  # make title smaller
 
 # save the beak length bar chart
 # note that the dimensions are different from the histograms above

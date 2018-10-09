@@ -342,82 +342,86 @@ $(document).ready(function () {
 <a class="sourceLine" id="cb1-46" data-line-number="46"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st">   </span><span class="co"># outcome is the grouping variable</span></a>
 <a class="sourceLine" id="cb1-47" data-line-number="47"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">              </span><span class="co"># don&#39;t show a legend for fll color</span></a>
 <a class="sourceLine" id="cb1-48" data-line-number="48"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb1-49" data-line-number="49">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,           <span class="co"># x-axis label</span></a>
-<a class="sourceLine" id="cb1-50" data-line-number="50">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span>             <span class="co"># y-axis label</span></a>
-<a class="sourceLine" id="cb1-51" data-line-number="51">  )</a>
-<a class="sourceLine" id="cb1-52" data-line-number="52"></a>
-<a class="sourceLine" id="cb1-53" data-line-number="53"><span class="co"># save your most recent plot</span></a>
-<a class="sourceLine" id="cb1-54" data-line-number="54"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Histogram.png&quot;</span>,   <span class="co"># you choose a name for the file</span></a>
-<a class="sourceLine" id="cb1-55" data-line-number="55">       <span class="dt">width =</span> <span class="fl">3.5</span>, <span class="dt">height =</span> <span class="fl">3.5</span>,     <span class="co"># dimensions of saved file</span></a>
-<a class="sourceLine" id="cb1-56" data-line-number="56">       <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)                  <span class="co"># units for the dimensions</span></a>
-<a class="sourceLine" id="cb1-57" data-line-number="57"></a>
-<a class="sourceLine" id="cb1-58" data-line-number="58"></a>
-<a class="sourceLine" id="cb1-59" data-line-number="59"><span class="co"># summarize ---------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-49" data-line-number="49">    <span class="dt">title =</span> <span class="st">&quot;Figure 1.&quot;</span>,              <span class="co"># title</span></a>
+<a class="sourceLine" id="cb1-50" data-line-number="50">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,           <span class="co"># x-axis label</span></a>
+<a class="sourceLine" id="cb1-51" data-line-number="51">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span>             <span class="co"># y-axis label</span></a>
+<a class="sourceLine" id="cb1-52" data-line-number="52">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-53" data-line-number="53"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="kw">rel</span>(.<span class="dv">8</span>)))  <span class="co"># make title smaller</span></a>
+<a class="sourceLine" id="cb1-54" data-line-number="54"></a>
+<a class="sourceLine" id="cb1-55" data-line-number="55"><span class="co"># save your most recent plot</span></a>
+<a class="sourceLine" id="cb1-56" data-line-number="56"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Histogram.png&quot;</span>,   <span class="co"># you choose a name for the file</span></a>
+<a class="sourceLine" id="cb1-57" data-line-number="57">       <span class="dt">width =</span> <span class="fl">3.5</span>, <span class="dt">height =</span> <span class="fl">3.5</span>,     <span class="co"># dimensions of saved file</span></a>
+<a class="sourceLine" id="cb1-58" data-line-number="58">       <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)                  <span class="co"># units for the dimensions</span></a>
+<a class="sourceLine" id="cb1-59" data-line-number="59"></a>
 <a class="sourceLine" id="cb1-60" data-line-number="60"></a>
-<a class="sourceLine" id="cb1-61" data-line-number="61"><span class="co"># summarize the dataset by outcome (survived vs. died)</span></a>
-<a class="sourceLine" id="cb1-62" data-line-number="62">beak_length_grouped_summary &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb1-63" data-line-number="63"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-64" data-line-number="64"><span class="st">  </span><span class="kw">group_by</span>(outcome) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-65" data-line-number="65"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(beak_length),</a>
-<a class="sourceLine" id="cb1-66" data-line-number="66">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
-<a class="sourceLine" id="cb1-67" data-line-number="67">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-68" data-line-number="68"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
-<a class="sourceLine" id="cb1-69" data-line-number="69">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem,</a>
-<a class="sourceLine" id="cb1-70" data-line-number="70">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem)</a>
-<a class="sourceLine" id="cb1-71" data-line-number="71"></a>
-<a class="sourceLine" id="cb1-72" data-line-number="72"><span class="co"># print the results in the console</span></a>
-<a class="sourceLine" id="cb1-73" data-line-number="73">beak_length_grouped_summary</a>
-<a class="sourceLine" id="cb1-74" data-line-number="74"></a>
-<a class="sourceLine" id="cb1-75" data-line-number="75"></a>
-<a class="sourceLine" id="cb1-76" data-line-number="76"><span class="co"># bar chart ---------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-61" data-line-number="61"><span class="co"># summarize ---------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-62" data-line-number="62"></a>
+<a class="sourceLine" id="cb1-63" data-line-number="63"><span class="co"># summarize the dataset by outcome (survived vs. died)</span></a>
+<a class="sourceLine" id="cb1-64" data-line-number="64">beak_length_grouped_summary &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb1-65" data-line-number="65"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-66" data-line-number="66"><span class="st">  </span><span class="kw">group_by</span>(outcome) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-67" data-line-number="67"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(beak_length),</a>
+<a class="sourceLine" id="cb1-68" data-line-number="68">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
+<a class="sourceLine" id="cb1-69" data-line-number="69">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-70" data-line-number="70"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
+<a class="sourceLine" id="cb1-71" data-line-number="71">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem,</a>
+<a class="sourceLine" id="cb1-72" data-line-number="72">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem)</a>
+<a class="sourceLine" id="cb1-73" data-line-number="73"></a>
+<a class="sourceLine" id="cb1-74" data-line-number="74"><span class="co"># print the results in the console</span></a>
+<a class="sourceLine" id="cb1-75" data-line-number="75">beak_length_grouped_summary</a>
+<a class="sourceLine" id="cb1-76" data-line-number="76"></a>
 <a class="sourceLine" id="cb1-77" data-line-number="77"></a>
-<a class="sourceLine" id="cb1-78" data-line-number="78"><span class="co"># bar chart of mean beak lengths</span></a>
-<a class="sourceLine" id="cb1-79" data-line-number="79"><span class="kw">ggplot</span>(</a>
-<a class="sourceLine" id="cb1-80" data-line-number="80">  <span class="dt">data =</span> beak_length_grouped_summary,   <span class="co"># dont use the original finches dataset</span></a>
-<a class="sourceLine" id="cb1-81" data-line-number="81">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> outcome,            <span class="co"># survival on the x axis</span></a>
-<a class="sourceLine" id="cb1-82" data-line-number="82">                <span class="dt">y =</span> mean,               <span class="co"># mean beak length on the y axis</span></a>
-<a class="sourceLine" id="cb1-83" data-line-number="83">                <span class="dt">fill =</span> outcome)         <span class="co"># make died/survived different colors</span></a>
-<a class="sourceLine" id="cb1-84" data-line-number="84">) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-85" data-line-number="85"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st">                          </span><span class="co"># add columns</span></a>
-<a class="sourceLine" id="cb1-86" data-line-number="86"><span class="st">  </span><span class="kw">geom_errorbar</span>(                        <span class="co"># add error bars</span></a>
-<a class="sourceLine" id="cb1-87" data-line-number="87">    <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> lower,         <span class="co">#   lower 95% confidence limit</span></a>
-<a class="sourceLine" id="cb1-88" data-line-number="88">                  <span class="dt">ymax =</span> upper),        <span class="co">#   upper 95% confidence limit</span></a>
-<a class="sourceLine" id="cb1-89" data-line-number="89">    <span class="dt">width =</span> <span class="fl">.3</span>                          <span class="co">#   width of horizontal part of bars</span></a>
-<a class="sourceLine" id="cb1-90" data-line-number="90">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-91" data-line-number="91"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">                </span><span class="co"># don&#39;t show a legend for fll color</span></a>
-<a class="sourceLine" id="cb1-92" data-line-number="92"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb1-93" data-line-number="93">    <span class="dt">x =</span> <span class="st">&quot;Survival Outcome&quot;</span>,             <span class="co"># x-axis label</span></a>
-<a class="sourceLine" id="cb1-94" data-line-number="94">    <span class="dt">y =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>              <span class="co"># y-axis label</span></a>
-<a class="sourceLine" id="cb1-95" data-line-number="95">  )</a>
-<a class="sourceLine" id="cb1-96" data-line-number="96"></a>
-<a class="sourceLine" id="cb1-97" data-line-number="97"><span class="co"># save the beak length bar chart</span></a>
-<a class="sourceLine" id="cb1-98" data-line-number="98"><span class="co"># note that the dimensions are different from the histograms above</span></a>
-<a class="sourceLine" id="cb1-99" data-line-number="99"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Bar Chart.png&quot;</span>, </a>
-<a class="sourceLine" id="cb1-100" data-line-number="100">       <span class="dt">width =</span> <span class="fl">2.5</span>, <span class="dt">height =</span> <span class="fl">3.5</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)</a>
-<a class="sourceLine" id="cb1-101" data-line-number="101"></a>
-<a class="sourceLine" id="cb1-102" data-line-number="102"></a>
-<a class="sourceLine" id="cb1-103" data-line-number="103"><span class="co"># t-test ------------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb1-104" data-line-number="104"></a>
-<a class="sourceLine" id="cb1-105" data-line-number="105"><span class="co"># get a vector of beak lengths for birds that died</span></a>
-<a class="sourceLine" id="cb1-106" data-line-number="106">beak_length_died &lt;-</a>
-<a class="sourceLine" id="cb1-107" data-line-number="107"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st">                     </span><span class="co"># start with finches dataset</span></a>
-<a class="sourceLine" id="cb1-108" data-line-number="108"><span class="st">  </span><span class="kw">filter</span>(outcome <span class="op">==</span><span class="st"> &quot;died&quot;</span>) <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># only include rows w/ outcome=died</span></a>
-<a class="sourceLine" id="cb1-109" data-line-number="109"><span class="st">  </span><span class="kw">pull</span>(beak_length)               <span class="co"># extract the beak_length column</span></a>
-<a class="sourceLine" id="cb1-110" data-line-number="110"></a>
-<a class="sourceLine" id="cb1-111" data-line-number="111"><span class="co"># print the new object in the console... it is a vector</span></a>
-<a class="sourceLine" id="cb1-112" data-line-number="112">beak_length_died</a>
-<a class="sourceLine" id="cb1-113" data-line-number="113"></a>
-<a class="sourceLine" id="cb1-114" data-line-number="114"><span class="co"># get a vector of beak lengths for birds that survived</span></a>
-<a class="sourceLine" id="cb1-115" data-line-number="115">beak_length_survived &lt;-</a>
-<a class="sourceLine" id="cb1-116" data-line-number="116"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-117" data-line-number="117"><span class="st">  </span><span class="kw">filter</span>(outcome <span class="op">==</span><span class="st"> &quot;survived&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-118" data-line-number="118"><span class="st">  </span><span class="kw">pull</span>(beak_length)</a>
-<a class="sourceLine" id="cb1-119" data-line-number="119"></a>
-<a class="sourceLine" id="cb1-120" data-line-number="120"><span class="co"># print the results in the console</span></a>
-<a class="sourceLine" id="cb1-121" data-line-number="121">beak_length_survived</a>
-<a class="sourceLine" id="cb1-122" data-line-number="122"></a>
-<a class="sourceLine" id="cb1-123" data-line-number="123"><span class="co"># perform a two-sample t-test assuming unequal variances</span></a>
-<a class="sourceLine" id="cb1-124" data-line-number="124"><span class="kw">t.test</span>(beak_length_died, beak_length_survived)</a></code></pre></div>
+<a class="sourceLine" id="cb1-78" data-line-number="78"><span class="co"># bar chart ---------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-79" data-line-number="79"></a>
+<a class="sourceLine" id="cb1-80" data-line-number="80"><span class="co"># bar chart of mean beak lengths</span></a>
+<a class="sourceLine" id="cb1-81" data-line-number="81"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb1-82" data-line-number="82">  <span class="dt">data =</span> beak_length_grouped_summary,   <span class="co"># dont use the original finches dataset</span></a>
+<a class="sourceLine" id="cb1-83" data-line-number="83">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> outcome,            <span class="co"># survival on the x axis</span></a>
+<a class="sourceLine" id="cb1-84" data-line-number="84">                <span class="dt">y =</span> mean,               <span class="co"># mean beak length on the y axis</span></a>
+<a class="sourceLine" id="cb1-85" data-line-number="85">                <span class="dt">fill =</span> outcome)         <span class="co"># make died/survived different colors</span></a>
+<a class="sourceLine" id="cb1-86" data-line-number="86">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-87" data-line-number="87"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st">                          </span><span class="co"># add columns</span></a>
+<a class="sourceLine" id="cb1-88" data-line-number="88"><span class="st">  </span><span class="kw">geom_errorbar</span>(                        <span class="co"># add error bars</span></a>
+<a class="sourceLine" id="cb1-89" data-line-number="89">    <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> lower,         <span class="co">#   lower 95% confidence limit</span></a>
+<a class="sourceLine" id="cb1-90" data-line-number="90">                  <span class="dt">ymax =</span> upper),        <span class="co">#   upper 95% confidence limit</span></a>
+<a class="sourceLine" id="cb1-91" data-line-number="91">    <span class="dt">width =</span> <span class="fl">.3</span>                          <span class="co">#   width of horizontal part of bars</span></a>
+<a class="sourceLine" id="cb1-92" data-line-number="92">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-93" data-line-number="93"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">                </span><span class="co"># don&#39;t show a legend for fll color</span></a>
+<a class="sourceLine" id="cb1-94" data-line-number="94"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb1-95" data-line-number="95">    <span class="dt">title =</span> <span class="st">&quot;Figure 2.&quot;</span>,                <span class="co"># title</span></a>
+<a class="sourceLine" id="cb1-96" data-line-number="96">    <span class="dt">x =</span> <span class="st">&quot;Survival Outcome&quot;</span>,             <span class="co"># x-axis label</span></a>
+<a class="sourceLine" id="cb1-97" data-line-number="97">    <span class="dt">y =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>              <span class="co"># y-axis label</span></a>
+<a class="sourceLine" id="cb1-98" data-line-number="98">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-99" data-line-number="99"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="kw">rel</span>(.<span class="dv">8</span>)))  <span class="co"># make title smaller</span></a>
+<a class="sourceLine" id="cb1-100" data-line-number="100"></a>
+<a class="sourceLine" id="cb1-101" data-line-number="101"><span class="co"># save the beak length bar chart</span></a>
+<a class="sourceLine" id="cb1-102" data-line-number="102"><span class="co"># note that the dimensions are different from the histograms above</span></a>
+<a class="sourceLine" id="cb1-103" data-line-number="103"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Bar Chart.png&quot;</span>, </a>
+<a class="sourceLine" id="cb1-104" data-line-number="104">       <span class="dt">width =</span> <span class="fl">2.5</span>, <span class="dt">height =</span> <span class="fl">3.5</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)</a>
+<a class="sourceLine" id="cb1-105" data-line-number="105"></a>
+<a class="sourceLine" id="cb1-106" data-line-number="106"></a>
+<a class="sourceLine" id="cb1-107" data-line-number="107"><span class="co"># t-test ------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-108" data-line-number="108"></a>
+<a class="sourceLine" id="cb1-109" data-line-number="109"><span class="co"># get a vector of beak lengths for birds that died</span></a>
+<a class="sourceLine" id="cb1-110" data-line-number="110">beak_length_died &lt;-</a>
+<a class="sourceLine" id="cb1-111" data-line-number="111"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st">                     </span><span class="co"># start with finches dataset</span></a>
+<a class="sourceLine" id="cb1-112" data-line-number="112"><span class="st">  </span><span class="kw">filter</span>(outcome <span class="op">==</span><span class="st"> &quot;died&quot;</span>) <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># only include rows w/ outcome=died</span></a>
+<a class="sourceLine" id="cb1-113" data-line-number="113"><span class="st">  </span><span class="kw">pull</span>(beak_length)               <span class="co"># extract the beak_length column</span></a>
+<a class="sourceLine" id="cb1-114" data-line-number="114"></a>
+<a class="sourceLine" id="cb1-115" data-line-number="115"><span class="co"># print the new object in the console... it is a vector</span></a>
+<a class="sourceLine" id="cb1-116" data-line-number="116">beak_length_died</a>
+<a class="sourceLine" id="cb1-117" data-line-number="117"></a>
+<a class="sourceLine" id="cb1-118" data-line-number="118"><span class="co"># get a vector of beak lengths for birds that survived</span></a>
+<a class="sourceLine" id="cb1-119" data-line-number="119">beak_length_survived &lt;-</a>
+<a class="sourceLine" id="cb1-120" data-line-number="120"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-121" data-line-number="121"><span class="st">  </span><span class="kw">filter</span>(outcome <span class="op">==</span><span class="st"> &quot;survived&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-122" data-line-number="122"><span class="st">  </span><span class="kw">pull</span>(beak_length)</a>
+<a class="sourceLine" id="cb1-123" data-line-number="123"></a>
+<a class="sourceLine" id="cb1-124" data-line-number="124"><span class="co"># print the results in the console</span></a>
+<a class="sourceLine" id="cb1-125" data-line-number="125">beak_length_survived</a>
+<a class="sourceLine" id="cb1-126" data-line-number="126"></a>
+<a class="sourceLine" id="cb1-127" data-line-number="127"><span class="co"># perform a two-sample t-test assuming unequal variances</span></a>
+<a class="sourceLine" id="cb1-128" data-line-number="128"><span class="kw">t.test</span>(beak_length_died, beak_length_survived)</a></code></pre></div>
 
 <div class="footer">
   <p>Copyright &copy; 2018 Chris Merkord. All rights reserved.</p>
