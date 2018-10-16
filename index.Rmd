@@ -21,5 +21,6 @@ Here you can find the two Data Labs you will do in class, and links to sign-up s
 
 - [Data Lab 1](lab1.html)
 - [Data Lab 2](lab2.html)
+- [Scientific Writing](sci_writing.html)
 - [Bird Banding](bird_banding.html)
 - [Friday Research Exploration & Education](free.html)

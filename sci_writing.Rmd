@@ -1,0 +1,21 @@
+---
+title: "Scientific Writing"
+---
+
+In these labs, you will practice the basics of writing up the results of an experiment in the form of a scientific lab report. 
+
+In the first assignment, your bluestem lab report, you will be given a partially completed report within a template with reminders to refer to the lab report guidelines document.
+
+In the second assignment, your fast plant report, you will be given the data to analyze on your own, several references, and some specific tips. This report will be completely written by you. 
+
+## Downloads
+
+Click the icons to download the files.
+
+**General Lab Report Guidelines**
+
+<a href="General Lab Report Guidelines 2018.docx"><i class="fas fa-file-word fa-5x"></i></a>
+
+**Bluestem Lab Report Template**
+
+<a href="Bluestem Lab Report Template 2018.docx"><i class="fas fa-file-word fa-5x"></i></a>
