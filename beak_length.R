@@ -20,23 +20,6 @@ glimpse(finches)
 
 # histogram ---------------------------------------------------------------
 
-# histogram of beak length
-ggplot(
-  data = finches,                     # use the finches dataset
-  mapping = aes(x = beak_length)      # put beak length on the x axis
-) +
-  geom_histogram(bins = 14)           # add the histogram, use 14 bins
-
-# histogram of beak length, grouped by survival
-ggplot(
-  data = finches,                     # use the finches dataset
-  mapping = aes(x = beak_length,      # put beak length on the x axis
-                fill = outcome)       # fill sets the color of the boxes
-) +
-  geom_histogram(bins = 14) +         # add the histogram, use 14 bins
-  facet_wrap(~ outcome, ncol = 1) +   # outcome is the grouping variable
-  guides(fill = FALSE)                # don't show a legend for fll color
-
 # histogram of beak length, grouped by survival, with labels
 ggplot(
   data = finches,                     # use the finches dataset
