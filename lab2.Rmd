@@ -10,23 +10,6 @@ Remember, the question you are trying to answer is:
 
 The results of this assignment will form the RESULTS section of your **Fast Plant Lab Report**.
 
-#### Your assignment
-
-Your object in this lab is to generate the results that will answer this question, specifically:
-
-- A histogram showing how the distribution of numbers of trichomes varied between generations
-- A bar chart showing how the mean number of trichomes varied between generations. Include a 95% confidence interval around the means.
-- Figure legends describing these two figures.
-- A paragraph describing the results of the analysis, including the results of a *t*-test to test for a difference between the means.
-
-To answer the question, you should:
-
-1. Create a new RStudio project.
-2. Copy the code from the [Data Lab 1 beak length script  &rarr;](lab1_beak_length_script.html) [click link] and paste it into a new script.
-3. Modify the script to use the fast plant data `"fastplant_data.xlsx"`.
-
-For a reminder on how to perform these steps, see [Data Lab 1, Part 4. Bluestem Data Assignment &rarr;](lab1_4_bluestem.html)
-
 #### Fast plant data
 
 You can download the fast plant data here:
@@ -41,3 +24,72 @@ The variables in the dataset are:
 - **trichome_number**. The number of trichomes the plant had. (values are numeric integers)
 - **selected**. For the F0 generation, was the individual plant selected for breeding? (values include, `"yes"`, `"no"`, or `NA` if the plant was from the F1 generation)
 - **seed_source** For the F1 generation, was the plant from the current year or a previous year (values include `"current_year"`, `"previous_year"`, or `NA` if the plant was from the F0 generation).
+
+#### Your assignment
+
+Your object in this lab is to generate the results that will answer this question, specifically:
+
+- A histogram showing how the distribution of numbers of trichomes varied between generations
+- A bar chart showing how the mean number of trichomes varied between generations. Include a 95% confidence interval around the means.
+- Figure legends describing these two figures.
+- A paragraph describing the results of the analysis, including the results of a *t*-test to test for a difference between the means.
+
+To answer the question, you should:
+
+1. Create a new RStudio project.
+2. Copy the code from the [Data Lab 1 beak length script  &rarr;](lab1_beak_length_script.html) [click link] and paste it into a new script.
+3. Modify the script to use the fast plant data `"fastplant_data.xlsx"`.
+4. Plot a histogram for each generation (F0 and F1) but color the histogram based on whether the plants were selected for breeding or not. For help, see [A new variation] below.
+
+For a reminder on how to perform the analysis steps, see [Data Lab 1, Part 4. Bluestem Data Assignment &rarr;](lab1_4_bluestem.html)
+
+When you are finished, paste your figures into a Word document, add figure legends and a Results paragraph, and upload it to the D2L assignment "Data Lab 2".
+
+#### A new variation
+
+In the finch and bluestem analyses, you created a histogram for each group and also colored the histograms differently for each group.
+
+In theory, there is no reason you can't use a different variable to color the histograms.
+
+For example, here is the finch data colored by `sex`:
+
+```{r read-finch-data, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+source("beak_length.R")
+```
+
+```{r finch-sex-histogram, fig.width=6, fig.height=3.5, fig.align='center'}
+# histogram of beak length, grouped by survival, colored by sex
+ggplot(
+  data = finches,
+  mapping = aes(x = beak_length,
+                fill = sex)           # color the boxes by gender
+) +
+  geom_histogram(bins = 14) +
+  facet_wrap(~ outcome, ncol = 1) +   # put each outcome in its own panel
+  labs(
+    title = "Distribution of beak lengths",
+    subtitle = "Grouped by bird sex and survival outcome",
+    x = "Beak Length (mm)",
+    y = "Number of Birds"
+  )
+```
+
+For **your** current assignment, put each generation of plants on its own panel, and color the columns by whether the plants were selected for breeding or not.
+
+For example:
+
+```{r fast-plant-histogram, fig.width=6, fig.height=3.5, fig.align='center'}
+read_excel("fastplant_data.xlsx") %>% 
+  ggplot(aes(trichome_number)) +
+  geom_histogram(aes(fill = selected), bins = 12) +
+  facet_wrap(~ generation, ncol = 1) +
+  labs(
+    title = "Distribution of trichome counts",
+    subtitle = "Grouped by generation and selection",
+    x = "Number of trichomes",
+    y = "Number of plants"
+  )
+```
+
+
+

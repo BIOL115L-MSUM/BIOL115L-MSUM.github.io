@@ -24,6 +24,80 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #ffffff;
+    color: #a0a0a0;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+div.sourceCode
+  { color: #1f1c1b; background-color: #ffffff; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span. { color: #1f1c1b; } /* Normal */
+code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+code span.an { color: #ca60ca; } /* Annotation */
+code span.at { color: #0057ae; } /* Attribute */
+code span.bn { color: #b08000; } /* BaseN */
+code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #924c9d; } /* Char */
+code span.cn { color: #aa5500; } /* Constant */
+code span.co { color: #898887; } /* Comment */
+code span.cv { color: #0095ff; } /* CommentVar */
+code span.do { color: #607880; } /* Documentation */
+code span.dt { color: #0057ae; } /* DataType */
+code span.dv { color: #b08000; } /* DecVal */
+code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+code span.fl { color: #b08000; } /* Float */
+code span.fu { color: #644a9b; } /* Function */
+code span.im { color: #ff5500; } /* Import */
+code span.in { color: #b08000; } /* Information */
+code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+code span.op { color: #1f1c1b; } /* Operator */
+code span.ot { color: #006e28; } /* Other */
+code span.pp { color: #006e28; } /* Preprocessor */
+code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+code span.sc { color: #3daee9; } /* SpecialChar */
+code span.ss { color: #ff5500; } /* SpecialString */
+code span.st { color: #bf0303; } /* String */
+code span.va { color: #0057ae; } /* Variable */
+code span.vs { color: #bf0303; } /* VerbatimString */
+code span.wa { color: #bf0303; } /* Warning */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -226,6 +300,19 @@ $(document).ready(function () {
 Does the number of trichomes on Fast Plants (<i>Brassica rapa</i>) plants vary between the F0 (parent) and F1 (offspring) generations.
 </blockquote>
 <p>The results of this assignment will form the RESULTS section of your <strong>Fast Plant Lab Report</strong>.</p>
+<div id="fast-plant-data" class="section level4">
+<h4>Fast plant data</h4>
+<p>You can download the fast plant data here:</p>
+<p><a href="fastplant_data.xlsx"><i class="fas fa-file-excel fa-5x"></i></a></p>
+<p>Each row in the dataset represents an individual plant.</p>
+<p>The variables in the dataset are:</p>
+<ul>
+<li><strong>generation</strong>. The generation the plant belonged to? (values include <code>&quot;F0&quot;</code> or <code>&quot;F1&quot;</code>)</li>
+<li><strong>trichome_number</strong>. The number of trichomes the plant had. (values are numeric integers)</li>
+<li><strong>selected</strong>. For the F0 generation, was the individual plant selected for breeding? (values include, <code>&quot;yes&quot;</code>, <code>&quot;no&quot;</code>, or <code>NA</code> if the plant was from the F1 generation)</li>
+<li><strong>seed_source</strong> For the F1 generation, was the plant from the current year or a previous year (values include <code>&quot;current_year&quot;</code>, <code>&quot;previous_year&quot;</code>, or <code>NA</code> if the plant was from the F0 generation).</li>
+</ul>
+</div>
 <div id="your-assignment" class="section level4">
 <h4>Your assignment</h4>
 <p>Your object in this lab is to generate the results that will answer this question, specifically:</p>
@@ -240,21 +327,44 @@ Does the number of trichomes on Fast Plants (<i>Brassica rapa</i>) plants vary b
 <li>Create a new RStudio project.</li>
 <li>Copy the code from the <a href="lab1_beak_length_script.html">Data Lab 1 beak length script →</a> [click link] and paste it into a new script.</li>
 <li>Modify the script to use the fast plant data <code>&quot;fastplant_data.xlsx&quot;</code>.</li>
+<li>Plot a histogram for each generation (F0 and F1) but color the histogram based on whether the plants were selected for breeding or not. For help, see <a href="#a-new-variation">A new variation</a> below.</li>
 </ol>
-<p>For a reminder on how to perform these steps, see <a href="lab1_4_bluestem.html">Data Lab 1, Part 4. Bluestem Data Assignment →</a></p>
+<p>For a reminder on how to perform the analysis steps, see <a href="lab1_4_bluestem.html">Data Lab 1, Part 4. Bluestem Data Assignment →</a></p>
+<p>When you are finished, paste your figures into a Word document, add figure legends and a Results paragraph, and upload it to the D2L assignment “Data Lab 2”.</p>
 </div>
-<div id="fast-plant-data" class="section level4">
-<h4>Fast plant data</h4>
-<p>You can download the fast plant data here:</p>
-<p><a href="fastplant_data.xlsx"><i class="fas fa-file-excel fa-5x"></i></a></p>
-<p>Each row in the dataset represents an individual plant.</p>
-<p>The variables in the dataset are:</p>
-<ul>
-<li><strong>generation</strong>. The generation the plant belonged to? (values include <code>&quot;F0&quot;</code> or <code>&quot;F1&quot;</code>)</li>
-<li><strong>trichome_number</strong>. The number of trichomes the plant had. (values are numeric integers)</li>
-<li><strong>selected</strong>. For the F0 generation, was the individual plant selected for breeding? (values include, <code>&quot;yes&quot;</code>, <code>&quot;no&quot;</code>, or <code>NA</code> if the plant was from the F1 generation)</li>
-<li><strong>seed_source</strong> For the F1 generation, was the plant from the current year or a previous year (values include <code>&quot;current_year&quot;</code>, <code>&quot;previous_year&quot;</code>, or <code>NA</code> if the plant was from the F0 generation).</li>
-</ul>
+<div id="a-new-variation" class="section level4">
+<h4>A new variation</h4>
+<p>In the finch and bluestem analyses, you created a histogram for each group and also colored the histograms differently for each group.</p>
+<p>In theory, there is no reason you can’t use a different variable to color the histograms.</p>
+<p>For example, here is the finch data colored by <code>sex</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># histogram of beak length, grouped by survival, colored by sex</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="dt">data =</span> finches,</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length,</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">                <span class="dt">fill =</span> sex)           <span class="co"># color the boxes by gender</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st">   </span><span class="co"># put each outcome in its own panel</span></a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">    <span class="dt">title =</span> <span class="st">&quot;Distribution of beak lengths&quot;</span>,</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="dt">subtitle =</span> <span class="st">&quot;Grouped by bird sex and survival outcome&quot;</span>,</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">  )</a></code></pre></div>
+<p><img src="lab2_files/figure-html/finch-sex-histogram-1.png" width="576" style="display: block; margin: auto;" /></p>
+<p>For <strong>your</strong> current assignment, put each generation of plants on its own panel, and color the columns by whether the plants were selected for breeding or not.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">read_excel</span>(<span class="st">&quot;fastplant_data.xlsx&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(trichome_number)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> selected), <span class="dt">bins =</span> <span class="dv">12</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>generation, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="dt">title =</span> <span class="st">&quot;Distribution of trichome counts&quot;</span>,</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">    <span class="dt">subtitle =</span> <span class="st">&quot;Grouped by generation and selection&quot;</span>,</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">    <span class="dt">x =</span> <span class="st">&quot;Number of trichomes&quot;</span>,</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9">    <span class="dt">y =</span> <span class="st">&quot;Number of plants&quot;</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10">  )</a></code></pre></div>
+<p><img src="lab2_files/figure-html/fast-plant-histogram-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 
 <div class="footer">
