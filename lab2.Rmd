@@ -37,9 +37,10 @@ Your object in this lab is to generate the results that will answer this questio
 To answer the question, you should:
 
 1. Create a new RStudio project.
+2. Install the **tidyverse** package.
 2. Copy the code from the [Data Lab 1 beak length script  &rarr;](lab1_beak_length_script.html) [click link] and paste it into a new script.
 3. Modify the script to use the fast plant data `"fastplant_data.xlsx"`.
-4. Plot a histogram for each generation (F0 and F1) but color the histogram based on whether the plants were selected for breeding or not. For help, see [A new variation] below.
+4. Plot a histogram for each generation (F0 and F1), but instead of setting the fill color to vary by generation, set it to vary by whether or not the plants were selected for breeding. For help, see [A new variation] below.
 
 For a reminder on how to perform the analysis steps, see [Data Lab 1, Part 4. Bluestem Data Assignment &rarr;](lab1_4_bluestem.html)
 
