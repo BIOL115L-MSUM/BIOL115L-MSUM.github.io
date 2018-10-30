@@ -61,7 +61,7 @@ For example, here is the finch data colored by `sex`:
 source("beak_length.R")
 ```
 
-```{r finch-sex-histogram, fig.width=6, fig.height=3.5, fig.align='center', echo=FALSE}
+```{r finch-sex-histogram, fig.width=6, fig.height=3.5, fig.align='center'}
 # histogram of beak length, grouped by survival, colored by sex
 ggplot(
   data = finches,
@@ -82,7 +82,7 @@ For **your** current assignment, put each generation of plants on its own panel,
 
 For example:
 
-```{r fast-plant-histogram, fig.width=6, fig.height=3.5, fig.align='center'}
+```{r fast-plant-histogram, fig.width=6, fig.height=3.5, fig.align='center', echo=FALSE}
 read_excel("fastplant_data.xlsx") %>% 
   ggplot(aes(trichome_number)) +
   geom_histogram(aes(fill = selected), bins = 12) +
