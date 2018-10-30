@@ -10,24 +10,9 @@ Remember, the question you are trying to answer is:
 
 The results of this assignment will form the RESULTS section of your **Fast Plant Lab Report**.
 
-#### Fast plant data
+## Your assignment
 
-You can download the fast plant data here:
-
-<a href="fastplant_data.xlsx"><i class="fas fa-file-excel fa-5x"></i></a>
-
-Each row in the dataset represents an individual plant.
-
-The variables in the dataset are:
-
-- **generation**. The generation the plant belonged to? (values include `"F0"` or `"F1"`)
-- **trichome_number**. The number of trichomes the plant had. (values are numeric integers)
-- **selected**. For the F0 generation, was the individual plant selected for breeding? (values include, `"yes"`, `"no"`, or `NA` if the plant was from the F1 generation)
-- **seed_source** For the F1 generation, was the plant from the current year or a previous year (values include `"current_year"`, `"previous_year"`, or `NA` if the plant was from the F0 generation).
-
-#### Your assignment
-
-Your object in this lab is to generate the results that will answer this question, specifically:
+Your object in this lab is to generate the results that will answer the question above, specifically by doing the following:
 
 - A histogram showing how the distribution of numbers of trichomes varied between generations
 - A bar chart showing how the mean number of trichomes varied between generations. Include a 95% confidence interval around the means.
@@ -49,7 +34,22 @@ When you are finished:
 - Paste your figures into a Word document, add figure legends and a Results paragraph, and upload it to the D2L assignment "Data Lab 2".
 - Save your project for later use by uploading the project folder onto OneDrive [instructions](lab1_4_bluestem.html#saving-your-files).
 
-#### A new variation
+### Fast plant data
+
+You can download the fast plant data here:
+
+<a href="fastplant_data.xlsx"><i class="fas fa-file-excel fa-5x"></i></a>
+
+Each row in the dataset represents an individual plant.
+
+The variables in the dataset are:
+
+- **generation**. The generation the plant belonged to? (values include `"F0"` or `"F1"`)
+- **trichome_number**. The number of trichomes the plant had. (values are numeric integers)
+- **selected**. For the F0 generation, was the individual plant selected for breeding? (values include, `"yes"`, `"no"`, or `"NA"` if the plant was from the F1 generation)
+- **seed_source** For the F1 generation, was the plant from the current year or a previous year (values include `"current_year"`, `"previous_year"`, or `NA` if the plant was from the F0 generation).
+
+### A new variation
 
 In the finch and bluestem analyses, you created a histogram for each group and also colored the histograms differently for each group.
 
