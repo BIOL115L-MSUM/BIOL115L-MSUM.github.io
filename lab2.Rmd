@@ -44,7 +44,10 @@ To answer the question, you should:
 
 For a reminder on how to perform the analysis steps, see [Data Lab 1, Part 4. Bluestem Data Assignment &rarr;](lab1_4_bluestem.html)
 
-When you are finished, paste your figures into a Word document, add figure legends and a Results paragraph, and upload it to the D2L assignment "Data Lab 2".
+When you are finished:
+
+- Paste your figures into a Word document, add figure legends and a Results paragraph, and upload it to the D2L assignment "Data Lab 2".
+- Save your project for later use by uploading the project folder onto OneDrive [instructions](lab1_4_bluestem.html#saving-your-files).
 
 #### A new variation
 
@@ -84,9 +87,14 @@ read_excel("fastplant_data.xlsx") %>%
   ggplot(aes(trichome_number)) +
   geom_histogram(aes(fill = selected), bins = 12) +
   facet_wrap(~ generation, ncol = 1) +
+  scale_fill_discrete(
+    name = "Selected for\nbreeding?",
+    breaks = c("no", "yes", "NA"),
+    labels = c("No", "Yes", "F1")
+  ) +
   labs(
     title = "Distribution of trichome counts",
-    subtitle = "Grouped by generation and selection",
+    subtitle = "Grouped by generation and selection status",
     x = "Number of trichomes",
     y = "Number of plants"
   )

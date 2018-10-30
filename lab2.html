@@ -325,45 +325,41 @@ Does the number of trichomes on Fast Plants (<i>Brassica rapa</i>) plants vary b
 <p>To answer the question, you should:</p>
 <ol style="list-style-type: decimal">
 <li>Create a new RStudio project.</li>
+<li>Install the <strong>tidyverse</strong> package.</li>
 <li>Copy the code from the <a href="lab1_beak_length_script.html">Data Lab 1 beak length script →</a> [click link] and paste it into a new script.</li>
 <li>Modify the script to use the fast plant data <code>&quot;fastplant_data.xlsx&quot;</code>.</li>
-<li>Plot a histogram for each generation (F0 and F1) but color the histogram based on whether the plants were selected for breeding or not. For help, see <a href="#a-new-variation">A new variation</a> below.</li>
+<li>Plot a histogram for each generation (F0 and F1), but instead of setting the fill color to vary by generation, set it to vary by whether or not the plants were selected for breeding. For help, see <a href="#a-new-variation">A new variation</a> below.</li>
 </ol>
 <p>For a reminder on how to perform the analysis steps, see <a href="lab1_4_bluestem.html">Data Lab 1, Part 4. Bluestem Data Assignment →</a></p>
-<p>When you are finished, paste your figures into a Word document, add figure legends and a Results paragraph, and upload it to the D2L assignment “Data Lab 2”.</p>
+<p>When you are finished:</p>
+<ul>
+<li>Paste your figures into a Word document, add figure legends and a Results paragraph, and upload it to the D2L assignment “Data Lab 2”.</li>
+<li>Save your project for later use by uploading the project folder onto OneDrive <a href="lab1_4_bluestem.html#saving-your-files">instructions</a>.</li>
+</ul>
 </div>
 <div id="a-new-variation" class="section level4">
 <h4>A new variation</h4>
 <p>In the finch and bluestem analyses, you created a histogram for each group and also colored the histograms differently for each group.</p>
 <p>In theory, there is no reason you can’t use a different variable to color the histograms.</p>
 <p>For example, here is the finch data colored by <code>sex</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># histogram of beak length, grouped by survival, colored by sex</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">ggplot</span>(</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="dt">data =</span> finches,</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length,</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">                <span class="dt">fill =</span> sex)           <span class="co"># color the boxes by gender</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st">   </span><span class="co"># put each outcome in its own panel</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">    <span class="dt">title =</span> <span class="st">&quot;Distribution of beak lengths&quot;</span>,</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="dt">subtitle =</span> <span class="st">&quot;Grouped by bird sex and survival outcome&quot;</span>,</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">  )</a></code></pre></div>
 <p><img src="lab2_files/figure-html/finch-sex-histogram-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>For <strong>your</strong> current assignment, put each generation of plants on its own panel, and color the columns by whether the plants were selected for breeding or not.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">read_excel</span>(<span class="st">&quot;fastplant_data.xlsx&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(trichome_number)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> selected), <span class="dt">bins =</span> <span class="dv">12</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>generation, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="dt">title =</span> <span class="st">&quot;Distribution of trichome counts&quot;</span>,</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">    <span class="dt">subtitle =</span> <span class="st">&quot;Grouped by generation and selection&quot;</span>,</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">    <span class="dt">x =</span> <span class="st">&quot;Number of trichomes&quot;</span>,</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">    <span class="dt">y =</span> <span class="st">&quot;Number of plants&quot;</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">  )</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">read_excel</span>(<span class="st">&quot;fastplant_data.xlsx&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(trichome_number)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> selected), <span class="dt">bins =</span> <span class="dv">12</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>generation, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_fill_discrete</span>(</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">    <span class="dt">name =</span> <span class="st">&quot;Selected for</span><span class="ch">\n</span><span class="st">breeding?&quot;</span>,</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">    <span class="dt">breaks =</span> <span class="kw">c</span>(<span class="st">&quot;no&quot;</span>, <span class="st">&quot;yes&quot;</span>, <span class="st">&quot;NA&quot;</span>),</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">    <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;No&quot;</span>, <span class="st">&quot;Yes&quot;</span>, <span class="st">&quot;F1&quot;</span>)</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="dt">title =</span> <span class="st">&quot;Distribution of trichome counts&quot;</span>,</a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">    <span class="dt">subtitle =</span> <span class="st">&quot;Grouped by generation and selection status&quot;</span>,</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13">    <span class="dt">x =</span> <span class="st">&quot;Number of trichomes&quot;</span>,</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">    <span class="dt">y =</span> <span class="st">&quot;Number of plants&quot;</span></a>
+<a class="sourceLine" id="cb1-15" data-line-number="15">  )</a></code></pre></div>
 <p><img src="lab2_files/figure-html/fast-plant-histogram-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 
