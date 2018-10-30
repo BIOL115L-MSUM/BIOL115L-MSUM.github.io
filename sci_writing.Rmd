@@ -12,10 +12,14 @@ In the second assignment, your fast plant report, you will be given the data to 
 
 Click the icons to download the files.
 
-**General Lab Report Guidelines**
+### General Lab Report Guidelines
 
 <a href="General Lab Report Guidelines 2018.docx"><i class="fas fa-file-word fa-5x"></i></a>
 
-**Bluestem Lab Report Template**
+### Bluestem Lab Report Template
 
 <a href="Bluestem Lab Report Template 2018.docx"><i class="fas fa-file-word fa-5x"></i></a>
+
+### Fast Plant Lab Report Template
+
+<a href="Fast Plant Lab Report Template 2018.docx"><i class="fas fa-file-word fa-5x"></i></a>
