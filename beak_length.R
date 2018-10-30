@@ -1,6 +1,9 @@
 
 # load packages -----------------------------------------------------------
 
+# check if tidyverse is installed and if not then install it
+if (!require("tidyverse")) install.packages("tidyverse")
+
 # run every time you restart RStudio
 library(readxl)     # load readxl, for reading Excel files
 library(tidyverse)  # load tidyverse, for working with datasets
