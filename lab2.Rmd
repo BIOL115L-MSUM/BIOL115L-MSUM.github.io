@@ -58,7 +58,7 @@ For example, here is the finch data colored by `sex`:
 source("beak_length.R")
 ```
 
-```{r finch-sex-histogram, fig.width=6, fig.height=3.5, fig.align='center'}
+```{r finch-sex-histogram, fig.width=6, fig.height=3.5, fig.align='center', echo=FALSE}
 # histogram of beak length, grouped by survival, colored by sex
 ggplot(
   data = finches,
