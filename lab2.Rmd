@@ -8,13 +8,15 @@ Remember, the question you are trying to answer is:
 
 <blockquote class="text-success">Does the number of trichomes on Fast Plants (<i>Brassica rapa</i>) plants vary between the F0 (parent) and F1 (offspring) generations.</blockquote>
 
-The results of this assignment will form the RESULTS section of your **Fast Plant Lab Report**, which is due Friday, November 16th.
+The figures and results you produce in this **Data Lab 2** are <span class="text-danger">due by the end of your lab</span>. Upload a Word document to your lab (not lecture) D2L page under Assessment > Assignments > Data Lab 2.
+
+This assignment will also form the RESULTS section of your **Fast Plant Lab Report**, which is <span class="text-warning">due Friday, November 16th</span>. The template for that report is available [here](sci_writing.html#fast-plant-lab-report-template).
 
 ## Your assignment
 
-Your object in this lab is to generate the results that will answer the question above, specifically by doing the following:
+Your objective in this lab is to generate the results that will answer the question above, specifically by producing the following:
 
-- A histogram showing how the distribution of numbers of trichomes varied between generations
+- A histogram showing how the distribution of numbers of trichomes varied between generations. It should also show which plants in the F0 generation were selected for breeding and which were not.
 - A bar chart showing how the mean number of trichomes varied between generations. Include a 95% confidence interval around the means.
 - Figure legends describing these two figures.
 - A paragraph describing the results of the analysis, including the results of a *t*-test to test for a difference between the means.
@@ -22,19 +24,22 @@ Your object in this lab is to generate the results that will answer the question
 To answer the question, you should:
 
 1. Create a new RStudio project.
+2. Download the Fast Plant data (see [Fast plant data] below).
 2. Install the **tidyverse** package.
 2. Copy the code from the [Data Lab 1 beak length script  &rarr;](lab1_beak_length_script.html) [click link] and paste it into a new script.
-3. Modify the script to use the fast plant data `"fastplant_data.xlsx"`.
-4. Plot a histogram for each generation (F0 and F1), but instead of setting the fill color to vary by generation, set it to vary by whether or not the plants were selected for breeding. For help, see [A new variation] below.
+3. Modify the new script for use with the fast plant data `"fastplant_data.xlsx"`.
+4. Plot a histogram with facets for each generation (F0 and F1), but instead of setting the fill color to vary by generation, set it to vary by whether or not the plants were selected for breeding. For help, see [A new variation] below.
 
-For a reminder on how to perform the analysis steps, see [Data Lab 1, Part 4. Bluestem Data Assignment &rarr;](lab1_4_bluestem.html)
+For a reminder on how to perform the analysis and writing steps, see [Data Lab 1, Part 4. Bluestem Data Assignment &rarr;](lab1_4_bluestem.html).
 
 When you are finished:
 
-- Paste your figures into a Word document, add figure legends and a Results paragraph, and upload it to the D2L assignment "Data Lab 2".
-- Save your project for later use by uploading the project folder onto OneDrive [instructions](lab1_4_bluestem.html#saving-your-files).
+- Paste your figures into a Word document, add figure legends and a Results paragraph, and upload it to your *lab* D2L page under Assessments > Assignments > Data Lab 2.
+- Save your project for later use by uploading the project folder onto OneDrive ([instructions](lab1_4_bluestem.html#saving-your-files)).
 
-Your Fast Plant Lab Report is due Friday, November 16th. See the [Scientific Writing](sci_writing.html#fast-plant-lab-report-template) page to download the lab report template.
+This assignment is <span class="text-danger">due by the end of your lab</span>.
+
+Your Fast Plant Lab Report is <span class="text-warning">due Friday, November 16th</span>. See the [Scientific Writing](sci_writing.html#fast-plant-lab-report-template) page to download the lab report template.
 
 ### Fast plant data
 
@@ -82,7 +87,11 @@ ggplot(
   )
 ```
 
-For **your** current assignment, put each generation of plants on its own panel, and color the columns by whether the plants were selected for breeding or not.
+For **your** current assignment, put each generation of plants on its own panel, and set the fill color of the columns by whether the plants were **selected** for breeding or not.
+
+Remove the line `guides(fill = FALSE) +` to show the fill color legend.
+
+In *your* figures, do not use subtitles and set your titles to say `"Figure 1."` and `"Figure 2."`.
 
 For example:
 
