@@ -103,9 +103,11 @@ You only have to install a package once on each computer you are using. If you o
 
 #### Load the packages
 
-<p class="text-info">Copy these two lines in the gray box (including the comments) and paste them into your script.</p>
+<p class="text-info">Copy the code in the box below (including the comments) and paste it into your script.</p>
 
 Do not copy the text in the white boxes. That is just to show you what will be output in the console when you run the code.
+
+If you still have the code `sqrt(9)` in your script, feel free to delete it.
 
 ```{r, warning=FALSE, message=FALSE}
 # load packages -----------------------------------------------------------
