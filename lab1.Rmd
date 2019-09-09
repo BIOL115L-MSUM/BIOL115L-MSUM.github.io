@@ -6,7 +6,7 @@ In this lab you will learn how to view, summarize, and graph data.
 
 Your assignment is to generate figures and statistical analyses that answer the following question:
 
-<blockquote class="text-success">Do plant height or rame length of Big Bluestem (<i>Andropogon gerardii</i>) plants vary between burned and unburned sites.</blockquote>
+<blockquote class="text-success">Do plant height or rame length of Big Bluestem (<i>Andropogon gerardii</i>) plants vary between lowland and upland sites.</blockquote>
 
 Parts 1 to 3 of this lab will teach you how to use R and RStudio. Part 4 contains the instructions for the assignment you will turn in for your grade.
 
