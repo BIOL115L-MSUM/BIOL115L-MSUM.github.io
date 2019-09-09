@@ -25,7 +25,7 @@ Sections:
 
 Your assignment is to generate figures and statistical analyses that answer the following question:
 
-<blockquote class="text-success">Do plant height or rame length of Big Bluestem (<i>Andropogon gerrardii</i>) plants vary between burned and unburned sites.</blockquote>
+<blockquote class="text-success">Do plant height or rame length of Big Bluestem (<i>Andropogon gerardii</i>) plants vary between burned and unburned sites.</blockquote>
 
 We recommend the following steps for completing your assignment.
 
@@ -50,7 +50,7 @@ When you're done, you will upload this document to D2L (see below for instructio
 
 #### Step 2. Download the bluestem data
 
-Your assignment involves plotting and analyzing the data on instraspecific variation in big bluestem (*Andropogon gerrardii*) plants that you collected during a field trip to the Regional Science Center. All the data were entered onto a single Excel spreadsheet.
+Your assignment involves plotting and analyzing the data on instraspecific variation in big bluestem (*Andropogon gerardii*) plants that you collected during a field trip to the Regional Science Center. All the data were entered onto a single Excel spreadsheet.
 
 Each row in the dataset represents an individual plant.
 
