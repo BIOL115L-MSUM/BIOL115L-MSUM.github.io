@@ -119,7 +119,7 @@ library(tidyverse)  # load tidyverse, for working with datasets
 
 <p class="text-info">Now run BOTH lines of code</p>
 
-Put your cursor on the first line and press Cmd+Enter to run it. The cursor automatically moves to the next line, so you can press Cmd+Enter again to run the next line.
+Put your cursor on the first line and press Cmd+Return to run it. The cursor automatically moves to the next line, so you can press Cmd+Return again to run the next line.
 
 You will see a warning and some messages in the Console tab, but those can be safely ignored.
 
@@ -184,7 +184,7 @@ Because we want to compare means between two groups, a useful plot is a **histog
 
 Plotting in the tidyverse is most easily accomplished using the `ggplot()` function and its associated helper functions.
 
-For example, to plot a histogram of the `beak_length` variable, use the following code. Note the use of a `+` after the `ggplot()` function. Copy this code to your script and run it. RStudio is smart enough to recognize that it should all be run together, so putting your cursor on any of these lines and typing Cmd+Enter will run all the lines at once.
+For example, to plot a histogram of the `beak_length` variable, use the following code. Note the use of a `+` after the `ggplot()` function. Copy this code to your script and run it. RStudio is smart enough to recognize that it should all be run together, so putting your cursor on any of these lines and typing Cmd+Return will run all the lines at once.
 
 ```{r histogram, fig.width=6, fig.height=3, fig.align='center'}
 # histogram ---------------------------------------------------------------
