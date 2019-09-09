@@ -37,6 +37,7 @@ The list of bird banding sessions is as follows. Click on the link to view the s
 
 https://docs.google.com/spreadsheets/d/15bmekj7PrNbCUbywQiCTfJDBCyO9O89LMkOaPFOp7pw/edit?usp=sharing
 
+
 ## Location
 
 The <a href="https://www.mnstate.edu/science-center/">MSUM Regional Science Center</a> is located 16 miles east of Moorhead, off Highway 10. It is adjacent to Buffalo River State Park.
