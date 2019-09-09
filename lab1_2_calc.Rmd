@@ -144,22 +144,22 @@ A function consists of the name of the function followed by parentheses, with a 
 A very commonly used function is `c()`, the *combine* function. This combines multiple values into what's known as a *vector*:
 
 ```{r}
-x <- c(1, 2, 10, 4.7, 5.0)
-x
+k <- c(1, 2, 10, 4.7, 5.0)
+k
 ```
 
 There are some functions that take vectors as arguments. For example, the the `length()` function returns the number of elements, or length, of a vector object.
 
 ```{r}
-length(x)
+length(k)
 ```
 
 Useful mathematical functions include:
 
 ```{r}
-median(x)  # median value
-mean(x)    # mean value
-sd(x)      # standard deviation
+median(k)  # median value
+mean(k)    # mean value
+sd(k)      # standard deviation
 ```
 
 You can even nest functions. In the example below, the `c()` function is evaluated first, and its value is used as the argument for the length function.
@@ -171,18 +171,18 @@ length(c(1, 2, 10, 4.7, 5.0)) # nested function
 Combining several of these features together, you can calculate the standard error of the mean (SEM) and a confidence interval around the mean for any set of numbers:
 
 ```{r}
-n <- length(x) # sample size
+n <- length(k) # sample size
 n
-sem <- sd(x) / sqrt(n) # standard error of the mean
+sem <- sd(k) / sqrt(n) # standard error of the mean
 sem
 ```
 
 Once you have calculated the SEM you can use it to estimate the upper and lower limits of a 95% confidence interval like this:
 
 ```{r}
-mean(x) + 1.96 * sem  # upper limit
-mean(x) - 1.96 * sem  # lower limit
-c(mean(x) + 1.96 * sem, mean(x) - 1.96 * sem)
+mean(k) + 1.96 * sem  # upper limit
+mean(k) - 1.96 * sem  # lower limit
+c(mean(k) + 1.96 * sem, mean(k) - 1.96 * sem)
 ```
 
 ### Self-assessment
@@ -200,7 +200,7 @@ Use the skills you have learned to answer the following questions:
 5. What is the standard error of the mean?
 6. What is the 95% confidence interval? [two values]
 
-<span class="label label-info">Tip</span> If you plan on using the same object names for the self assessment as you did for the tutorial (for example, `x` and `n`), it might be a good idea to clear your environment first. That way you won't accidentally use the previous value of `n` (`5`) in your self assessment. To do this, click the broom icon in the Environment tab.
+<span class="label label-info">Tip</span> If you plan on using the same object names for the self assessment as you did for the tutorial (for example, `k` and `n`), it might be a good idea to clear your environment first. That way you won't accidentally use the previous value of `n` (`5`) in your self assessment. To do this, click the broom icon in the Environment tab.
 
 Once you are done, you can expand the section below to see the correct answers:
 
