@@ -77,7 +77,7 @@ Now that you have a script, try copying and pasting this code into it. For examp
 sqrt(9)
 ```
 
-To run the code, place your cursor on the same line as the code as click Run on the Source pane toolbar, then Run Selected Lines. Or just hold down the command key and press the enter key. This is called a keyboard shortcut, and is written as **Cmd+Enter**.
+To run the code, place your cursor on the same line as the code as click Run on the Source pane toolbar, then Run Selected Lines. Or just hold down the Command key and press the Return key. This is called a keyboard shortcut, and is written as **Cmd+Return**.
 
 When you run the line of code, RStudio copies it to the Console pane and executes it.
 
