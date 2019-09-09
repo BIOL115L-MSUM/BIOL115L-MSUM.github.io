@@ -25,10 +25,10 @@
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
+<style type="text/css" data-origin="pandoc">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -41,13 +41,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -92,7 +90,29 @@ code span.st { color: #bf0303; } /* String */
 code span.va { color: #0057ae; } /* Variable */
 code span.vs { color: #bf0303; } /* VerbatimString */
 code span.wa { color: #bf0303; } /* Warning */
+
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -129,9 +149,7 @@ h6 {
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -156,6 +174,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -170,7 +191,6 @@ body {
   padding-top: 65px;
   margin-top: -65px;
 }
-
 .section h2 {
   padding-top: 65px;
   margin-top: -65px;
@@ -190,6 +210,43 @@ body {
 .section h6 {
   padding-top: 65px;
   margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -211,19 +268,85 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -360,7 +483,7 @@ Did beak length vary between birds that survived the drought and those that did 
 </ol>
 <p>The main caveat is to be careful to copy all code, especially closing parentheses <code>)</code> at the end of code chunks.</p>
 <p>Now that you have a script, try copying and pasting this code into it. For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">sqrt</span>(<span class="dv">9</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">sqrt</span>(<span class="dv">9</span>)</a></code></pre></div>
 <p>To run the code, place your cursor on the same line as the code as click Run on the Source pane toolbar, then Run Selected Lines. Or just hold down the command key and press the enter key. This is called a keyboard shortcut, and is written as <strong>Cmd+Enter</strong>.</p>
 <p>When you run the line of code, RStudio copies it to the Console pane and executes it.</p>
 <p>Now that you’ve tried it, you can delete <code>sqrt(9)</code> from your script before you move on.</p>
@@ -388,11 +511,11 @@ Did beak length vary between birds that survived the drought and those that did 
 Copy these two lines in the gray box (including the comments) and paste them into your script.
 </p>
 <p>Do not copy the text in the white boxes. That is just to show you what will be output in the console when you run the code.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># load packages -----------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co"># run every time you restart RStudio</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">library</span>(readxl)     <span class="co"># load readxl, for reading Excel files</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw">library</span>(tidyverse)  <span class="co"># load tidyverse, for working with datasets</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># load packages -----------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co"># run every time you restart RStudio</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">library</span>(readxl)     <span class="co"># load readxl, for reading Excel files</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">library</span>(tidyverse)  <span class="co"># load tidyverse, for working with datasets</span></a></code></pre></div>
 <p class="text-info">
 Now run BOTH lines of code
 </p>
@@ -405,13 +528,13 @@ Now run BOTH lines of code
 <h3>Read the data</h3>
 <p>Now that you have a script and have downloaded your packages, you’re ready to get coding!</p>
 <p>To read the data, you will use a function named <code>read_excel()</code>. Here we run that function and assign the results to an object names <code>finches</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># read data ----------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co"># read the finches data</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">finches &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;finches_data.xlsx&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># read data ----------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="co"># read the finches data</span></a>
+<a class="sourceLine" id="cb3-4" title="4">finches &lt;-<span class="st"> </span><span class="kw">read_excel</span>(<span class="st">&quot;finches_data.xlsx&quot;</span>)</a></code></pre></div>
 <p>If you get an error at this point (red text in the console output) see the two warnings below.</p>
 <p><span class="label label-warning">Warning</span> If you didn’t run the two <code>library()</code> commands, then when your run <code>read_excel()</code> you will get an error that says:</p>
-<p><code>Error in read_excel() : could not find function &quot;read_excel&quot;</code></p>
+<p><code>Error in read_excel() : could not find function "read_excel"</code></p>
 <p>To solve this error, run the two <code>library()</code> commands and then retry reading the data.</p>
 <p><span class="label label-warning">Warning</span> If you haven’t saved your data file in the right place, or if you are not working with your RStudio project open, or if you renamed your finch data file during download, then you will get an error message that says:</p>
 <p>Error: <code>path</code> does not exist: ‘finches_data.xlsx’</p>
@@ -419,8 +542,8 @@ Now run BOTH lines of code
 <p class="text-success">
 To look at an object you have just created, print it to the console window by <strong>typing its name and running it</strong>:
 </p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="co"># print the results in the console</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">finches</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co"># print the results in the console</span></a>
+<a class="sourceLine" id="cb4-2" title="2">finches</a></code></pre></div>
 <pre><code>## # A tibble: 100 x 12
 ##     band species sex   first_adult_year last_year outcome weight  wing
 ##    &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
@@ -442,8 +565,8 @@ To look at an object you have just created, print it to the console window by <s
 <p>For each variable, it’s name is given, followed by the type of data. Most of the time we worth with either numeric data (<code>&lt;dbl&gt;</code>) or text data (<code>&lt;chr&gt;</code>).</p>
 <p>If there are more than 10 rows, or more variables than can fit on the screen, there will be a sentence at the end saying “… with xx more rows, and x more variables”, followed by a list of the unshown variables.</p>
 <p>A quick way of seeing the first few observations for all variables is to use the <code>glimpse()</code> function:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># take a quick look at all the variables in the dataset</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw">glimpse</span>(finches)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co"># take a quick look at all the variables in the dataset</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">glimpse</span>(finches)</a></code></pre></div>
 <pre><code>## Observations: 100
 ## Variables: 12
 ## $ band             &lt;dbl&gt; 9, 12, 276, 278, 283, 288, 293, 294, 298, 307...
@@ -465,44 +588,44 @@ To look at an object you have just created, print it to the console window by <s
 <p>Because we want to compare means between two groups, a useful plot is a <strong>histogram</strong>, which shows how often each value (or range of values) was observed.</p>
 <p>Plotting in the tidyverse is most easily accomplished using the <code>ggplot()</code> function and its associated helper functions.</p>
 <p>For example, to plot a histogram of the <code>beak_length</code> variable, use the following code. Note the use of a <code>+</code> after the <code>ggplot()</code> function. Copy this code to your script and run it. RStudio is smart enough to recognize that it should all be run together, so putting your cursor on any of these lines and typing Cmd+Enter will run all the lines at once.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># histogram ---------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co"># histogram of beak length</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw">ggplot</span>(</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="dt">data =</span> finches,                     <span class="co"># use the finches dataset</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length)      <span class="co"># put beak length on the x axis</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>)           <span class="co"># add the histogram, use 14 bins</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># histogram ---------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co"># histogram of beak length</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb8-5" title="5">  <span class="dt">data =</span> finches,                     <span class="co"># use the finches dataset</span></a>
+<a class="sourceLine" id="cb8-6" title="6">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length)      <span class="co"># put beak length on the x axis</span></a>
+<a class="sourceLine" id="cb8-7" title="7">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>)           <span class="co"># add the histogram, use 14 bins</span></a></code></pre></div>
 <p><img src="lab1_3_finch_files/figure-html/histogram-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>You can plot histograms of other variables by changing the <code>x =</code> part of the code.</p>
 <p>You can also experiment with different numbers of bins. The goal is to have enough that you can see a hump-shaped distribution, but not so many that you have too many bins with few or no observations. Try plotting a histogram with 50 bins, and another with 3 bins. Not very informational, are they?</p>
 <p>Sometimes we want to see how the distribution of a variable varies aong different subsets of the data. For example, to answer our question we want to see how beak length varies between birds that did or did not survive the drought. One easy way to do this is with the <code>facet_wrap()</code> function in ggplot. Note that you have to add a <code>+</code> operator after the <code>geom_histogram()</code> line.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># histogram of beak length, grouped by survival</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">ggplot</span>(</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="dt">data =</span> finches,                     <span class="co"># use the finches dataset</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length,      <span class="co"># put beak length on the x axis</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">                <span class="dt">fill =</span> outcome)       <span class="co"># fill sets the color of the boxes</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span><span class="st">         </span><span class="co"># add the histogram, use 14 bins</span></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st">   </span><span class="co"># outcome is the grouping variable</span></a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>)                <span class="co"># don&#39;t show a legend for fll color</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># histogram of beak length, grouped by survival</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb9-3" title="3">  <span class="dt">data =</span> finches,                     <span class="co"># use the finches dataset</span></a>
+<a class="sourceLine" id="cb9-4" title="4">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length,      <span class="co"># put beak length on the x axis</span></a>
+<a class="sourceLine" id="cb9-5" title="5">                <span class="dt">fill =</span> outcome)       <span class="co"># fill sets the color of the boxes</span></a>
+<a class="sourceLine" id="cb9-6" title="6">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span><span class="st">         </span><span class="co"># add the histogram, use 14 bins</span></a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st">   </span><span class="co"># outcome is the grouping variable</span></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>)                <span class="co"># don&#39;t show a legend for fll color</span></a></code></pre></div>
 <p><img src="lab1_3_finch_files/figure-html/grouped-histogram-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>The last thing you might want to do is spruce up your plot by adding better axis labels and removing the redundant color legend. This is done with the <code>labs()</code> function and the :</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># histogram of beak length, grouped by survival, with labels</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">ggplot</span>(</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="dt">data =</span> finches,                     <span class="co"># use the finches dataset</span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length,      <span class="co"># put beak length on the x axis</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">                <span class="dt">fill =</span> outcome)       <span class="co"># fill sets the color of the boxes</span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6">) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span><span class="st">         </span><span class="co"># add the histogram, use 14 bins</span></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st">   </span><span class="co"># outcome is the grouping variable</span></a>
-<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">              </span><span class="co"># don&#39;t show a legend for fll color</span></a>
-<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb10-11" data-line-number="11">    <span class="dt">title =</span> <span class="st">&quot;Figure 1.&quot;</span>,              <span class="co"># title</span></a>
-<a class="sourceLine" id="cb10-12" data-line-number="12">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,           <span class="co"># x-axis label</span></a>
-<a class="sourceLine" id="cb10-13" data-line-number="13">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span>             <span class="co"># y-axis label</span></a>
-<a class="sourceLine" id="cb10-14" data-line-number="14">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-15" data-line-number="15"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="kw">rel</span>(.<span class="dv">8</span>)))  <span class="co"># make title smaller</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="co"># histogram of beak length, grouped by survival, with labels</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb10-3" title="3">  <span class="dt">data =</span> finches,                     <span class="co"># use the finches dataset</span></a>
+<a class="sourceLine" id="cb10-4" title="4">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length,      <span class="co"># put beak length on the x axis</span></a>
+<a class="sourceLine" id="cb10-5" title="5">                <span class="dt">fill =</span> outcome)       <span class="co"># fill sets the color of the boxes</span></a>
+<a class="sourceLine" id="cb10-6" title="6">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span><span class="st">         </span><span class="co"># add the histogram, use 14 bins</span></a>
+<a class="sourceLine" id="cb10-8" title="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st">   </span><span class="co"># outcome is the grouping variable</span></a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">              </span><span class="co"># don&#39;t show a legend for fll color</span></a>
+<a class="sourceLine" id="cb10-10" title="10"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb10-11" title="11">    <span class="dt">title =</span> <span class="st">&quot;Figure 1.&quot;</span>,              <span class="co"># title</span></a>
+<a class="sourceLine" id="cb10-12" title="12">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,           <span class="co"># x-axis label</span></a>
+<a class="sourceLine" id="cb10-13" title="13">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span>             <span class="co"># y-axis label</span></a>
+<a class="sourceLine" id="cb10-14" title="14">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-15" title="15"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="kw">rel</span>(.<span class="dv">8</span>)))  <span class="co"># make title smaller</span></a></code></pre></div>
 <p><img src="lab1_3_finch_files/figure-html/grouped-histogram-labels-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>When sharing your figure with others, for example in a report or peer-reviewed journal article, you should always include a figure legend.</p>
 <p>A good figure legend for this histogram would be:</p>
@@ -512,77 +635,77 @@ Figure 1. <strong>Distribution of beak lengths among medium ground finches (<i>G
 <div id="export-your-figure" class="section level4">
 <h4>Export your figure</h4>
 <p>To put your figure in a Microsoft Word document (your assignment in part 4), you must first save it as an image file on your computer. You can do this with <code>ggsave()</code>, which saves the most recent ggplot displayed.</p>
-<p>You choose a file name, the dimensions of the output file (think about how big you want this to be when you paste it into a word document), and the units of the dimensions (e.g <code>&quot;in</code> for inches). For example, this code saves your histogram as a 3.5&quot; x 3.5&quot; PNG file:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># save your most recent plot</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Histogram.png&quot;</span>,   <span class="co"># you choose a name for the file</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">       <span class="dt">width =</span> <span class="fl">3.5</span>, <span class="dt">height =</span> <span class="fl">3.5</span>,     <span class="co"># dimensions of saved file DO NOT CHANGE</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">       <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)                  <span class="co"># units for the dimensions DO NOT CHANGE</span></a></code></pre></div>
+<p>You choose a file name, the dimensions of the output file (think about how big you want this to be when you paste it into a word document), and the units of the dimensions (e.g <code>"in</code> for inches). For example, this code saves your histogram as a 3.5" x 3.5" PNG file:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="co"># save your most recent plot</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Histogram.png&quot;</span>,   <span class="co"># you choose a name for the file</span></a>
+<a class="sourceLine" id="cb11-3" title="3">       <span class="dt">width =</span> <span class="fl">3.5</span>, <span class="dt">height =</span> <span class="fl">3.5</span>,     <span class="co"># dimensions of saved file DO NOT CHANGE</span></a>
+<a class="sourceLine" id="cb11-4" title="4">       <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)                  <span class="co"># units for the dimensions DO NOT CHANGE</span></a></code></pre></div>
 <p>Look in your project directory and you’ll see a file named <strong>Beak Length Histogram.png</strong> now. You can click it to open the file in your computer’s default image viewer.</p>
 </div>
 </div>
 <div id="summarize-the-data" class="section level3">
 <h3>Summarize the data</h3>
 <p>The following code will summarize the dataset by calculating the mean, standard deviation and standard error of the mean (SEM) of the <code>beak_length</code> variable.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># summarize ---------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co"># summarize the entire dataset</span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">beak_length_summary &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(beak_length),</a>
-<a class="sourceLine" id="cb12-7" data-line-number="7">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
-<a class="sourceLine" id="cb12-8" data-line-number="8">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
-<a class="sourceLine" id="cb12-10" data-line-number="10">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem,</a>
-<a class="sourceLine" id="cb12-11" data-line-number="11">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem)</a>
-<a class="sourceLine" id="cb12-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="co"># print the results in the console</span></a>
-<a class="sourceLine" id="cb12-14" data-line-number="14">beak_length_summary</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co"># summarize ---------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb12-2" title="2"></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="co"># summarize the entire dataset</span></a>
+<a class="sourceLine" id="cb12-4" title="4">beak_length_summary &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-6" title="6"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(beak_length),</a>
+<a class="sourceLine" id="cb12-7" title="7">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
+<a class="sourceLine" id="cb12-8" title="8">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-9" title="9"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
+<a class="sourceLine" id="cb12-10" title="10">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem,</a>
+<a class="sourceLine" id="cb12-11" title="11">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem)</a>
+<a class="sourceLine" id="cb12-12" title="12"></a>
+<a class="sourceLine" id="cb12-13" title="13"><span class="co"># print the results in the console</span></a>
+<a class="sourceLine" id="cb12-14" title="14">beak_length_summary</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 6
 ##    mean    sd     n    sem upper lower
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1  10.8 0.819   100 0.0819  11.0  10.6</code></pre>
 <p>If we wanted to get separate summaries for different subsets of the data, we can add the <code>group_by()</code> function like this:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co"># summarize the dataset by outcome (survived vs. died)</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">beak_length_grouped_summary &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="st">  </span><span class="kw">group_by</span>(outcome) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(beak_length),</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
-<a class="sourceLine" id="cb14-7" data-line-number="7">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
-<a class="sourceLine" id="cb14-9" data-line-number="9">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem,</a>
-<a class="sourceLine" id="cb14-10" data-line-number="10">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem)</a>
-<a class="sourceLine" id="cb14-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb14-12" data-line-number="12"><span class="co"># print the results in the console</span></a>
-<a class="sourceLine" id="cb14-13" data-line-number="13">beak_length_grouped_summary</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co"># summarize the dataset by outcome (survived vs. died)</span></a>
+<a class="sourceLine" id="cb14-2" title="2">beak_length_grouped_summary &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb14-4" title="4"><span class="st">  </span><span class="kw">group_by</span>(outcome) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb14-5" title="5"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(beak_length),</a>
+<a class="sourceLine" id="cb14-6" title="6">            <span class="dt">sd =</span> <span class="kw">sd</span>(beak_length),</a>
+<a class="sourceLine" id="cb14-7" title="7">            <span class="dt">n =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb14-8" title="8"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">sem =</span> sd <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n),</a>
+<a class="sourceLine" id="cb14-9" title="9">         <span class="dt">upper =</span> mean <span class="op">+</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem,</a>
+<a class="sourceLine" id="cb14-10" title="10">         <span class="dt">lower =</span> mean <span class="op">-</span><span class="st"> </span><span class="fl">1.96</span> <span class="op">*</span><span class="st"> </span>sem)</a>
+<a class="sourceLine" id="cb14-11" title="11"></a>
+<a class="sourceLine" id="cb14-12" title="12"><span class="co"># print the results in the console</span></a>
+<a class="sourceLine" id="cb14-13" title="13">beak_length_grouped_summary</a></code></pre></div>
 <pre><code>## # A tibble: 2 x 7
 ##   outcome   mean    sd     n    sem upper lower
 ##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 died      10.5 0.698    50 0.0987  10.7  10.3
 ## 2 survived  11.1 0.840    50 0.119   11.3  10.8</code></pre>
 <p>To plot these means and confidence intervals, you can use a bar chart with the <code>geom_col()</code> and <code>geom_errorbar()</code> functions in ggplot:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co"># bar chart ---------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb16-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="co"># bar chart of mean beak lengths</span></a>
-<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="kw">ggplot</span>(</a>
-<a class="sourceLine" id="cb16-5" data-line-number="5">  <span class="dt">data =</span> beak_length_grouped_summary,   <span class="co"># dont use the original finches dataset</span></a>
-<a class="sourceLine" id="cb16-6" data-line-number="6">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> outcome,            <span class="co"># survival on the x axis</span></a>
-<a class="sourceLine" id="cb16-7" data-line-number="7">                <span class="dt">y =</span> mean,               <span class="co"># mean beak length on the y axis</span></a>
-<a class="sourceLine" id="cb16-8" data-line-number="8">                <span class="dt">fill =</span> outcome)         <span class="co"># make died/survived different colors</span></a>
-<a class="sourceLine" id="cb16-9" data-line-number="9">) <span class="op">+</span></a>
-<a class="sourceLine" id="cb16-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st">                          </span><span class="co"># add columns</span></a>
-<a class="sourceLine" id="cb16-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_errorbar</span>(                        <span class="co"># add error bars</span></a>
-<a class="sourceLine" id="cb16-12" data-line-number="12">    <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> lower,         <span class="co">#   lower 95% confidence limit</span></a>
-<a class="sourceLine" id="cb16-13" data-line-number="13">                  <span class="dt">ymax =</span> upper),        <span class="co">#   upper 95% confidence limit</span></a>
-<a class="sourceLine" id="cb16-14" data-line-number="14">    <span class="dt">width =</span> <span class="fl">.3</span>                          <span class="co">#   width of horizontal part of bars</span></a>
-<a class="sourceLine" id="cb16-15" data-line-number="15">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb16-16" data-line-number="16"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">                </span><span class="co"># don&#39;t show a legend for fll color</span></a>
-<a class="sourceLine" id="cb16-17" data-line-number="17"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb16-18" data-line-number="18">    <span class="dt">title =</span> <span class="st">&quot;Figure 2.&quot;</span>,                <span class="co"># title</span></a>
-<a class="sourceLine" id="cb16-19" data-line-number="19">    <span class="dt">x =</span> <span class="st">&quot;Survival Outcome&quot;</span>,             <span class="co"># x-axis label</span></a>
-<a class="sourceLine" id="cb16-20" data-line-number="20">    <span class="dt">y =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>              <span class="co"># y-axis label</span></a>
-<a class="sourceLine" id="cb16-21" data-line-number="21">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb16-22" data-line-number="22"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="kw">rel</span>(.<span class="dv">8</span>)))  <span class="co"># make title smaller</span></a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="co"># bar chart ---------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb16-2" title="2"></a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="co"># bar chart of mean beak lengths</span></a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb16-5" title="5">  <span class="dt">data =</span> beak_length_grouped_summary,   <span class="co"># dont use the original finches dataset</span></a>
+<a class="sourceLine" id="cb16-6" title="6">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> outcome,            <span class="co"># survival on the x axis</span></a>
+<a class="sourceLine" id="cb16-7" title="7">                <span class="dt">y =</span> mean,               <span class="co"># mean beak length on the y axis</span></a>
+<a class="sourceLine" id="cb16-8" title="8">                <span class="dt">fill =</span> outcome)         <span class="co"># make died/survived different colors</span></a>
+<a class="sourceLine" id="cb16-9" title="9">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-10" title="10"><span class="st">  </span><span class="kw">geom_col</span>() <span class="op">+</span><span class="st">                          </span><span class="co"># add columns</span></a>
+<a class="sourceLine" id="cb16-11" title="11"><span class="st">  </span><span class="kw">geom_errorbar</span>(                        <span class="co"># add error bars</span></a>
+<a class="sourceLine" id="cb16-12" title="12">    <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">ymin =</span> lower,         <span class="co">#   lower 95% confidence limit</span></a>
+<a class="sourceLine" id="cb16-13" title="13">                  <span class="dt">ymax =</span> upper),        <span class="co">#   upper 95% confidence limit</span></a>
+<a class="sourceLine" id="cb16-14" title="14">    <span class="dt">width =</span> <span class="fl">.3</span>                          <span class="co">#   width of horizontal part of bars</span></a>
+<a class="sourceLine" id="cb16-15" title="15">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-16" title="16"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">                </span><span class="co"># don&#39;t show a legend for fll color</span></a>
+<a class="sourceLine" id="cb16-17" title="17"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb16-18" title="18">    <span class="dt">title =</span> <span class="st">&quot;Figure 2.&quot;</span>,                <span class="co"># title</span></a>
+<a class="sourceLine" id="cb16-19" title="19">    <span class="dt">x =</span> <span class="st">&quot;Survival Outcome&quot;</span>,             <span class="co"># x-axis label</span></a>
+<a class="sourceLine" id="cb16-20" title="20">    <span class="dt">y =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>              <span class="co"># y-axis label</span></a>
+<a class="sourceLine" id="cb16-21" title="21">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-22" title="22"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">size =</span> <span class="kw">rel</span>(.<span class="dv">8</span>)))  <span class="co"># make title smaller</span></a></code></pre></div>
 <p><img src="lab1_3_finch_files/figure-html/bar-chart-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>A good figure legend for this figure would be:</p>
 <blockquote class="text-info">
@@ -590,10 +713,10 @@ Figure 2. <strong>Mean beak length varied between medium ground finches (<i>Geos
 </blockquote>
 <div id="export-your-figure-1" class="section level4">
 <h4>Export your figure</h4>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># save the beak length bar chart</span></a>
-<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="co"># note that the dimensions are different from the histograms above</span></a>
-<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Bar Chart.png&quot;</span>, </a>
-<a class="sourceLine" id="cb17-4" data-line-number="4">       <span class="dt">width =</span> <span class="fl">2.5</span>, <span class="dt">height =</span> <span class="fl">3.5</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)  <span class="co"># DO NOT CHANGE</span></a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1"><span class="co"># save the beak length bar chart</span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="co"># note that the dimensions are different from the histograms above</span></a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="kw">ggsave</span>(<span class="st">&quot;Beak Length Bar Chart.png&quot;</span>, </a>
+<a class="sourceLine" id="cb17-4" title="4">       <span class="dt">width =</span> <span class="fl">2.5</span>, <span class="dt">height =</span> <span class="fl">3.5</span>, <span class="dt">units =</span> <span class="st">&quot;in&quot;</span>)  <span class="co"># DO NOT CHANGE</span></a></code></pre></div>
 </div>
 </div>
 <div id="conduct-a-t-test" class="section level3">
@@ -606,38 +729,38 @@ Figure 2. <strong>Mean beak length varied between medium ground finches (<i>Geos
 <li>Compare the two vectors using a t-test.</li>
 </ol>
 <p>STEP 1: The following code will take a dataset, in this case <code>finches</code>, remove rows that do not meet a given criteria, and extract the column of interest as a vector, and store the result as a new object named <code>beak_length_died</code>.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co"># t-test ------------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb18-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="co"># get a vector of beak lengths for birds that died</span></a>
-<a class="sourceLine" id="cb18-4" data-line-number="4">beak_length_died &lt;-</a>
-<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st">                     </span><span class="co"># start with finches dataset</span></a>
-<a class="sourceLine" id="cb18-6" data-line-number="6"><span class="st">  </span><span class="kw">filter</span>(outcome <span class="op">==</span><span class="st"> &quot;died&quot;</span>) <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># only include rows w/ outcome=died</span></a>
-<a class="sourceLine" id="cb18-7" data-line-number="7"><span class="st">  </span><span class="kw">pull</span>(beak_length)               <span class="co"># extract the beak_length column</span></a>
-<a class="sourceLine" id="cb18-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb18-9" data-line-number="9"><span class="co"># print the new object in the console... it is a vector</span></a>
-<a class="sourceLine" id="cb18-10" data-line-number="10">beak_length_died</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="co"># t-test ------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb18-2" title="2"></a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="co"># get a vector of beak lengths for birds that died</span></a>
+<a class="sourceLine" id="cb18-4" title="4">beak_length_died &lt;-</a>
+<a class="sourceLine" id="cb18-5" title="5"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st">                     </span><span class="co"># start with finches dataset</span></a>
+<a class="sourceLine" id="cb18-6" title="6"><span class="st">  </span><span class="kw">filter</span>(outcome <span class="op">==</span><span class="st"> &quot;died&quot;</span>) <span class="op">%&gt;%</span><span class="st">   </span><span class="co"># only include rows w/ outcome=died</span></a>
+<a class="sourceLine" id="cb18-7" title="7"><span class="st">  </span><span class="kw">pull</span>(beak_length)               <span class="co"># extract the beak_length column</span></a>
+<a class="sourceLine" id="cb18-8" title="8"></a>
+<a class="sourceLine" id="cb18-9" title="9"><span class="co"># print the new object in the console... it is a vector</span></a>
+<a class="sourceLine" id="cb18-10" title="10">beak_length_died</a></code></pre></div>
 <pre><code>##  [1]  9.20  9.50  9.93 11.13 12.13 10.63  9.93 11.33  9.93 11.10 10.80
 ## [12]  9.70 10.60  9.60 10.50  9.90  9.60 10.70  9.30 10.10  9.70 11.00
 ## [23] 11.00 11.60 10.50 10.20  9.70 11.10 11.10 10.20 10.80 10.00 11.10
 ## [34] 10.30 11.10 10.50 11.00 10.00 10.30 11.70 10.20 10.90 11.90 10.20
 ## [45] 10.50 10.50  9.80 11.80 11.00 10.30</code></pre>
-<p>STEP 2: Now copy that code and change “died” to “survived” in your object name, so <code>beak_length_survived</code>, and in the filter criteria, so <code>outcome == &quot;survived&quot;</code>.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># get a vector of beak lengths for birds that survived</span></a>
-<a class="sourceLine" id="cb20-2" data-line-number="2">beak_length_survived &lt;-</a>
-<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(outcome <span class="op">==</span><span class="st"> &quot;survived&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="st">  </span><span class="kw">pull</span>(beak_length)</a>
-<a class="sourceLine" id="cb20-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb20-7" data-line-number="7"><span class="co"># print the results in the console</span></a>
-<a class="sourceLine" id="cb20-8" data-line-number="8">beak_length_survived</a></code></pre></div>
+<p>STEP 2: Now copy that code and change “died” to “survived” in your object name, so <code>beak_length_survived</code>, and in the filter criteria, so <code>outcome == "survived"</code>.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="co"># get a vector of beak lengths for birds that survived</span></a>
+<a class="sourceLine" id="cb20-2" title="2">beak_length_survived &lt;-</a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="st">  </span>finches <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb20-4" title="4"><span class="st">  </span><span class="kw">filter</span>(outcome <span class="op">==</span><span class="st"> &quot;survived&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb20-5" title="5"><span class="st">  </span><span class="kw">pull</span>(beak_length)</a>
+<a class="sourceLine" id="cb20-6" title="6"></a>
+<a class="sourceLine" id="cb20-7" title="7"><span class="co"># print the results in the console</span></a>
+<a class="sourceLine" id="cb20-8" title="8">beak_length_survived</a></code></pre></div>
 <pre><code>##  [1] 11.50 10.20 12.10 11.60 10.30 11.40  8.70  9.90 10.20 10.30 11.43
 ## [12] 11.93 11.03 10.63 10.83 11.23 11.23 10.23 11.63 12.23 11.03 11.13
 ## [23] 10.93 11.03 10.23 11.33 10.03 10.70 10.00 12.43 11.09  9.63 11.60
 ## [34] 11.30 12.13 12.03 10.63 11.83 12.43 12.73 10.33 11.03 12.53 12.13
 ## [45] 10.43 10.53 11.23 11.23 10.90 10.50</code></pre>
 <p>STEP 3: Perform a t-test using the <code>t.test()</code> function:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># perform a two-sample t-test assuming unequal variances</span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw">t.test</span>(beak_length_died, beak_length_survived)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="co"># perform a two-sample t-test assuming unequal variances</span></a>
+<a class="sourceLine" id="cb22-2" title="2"><span class="kw">t.test</span>(beak_length_died, beak_length_survived)</a></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 

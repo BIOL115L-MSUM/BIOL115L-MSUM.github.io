@@ -55,9 +55,7 @@ h6 {
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -82,6 +80,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -96,7 +97,6 @@ body {
   padding-top: 65px;
   margin-top: -65px;
 }
-
 .section h2 {
   padding-top: 65px;
   margin-top: -65px;
@@ -116,6 +116,43 @@ body {
 .section h6 {
   padding-top: 65px;
   margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -137,19 +174,85 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -272,7 +375,7 @@ Do plant height or rame length of Big Bluestem (<i>Andropogon gerrardii</i>) pla
 <p>Each row in the dataset represents an individual plant.</p>
 <p>The variables in the dataset are:</p>
 <ul>
-<li><strong>location</strong> (“burned” vs. “unburned”)</li>
+<li><strong>location</strong> (“burned” vs. “unburned”)</li>
 <li><strong>plant_height</strong> (plant height measured in cm)</li>
 <li><strong>rame_length</strong> (rame length measured in mm)</li>
 <li><strong>section</strong> (name of the section the data collector was in)</li>
@@ -318,7 +421,7 @@ Do plant height or rame length of Big Bluestem (<i>Andropogon gerrardii</i>) pla
 <li>replace <code>plant_height</code> with <code>rame_length</code></li>
 <li>change the axis labels</li>
 <li>change the file names for saving</li>
-<li>change the titles (e.g. <strong>Figure 1</strong> becomes <strong>Figure 3</strong>, and <strong>2</strong> becomes <strong>4</strong>)</li>
+<li>change the titles (e.g. <strong>Figure 1</strong> becomes <strong>Figure 3</strong>, and <strong>2</strong> becomes <strong>4</strong>)</li>
 </ol>
 </div>
 <div id="step-5.-write-figure-legends" class="section level4">
@@ -366,7 +469,7 @@ Birds that survived the 1977 drought generally had longer beaks than those that 
 <li>Click the <strong>OneDrive</strong> Logo</li>
 <li>Drag your Project folder from the Finder onto the area that says “Drag Files Here”</li>
 </ol>
-<p>You may get an error message that it could not upload files starting with a dot (“.”), e.g. .Rprofile. Ignore that warning, those files are not important.</p>
+<p>You may get an error message that it could not upload files starting with a dot (“.”), e.g. .Rprofile. Ignore that warning, those files are not important.</p>
 <p>To work on your files again:</p>
 <ol style="list-style-type: decimal">
 <li>Log in to <a href="https://www.mnstate.edu/it/office365/">Microsoft Office 360</a> with your StarID</li>

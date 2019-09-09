@@ -25,10 +25,10 @@
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
+<style type="text/css" data-origin="pandoc">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -41,13 +41,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -92,7 +90,29 @@ code span.st { color: #bf0303; } /* String */
 code span.va { color: #0057ae; } /* Variable */
 code span.vs { color: #bf0303; } /* VerbatimString */
 code span.wa { color: #bf0303; } /* Warning */
+
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -129,9 +149,7 @@ h6 {
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -156,6 +174,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -170,7 +191,6 @@ body {
   padding-top: 65px;
   margin-top: -65px;
 }
-
 .section h2 {
   padding-top: 65px;
   margin-top: -65px;
@@ -190,6 +210,43 @@ body {
 .section h6 {
   padding-top: 65px;
   margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -211,19 +268,85 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -316,7 +439,7 @@ Does the number of trichomes on Fast Plants (<i>Brassica rapa</i>) plants vary b
 <li>Download the Fast Plant data (see <a href="#fast-plant-data">Fast plant data</a> below).</li>
 <li>Install the <strong>tidyverse</strong> package.</li>
 <li>Copy the code from the <a href="lab1_beak_length_script.html">Data Lab 1 beak length script →</a> [click link] and paste it into a new script.</li>
-<li>Modify the new script for use with the fast plant data <code>&quot;fastplant_data.xlsx&quot;</code>.</li>
+<li>Modify the new script for use with the fast plant data <code>"fastplant_data.xlsx"</code>.</li>
 <li>Plot a histogram with facets for each generation (F0 and F1), but instead of setting the fill color to vary by generation, set it to vary by whether or not the plants were selected for breeding. For help, see <a href="#a-new-variation">A new variation</a> below.</li>
 </ol>
 <p>For a reminder on how to perform the analysis and writing steps, see <a href="lab1_4_bluestem.html">Data Lab 1, Part 4. Bluestem Data Assignment →</a>.</p>
@@ -334,10 +457,10 @@ Does the number of trichomes on Fast Plants (<i>Brassica rapa</i>) plants vary b
 <p>Each row in the dataset represents an individual plant.</p>
 <p>The variables in the dataset are:</p>
 <ul>
-<li><strong>generation</strong>. The generation the plant belonged to? (values include <code>&quot;F0&quot;</code> or <code>&quot;F1&quot;</code>)</li>
+<li><strong>generation</strong>. The generation the plant belonged to? (values include <code>"F0"</code> or <code>"F1"</code>)</li>
 <li><strong>trichome_number</strong>. The number of trichomes the plant had. (values are numeric integers)</li>
-<li><strong>selected</strong>. For the F0 generation, was the individual plant selected for breeding? (values include, <code>&quot;yes&quot;</code>, <code>&quot;no&quot;</code>, or <code>&quot;NA&quot;</code> if the plant was from the F1 generation)</li>
-<li><strong>seed_source</strong> For the F1 generation, was the plant from the current year or a previous year (values include <code>&quot;current_year&quot;</code>, <code>&quot;previous_year&quot;</code>, or <code>NA</code> if the plant was from the F0 generation).</li>
+<li><strong>selected</strong>. For the F0 generation, was the individual plant selected for breeding? (values include, <code>"yes"</code>, <code>"no"</code>, or <code>"NA"</code> if the plant was from the F1 generation)</li>
+<li><strong>seed_source</strong> For the F1 generation, was the plant from the current year or a previous year (values include <code>"current_year"</code>, <code>"previous_year"</code>, or <code>NA</code> if the plant was from the F0 generation).</li>
 </ul>
 </div>
 <div id="a-new-variation" class="section level3">
@@ -345,31 +468,31 @@ Does the number of trichomes on Fast Plants (<i>Brassica rapa</i>) plants vary b
 <p>In the finch and bluestem analyses, you created a histogram for each group and also colored the histograms differently for each group.</p>
 <p>In theory, there is no reason you can’t use a different variable to color the histograms.</p>
 <p>For example, here is the finch data colored by <code>sex</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># histogram of beak length, grouped by survival, colored by sex</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">ggplot</span>(</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="dt">data =</span> finches,</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length,</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">                <span class="dt">fill =</span> sex)           <span class="co"># color the boxes by gender</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st">   </span><span class="co"># put each outcome in its own panel</span></a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">    <span class="dt">title =</span> <span class="st">&quot;Distribution of beak lengths&quot;</span>,</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="dt">subtitle =</span> <span class="st">&quot;Grouped by bird sex and survival outcome&quot;</span>,</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">  )</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># histogram of beak length, grouped by survival, colored by sex</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">ggplot</span>(</a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">data =</span> finches,</a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length,</a>
+<a class="sourceLine" id="cb1-5" title="5">                <span class="dt">fill =</span> sex)           <span class="co"># color the boxes by gender</span></a>
+<a class="sourceLine" id="cb1-6" title="6">) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st">   </span><span class="co"># put each outcome in its own panel</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb1-10" title="10">    <span class="dt">title =</span> <span class="st">&quot;Distribution of beak lengths&quot;</span>,</a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="dt">subtitle =</span> <span class="st">&quot;Grouped by bird sex and survival outcome&quot;</span>,</a>
+<a class="sourceLine" id="cb1-12" title="12">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,</a>
+<a class="sourceLine" id="cb1-13" title="13">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span></a>
+<a class="sourceLine" id="cb1-14" title="14">  )</a></code></pre></div>
 <p><img src="lab2_files/figure-html/finch-sex-histogram-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>For <strong>your</strong> current assignment, put each generation of plants on its own panel, and set the fill color of the columns by whether the plants were <strong>selected</strong> for breeding or not.</p>
 <p>Remove the line <code>guides(fill = FALSE) +</code> to show the fill color legend.</p>
-<p>In <em>your</em> figures, do not use subtitles and set your titles to say <code>&quot;Figure 1.&quot;</code> and <code>&quot;Figure 2.&quot;</code>.</p>
+<p>In <em>your</em> figures, do not use subtitles and set your titles to say <code>"Figure 1."</code> and <code>"Figure 2."</code>.</p>
 <p>For example:</p>
 <p><img src="lab2_files/figure-html/fast-plant-histogram-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 
 <div class="footer">
-  <p>Copyright &copy; 2018 Chris Merkord. All rights reserved.</p>
+  <p>Copyright &copy; 2019 Chris Merkord. All rights reserved.</p>
 </div>
 <script src="lightbox.js"></script>
 
