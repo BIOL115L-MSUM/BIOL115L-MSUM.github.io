@@ -10,9 +10,30 @@ In Part 1 of this lab, you will learn what R and RStudio are, how the RStudio en
 
 Sections:
 
+- [Access the Class Share drive]
+- [R and RStudio]
 - [Create an RStudio project]
-- [Opening Projects]
-- [Make sure it works]
+- [Practice opening and closing]
+
+### Access the Class Share drive
+
+We will use a Class Share drive to save files for the data labs. 
+
+Unlike files saved on your lab computer, which are deleted after you sign out, files on Class Share stay there until the course ends and are available from any computer on campus.
+
+To connect to the Class Share drive: 
+
+- On a Mac computer you can connect to the drive using these instructions:
+    - In the Finder, choose Go > Connect to Server or type Command+K
+    - Enter the server path of smb://msumstudents.mnstate.edu/classshare
+    - Click the "Connect" button
+- On a Windows computer you can map a drive using these instructions: https://support.microsoft.com/en-us/help/4026635/windows-map-a-network-drive
+    - The path you would use for the class share drive is \\msumstudents.mnstate.edu\classshare
+    - You may use any drive letter you would like as long as it is available
+
+***Note: In order to connect to the servers on either platform you must be on the Campus Network, DragonConnect-Employee or DragonConnect-Student wifi for it to work.
+
+Once you are connected, you should see "classshare" as a location in the Finder on a Mac, or under My Computer on Windows.
 
 ### R and RStudio
 
@@ -59,13 +80,22 @@ And then click **New Project**:
   <figcaption class="figure-caption">Select <strong>New Project</strong>.</figcaption>
 </figure>
 
-On the next screen, you will be prompted to enter a **Directory name**. Type "Org Bio Data Lab 1" here (or something equally descriptive, so you can find it later).
+On the next screen, you will be prompted to enter a **Directory name**. Type "Data Lab 1" here (or something equally descriptive, so you can find it later).
 
-Below that, under **Create project as a subdirectory of**, you need to enter the location on the computer where you want to save the project. Do not use the default location provided. Instead, click the **Browse** button and navigate to the Documents directory and click Select. The field should now say "~/Documents". If it does not, ask for help from your LA or instructor.
+Under **Create project as a subdirectory of**, click the **Browse** button and navigate to YOUR FOLDER in the Class Share drive and click "Select".
+
+The box show now say something Like:
+
+- `Volumes/classshare/BIOL115L-01/Projects/starid/` on a Mac
+- or `K:/BIOL115L-01/starid/` on a PC
+
+... where `starid` is your 8-character StarID, `01` is your 2-digit section number, and `K` is the mapped drive letter on a PC.
+
+On a Mac, it should look like this:
 
 <figure class="figure">
   <a href="images/rstudio_new_proj_4.png" data-lightbox="rstudio-new-proj" data-title="Enter name for your project under Directory Name and use the Browse button to select the Documents directory."><img src="images/rstudio_new_proj_4.png" class="figure-img img-thumbnail"></a>
-  <figcaption class="figure-caption">Enter name for your project under <strong>Directory Name</strong> and use the <strong>Browse</strong> button to select the <strong>Documents</strong> directory.</figcaption>
+  <figcaption class="figure-caption">Enter a name for your project under <strong>Directory Name</strong> and use the <strong>Browse</strong> button to select your Class Share directory.</figcaption>
 </figure>
 
 Now click the **Create Project** button. Your new project will be created and will open in a new window.
@@ -76,37 +106,30 @@ When a new project is created RStudio:
 2. Creates a hidden directory (named .Rproj.user) where project-specific temporary files are stored. You don't need to worry about this.
 3. Loads the project into RStudio and display its name in the Projects toolbar (which is located on the far right side of the main toolbar)
 
-### Opening Projects
+### Practice opening and closing
 
-There are several ways to open a project:
+Quit RStudio by clicking the X button to close the window, going to File > Quit Session, or typing Cmd+Q.
 
-1. Using the Open Project command (available from both the Projects menu and the Projects toolbar) to browse for and select an existing project file (e.g. MyProject.Rproj).
-2. Selecting a project from the list of most recently opened projects (also available from both the Projects menu and toolbar).
-3. Double-clicking on the project file within the system shell (e.g. OSX Finder, Windows File Explorer, etc.).
+Restart RStudio and it should open the most recent project. This won't happen when you start RStudio on another computer or after logging out of this computer.
 
-<figure class="figure">
-  <a href="images/rstudio_open_proj.png" data-lightbox="rstudio-open-proj" data-title="Open a project using the Project menu."><img src="images/rstudio_open_proj.png" class="figure-img img-thumbnail"></a>
-  <figcaption class="figure-caption">Open a project using the Project menu.</figcaption>
-</figure>
+To open the project on a new computer:
+1. [Access the Class Share drive]
+2. Open your **Data Lab 1** folder
+3. Double click the file named **Data Lab 1**
 
-When a project is opened within RStudio, a variety of actions are taken but the most important for now is this:
-
-- The current working directory is set to the project directory.
-
-That detail will become important later when you want to read data files or save images.
-
-### Make sure it works
-
-Try quitting RStudio and restarting it. It should reopen your project when it restarts, although this won't happen when you start RStudio on another computer.
-
-Now look in the upper right corner of RStudio, on the toolbar. You should see the name of your project. If you click that name, the Project menu will open, which lets you create a new project, open an existing project by navigating to it, or open a recent project by selecting it from the list provided.
+RStudio will start and open your project automaticaly. The window should look like this, with your project name in the upper right corner:
 
 <figure class="figure">
   <a href="images/rstudio_proj_name.png" data-lightbox="rstudio-proj-name" data-title="Always make sure the name of your project is showing here. If it is not, click the menu to open your project. Working in RStudio without your project open can cause unexpected errors."><img src="images/rstudio_proj_name.png" class="figure-img img-thumbnail"></a>
   <figcaption class="figure-caption">Always make sure the name of your project is showing here. If it is not, click the menu to open your project. Working in RStudio without your project open can cause unexpected errors.</figcaption>
 </figure>
 
-<span class="label label-warning">Warning</span> If you don't see your project name, but do see the words **Project: (None)** then you do not have a project open. This is a problem because any R code you run may not run correctly, especially reading data into R. The most common way for this situation to arise is if you navigate to your project directory and try to open RStudio by clicking on an R script (more on those later), which opens the R script but not the project. If you see **Project: (None)** then you should immediately open your project by clicking **Open Project...*.
+<span class="label label-warning">Warning</span> If you don't see your project name, but do see the words **Project: (None)** then you do not have a project open. This is a problem because any R code you run may not run correctly, especially reading data into R. The most common way for this situation to arise is if you navigate to your project directory and try to open RStudio by clicking on an R script (more on those later), which opens the R script but not the project. If you see **Project: (None)** then you should immediately open your project by clicking **Open Project...* like this:
+
+<figure class="figure">
+  <a href="images/rstudio_open_proj.png" data-lightbox="rstudio-open-proj" data-title="Open a project using the Project menu."><img src="images/rstudio_open_proj.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">Open a project using the Project menu.</figcaption>
+</figure>
 
 Once you feel confident creating and opening projects, you can move on to Part 2.
 
