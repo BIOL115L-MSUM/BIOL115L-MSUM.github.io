@@ -8,7 +8,7 @@ title: "4. Bluestem Data Assignment"
 
 In Part 4, you will apply what you have learned to the bluestem variation data you collected at the Regional Science Center. You will create a new R script, read the bluestem data into R, plot histograms of plant height and rame length, estimate the means of those variables, plot them on bar charts.
 
-Sections:
+Jump to section:
 
 - [Your assignment]
     - [Step 1. Download the assignment template]

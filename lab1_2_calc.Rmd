@@ -9,7 +9,7 @@ title: "2. R as a Calculator"
 
 In Part 2 of this lab, you will learn how to use the Console Window to run commands as you perform basic arithmetic operations. You will learn the basics of using functions, and finally learn about creating objects using the assignment operator.
 
-Sections:
+Jump to section:
 
 - [The RStudio IDE]
 - [The Console tab]
