@@ -12,7 +12,7 @@ Jump to section:
 
 - [Your assignment]
     - [Step 1. Download the assignment template]
-    - [Step 2. Download the bluestem data]
+    - [Step 2. Get the bluestem data]
     - [Step 3. Create a script for plant height]
     - [Step 4. Repeat for rame length]
     - [Step 5. Write figure legends]
@@ -48,7 +48,9 @@ Steps 2 through 6 will walk you through how to modify the document so it uses yo
 
 When you're done, you will upload this document to D2L (see below for instructions).
 
-#### Step 2. Download the bluestem data
+#### Step 2. Get the bluestem data
+
+Copy the file `bluestem_data.xlsx` from your Class Share Handout Folder to your project folder. Check to make sure it appears in your Files tab in RStudio before continuing.
 
 Your assignment involves plotting and analyzing the data on instraspecific variation in big bluestem (*Andropogon gerardii*) plants that you collected during a field trip to the Regional Science Center. All the data were entered onto a single Excel spreadsheet.
 
@@ -60,20 +62,14 @@ The variables in the dataset are:
 - **plant_height** (plant height measured in cm)
 - **rame_length** (rame length measured in mm)
 
-Download the bluestem dataset:
-
-<a href="bluestem_data.xlsx"><i class="fas fa-file-excel fa-5x"></i></a>
-
-Don't forget to move the file to your project directory after downloading it, or your code won't work.
-
 #### Step 3. Create a script for plant height
 
-It's always easier to modify existing code than create new code from scratch. 
 
 For this assignment, you can use the script you just created to analyze **beak length** as a starting point.
 
 1. Create a new R script, save it as `plant_height.R`
-2. [Copy code from beak length script  &rarr;](lab1_beak_length_script.html)
+2. It's always easier to modify existing code than to create new code from scratch. To make sure you start off with a nice clean copy of the beak length code, go to this page:
+    - [Copy code from beak length script  &rarr;](lab1_beak_length_script.html)
 3. Use "find and replace" (the magnifying glass on the Source tab toolbar) to modify the script.
     - replace `finches` with `bluestem`
     - replace `beak_length` with `plant_height`
@@ -90,18 +86,16 @@ For this assignment, you can use the script you just created to analyze **beak l
     - Open your Word document.
     - Drag the figures from the Finder into your open Word document.
 
+
 #### Step 4. Repeat for rame length
 
 Now you can repeat the same process for rame length.
 
-Create a new R script, save it as `rame_length.R`, and paste in the code from `plant_height.R`.
-
-This time you only need to:
-
-1. replace `plant_height` with `rame_length`
-2. change the axis labels
-3. change the file names for saving
-4. change the titles (e.g. **Figure 1** becomes **Figure 3**, and **2** becomes **4**)
+1. With your plant height script `plant_height.R` open go to **File > Save As** and save the new script as `rame_length.R`
+4. Use Find and Replace to change `plant_height` to `rame_length` throughout.
+4. Change the axis labels
+3. Change the file names for saving
+4. Change the figure titles (e.g. **Figure 1** becomes **Figure 3**, and **2** becomes **4**)
 
 
 #### Step 5. Write figure legends
@@ -132,34 +126,26 @@ For reference, here is the paragraph we wrote for the beak length analysis:
 
 <blockquote class="text-info">Birds that survived the 1977 drought generally had longer beaks than those that died (Fig. 1). Mean beak lengths were 11.1 mm in survivors and 10.5 mm in non-survivors (Fig. 2).  This difference was stastistically significant according to a Welch's two-sample t-test assuming unequal variances (*t*=3.6335, *df*=94.807, *p*=0.0004539).</blockquote>
 
+
 #### Step 7. Upload Word doc to D2L
 
 Once you have all the components in your Word document, save it and upload it to the Assignment area of your LAB (not lecture) site on [D2L](https://mnstate.learn.minnstate.edu/).
 
-### Saving your files
 
-If you want to save what you have done so you can work on it later, here is the best option:
+### Saving your work
 
-1. Go to [Microsoft Office 360](https://www.mnstate.edu/it/office365/)
-2. Click the link **Go to the Office 365 site**.
-3. Log in to  with your StarID
-4. Click the **OneDrive** Logo
-3. Drag your Project folder from the Finder onto the area that says "Drag Files Here"
+You will want to be able to come back to this RStudio project and its files later, either to continue working on this assigment, or to refer to it when working on future lab reports and assignments.
 
-You may get an error message that it could not upload files starting with a dot ("."), e.g. .Rprofile. Ignore that warning, those files are not important.
+Save all of your files and close RStudio.
 
-To work on your files again:
+Your files will all stay on the Class Share drive through the end of the semester.
 
-1. Log in to [Microsoft Office 360](https://www.mnstate.edu/it/office365/) with your StarID
-2. Click **OneDrive**
-2. Click the check box next to your Project Folder
-3. Click the **Download** button
-4. Navigate to your **Downloads** folder in the Finder
-5. If you don't see your Project folder there, but you do see a file ending in .zip, click that file and it will extract your Project folder.
-6. Start RStudio
-7. Open your Project using one of the methods described in [Part 1](lab1_1_rstudio.html).
+To open one of your projects again later:
 
-An alternative to using OneDrive is to put your files on a USB storage device.
+1. Follow directions to [Access the Class Share drive](lab1_1_rstudio.html#access-the-class-share-drive)
+2. Navigate to your **Data Lab 1** folder
+3. Double-click the file named **Data Lab 1.Rproj** to open the project.
+
 
 <ul class="pager">
   <li class="previous"><a href="lab1_3_finch.html">&larr; Part 3. Finch Data Example</a></li>

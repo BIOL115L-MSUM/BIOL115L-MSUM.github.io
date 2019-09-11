@@ -334,14 +334,14 @@ $(document).ready(function () {
 <li><a href="#your-assignment">Your assignment</a>
 <ul>
 <li><a href="#step-1.-download-the-assignment-template">Step 1. Download the assignment template</a></li>
-<li><a href="#step-2.-download-the-bluestem-data">Step 2. Download the bluestem data</a></li>
+<li><a href="#step-2.-get-the-bluestem-data">Step 2. Get the bluestem data</a></li>
 <li><a href="#step-3.-create-a-script-for-plant-height">Step 3. Create a script for plant height</a></li>
 <li><a href="#step-4.-repeat-for-rame-length">Step 4. Repeat for rame length</a></li>
 <li><a href="#step-5.-write-figure-legends">Step 5. Write figure legends</a></li>
 <li><a href="#step-6.-write-a-results-section">Step 6. Write a RESULTS section</a></li>
 <li><a href="#step-7.-upload-word-doc-to-d2l">Step 7. Upload Word doc to D2L</a></li>
 </ul></li>
-<li><a href="#saving-your-files">Saving your files</a></li>
+<li>[Saving your files]</li>
 </ul>
 <div id="your-assignment" class="section level3">
 <h3>Your assignment</h3>
@@ -369,8 +369,9 @@ Do plant height or rame length of Big Bluestem (<i>Andropogon gerardii</i>) plan
 </ol>
 <p>When you’re done, you will upload this document to D2L (see below for instructions).</p>
 </div>
-<div id="step-2.-download-the-bluestem-data" class="section level4">
-<h4>Step 2. Download the bluestem data</h4>
+<div id="step-2.-get-the-bluestem-data" class="section level4">
+<h4>Step 2. Get the bluestem data</h4>
+<p>Copy the file <code>bluestem_data.xlsx</code> from your Class Share Handout Folder to your project folder. Check to make sure it appears in your Files tab in RStudio before continuing.</p>
 <p>Your assignment involves plotting and analyzing the data on instraspecific variation in big bluestem (<em>Andropogon gerardii</em>) plants that you collected during a field trip to the Regional Science Center. All the data were entered onto a single Excel spreadsheet.</p>
 <p>Each row in the dataset represents an individual plant.</p>
 <p>The variables in the dataset are:</p>
@@ -379,17 +380,16 @@ Do plant height or rame length of Big Bluestem (<i>Andropogon gerardii</i>) plan
 <li><strong>plant_height</strong> (plant height measured in cm)</li>
 <li><strong>rame_length</strong> (rame length measured in mm)</li>
 </ul>
-<p>Download the bluestem dataset:</p>
-<p><a href="bluestem_data.xlsx"><i class="fas fa-file-excel fa-5x"></i></a></p>
-<p>Don’t forget to move the file to your project directory after downloading it, or your code won’t work.</p>
 </div>
 <div id="step-3.-create-a-script-for-plant-height" class="section level4">
 <h4>Step 3. Create a script for plant height</h4>
-<p>It’s always easier to modify existing code than create new code from scratch.</p>
 <p>For this assignment, you can use the script you just created to analyze <strong>beak length</strong> as a starting point.</p>
 <ol style="list-style-type: decimal">
 <li>Create a new R script, save it as <code>plant_height.R</code></li>
+<li>It’s always easier to modify existing code than to create new code from scratch. To make sure you start off with a nice clean copy of the beak length code, go to this page:
+<ul>
 <li><a href="lab1_beak_length_script.html">Copy code from beak length script →</a></li>
+</ul></li>
 <li>Use “find and replace” (the magnifying glass on the Source tab toolbar) to modify the script.
 <ul>
 <li>replace <code>finches</code> with <code>bluestem</code></li>
@@ -414,13 +414,12 @@ Do plant height or rame length of Big Bluestem (<i>Andropogon gerardii</i>) plan
 <div id="step-4.-repeat-for-rame-length" class="section level4">
 <h4>Step 4. Repeat for rame length</h4>
 <p>Now you can repeat the same process for rame length.</p>
-<p>Create a new R script, save it as <code>rame_length.R</code>, and paste in the code from <code>plant_height.R</code>.</p>
-<p>This time you only need to:</p>
 <ol style="list-style-type: decimal">
-<li>replace <code>plant_height</code> with <code>rame_length</code></li>
-<li>change the axis labels</li>
-<li>change the file names for saving</li>
-<li>change the titles (e.g. <strong>Figure 1</strong> becomes <strong>Figure 3</strong>, and <strong>2</strong> becomes <strong>4</strong>)</li>
+<li>With your plant height script <code>plant_height.R</code> open go to <strong>File &gt; Save As</strong> and save the new script as <code>rame_length.R</code></li>
+<li>Use Find and Replace to change <code>plant_height</code> to <code>rame_length</code> throughout.</li>
+<li>Change the axis labels</li>
+<li>Change the file names for saving</li>
+<li>Change the figure titles (e.g. <strong>Figure 1</strong> becomes <strong>Figure 3</strong>, and <strong>2</strong> becomes <strong>4</strong>)</li>
 </ol>
 </div>
 <div id="step-5.-write-figure-legends" class="section level4">
@@ -458,29 +457,17 @@ Birds that survived the 1977 drought generally had longer beaks than those that 
 <p>Once you have all the components in your Word document, save it and upload it to the Assignment area of your LAB (not lecture) site on <a href="https://mnstate.learn.minnstate.edu/">D2L</a>.</p>
 </div>
 </div>
-<div id="saving-your-files" class="section level3">
-<h3>Saving your files</h3>
-<p>If you want to save what you have done so you can work on it later, here is the best option:</p>
+<div id="saving-your-work" class="section level3">
+<h3>Saving your work</h3>
+<p>You will want to be able to come back to this RStudio project and its files later, either to continue working on this assigment, or to refer to it when working on future lab reports and assignments.</p>
+<p>Save all of your files and close RStudio.</p>
+<p>Your files will all stay on the Class Share drive through the end of the semester.</p>
+<p>To open one of your projects again later:</p>
 <ol style="list-style-type: decimal">
-<li>Go to <a href="https://www.mnstate.edu/it/office365/">Microsoft Office 360</a></li>
-<li>Click the link <strong>Go to the Office 365 site</strong>.</li>
-<li>Log in to with your StarID</li>
-<li>Click the <strong>OneDrive</strong> Logo</li>
-<li>Drag your Project folder from the Finder onto the area that says “Drag Files Here”</li>
+<li>Follow directions to <a href="lab1_1_rstudio.html#access-the-class-share-drive">Access the Class Share drive</a></li>
+<li>Navigate to your <strong>Data Lab 1</strong> folder</li>
+<li>Double-click the file named <strong>Data Lab 1.Rproj</strong> to open the project.</li>
 </ol>
-<p>You may get an error message that it could not upload files starting with a dot (“.”), e.g. .Rprofile. Ignore that warning, those files are not important.</p>
-<p>To work on your files again:</p>
-<ol style="list-style-type: decimal">
-<li>Log in to <a href="https://www.mnstate.edu/it/office365/">Microsoft Office 360</a> with your StarID</li>
-<li>Click <strong>OneDrive</strong></li>
-<li>Click the check box next to your Project Folder</li>
-<li>Click the <strong>Download</strong> button</li>
-<li>Navigate to your <strong>Downloads</strong> folder in the Finder</li>
-<li>If you don’t see your Project folder there, but you do see a file ending in .zip, click that file and it will extract your Project folder.</li>
-<li>Start RStudio</li>
-<li>Open your Project using one of the methods described in <a href="lab1_1_rstudio.html">Part 1</a>.</li>
-</ol>
-<p>An alternative to using OneDrive is to put your files on a USB storage device.</p>
 <ul class="pager">
 <li class="previous">
 <a href="lab1_3_finch.html">← Part 3. Finch Data Example</a>
