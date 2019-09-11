@@ -59,7 +59,6 @@ The variables in the dataset are:
 - **location** ("lowland" vs. "upland")
 - **plant_height** (plant height measured in cm)
 - **rame_length** (rame length measured in mm)
-- **section** (name of the section the data collector was in)
 
 Download the bluestem dataset:
 
