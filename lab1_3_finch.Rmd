@@ -12,7 +12,8 @@ In Part 3 of this lab, you will be introduced to scripts, graphing, and analysis
 Jump to section:
 
 - [Introduction]
-- [Download the data]
+- [Get the data]
+- [Look at the data]
 - [R scripts]
 - [R packages]
 - [Read the data]
@@ -30,17 +31,31 @@ The question you are tasked with answering for Part 3 is:
 
 The following sections will guide you through the process of answering this question using the data provided.
 
-### Download the data
+### Get the data
 
-Download the data and save it in the project directory:
+The finch data is saved in a Microsoft Excel document on the Class Share drive. Before we can look at it use it in R, you need to copy it to your project folder.
 
-<a href="finches_data.xlsx"><i class="fas fa-file-excel fa-5x"></i></a>
+1. Open the Finder
+2. Go to the Handout Folder (e.g. **classshare/BIOL115L-01/Handout Folder**)
+3. Copy the file `finches_data.xlsx` using one of these methods:
+    - Click the file, Cmd+C to copy, or
+    - Click the file, File > Copy, or
+    - Right-click the file, select Copy, or
+    - Open the file, click Save As...
+4. Go to your Data Lab 1 project folder (e.g. **classshare/BIOL115L-01/Projects/starid/Data Lab 1**)
+5. Paste the file
 
-If prompted for a location, save the file to your project directory. 
+The file should now appear in your Data Lab 1 folder in the Finder. It should also appear in the Files tab in RStudio.
 
-If not prompted, it probably saved the file to your Downloads folder. Open the Finder, click Downloads, drag the file into Documents, click Documents, and drag the file into your project directory.
+### Look at the data
 
-<span class="label label-default">Important</span> Do not proceed until you see **finches_data.xlsx** in the Files tab (bottom right pane in RStudio).
+In data science, each column is called a *variable*. How many variables are there? 
+
+The names of the variables are in the first row. What are the names of the variables? Note that the names are not capitalized and use underscores (`_`) instead of spaces. This is important when writing R code.
+
+What does each row in this dataset represent? How many rows are there?
+
+Now that you've had a look at the data, close the Excel file and move to RStudio.
 
 ### R scripts
 
@@ -127,7 +142,7 @@ You must run the `library()` each time you start RStudio. That's why it's nice t
 
 ### Read the data
 
-Now that you have a script and have downloaded your packages, you're ready to get coding!
+Now that you have a script and have loaded the necessary packages, you're ready to get coding!
 
 To read the data, you will use a function named `read_excel()`. Here we run that function and assign the results to an object names `finches`.
 
@@ -137,6 +152,7 @@ To read the data, you will use a function named `read_excel()`. Here we run that
 # read the finches data
 finches <- read_excel("finches_data.xlsx")
 ```
+
 
 If you get an error at this point (red text in the console output) see the two warnings below.
 
@@ -245,7 +261,7 @@ A good figure legend for this histogram would be:
 
 To put your figure in a Microsoft Word document (your assignment in part 4), you must first save it as an image file on your computer. You can do this with `ggsave()`, which saves the most recent ggplot displayed.
 
-You choose a file name, the dimensions of the output file (think about how big you want this to be when you paste it into a word document), and the units of the dimensions (e.g `"in` for inches). For example, this code saves your histogram as a 3.5" x 3.5" PNG file:
+You choose a file name, the dimensions of the output file (think about how big you want this to be when you paste it into a word document), and the units of the dimensions (e.g `"in"` for inches). For example, this code saves your histogram as a 3.5" x 3.5" PNG file:
 
 ```{r save-histogram, eval=FALSE}
 # save your most recent plot
@@ -254,30 +270,15 @@ ggsave("Beak Length Histogram.png",   # you choose a name for the file
        units = "in")                  # units for the dimensions DO NOT CHANGE
 ```
 
-Look in your project directory and you'll see a file named **Beak Length Histogram.png** now. You can click it to open the file in your computer's default image viewer.
+Look in Files tab in RStudio and you'll see a file named **Beak Length Histogram.png** now. You can click it to open the file in your computer's default image viewer.
 
 ### Summarize the data
 
 The following code will summarize the dataset by calculating the mean, standard deviation and standard error of the mean (SEM) of the `beak_length` variable.
 
-```{r}
-# summarize ---------------------------------------------------------------
+Notice the use of the equations you learned in Part 2.
 
-# summarize the entire dataset
-beak_length_summary <- 
-  finches %>% 
-  summarize(mean = mean(beak_length),
-            sd = sd(beak_length),
-            n = n()) %>% 
-  mutate(sem = sd / sqrt(n),
-         upper = mean + 1.96 * sem,
-         lower = mean - 1.96 * sem)
-
-# print the results in the console
-beak_length_summary
-```
-
-If we wanted to get separate summaries for different subsets of the data, we can add the `group_by()` function like this:
+The `group_by(outcome)` function tells R to give us separate summaries for each outcome (died vs. survived).
 
 ```{r}
 # summarize the dataset by outcome (survived vs. died)
