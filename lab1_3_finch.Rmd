@@ -118,9 +118,9 @@ You only have to install a package once on each computer you are using. If you o
 
 #### Load the packages
 
-<p class="text-info">Copy the code in the box below (including the comments) and paste it into your script.</p>
+Below you will see two boxes, one with comments and code, and the next with example console output. The console output is just there to show you what to expect to appear in the console when you run the given code. Console output in this tutorial always appears in a box below the code, and has two pound signs before each line like this: `##`
 
-Do not copy the text in the white boxes. That is just to show you what will be output in the console when you run the code.
+<p class="text-info">Copy the code in the first box below (including the comments) and paste it into your script.</p>
 
 If you still have the code `sqrt(9)` in your script, feel free to delete it.
 
