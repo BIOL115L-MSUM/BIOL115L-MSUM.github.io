@@ -68,8 +68,7 @@ The variables in the dataset are:
 For this assignment, you can use the script you just created to analyze **beak length** as a starting point.
 
 1. Create a new R script, save it as `plant_height.R`
-2. It's always easier to modify existing code than to create new code from scratch. To make sure you start off with a nice clean copy of the beak length code, go to this page:
-    - [Copy code from beak length script  &rarr;](lab1_beak_length_script.html)
+2. It's always easier to modify existing code than to create new code from scratch. To make sure you start off with a nice clean copy of the beak length code, follow [this link  &rarr;](lab1_beak_length_script.html) to copy the code for the beak length script
 3. Use "find and replace" (the magnifying glass on the Source tab toolbar) to modify the script.
     - replace `finches` with `bluestem`
     - replace `beak_length` with `plant_height`
