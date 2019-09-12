@@ -49,9 +49,11 @@ The file should now appear in your Data Lab 1 folder in the Finder. It should al
 
 ### Look at the data
 
-In data science, each column is called a *variable*. How many variables are there? 
+In your project folder, double click the file `finches_data.xlsx` to open it.
 
-The names of the variables are in the first row. What are the names of the variables? Note that the names are not capitalized and use underscores (`_`) instead of spaces. This is important when writing R code.
+How many variables (i.e. columns) are there?
+
+What are the names of the variables? (The first row contains the variable names) Note that the names are not capitalized and use underscores (`_`) instead of spaces. This is important when writing R code.
 
 What does each row in this dataset represent? How many rows are there?
 
