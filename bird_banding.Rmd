@@ -13,7 +13,7 @@ Students in Organimsal Biology BIOL 115 at Minnesota State University are invite
 
 The demonstrations are provided by Chris Merkord, Assistant Professor in Biosciences at MSUM and Tim Grieves, Assistant Professor in Biology at NDSU.
 
-## Next Event - 14 Sep 2019
+## Next Event - 21 Sep 2019
 
 Banding may be cancelled due to rain or high winds.
 
@@ -26,8 +26,8 @@ A final determination will be made 90 minutes (one and a half hours) before the 
   <h3 class="panel-title">Current Status</h3>
 </div>
 <div class="panel-body">
-  The weather conditions are acceptable.<br />
-  Banding is a <strong>GO</strong> for Saturday, September 14, 2019!
+  It may rain on Saturday, but its too early to tell. For now...<br />
+  Banding is a <strong>GO</strong> for Saturday, September 21, 2019!
 </div>
 </div>
 
