@@ -21,13 +21,13 @@ A final determination will be made 90 minutes (one and a half hours) before the 
 
 <strong>It is your responsibility to check here for the go/no-go status of your scheduled bird banding session.</strong>
 
-<div class="panel panel-success">
+<div class="panel panel-danger">
 <div class="panel-heading">
   <h3 class="panel-title">Current Status</h3>
 </div>
 <div class="panel-body">
-  It may rain on Saturday, but its too early to tell. For now...<br />
-  Banding is a <strong>GO</strong> for Saturday, September 21, 2019!
+  Rain is expected. The event is cancelled.<br />
+  Banding is a <strong>NO-GO</strong> for Saturday, September 21, 2019!
 </div>
 </div>
 
