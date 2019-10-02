@@ -4,7 +4,17 @@ title: "Bird Banding"
 
 <div class="alert alert-dismissible alert-info">
   <button type="button" class="close" data-dismiss="alert">&times;</button>
-Banding may be cancelled due to rain or high winds. Organizers will post the Go/No-Go status here 90 minutes prior to the start time. Please check this page before leaving home.
+  <h4 class="alert-heading">Weather Cancellation Policy</h4>
+Banding may be cancelled due to rain or high winds. Organizers will post the Go/No-Go status here 90 minutes prior to the event start time. Please check this page before leaving home. For more information, see the <a href="#weather-cancellation-policy" class="alert-link">Weather Cancellation Policy</a> below.
+</div>
+
+<div class="panel panel-success">
+<div class="panel-heading">
+  <h3 class="panel-title">Status of Oct 3 Banding</h3>
+</div>
+<div class="panel-body">
+  Banding is a <strong>GO</strong> for Thursday, October 3, 2019!
+</div>
 </div>
 
 ## About
@@ -13,30 +23,11 @@ Students in Organimsal Biology BIOL 115 at Minnesota State University are invite
 
 The demonstrations are provided by Chris Merkord, Assistant Professor in Biosciences at MSUM and Tim Grieves, Assistant Professor in Biology at NDSU.
 
-## Next Event - 3 oct 2019
-
-Rain or strong winds will result in bird banding being cancelled.
-
-A final determination will be made 90 minutes (one and a half hours) before the earliest banding session of the day, and will be posted here. For example, if banding begins at 7:50 AM, then any cancellation will be posted here by 6:20 AM.
-
-<strong>It is your responsibility to check here for the go/no-go status of your scheduled bird banding session.</strong>
-
-<div class="panel panel-success">
-<div class="panel-heading">
-  <h3 class="panel-title">Current Status</h3>
-</div>
-<div class="panel-body">
-  Banding is a <strong>GO</strong> for Thursday, October 3, 2019!
-</div>
-</div>
-
-
 ## Schedule and signup
 
 The list of bird banding sessions is as follows. Click on the link to view the sign-up sheet.
 
 https://docs.google.com/spreadsheets/d/15bmekj7PrNbCUbywQiCTfJDBCyO9O89LMkOaPFOp7pw/edit?usp=sharing
-
 
 ## Location
 
@@ -45,6 +36,24 @@ The <a href="https://www.mnstate.edu/science-center/">MSUM Regional Science Cent
 <a class="btn btn-info btn-sm" href="https://www.google.com/maps/dir//46.8671306,-96.4535558/@46.8676844,-96.4561498,16z">Directions</a>
 
 When you arrive, park and enter through the main doors.
+
+## Weather Cancellation Policy
+
+Our top priority is the health and safety of all involved. This includes both the birds as well as the students, faculty, staff, and other visitors to the bird banding event.
+
+Lightning is a safety hazard for people, and rain or high winds are safety hazards for the birds. In the event of lightning, rain, or high winds a bird banding event will be cancelled.
+
+If the chance of rain or high wind is very high, then the event organizers may cancel the event over a day ahead of time. Two hours before the event start time, the organizers will reassess the weather. If rain or high winds are expect at the **event start time**, the event will be cancelled for the day.
+
+The **event start time** is the time the first group of students are scheduled to arrive at the banding center. This is usually between 7:30 AM and 8:00 AM. For example, if banding begins at 7:50 AM, then any cancellation will be posted here by 6:20 AM. Check the signup sheet for the exact start time.
+
+If the event is cancelled, the message at the top of this web page will be updated no later than 90 minutes prior to the event start time. 
+
+<blockquote class="blockquote text-center">
+  <p class="mb-0 text-warning">It is your responsibility to check this web page to see if your event has been cancelled.</p>
+</blockquote>
+
+
 
 ## FAQ
 
