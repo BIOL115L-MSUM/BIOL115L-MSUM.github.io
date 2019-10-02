@@ -13,23 +13,23 @@ Students in Organimsal Biology BIOL 115 at Minnesota State University are invite
 
 The demonstrations are provided by Chris Merkord, Assistant Professor in Biosciences at MSUM and Tim Grieves, Assistant Professor in Biology at NDSU.
 
-## Next Event - 21 Sep 2019
+## Next Event - 3 oct 2019
 
-Banding may be cancelled due to rain or high winds.
+Rain or strong winds will result in bird banding being cancelled.
 
-A final determination will be made 90 minutes (one and a half hours) before the earliest banding session of the day, and will be posted here. For example, if banding begins at 7:30 AM, then any cancellation will be posted here by 6:00 AM.
+A final determination will be made 90 minutes (one and a half hours) before the earliest banding session of the day, and will be posted here. For example, if banding begins at 7:50 AM, then any cancellation will be posted here by 6:20 AM.
 
 <strong>It is your responsibility to check here for the go/no-go status of your scheduled bird banding session.</strong>
 
-<div class="panel panel-danger">
+<div class="panel panel-success">
 <div class="panel-heading">
   <h3 class="panel-title">Current Status</h3>
 </div>
 <div class="panel-body">
-  Rain is expected. The event is cancelled.<br />
-  Banding is a <strong>NO-GO</strong> for Saturday, September 21, 2019!
+  Banding is a <strong>GO</strong> for Thursday, October 3, 2019!
 </div>
 </div>
+
 
 ## Schedule and signup
 
