@@ -8,13 +8,13 @@ title: "Bird Banding"
 Banding may be cancelled due to rain or high winds. Organizers will post the Go/No-Go status here 90 minutes prior to the event start time. Please check this page before leaving home. For more information, see the <a href="#weather-cancellation-policy" class="alert-link">Weather Cancellation Policy</a> below.
 </div>
 
-<div class="panel panel-warning">
+<div class="panel panel-danger">
 <div class="panel-heading">
   <h3 class="panel-title">Status of Oct 12 Banding</h3>
 </div>
 <div class="panel-body">
-  Banding is a <strong>GO</strong> for Saturday, October 12, 2019!<br/>
-  However, snow is expected and it is possible the event will be cancelled. Check back here later for updates.
+  Banding is a <strong>NO-GO</strong> for Saturday, October 12, 2019!<br/>
+  Stay inside and be safe!
 </div>
 </div>
 
