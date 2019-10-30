@@ -12,7 +12,7 @@ To summarize, the question you are trying to answer is:
 
 The figures and results you produce in this **Data Lab 2** are <span class="text-danger">due by the end of your lab</span>. Upload a Word document to your lab (not lecture) D2L page under Assessment > Assignments > Data Lab 2.
 
-This assignment will also form the RESULTS section of your **Fast Plant Lab Report**, which is <span class="text-warning">due by the end of lab next week</span>. The template for that report is available [here](sci_writing.html#fast-plant-lab-report-template) and in the ClassShare Handouts folder.
+This assignment will also form the RESULTS section of your **Fast Plant Lab Report**, which is <span class="text-warning">due by the end of lab Wednesday, November 6th</span> (Wednesday lab sections) or <span class="text-warning">Thursday, November 7th</span> (Thursday lab sections). The template for that report is available [here](sci_writing.html#fast-plant-lab-report-template) and in the ClassShare Handouts folder.
 
 
 ## Your assignment
