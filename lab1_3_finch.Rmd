@@ -283,6 +283,8 @@ Notice the use of the equations you learned in Part 2.
 The `group_by(outcome)` function tells R to give us separate summaries for each outcome (died vs. survived).
 
 ```{r}
+# summarize ---------------------------------------------------------------
+
 # summarize the dataset by outcome (survived vs. died)
 beak_length_grouped_summary <- 
   finches %>% 
