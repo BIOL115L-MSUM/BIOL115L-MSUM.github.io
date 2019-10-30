@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -105,7 +106,7 @@ code span.wa { color: #bf0303; } /* Warning */
       if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -163,7 +164,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -324,18 +324,6 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
 
@@ -458,9 +446,8 @@ Does the number of trichomes on Fast Plants (<i>Brassica rapa</i>) plants vary b
 <p>The variables in the dataset are:</p>
 <ul>
 <li><strong>generation</strong>. The generation the plant belonged to? (values include <code>"F0"</code> or <code>"F1"</code>)</li>
-<li><strong>trichome_number</strong>. The number of trichomes the plant had. (values are numeric integers)</li>
+<li><strong>trichome_count</strong>. The number of trichomes the plant had. (values are numeric integers)</li>
 <li><strong>selected</strong>. For the F0 generation, was the individual plant selected for breeding? (values include, <code>"yes"</code>, <code>"no"</code>, or <code>"NA"</code> if the plant was from the F1 generation)</li>
-<li><strong>seed_source</strong> For the F1 generation, was the plant from the current year or a previous year (values include <code>"current_year"</code>, <code>"previous_year"</code>, or <code>NA</code> if the plant was from the F0 generation).</li>
 </ul>
 </div>
 <div id="a-new-variation" class="section level3">
@@ -512,6 +499,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
