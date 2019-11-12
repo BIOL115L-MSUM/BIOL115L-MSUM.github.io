@@ -33,7 +33,7 @@ The following sections will guide you through the process of answering this ques
 
 ### Get the data
 
-The finch data is saved in a Microsoft Excel document on the Class Share drive. Before we can look at it use it in R, you need to copy it to your project folder.
+The [finch data](finches_data.xlsx) is saved in a Microsoft Excel document on the Class Share drive. Before we can look at it use it in R, you need to copy it to your project folder.
 
 1. Open the Finder
 2. Go to the Handout Folder (e.g. **classshare/BIOL115L-01/Handout Folder**)
