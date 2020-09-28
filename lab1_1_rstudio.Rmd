@@ -10,129 +10,63 @@ In Part 1 of this lab, you will learn what R and RStudio are, how the RStudio en
 
 Jump to section:
 
-- [Access the Class Share drive]
-- [R and RStudio]
+- [About R and RStudio]
+- [Access Rstudio Cloud]
 - [Create an RStudio project]
 - [Practice opening and closing]
 
-### Access the Class Share drive
+### About R and RStudio
 
-We will use a Class Share drive to save files for the data labs. 
+**R** is a programming language and free software environment for statistical computing and graphics supported by the R Foundation for Statistical Computing. Today, R is the most commonly used software for data analysis in the biological sciences.
 
-Unlike files saved on your lab computer, which are deleted after you sign out, files on Class Share stay there until the course ends and are available from any computer on campus.
+While it is possible to run R by itself, it is more common to run it as part of **RStudio**, a free and open-source integrated development environment (IDE) for R. For this lab, you will be using RStudio rather than R directly.
 
-To connect to the Class Share drive: 
+There are versions of RStudio. We will use the second one:
 
-- On a Mac computer you can connect to the drive using these instructions:
-    - In the Finder, choose Go > Connect to Server or type Command+K
-    - Enter the server path of smb://msumstudents.mnstate.edu/classshare
-    - Click the "Connect" button
-- On a Windows computer you can map a drive using these instructions: https://support.microsoft.com/en-us/help/4026635/windows-map-a-network-drive
-    - The path you would use for the class share drive is \\msumstudents.mnstate.edu\classshare
-    - You may use any drive letter you would like as long as it is available
+1. **RStudio Desktop**
 
-***Note: In order to connect to the servers on either platform you must be on the Campus Network, DragonConnect-Employee or DragonConnect-Student wifi for it to work.
+    This is the version you can download and install yourself. If you ever want to try, you are welcome to do this on your own time on your own computer. However, we will not use the desktop version in this class.
+    
+    If you ever want to download and install R and RStudio on your own, you can do so here:
+    
+    - R   https://cloud.r-project.org/
+    - RStudio   https://www.rstudio.com/products/rstudio/download/
 
-Once you are connected, you should see "classshare" as a location in the Finder on a Mac, or under My Computer on Windows.
+2. **[RStudio Cloud](https://rstudio.cloud/)**
 
-### R and RStudio
+    This is an online version of RStudio that requires less initial setup and is good for learning in a classroom setting. This is the version we will use in this class.
 
-R is a programming language and free software environment for statistical computing and graphics supported by the R Foundation for Statistical Computing. Today, R is the most commonly used software for data analysis in the biological sciences.
 
-While it is possible to run R by itself, it is more common to run it as part of RStudio, a free and open-source integrated development environment (IDE) for R.
+### Access RStudio Cloud
 
-Both R and RStudio are already installed on your lab computer. If you ever need to install them, for example on your personal computer, you can download installers here:
+First, make sure you have an RStudio Cloud account. 
 
-- R   https://cloud.r-project.org/
-- RStudio   https://www.rstudio.com/products/rstudio/download/
+Go to https://rstudio.cloud/ and click "Sign Up" or "Get Started for Free". Choose the "Cloud Free" plan and continue.
 
-For this lab, you will be using RStudio rather than R directly.
+Use an email address and password of your choice (they do not have to be your MSUM ones). You will have to confirm your email address after registering. To do so, go to your email account, find the message from RStudio Cloud, and click the link to confirm the email address is yours.
+
+Next, sign in to RStudio Cloud.
+
+Every RStudio Cloud user gets a personal workspace, named **Your Workspace**, in which to create projects. When you sign in, you will start out in Your Workspace.
+
+In the future, this is where you will see a list of your projects. For now, it will say "no project". Click the image below to see an example.
+
+<figure class="figure">
+  <a href="images/rstudio_cloud_projects_empty.png" data-lightbox="rstudio-cloud-your-workspace" data-title="Your Workspace in RStudio Cloud."><img src="images/rstudio_cloud_projects_empty.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">Your Workspace in RStudio Cloud.</figcaption>
+</figure>
+
 
 ### Create an RStudio project
 
 RStudio projects make it straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents (scripts), and data files.
 
-To start RStudio on a Mac, open the Finder, go to Applications, and scroll down to find RStudio.
+To create a new project from scratch, simply press the New Project button from the Projects area. Your new project will open in the RStudio IDE.
+
 
 <figure class="figure">
-  <a href="images/rstudio_start.png" data-lightbox="rstudio-start" data-title="Starting RStudio in Mac OS"><img src="images/rstudio_start.png" class="figure-img img-thumbnail"></a>
-  <figcaption class="figure-caption">Starting RStudio in Mac OS</figcaption>
+  <a href="https://rstudio.cloud/images/guide/newProject.png" data-lightbox="rstudio-start" data-title="Create a new project"><img src="https://rstudio.cloud/images/guide/newProject.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">Create a new project</figcaption>
 </figure>
 
-Create a new project using the **New Project...** command available under the File menu or the Project menu. The Project menu is on right side of the global toolbar and will either say **Project: (none)** if there is no project open (the default), or it will show the name of the currently open project.
-
-<figure class="figure">
-  <a href="images/rstudio_new_proj_1.png" data-lightbox="rstudio-new-proj" data-title="Use the New Project... command to create a new project."><img src="images/rstudio_new_proj_1.png" class="figure-img img-thumbnail"></a>
-  <figcaption class="figure-caption">Use the <strong>New Project...</strong> command to create a new project.</figcaption>
-</figure>
-
-This will bring up a dialog box. Select **New Directory**:
-
-<figure class="figure">
-  <a href="images/rstudio_new_proj_2.png" data-lightbox="rstudio-new-proj" data-title="Select New Directory."><img src="images/rstudio_new_proj_2.png" class="figure-img img-thumbnail"></a>
-  <figcaption class="figure-caption">Select <strong>New Directory</strong>.</figcaption>
-</figure>
-
-And then click **New Project**:
-
-<figure class="figure">
-  <a href="images/rstudio_new_proj_3.png" data-lightbox="rstudio-new-proj" data-title="Select New Project"><img src="images/rstudio_new_proj_3.png" class="figure-img img-thumbnail"></a>
-  <figcaption class="figure-caption">Select <strong>New Project</strong>.</figcaption>
-</figure>
-
-On the next screen, you will be prompted to enter a **Directory name**. Type "Data Lab 1" here (or something equally descriptive, so you can find it later).
-
-Under **Create project as a subdirectory of**, click the **Browse** button and navigate to YOUR FOLDER in the Class Share drive and click "Select".
-
-The box show now say something Like:
-
-- `Volumes/classshare/BIOL115L-01/Projects/starid/` on a Mac
-- or `K:/BIOL115L-01/starid/` on a PC
-
-... where `starid` is your 8-character StarID, `01` is your 2-digit section number, and `K` is the mapped drive letter on a PC.
-
-On a Mac, it should look like this:
-
-<figure class="figure">
-  <a href="images/rstudio_new_proj_4.png" data-lightbox="rstudio-new-proj" data-title="Enter name for your project under Directory Name and use the Browse button to select the Documents directory."><img src="images/rstudio_new_proj_4.png" class="figure-img img-thumbnail"></a>
-  <figcaption class="figure-caption">Enter a name for your project under <strong>Directory Name</strong> and use the <strong>Browse</strong> button to select your Class Share directory.</figcaption>
-</figure>
-
-Now click the **Create Project** button. Your new project will be created and will open in a new window.
-
-When a new project is created RStudio:
-
-1. Creates a project file (with an .Rproj extension) within the project directory. This file contains various project options (discussed below) and can also be used as a shortcut for opening the project directly from the filesystem.
-2. Creates a hidden directory (named .Rproj.user) where project-specific temporary files are stored. You don't need to worry about this.
-3. Loads the project into RStudio and display its name in the Projects toolbar (which is located on the far right side of the main toolbar)
-
-### Practice opening and closing
-
-Quit RStudio by clicking the X button to close the window, going to File > Quit Session, or typing Cmd+Q.
-
-Restart RStudio and it should open the most recent project. This won't happen when you start RStudio on another computer or after logging out of this computer.
-
-To open the project on a new computer:
-1. [Access the Class Share drive]
-2. Open your **Data Lab 1** folder
-3. Double click the file named **Data Lab 1**
-
-RStudio will start and open your project automaticaly. The window should look like this, with your project name in the upper right corner:
-
-<figure class="figure">
-  <a href="images/rstudio_proj_name.png" data-lightbox="rstudio-proj-name" data-title="Always make sure the name of your project is showing here. If it is not, click the menu to open your project. Working in RStudio without your project open can cause unexpected errors."><img src="images/rstudio_proj_name.png" class="figure-img img-thumbnail"></a>
-  <figcaption class="figure-caption">Always make sure the name of your project is showing here. If it is not, click the menu to open your project. Working in RStudio without your project open can cause unexpected errors.</figcaption>
-</figure>
-
-<span class="label label-warning">Warning</span> If you don't see your project name, but do see the words **Project: (None)** then you do not have a project open. This is a problem because any R code you run may not run correctly, especially reading data into R. The most common way for this situation to arise is if you navigate to your project directory and try to open RStudio by clicking on an R script (more on those later), which opens the R script but not the project. If you see **Project: (None)** then you should immediately open your project by clicking **Open Project...* like this:
-
-<figure class="figure">
-  <a href="images/rstudio_open_proj.png" data-lightbox="rstudio-open-proj" data-title="Open a project using the Project menu."><img src="images/rstudio_open_proj.png" class="figure-img img-thumbnail"></a>
-  <figcaption class="figure-caption">Open a project using the Project menu.</figcaption>
-</figure>
-
-Once you feel confident creating and opening projects, you can move on to Part 2.
-
-<ul class="pager">
-  <li class="next"><a href="lab1_2_calc.html">Part 2. R as a Calculator &rarr;</a></li>
-</ul>
+Wait a moment while your new project is deployed.
