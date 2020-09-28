@@ -61,12 +61,18 @@ In the future, this is where you will see a list of your projects. For now, it w
 
 RStudio projects make it straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents (scripts), and data files.
 
-To create a new project from scratch, simply press the New Project button from the Projects area. Your new project will open in the RStudio IDE.
+To create a new project from scratch, simply press the New Project button from the Projects area. This is what the New Project button looks like in RStudio Cloud:
 
 
 <figure class="figure">
-  <a href="https://rstudio.cloud/images/guide/newProject.png" data-lightbox="rstudio-start" data-title="Create a new project"><img src="https://rstudio.cloud/images/guide/newProject.png" class="figure-img img-thumbnail"></a>
-  <figcaption class="figure-caption">Create a new project</figcaption>
+  <a href="https://rstudio.cloud/images/guide/newProject.png" data-lightbox="rstudio-start" data-title="How to create a new project"><img src="https://rstudio.cloud/images/guide/newProject.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">How to create a new project</figcaption>
 </figure>
 
 Wait a moment while your new project is deployed.
+
+When the screen refreshes you will have a new, empty project and you can move on to Part 2.
+
+<ul class="pager">
+  <li class="next"><a href="lab1_2_calc.html">Part 2. R as a Calculator &rarr;</a></li>
+</ul>
