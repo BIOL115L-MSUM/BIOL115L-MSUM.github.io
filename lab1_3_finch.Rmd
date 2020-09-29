@@ -155,12 +155,6 @@ If you get an error at this point (red text in the console output) see the two w
 
 To solve this error, run the two `library()` commands and then retry reading the data.
 
-<span class="label label-warning">Warning</span> If you haven't saved your data file in the right place, or if you are not working with your RStudio project open, or if you renamed your finch data file during download, then you will get an error message that says:
-
-Error: `path` does not exist: ‘finches_data.xlsx’
-
-To solve this error, make sure you have the data file in your project folder and the file name looks exactly like it does in the code, `finches_data.xlsx`.
-
 <p class="text-success">To look at an object you have just created, print it to the console window by <strong>typing its name and running it</strong>:</p>
 
 ```{r print-finches}
