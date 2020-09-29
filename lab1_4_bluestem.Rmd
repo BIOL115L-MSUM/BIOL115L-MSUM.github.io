@@ -23,7 +23,7 @@ Jump to section:
 
 ### Your assignment
 
-Your assignment, due by the end of lab, is to submit a Microsoft Word document to D2L containing the Results section of your lab report. The goal of the report is to answer the following question:
+Your assignment, due by the end of lab, is to submit a Microsoft Word document to [D2L](https://mnstate.learn.minnstate.edu/) containing the Results section of your lab report. The goal of the report is to answer the following question:
 
 <blockquote class="text-success">Do plant height or rame length of Big Bluestem (<i>Andropogon gerardii</i>) plants vary between lowland and upland sites?</blockquote>
 
@@ -129,22 +129,12 @@ For reference, here is the paragraph we wrote for the beak length analysis:
 
 #### Step 7. Upload Word doc to D2L
 
-Once you have all the components in your Word document, save it and upload it to the Assignment area of your LAB (not lecture) site on [D2L](https://mnstate.learn.minnstate.edu/).
+Once you have all the components in your Word document, save it and upload it to the Assignment area on [D2L](https://mnstate.learn.minnstate.edu/).
 
 
 ### Saving your work
 
-You will want to be able to come back to this RStudio project and its files later, either to continue working on this assigment, or to refer to it when working on future lab reports and assignments.
-
-Save all of your files and close RStudio.
-
-Your files will all stay on the Class Share drive through the end of the semester.
-
-To open one of your projects again later:
-
-1. Follow directions to [Access the Class Share drive](lab1_1_rstudio.html#access-the-class-share-drive)
-2. Navigate to your **Data Lab 1** folder
-3. Double-click the file named **Data Lab 1.Rproj** to open the project.
+All of your files, including R scripts and image files, will be saved on RStudio Cloud. You can return any time to rerun your code, edit a script, or download a file.
 
 
 <ul class="pager">
