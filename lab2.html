@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -21,15 +20,16 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link rel="stylesheet" href="lightbox.css" type="text/css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -39,14 +39,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -58,7 +60,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-le
 div.sourceCode
   { color: #1f1c1b; background-color: #ffffff; }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span. { color: #1f1c1b; } /* Normal */
 code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
@@ -312,6 +314,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -378,15 +381,6 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="lab2.html">Data Lab 2</a>
-</li>
-<li>
-  <a href="sci_writing.html">Scientific Writing</a>
-</li>
-<li>
-  <a href="bird_banding.html">Bird Banding</a>
-</li>
-<li>
-  <a href="free.html">FREE</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -464,20 +458,20 @@ Does the number of trichomes on Fast Plants (<i>Brassica rapa</i>) plants vary b
 <p>In the finch and bluestem analyses, you created a histogram for each group and also colored the histograms differently for each group.</p>
 <p>In theory, there is no reason you can’t use a different variable to color the histograms.</p>
 <p>For example, here is the finch data colored by <code>sex</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="co"># histogram of beak length, grouped by survival, colored by sex</span></a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="kw">ggplot</span>(</a>
-<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">data =</span> finches,</a>
-<a class="sourceLine" id="cb1-4" title="4">  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length,</a>
-<a class="sourceLine" id="cb1-5" title="5">                <span class="dt">fill =</span> sex)           <span class="co"># color the boxes by gender</span></a>
-<a class="sourceLine" id="cb1-6" title="6">) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st">   </span><span class="co"># put each outcome in its own panel</span></a>
-<a class="sourceLine" id="cb1-9" title="9"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb1-10" title="10">    <span class="dt">title =</span> <span class="st">&quot;Distribution of beak lengths&quot;</span>,</a>
-<a class="sourceLine" id="cb1-11" title="11">    <span class="dt">subtitle =</span> <span class="st">&quot;Grouped by bird sex and survival outcome&quot;</span>,</a>
-<a class="sourceLine" id="cb1-12" title="12">    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,</a>
-<a class="sourceLine" id="cb1-13" title="13">    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span></a>
-<a class="sourceLine" id="cb1-14" title="14">  )</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># histogram of beak length, grouped by survival, colored by sex</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">ggplot</span>(</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="dt">data =</span> finches,</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> beak_length,</span>
+<span id="cb1-5"><a href="#cb1-5"></a>                <span class="dt">fill =</span> sex)           <span class="co"># color the boxes by gender</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>) <span class="op">+</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">14</span>) <span class="op">+</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>outcome, <span class="dt">ncol =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st">   </span><span class="co"># put each outcome in its own panel</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    <span class="dt">title =</span> <span class="st">&quot;Distribution of beak lengths&quot;</span>,</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    <span class="dt">subtitle =</span> <span class="st">&quot;Grouped by bird sex and survival outcome&quot;</span>,</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    <span class="dt">x =</span> <span class="st">&quot;Beak Length (mm)&quot;</span>,</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    <span class="dt">y =</span> <span class="st">&quot;Number of Birds&quot;</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>  )</span></code></pre></div>
 <p><img src="lab2_files/figure-html/finch-sex-histogram-1.png" width="576" style="display: block; margin: auto;" /></p>
 <p>For your current assignment, put each generation of plants on its own panel, and set the fill color of the columns by whether the plants were <strong>selected</strong> for breeding or not.</p>
 <p>Remove the line <code>guides(fill = FALSE) +</code> to show the fill color legend.</p>
@@ -488,7 +482,7 @@ Does the number of trichomes on Fast Plants (<i>Brassica rapa</i>) plants vary b
 </div>
 
 <div class="footer">
-  <p>Copyright &copy; 2019 Chris Merkord. All rights reserved.</p>
+  <p>Copyright &copy; 2020 Chris Merkord. All rights reserved.</p>
 </div>
 <script src="lightbox.js"></script>
 

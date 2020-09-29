@@ -18,12 +18,6 @@ navbar:
           href: lab1_4_bluestem.html
     - text: "Data Lab 2"
       href: lab2.html
-    - text: "Scientific Writing"
-      href: sci_writing.html
-    - text: "Bird Banding"
-      href: bird_banding.html
-    - text: "FREE"
-      href: free.html
 output:
   html_document:
     theme: flatly
