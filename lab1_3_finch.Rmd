@@ -12,7 +12,7 @@ In Part 3 of this lab, you will be introduced to scripts, graphing, and analysis
 Jump to section:
 
 - [Introduction]
-- [Start the Finch Analysis assignment]
+- [Start the Finch Analysis assignment in RStudio Cloud]
 - [Look at the data]
 - [R scripts]
 - [R packages]
@@ -31,7 +31,7 @@ The question you are tasked with answering for Part 3 is:
 
 The following sections will guide you through the process of answering this question using the data provided.
 
-### Start the Finch Analysis assignment
+### Start the Finch Analysis assignment in RStudio Cloud
 
 Your instructor will disseminate a link which will give you access to the Org Bio workspace on RStudio Cloud. Open the link in a web browser, sign in to RStudio Cloud, and click to join the workspace.
 
