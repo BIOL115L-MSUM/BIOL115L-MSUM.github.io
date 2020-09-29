@@ -103,7 +103,7 @@ Write figure legends for each figure in your Word document.
 
 For reference, here are the figure legends for the finch beak length analysis again:
 
-<blockquote class="text-info">Figure 1. <strong>Distribution of beak lengths among medium ground finches (<i>Geospiza fortis</i>) grouped by survival outcome during the 1977 drought on Daphne Major, Galapagos archipelago.</strong> Each sample consisted of 50 individuals. Birds were banded and measured during 1975-1977 and resighted in 1978.</blockquote>
+<blockquote class="text-info">Figure 1. <strong>Distribution of beak lengths among medium ground finches (<i>Geospiza fortis</i>) grouped by outcome during the 1977 drought on Daphne Major, Galapagos archipelago.</strong> Each sample consisted of 50 individuals. Birds were banded and measured during 1975-1977 and resighted in 1978.</blockquote>
 
 <blockquote class="text-info">Figure 2. <strong>Mean beak length varied between medium ground finches (<i>Geospiza fortis</i>) that survived or died during the 1977 drought on Daphne Major, Galapagos archipelago.</strong> Each sample consisted of 50 individuals. Birds were banded and measured during 1975-1977 and resighted in 1978. Error bars represent 95% confidence intervals.</blockquote>
 

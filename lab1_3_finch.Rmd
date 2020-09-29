@@ -257,7 +257,7 @@ When sharing your figure with others, for example in a report or peer-reviewed j
 
 A good figure legend for this histogram would be:
 
-<blockquote class="text-info">Figure 1. <strong>Distribution of beak lengths among medium ground finches (<i>Geospiza fortis</i>) grouped by survival outcome during the 1977 drought on Daphne Major, Galapagos archipelago.</strong> Each sample consisted of 50 individuals. Birds were banded and measured during 1975-1977 and resighted in 1978.</blockquote>
+<blockquote class="text-info">Figure 1. <strong>Distribution of beak lengths among medium ground finches (<i>Geospiza fortis</i>) grouped by outcome during the 1977 drought on Daphne Major, Galapagos archipelago.</strong> Each sample consisted of 50 individuals. Birds were banded and measured during 1975-1977 and resighted in 1978.</blockquote>
 
 #### Export your figure
 
@@ -321,7 +321,7 @@ ggplot(
   guides(fill = FALSE) +                # don't show a legend for fill color
   labs(
     title = "Figure 2.",                # title
-    x = "Survival Outcome",             # x-axis label
+    x = "Outcome",                      # x-axis label
     y = "Beak Length (mm)"              # y-axis label
   ) +
   theme(plot.title = element_text(size = rel(.8)))  # make title smaller

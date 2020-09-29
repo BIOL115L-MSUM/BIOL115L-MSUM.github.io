@@ -90,7 +90,7 @@ ggplot(
   facet_wrap(~ outcome, ncol = 1) +   # put each outcome in its own panel
   labs(
     title = "Distribution of beak lengths",
-    subtitle = "Grouped by bird sex and survival outcome",
+    subtitle = "Grouped by sex and outcome",
     x = "Beak Length (mm)",
     y = "Number of Birds"
   )

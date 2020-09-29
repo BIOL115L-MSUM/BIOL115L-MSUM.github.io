@@ -80,7 +80,7 @@ ggplot(
   guides(fill = FALSE) +                # don't show a legend for fill color
   labs(
     title = "Figure 2.",                # title
-    x = "Survival Outcome",             # x-axis label
+    x = "Outcome",                      # x-axis label
     y = "Beak Length (mm)"              # y-axis label
   ) +
   theme(plot.title = element_text(size = rel(.8)))  # make title smaller
