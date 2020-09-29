@@ -107,17 +107,7 @@ In R, users share code with each other in the form of **packages**, each of whic
 
 In this tutorial you will use a group of packages collectively referred to as the **tidyverse**.
 
-Before you can use a package, you to download and install it.
-
-#### Install tidyverse
- 
-1. Click the **Package** tab in the botom right pane and 
-2. Click **Install**. 
-3. Type the name of the package, `tidyverse`
-4. Click **Install**
-5. If a question appears in the Console window asking if you want to "install from sources the package which needs compilation", then put your cursor in the console, type "n", and press enter.
-
-You only have to install a package once on each computer you are using. If you open RStudio again later, every package you've ever installed will still be there.
+Before you can use a package, you need to download and install it. In RStudio Cloud, we have already done this step for you by running `install.packages("tidyverse")` so you can skip this step.
 
 #### Load the packages
 
