@@ -12,7 +12,7 @@ In Part 3 of this lab, you will be introduced to scripts, graphing, and analysis
 Jump to section:
 
 - [Introduction]
-- [Get the data]
+- [Start the Finch Analysis assignment]
 - [Look at the data]
 - [R scripts]
 - [R packages]
@@ -31,31 +31,33 @@ The question you are tasked with answering for Part 3 is:
 
 The following sections will guide you through the process of answering this question using the data provided.
 
-### Get the data
+### Start the Finch Analysis assignment
 
-The [finch data](finches_data.xlsx) is saved in a Microsoft Excel document on the Class Share drive. Before we can look at it use it in R, you need to copy it to your project folder.
+Your instructor will disseminate a link which will give you access to the Org Bio workspace on RStudio Cloud. Open the link in a web browser, sign in to RStudio Cloud, and click to join the workspace.
 
-1. Open the Finder
-2. Go to the Handout Folder (e.g. **classshare/BIOL115L-01/Handout Folder**)
-3. Copy the file `finches_data.xlsx` using one of these methods:
-    - Click the file, Cmd+C to copy, or
-    - Click the file, File > Copy, or
-    - Right-click the file, select Copy, or
-    - Open the file, click Save As...
-4. Go to your Data Lab 1 project folder (e.g. **classshare/BIOL115L-01/Projects/starid/Data Lab 1**)
-5. Paste the file
+Once you have joined, you will see two spaces listed under Spaces in the Navigation panel on the left. The first is **Your Workspace**, the second is **Org Bio**. Select Org Bio.
 
-The file should now appear in your Data Lab 1 folder in the Finder. It should also appear in the Files tab in RStudio.
+In the list of projects, you will see two projects listed:
+
+- Assignment #1 Finch Analysis
+- Assignment #2 Bluestem Analysis
+
+Click the "Start" button to open **Assignment #1 Finch Analysis**. This will create a copy of the project that can be accessed by both you and the instructor. 
+
+Click the name of the project, **Assignment #1 Finch Analysis**, to open the project.
 
 ### Look at the data
 
-In your project folder, double click the file `finches_data.xlsx` to open it.
+In the Files tab you will see a file named **finches_data.xlsx**. This is an excel file containing the data you will work with in this assignment. 
 
-How many variables (i.e. columns) are there?
+Click the file to download it and open it with Microsoft Excel or another program that will open Excel files. If you do not have a program that will open Excel files, skip to the next section.
 
-What are the names of the variables? (The first row contains the variable names) Note that the names are not capitalized and use underscores (`_`) instead of spaces. This is important when writing R code.
+Once you have the Excel file open, look at it to answer the following questions. Check with your partner to make sure you get the same anser.
 
-What does each row in this dataset represent? How many rows are there?
+- **How many observations (rows) are there?**
+- **What does each row represent?**
+- **How many variables (columns) are there?**
+- **What are the names of the variables?** (The first row contains the variable names) Note that the names are not capitalized and use underscores (`_`) instead of spaces. This is important when writing R code.
 
 Now that you've had a look at the data, close the Excel file and move to RStudio.
 
@@ -63,15 +65,14 @@ Now that you've had a look at the data, close the Excel file and move to RStudio
 
 #### Create a script
 
-So far you have been running commands by typing them into the console. One of the benefits of R over programs such as Excel, for example, is the ability to save your commands in the form of written. Enter the **script**! A script is simply a text file containing commands for R to execute.
+In *Part 2. R as a calculator*, you ran commands by typing them into the console. One of the benefits of R over programs such as Excel, for example, is the ability to save your commands in the form of written. Enter the **script**! A script is simply a text file containing commands for R to execute.
 
 Now create a new script file:
 
-1. Click the **New File** button on the toolbar (leftmost button with a green plus sign).
-2. Click **R Script**
+1. Click the **New File** button on the toolbar (leftmost button with a green plus sign) and choose **R Script**, or choose File > New File > R Script
 2. A new pane will open above your Console pane. This is called the **Source** pane.
 3. Immediately save your file by clicking on the blue floppy disk icon. 
-4. Give it a memorably name like **finches**. RStudio will automatically add the **.R** file extension.
+4. Give it a memorably name like **finch analysis**. RStudio will automatically add the **.R** file extension.
 
 #### Run code from a script
 
