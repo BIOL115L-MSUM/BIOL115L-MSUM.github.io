@@ -12,7 +12,7 @@ Jump to section:
 
 - [Your assignment]
     - [Step 1. Download the assignment template]
-    - [Step 2. Get the bluestem data]
+    - [Step 2. Start the Bluestem Analysis assignment in RStudio Cloud]
     - [Step 3. Create a script for plant height]
     - [Step 4. Repeat for rame length]
     - [Step 5. Write figure legends]
@@ -23,9 +23,11 @@ Jump to section:
 
 ### Your assignment
 
-Your assignment is to generate figures and statistical analyses that answer the following question:
+Your assignment, due by the end of lab, is to submit a Microsoft Word document to D2L containing the Results section of your lab report. The goal of the report is to answer the following question:
 
 <blockquote class="text-success">Do plant height or rame length of Big Bluestem (<i>Andropogon gerardii</i>) plants vary between lowland and upland sites?</blockquote>
+
+Your document will consist of a Results section containing paragraphs of text followed by figures and figure legends. 
 
 We recommend the following steps for completing your assignment.
 
@@ -48,7 +50,7 @@ Steps 2 through 6 will walk you through how to modify the document so it uses yo
 
 When you're done, you will upload this document to D2L (see below for instructions).
 
-#### Step 2. Get the bluestem data
+#### Step 2. Start the Bluestem Analysis assignment in RStudio Cloud
 
 Copy the file `bluestem_data.xlsx` from your Class Share Handout Folder to your project folder. Check to make sure it appears in your Files tab in RStudio before continuing.
 
