@@ -39,8 +39,8 @@ Once you have joined, you will see two spaces listed under Spaces in the Navigat
 
 In the list of projects, you will see two projects listed:
 
-- Assignment #1 Finch Analysis
-- Assignment #2 Bluestem Analysis
+- Data Lab 1 Finch Example
+- Data Lab 1 Bluestem Analysis
 
 Click the "Start" button to open **Assignment #1 Finch Analysis**. This will create a copy of the project that can be accessed by both you and the instructor. 
 
