@@ -246,6 +246,8 @@ A good figure legend for this histogram would be:
 
 #### Export your figure
 
+You will only be turning in Assignment #2 Bluestem Analysis, so **YOU DO NOT NEED TO EXPORT THESE FIGURES** for your lab today. However, if you did want to save your figures and put them in a Microsoft Word document, here are directions for doing that:
+
 To put your figure in a Microsoft Word document (your assignment in part 4), you must first save it as an image file on your computer. You can do this with `ggsave()`, which saves the most recent ggplot displayed.
 
 You choose a file name, the dimensions of the output file (think about how big you want this to be when you paste it into a word document), and the units of the dimensions (e.g `"in"` for inches). For example, this code saves your histogram as a 3.5" x 3.5" PNG file:
