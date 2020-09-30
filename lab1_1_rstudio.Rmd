@@ -35,7 +35,7 @@ Every RStudio Cloud user gets a personal workspace, named **Your Workspace**, in
 In the future, this is where you will see a list of your projects. For now, it will say "no project". Click the image below to see an example.
 
 <figure class="figure">
-  <a href="images/rstudio_cloud_projects_empty.png" data-lightbox="rstudio-cloud-your-workspace" data-title="Your Workspace in RStudio Cloud."><img src="images/rstudio_cloud_projects_empty.png" class="figure-img img-thumbnail"></a>
+  <a href="images/rstudio_cloud_projects_empty.png" data-lightbox="rstudio-start" data-title="Your Workspace in RStudio Cloud."><img src="images/rstudio_cloud_projects_empty.png" class="figure-img img-thumbnail"></a>
   <figcaption class="figure-caption">Your Workspace in RStudio Cloud.</figcaption>
 </figure>
 
