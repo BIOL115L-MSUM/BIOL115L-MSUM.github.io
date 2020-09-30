@@ -10,38 +10,21 @@ In Part 1 of this lab, you will learn what R and RStudio are, how the RStudio en
 
 Jump to section:
 
-- [About R and RStudio]
-- [Access Rstudio Cloud]
-- [Create an RStudio project]
-- [Practice opening and closing]
+- [About R]
+- [Open Rstudio Cloud]
+- [Create a Project]
 
-### About R and RStudio
+### About R
 
 **R** is a programming language and free software environment for statistical computing and graphics supported by the R Foundation for Statistical Computing. Today, R is the most commonly used software for data analysis in the biological sciences.
 
 While it is possible to run R by itself, it is more common to run it as part of **RStudio**, a free and open-source integrated development environment (IDE) for R. For this lab, you will be using RStudio rather than R directly.
 
-There are versions of RStudio. We will use the second one:
+There are versions of RStudio. We will use **[RStudio Cloud](https://rstudio.cloud/)**, an online version of RStudio that requires less initial setup and is good for learning in a classroom setting. 
 
-1. **RStudio Desktop**
+### Open RStudio Cloud
 
-    This is the version you can download and install yourself. If you ever want to try, you are welcome to do this on your own time on your own computer. However, we will not use the desktop version in this class.
-    
-    If you ever want to download and install R and RStudio on your own, you can do so here:
-    
-    - R   https://cloud.r-project.org/
-    - RStudio   https://www.rstudio.com/products/rstudio/download/
-
-2. **[RStudio Cloud](https://rstudio.cloud/)**
-
-    This is an online version of RStudio that requires less initial setup and is good for learning in a classroom setting. This is the version we will use in this class.
-
-
-### Access RStudio Cloud
-
-First, make sure you have an RStudio Cloud account. 
-
-Go to https://rstudio.cloud/ and click "Sign Up" or "Get Started for Free". Choose the "Cloud Free" plan and continue.
+First, make sure you have an RStudio Cloud account. Go to https://rstudio.cloud/ and click "Sign Up" or "Get Started for Free". Choose the "Cloud Free" plan and continue.
 
 Use an email address and password of your choice (they do not have to be your MSUM ones). You will have to confirm your email address after registering. To do so, go to your email account, find the message from RStudio Cloud, and click the link to confirm the email address is yours.
 
@@ -57,16 +40,19 @@ In the future, this is where you will see a list of your projects. For now, it w
 </figure>
 
 
-### Create an RStudio project
+### Create a Project
 
 RStudio projects make it straightforward to divide your work into multiple contexts, each with their own working directory, workspace, history, and source documents (scripts), and data files.
 
-To create a new project from scratch, simply press the New Project button from the Projects area. This is what the New Project button looks like in RStudio Cloud:
+To create a new project:
 
+1. Go to Your Workspace
+2. Go to the Projects area
+2. Click the button to start a New Project
 
 <figure class="figure">
-  <a href="https://rstudio.cloud/images/guide/newProject.png" data-lightbox="rstudio-start" data-title="How to create a new project"><img src="https://rstudio.cloud/images/guide/newProject.png" class="figure-img img-thumbnail"></a>
-  <figcaption class="figure-caption">How to create a new project</figcaption>
+  <a href="images/rstudio_cloud_new_project.png" data-lightbox="rstudio-start" data-title="Create a new project."><img src="images/rstudio_cloud_new_project.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">Create a new project.</figcaption>
 </figure>
 
 Wait a moment while your new project is deployed.
