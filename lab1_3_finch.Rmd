@@ -48,18 +48,24 @@ Click the name of the project, **Assignment #1 Finch Analysis**, to open the pro
 
 ### Look at the data
 
-In the Files tab you will see a file named **finches_data.xlsx**. This is an excel file containing the data you will work with in this assignment. 
+Find the file named **finches_data.xlsx** in the **File** tab and click on it to download and open it with Microsoft Excel. 
 
-Click the file to download it and open it with Microsoft Excel or another program that will open Excel files. If you do not have a program that will open Excel files, skip to the next section.
+<figure class="figure">
+  <a href="images/files_tab_finches_data.png" data-lightbox="rstudio-start" data-title="Find and open the finches data file"><img src="images/files_tab_finches_data.png" class="figure-img img-thumbnail"></a>
+  <figcaption class="figure-caption">Find and open the finches data file</figcaption>
+</figure>
 
-Once you have the Excel file open, look at it to answer the following questions. Check with your partner to make sure you get the same anser.
+
+This is an excel file containing the data you will work with in this assignment. 
+
+Test your understanding by answering the following questions with your lab partner. You do not have to turn this in.
 
 - **How many observations (rows) are there?**
 - **What does each row represent?**
 - **How many variables (columns) are there?**
 - **What are the names of the variables?** (The first row contains the variable names) Note that the names are not capitalized and use underscores (`_`) instead of spaces. This is important when writing R code.
 
-Now that you've had a look at the data, close the Excel file and move to RStudio.
+Close the Excel file and switch back to RStudio Cloud.
 
 ### R scripts
 
