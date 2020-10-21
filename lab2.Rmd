@@ -19,48 +19,29 @@ Be sure to consult the [Data Lab 2 Rubric](https://mnstate.learn.minnstate.edu/d
 
 This assignment will form the RESULTS section of your **Fast Plant Lab Report**. Your instructor will provide feedback in D2L on your Data Lab 2 assignment submission. You can use that feedback to make changes to your results, which will then form the RESULTS section of your Fast Plant Lab Report. The report will be due on D2L after Data Lab 2 (see D2L for the link and the due date).
 
+## Start your project
 
-## Your assignment
+Follow these directions to get started:
 
-Your objective in this lab is to generate the results that will answer the question above, specifically by producing the following:
+1. Go to [RStudio Cloud](https://rstudio.cloud/) and sign in. 
+2. On the left, under Spaces, click on **Org Bio Workspace**
+3. Click the **Start** button on the **Data Lab 2** assignment.
 
-- A histogram showing how the distribution of numbers of trichomes varied between generations. It should also show which plants in the F0 generation were selected for breeding and which were not.
-- A bar chart showing how the mean number of trichomes varied between generations. Include a 95% confidence interval around the means.
-- Figure legends describing these two figures.
-- A paragraph describing the results of the analysis, including the results of a *t*-test to test for a difference between the means.
+When your project starts, look at the **Files** tab in the lower right pane.
 
-To answer the question, you should:
+There are two files you should take note of:
+- fastplant_data.xlsx - this is the data file you will use
+- beak_length.R - this is a copy of the [Beak Length R Script &rarr;](https://biol115l-msum.github.io/lab1_beak_length_script.html) from [Data Lab 1, Part 3. Finch Example &rarr;](https://biol115l-msum.github.io/lab1_3_finch.html).
 
-1. Connect to the ClassShare drive.
-2. Open RStudio and create a new project in your ClassShare folder.
-3. Download the Fast Plant data (see [Fast plant data] below) or copy it from the ClassShare Handouts folder.
-4. Install the **tidyverse** package.
-5. Create a new R script.
-6. Copy the code from the [Data Lab 1 beak length script  &rarr;](lab1_beak_length_script.html) [click link] and paste it into the new script.
-7. Modify the new script for use with the fast plant data. See the **Copy + Paste Cheat Sheet** handed out in lab for help figuring out what replacements to make.
-8. Plot a histogram with facets for each generation (F0 and F1)
-    - Instead of setting the fill color to vary by generation, set it to vary by whether or not the plants were selected for breeding.
-    - Remove the line `guides(fill = FALSE) +` to show the fill color legend.
-    - For help, see [A new variation] below.
+## Create a new script
 
-For a reminder on how to perform the analysis and writing steps, see [Data Lab 1, Part 4. Bluestem Data Assignment &rarr;](lab1_4_bluestem.html).
+We suggest you start your assignment by creating a new script and copying the code from beak_length.R into it. Alternatively you can open **beak_length.R** and go to File > Save As... to save a copy of the script. A good name might be something like **fastplant.R**.
 
-When you are finished:
+## Look at the fast plant data
 
-- Paste your figures into a Word document, add figure legends and a Results paragraph, and upload it to your *lab* D2L page under Assessments > Assignments > Data Lab 2.
-- Make sure your project is saved in your ClassShare folder so you can access it again later.
+In your new script, adjust the code so that it reads the fastplant_data.xlsx instead of finches_data.xlsx. Run the code and note the data object which appeared in your Environment tab. Click on the blue table icon to the right of the object name to open the data viewer window.
 
-This assignment is <span class="text-danger">due by the end of your lab</span>.
-
-Your Fast Plant Lab Report is <span class="text-warning">due by the end of lab Wednesday, November 6th</span> (Wednesday lab sections) or <span class="text-warning">Thursday, November 7th</span> (Thursday lab sections). If you need additional time, make sure to check with your lab instructor and show them the progress you have made.
-
-See the [Scientific Writing](sci_writing.html#fast-plant-lab-report-template) page to download the lab report template, or copy it from the ClassShare Handouts folder.
-
-### Fast plant data
-
-You can either copy the fast plant data from the ClassShare Handouts folder or download it here:
-
-<a href="fastplant_data.xlsx"><i class="fas fa-file-excel fa-5x"></i></a>
+Inspect the data.
 
 Each row in the dataset represents an individual plant.
 
@@ -69,6 +50,37 @@ The variables in the dataset are:
 - **generation**. The generation the plant belonged to? (values include `"F0"` or `"F1"`)
 - **trichome_count**. The number of trichomes the plant had. (values are numeric integers)
 - **selected**. For the F0 generation, was the individual plant selected for breeding? (values include, `"yes"`, `"no"`, or `"NA"` if the plant was from the F1 generation)
+
+Ask yourself:
+
+- Which variable contains the numeric variable that was measured or counted? This is the response variable, which you will summarize by calculating the mean.
+- Which variable would you use to group the plants? Remember you are trying to compare the response variable at two points in time. Which variable groups plants into two points in time?
+
+## Your assignment
+
+Your objective in this lab is to generate the results that will answer the question above, specifically by producing the following:
+
+- One histogram showing how the distribution of numbers of trichomes varied between generations. It should also show which plants in the F0 generation were selected for breeding and which were not.
+- One bar chart showing how the mean number of trichomes varied between generations. Include a 95% confidence interval around the means.
+- Two figure legends describing these figures.
+- One paragraph describing the results of the analysis, including the results of a *t*-test to test for a difference between the means.
+
+To answer the question, you should:
+
+1. Modify remaining code for use with the fast plant data
+2. Plot a histogram with facets for each generation (F0 and F1)
+    - Instead of setting the fill color to vary by generation, set it to vary by whether or not the plants were **selected** for breeding. This is the only place you will use the **selected** variable
+    - Remove the line `guides(fill = FALSE) +` to show the fill color legend
+    - For help, see [A new variation] below
+3. Summarize trichome count by generation
+4. Create a bar chart showing the mean trichome count in each generation (with confidence intervals)
+5. Conduct a t-test to test if the difference in means is statistically significant
+
+For a reminder on how to perform the analysis and writing steps, see [Data Lab 1, Part 4. Bluestem Data Assignment &rarr;](lab1_4_bluestem.html).
+
+When you are finished:
+
+- Paste your two (2) figures into a Word document, add figure legends and a RESULTS paragraph, and upload it to your *lab* D2L page under Assessments > Assignments > Data Lab 2.
 
 ### A new variation
 
